@@ -4,7 +4,7 @@ Dieses Repository bündelt die Materialien zur ersten Deutschreihe in Jahrgang 5
 
 Die Reihe verbindet fachliches Lernen mit ersten Routinen des selbstregulierten Lernens (SRL) und mit dem parallelen Mathematikthema **Umfragen und Daten visualisieren**.
 
-**Stand:** 18. Juli 2026
+**Stand:** 1. September 2026
 
 ## Ziel der Reihe
 
@@ -74,17 +74,36 @@ Die zentrale Übersicht über die Reihe umfasst zwei DIN-A4-Seiten. Sie enthält
 - die freiwilligen Kennzeichnungen **🔼 Noch einen Schritt** und **⭐ Für Entdecker**,
 - ein Feld für den Termin der Lernerfolgskontrolle.
 
-### Merkblaetter
+### Merkblätter
 
 Die Merkblätter bündeln zentrale Hilfen zu Schreibsituation, Briefaufbau, freundlichen Formulierungen, Begründungen, Datennutzung, Schreibprozess, Kontrolle und Hilfekette.
 
 ### Lernbuddy
 
-Der Lernbuddy ist eine wiederverwendbare DIN-A4-Unterlage, die laminiert und mit Folienstift beschriftet wird. Ein DIN-A5-Arbeitsblatt wird in die Mitte gelegt. Der Rahmen unterstützt:
+Der Lernbuddy ist eine wiederverwendbare DIN-A4-Unterlage. Ein DIN-A5-Arbeitsblatt wird in die Mitte gelegt. Der Rahmen unterstützt:
 
 - **Planung:** Ziel, Energie und mögliche Ablenker,
 - **Durchführung:** Arbeitsschritte, Hilfekette und Strategiekarte,
 - **Reflexion:** Einschätzung, Stolz und nächster Schritt.
+
+Die druckfertige Fassung liegt als `materialien/arbeitsblaetter/Lernbuddy_A4.pdf` vor.
+
+### Strategiekarten
+
+Acht erste SRL-Strategien liegen als tonersparende Querstreifen vor. Vier Karten passen untereinander auf eine DIN-A4-Seite und können nach dem Zerschneiden seitlich an den Lernbuddy angelegt werden.
+
+Enthalten sind:
+
+1. Auftrag klären
+2. Lernziel setzen
+3. Arbeit in Schritte teilen
+4. Beispiel nutzen
+5. Zwischenstopp machen
+6. Hilfekette nutzen
+7. Mit Kriterien prüfen
+8. Lernprozess reflektieren
+
+Datei: `materialien/strategiekarten/Strategiekarten_Lernbuddy_Querstreifen_8_Karten.pdf`
 
 ### Kontroll-Kiosk
 
@@ -93,6 +112,20 @@ Die Single-File-HTML-App bietet zu Blatt 1–24 wahlweise einen Tipp oder eine L
 ### Probearbeit
 
 Die Probearbeit ist verpflichtend und unbenotet. Sie enthält Schreibsituation, Diagramm, Schreibplan, Schreibbogen, Checkliste und Rückmeldung zur Prüfungsreife.
+
+### Lehrkraft-Cockpit
+
+Das A3-Cockpit bündelt die Steuerung der gesamten Reihe auf einer Seite. Für jedes Blatt werden angezeigt:
+
+- fachlicher Fokus,
+- passende SRL-Strategie,
+- Verbindlichkeit,
+- zugehöriger Input,
+- Kontrolle beziehungsweise Hilfe.
+
+Im oberen Bereich wird zusätzlich gezeigt, an welcher Stelle die acht SRL-Strategien schrittweise eingeführt werden.
+
+Datei: `materialien/lehrkraft/Lehrkraft_Cockpit_Wunschbriefe_A3.pdf`
 
 ### Lernerfolgskontrolle
 
@@ -122,22 +155,26 @@ Die Projektkarten ermöglichen zusätzliche Produkte, zum Beispiel einen echten 
 /
 ├── README.md
 ├── skill.md
+├── index.html
 ├── apps/
 │   └── kontroll-kiosk/
 │       └── index.html
-├── assets/
-│   └── illustrationen/
 ├── materialien/
 │   ├── arbeitsblaetter/
+│   │   ├── Arbeitsblaetter_1-24_DIN_A5_ueberarbeitet.docx
+│   │   ├── Lernbuddy_A4.pdf
+│   │   └── Mein_Lernweg.docx
+│   ├── strategiekarten/
+│   │   └── Strategiekarten_Lernbuddy_Querstreifen_8_Karten.pdf
+│   ├── lehrkraft/
+│   │   └── Lehrkraft_Cockpit_Wunschbriefe_A3.pdf
 │   ├── merkblaetter/
-│   ├── lernweg/
-│   ├── lernbuddy/
 │   ├── probearbeit/
 │   ├── lernerfolgskontrolle/
 │   ├── bewertung/
-│   ├── loesungen/
 │   └── projekte/
-└── praesentationen/
+├── praesentationen/
+└── tools/
 ```
 
 ## Aktueller Projektstand
@@ -148,6 +185,8 @@ Fertig erstellt sind:
 - angepasste Merkblätter
 - zentrale Lernwegübersicht
 - Lernbuddy
+- acht SRL-Strategiekarten
+- Lehrkraft-Cockpit A3
 - Kontroll-Kiosk
 - Probearbeit
 - drei Lernerfolgskontrollen
@@ -156,6 +195,7 @@ Fertig erstellt sind:
 - freiwillige Projekte
 - Impuls-Präsentation
 - schwarzweiße Otter-Illustrationen
+- zentrale Materialzentrale `index.html`
 
 Noch sinnvoll zu ergänzen sind:
 
@@ -164,8 +204,7 @@ Noch sinnvoll zu ergänzen sind:
 - Wochenübersicht nach Bekanntgabe des Stundenplans
 - Organisationsmaterial für das Prüfungsfenster nach Bekanntgabe des Stundenplans
 - Praxistest des Kontroll-Kiosks auf dem Schullaptop
-- PDF-Druckpaket aller zentralen Materialien
-- direkte Dateilinks und Statuskennzeichnungen im Repository
+- vollständiges PDF-Druckpaket aller zentralen Materialien
 
 ## Gestaltungsregeln
 
