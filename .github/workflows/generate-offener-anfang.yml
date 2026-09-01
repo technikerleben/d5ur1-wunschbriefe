@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'tools/generate_offener_anfang.py'
+      - 'tools/run_offener_anfang_german.py'
       - '.github/workflows/generate-offener-anfang.yml'
 
 permissions:
@@ -21,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: pip install reportlab pypdf
       - name: Generate PDF
-        run: python tools/generate_offener_anfang.py
+        run: python tools/run_offener_anfang_german.py
       - name: Verify PDF
         run: |
           python - <<'PY'
@@ -32,7 +33,10 @@ jobs:
           for i,page in enumerate(r.pages,1):
               w=float(page.mediabox.width); h=float(page.mediabox.height)
               assert 590 < w < 600 and 840 < h < 850, (i,w,h)
-          print('verified', len(r.pages), 'A4 pages')
+          text='\n'.join((page.extract_text() or '') for page in r.pages)
+          for word in ['wählen','wünsche','könnten','Grüße','zusätzliche']:
+              assert word in text, word
+          print('verified', len(r.pages), 'A4 pages with German orthography')
           PY
       - name: Commit generated PDF
         run: |
