@@ -1,0 +1,32 @@
+name: Generate Lehrkraft Cockpit PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/generate_lehrkraft_cockpit.py'
+      - '.github/workflows/generate-lehrkraft-cockpit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install ReportLab
+        run: python -m pip install reportlab
+      - name: Generate PDF
+        run: python tools/generate_lehrkraft_cockpit.py
+      - name: Commit generated PDF
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add materialien/lehrkraft/Lehrkraft_Cockpit_Wunschbriefe_A3.pdf
+          git diff --cached --quiet || git commit -m 'Generate Lehrkraft cockpit PDF'
+          git push
