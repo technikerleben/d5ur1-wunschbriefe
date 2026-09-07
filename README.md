@@ -4,7 +4,7 @@ Dieses Repository bündelt die Materialien zur ersten Deutschreihe in Jahrgang 5
 
 Die Reihe verbindet fachliches Lernen mit ersten Routinen des selbstregulierten Lernens (SRL) und mit dem parallelen Mathematikthema **Umfragen und Daten visualisieren**.
 
-**Stand:** 7. September 2026 · Überarbeitung Schritte 1–3
+**Stand:** 7. September 2026 · Überarbeitung Schritte 1–4
 
 ## Aktuell: Anforderungen und Bewertung vereinheitlicht
 
@@ -12,7 +12,7 @@ Die [Anforderungen, Lernstufen und Hilfen](materialien/bewertung/Anforderungen_W
 
 Die Materialwebsite richtet sich an Kolleginnen und Kollegen. Kinder arbeiten mit Papier; nur der Kontroll-Kiosk ist am Klassenraum-Laptop verfügbar.
 
-**Übergangsstand:** Die Arbeitsblätter 1–24, der Papierlernweg und der Kompetenzcheck sind überarbeitet. Übrige Hilfen, Kiosk, Lösungen, Präsentation und Prüfungsaufträge werden in den Schritten 4–8 angeglichen. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
+**Übergangsstand:** Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter und die Strategiekarten sind überarbeitet. Übrige Hilfen, Kiosk, Lösungen, Präsentation und Prüfungsaufträge werden in den Schritten 5–8 angeglichen. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
 
 ## Ziel der Reihe
 
@@ -87,7 +87,9 @@ Zwei A4-Seiten verbinden die sechs Kernmerkmale mit Belegstellen im eigenen Brie
 
 ### Merkblätter
 
-Die Merkblätter bündeln zentrale Hilfen zu Schreibsituation, Briefaufbau, freundlichen Formulierungen, Begründungen, Datennutzung, Schreibprozess, Kontrolle und Hilfekette.
+Acht DIN-A5-Seiten mit 14-Punkt-Grundschrift: Schreibsituation, Briefaufbau, Formulierungen, freiwillige Gründe und Daten, Schreibprozess, vollständige Checkliste, Lernzeit und Hilfekette. Merkblatt 8 führt zur passenden Papierhilfe; bei Lese- oder Verständnisproblemen darf sofort gefragt werden.
+
+[PDF Merkblätter](materialien/merkblaetter/Merkblaetter_Wunschbriefe_DIN_A5_Mathe_angepasst.pdf) · [DOCX Merkblätter](materialien/merkblaetter/Merkblaetter_Wunschbriefe_DIN_A5_Mathe_angepasst.docx) · [Einsatzhinweise](materialien/merkblaetter/Hinweise_Hilfen_Fassung3.md)
 
 ### Lernbuddy
 
@@ -101,7 +103,7 @@ Die druckfertige Fassung liegt als `materialien/arbeitsblaetter/Lernbuddy_A4.pdf
 
 ### Strategiekarten
 
-Acht erste SRL-Strategien liegen als tonersparende Querstreifen vor. Vier Karten passen untereinander auf eine DIN-A4-Seite und können nach dem Zerschneiden seitlich an den Lernbuddy angelegt werden.
+Acht SRL-Strategien liegen in Fassung 3 als tonersparende Querstreifen mit 14-Punkt-Auftragstext vor. Die Hilfekette erlaubt direkte Hilfe bei Verständnisproblemen. Beim Prüfen wird nur geändert, was nötig ist. Vier Karten passen untereinander auf eine DIN-A4-Seite und können nach dem Zerschneiden seitlich an den Lernbuddy angelegt werden.
 
 Enthalten sind:
 

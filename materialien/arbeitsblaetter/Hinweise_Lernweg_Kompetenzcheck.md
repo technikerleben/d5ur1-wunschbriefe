@@ -26,7 +26,7 @@ Der Kompetenzcheck ist ein Übungs- und Rückmeldeblatt. Während der Lernerfolg
 
 ## Übergangsstand
 
-Arbeitsblätter, Papierlernweg, Kompetenzcheck und Bewertungsgrundlage sind angeglichen. Ältere Merkblätter, Cockpit, Kiosk, Lösungspaket und Prüfungsunterlagen werden in den weiteren Schritten aktualisiert. Bis dahin abweichende Pflichtangaben vor Ausgabe klären. Kiosk und altes Lösungspaket noch nicht zur automatischen Kontrolle der neuen Aufgaben nutzen.
+Arbeitsblätter, Papierlernweg, Kompetenzcheck, Merkblätter, Strategiekarten und Bewertungsgrundlage sind angeglichen. Ältere Materialien wie Cockpit, Kiosk, Lösungspaket und Prüfungsunterlagen werden in den weiteren Schritten aktualisiert. Bis dahin abweichende Pflichtangaben vor Ausgabe klären. Kiosk und altes Lösungspaket noch nicht zur automatischen Kontrolle der neuen Aufgaben nutzen.
 
 ## Bearbeitung
 

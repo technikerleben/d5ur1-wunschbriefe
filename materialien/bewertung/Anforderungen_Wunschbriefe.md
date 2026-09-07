@@ -1,8 +1,8 @@
 # Anforderungen und Bewertung: Wunschbriefe
 
-Stand: 7. September 2026 · Fassung 2 · Schritte 1–3 abgeschlossen
+Stand: 7. September 2026 · Fassung 2 · Schritte 1–4 abgeschlossen
 
-Diese Grundlage ist für die Überarbeitung der Reihe maßgeblich. Sie präzisiert die älteren Zusammenfassungen in README, skill.md und Materialien. Die Arbeitsblätter 1–24, der Papierlernweg und der Kompetenzcheck sind in Fassung 3 angeglichen. Die noch nicht überarbeiteten Lösungen, Kiosktexte, Präsentation und Prüfungsaufträge werden in den weiteren Durchgängen angeglichen; sie dürfen keine abweichenden Pflichtanforderungen begründen.
+Diese Grundlage ist für die Überarbeitung der Reihe maßgeblich. Sie präzisiert die älteren Zusammenfassungen in README, skill.md und Materialien. Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter und die Strategiekarten sind in Fassung 3 angeglichen. Die noch nicht überarbeiteten Lösungen, Kiosktexte, Präsentation und Prüfungsaufträge werden in den weiteren Durchgängen angeglichen; sie dürfen keine abweichenden Pflichtanforderungen begründen.
 
 ## Nutzung
 
@@ -66,7 +66,7 @@ Kontrollieren gehört zur Durchführung und Reflexion. Volle Punkte setzen keine
 
 - Schritt 2 abgeschlossen (Arbeitsblätter Fassung 3, DOCX und PDF): Datenanteile in Blatt 3, 4, 6 und 12 aus dem Pflichtkern lösen; Grund auf Blatt 16/18 freiwillig markieren; Ort/Datum in vollständigen Checklisten ergänzen; Arbeitsaufträge und Arbeitsorte klären.
 - Schritt 3 abgeschlossen (Papierlernweg und Kompetenzcheck, jeweils DOCX und PDF): Kompetenzchecks und Papierlernweg auf die sechs Kernmerkmale beziehen; Hilfenutzung nicht mit niedrigem Leistungsniveau gleichsetzen.
-- Schritt 4: Merkblätter und Hilfekette angleichen; Ort/Datum sichtbar halten; Gründe und Daten als freiwillig kennzeichnen.
+- Schritt 4 abgeschlossen (acht Merkblätter, Hilfekette und acht Strategiekarten): Merkblätter und Hilfekette angleichen; Ort/Datum sichtbar halten; Gründe und Daten als freiwillig kennzeichnen.
 - Schritt 5: Anspruchsvolle Erweiterungen und Projekte freiwillig halten. Gründe gewichten und Bedenken bearbeiten, ohne zusätzliche Pflichtanforderungen zu schaffen.
 - Schritt 6: Kiosk und Lösungspaket synchronisieren; plausible Alternativen anerkennen; keine obligatorische Textänderung verlangen.
 - Schritt 7: Probearbeit und drei Varianten mit neutralen Schreibplänen und identischen Hilfen ausstatten; Datenfelder als freiwillig markieren; Grammatikfehler korrigieren.
