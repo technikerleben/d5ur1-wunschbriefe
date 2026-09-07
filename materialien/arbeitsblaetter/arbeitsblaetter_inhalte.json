@@ -1,0 +1,804 @@
+[
+  {
+    "n": 1,
+    "title": "Unsere Wünsche für die neue Schule",
+    "goal": "Du findest einen Wunsch für deinen Schulalltag.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Kreuze alle Wünsche an, die etwas an unserer Schule verändern."
+      ],
+      [
+        "checks",
+        [
+          "mehr Sitzplätze auf dem Schulhof",
+          "neue Spiele für die Pause",
+          "ein neues Bett für mein Kinderzimmer",
+          "eine Theater-AG",
+          "ein ruhiger Lesebereich",
+          "ein Urlaub am Meer"
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe einen eigenen Schulwunsch als ganzen Satz."
+      ],
+      [
+        "box",
+        "Beispiel",
+        "Ich wünsche mir neue Bälle für die Pause."
+      ]
+    ],
+    "help": "Denke an den Klassenraum, die Pause oder ein Angebot in der Schule.",
+    "check": "Dein Wunsch betrifft die Schule. Du hast einen ganzen Satz geschrieben.",
+    "status": "Übung"
+  },
+  {
+    "n": 2,
+    "title": "Mein Lernweg",
+    "goal": "Du weißt, wie du in dieser Reihe arbeitest.",
+    "blocks": [
+      [
+        "box",
+        "Dein Weg",
+        "Input → Übung → Vertiefung → Probearbeit → Projekte → Lernerfolgskontrolle (Arbeit)"
+      ],
+      [
+        "text",
+        "Input heißt: Du bekommst eine Erklärung. Vertiefungen und Projekte sind freiwillig. Die Probearbeit ist eine Übung ohne Note."
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Kreuze die beiden richtigen Aussagen an."
+      ],
+      [
+        "checks",
+        [
+          "Du musst schon am Anfang alles können.",
+          "Du darfst dir Hilfe holen.",
+          "Du musst ein Projekt machen.",
+          "Du schreibst eine Probearbeit."
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Wähle ein kleines Lernziel. Schreibe es auf."
+      ],
+      [
+        "box",
+        "Beispiel",
+        "Ich möchte eine passende Anrede schreiben."
+      ]
+    ],
+    "help": "Lies die Erklärung oben noch einmal. Für dein Ziel hilft ein Beispiel aus Blatt 7 oder 9.",
+    "check": "Du hast zwei Aussagen gewählt. Dein Lernziel sagt, was du können möchtest.",
+    "status": "Übung"
+  },
+  {
+    "n": 3,
+    "title": "Wünsche für unsere Schule",
+    "goal": "Du unterscheidest verschiedene Schulwünsche.",
+    "blocks": [
+      [
+        "text",
+        "Vier Wünsche: Spieleausleihe · neue Bälle · Ruheraum · Sitzplätze"
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Unterstreiche oben den Wunsch nach einem ruhigen Raum. Kreise den Wunsch nach Plätzen zum Sitzen ein."
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Wähle einen der vier Wünsche. Schreibe einen freundlichen Wunschsatz."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "Eine Beispielklasse hat abgestimmt. Jedes Kind durfte mehrere Wünsche wählen.\nSpieleausleihe: 18 · neue Bälle: 15\nRuheraum: 9 · Sitzplätze: 12\nSchreibe einen Satz zu einem Ergebnis ins Heft."
+      ]
+    ],
+    "help": "Beginne zum Beispiel mit: „Ich wünsche mir …“ Für den Zusatz: „… Kinder wünschen sich …“",
+    "check": "Du hast die beiden Wünsche markiert. Dein eigener Satz nennt einen Schulwunsch.",
+    "status": "Übung"
+  },
+  {
+    "n": 4,
+    "title": "Wer schreibt wem?",
+    "goal": "Du erkennst, wer den Brief schreibt und bekommt.",
+    "blocks": [
+      [
+        "box",
+        "Lies den Brief",
+        "Liebe Frau Neumann,\nich wünsche mir eine Leseecke für unsere Klasse. Ich würde mich darüber sehr freuen.\nViele Grüße\nLena"
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Kreuze die beiden richtigen Aussagen an."
+      ],
+      [
+        "checks",
+        [
+          "Lena schreibt den Brief.",
+          "Frau Neumann schreibt den Brief.",
+          "Lena wünscht sich eine Leseecke.",
+          "Lena wünscht sich neue Bälle."
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Ergänze: Lena schreibt an … . Sie wünscht sich … ."
+      ]
+    ],
+    "help": "Die Anrede zeigt, wer den Brief bekommt. Der Name am Ende zeigt, wer schreibt.",
+    "check": "Du nennst die richtige Person in der Anrede und Lenas Wunsch.",
+    "status": "Übung"
+  },
+  {
+    "n": 5,
+    "title": "Wer kann dabei helfen?",
+    "goal": "Du findest eine Ansprechperson für einen Wunsch.",
+    "blocks": [
+      [
+        "text",
+        "1 Klassenleitung · 2 Schulleitung\n3 Hausmeisterei · 4 Schülervertretung\n5 Förderverein"
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Schreibe eine passende Zahl vor jeden Wunsch. Manchmal passen mehrere Personen."
+      ],
+      [
+        "text",
+        "___ einen Klassenausflug besprechen\n___ einen Ruheraum vorschlagen\n___ einen kaputten Haken reparieren lassen\n___ eine Spieleausleihe planen\n___ Geld für neue Bälle erbitten"
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Wähle eine Zuordnung. Erkläre in einem Satz, wie diese Person helfen kann."
+      ]
+    ],
+    "help": "Die Schülervertretung vertritt Kinder. Der Förderverein unterstützt die Schule, zum Beispiel mit Geld. Frage bei unbekannten Zuständigkeiten die Lehrkraft.",
+    "check": "Deine gewählte Person kann bei dem Wunsch helfen. Dein Satz erklärt ihre Aufgabe.",
+    "status": "Übung"
+  },
+  {
+    "n": 6,
+    "title": "Was ist der Wunsch?",
+    "goal": "Du findest den Wunschsatz in einem Text.",
+    "blocks": [
+      [
+        "box",
+        "Lies die Sätze",
+        "Heute war unsere Klassenstunde. Ich wünsche mir Ablagefächer für unsere Klasse. Ich würde mich darüber freuen."
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Unterstreiche nur den Satz, der sagt, was sich verändern soll."
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe einen eigenen Wunschsatz zu Ablagefächern."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "Lies: „Ablagefächer schaffen Ordnung.“ Das ist ein Grund. „20 Kinder wünschen sich Ablagefächer.“ Das ist ein Umfrageergebnis. Schreibe einen weiteren Grund ins Heft."
+      ]
+    ],
+    "help": "Frage dich: Was möchte das Kind haben? Ein Grund erklärt den Nutzen. Ein Ergebnis nennt eine Zahl.",
+    "check": "Du hast genau einen Wunschsatz unterstrichen. Dein Satz nennt Ablagefächer.",
+    "status": "Übung"
+  },
+  {
+    "n": 7,
+    "title": "Die Teile eines Briefes",
+    "goal": "Du kennst die Reihenfolge der fünf Briefteile.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Schreibe die Zahlen 1 bis 5 vor die Briefteile."
+      ],
+      [
+        "table",
+        [
+          [
+            "Nr.",
+            "Briefteil"
+          ],
+          [
+            "___",
+            "Grußformel"
+          ],
+          [
+            "___",
+            "Ort und Datum"
+          ],
+          [
+            "___",
+            "Name"
+          ],
+          [
+            "___",
+            "Brieftext"
+          ],
+          [
+            "___",
+            "Anrede"
+          ]
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe die fünf Briefteile in der richtigen Reihenfolge untereinander."
+      ]
+    ],
+    "help": "Nutze Merkblatt 2. Beginne mit Ort und Datum. Nach der Anrede kommt der Brieftext.",
+    "check": "Jede Zahl kommt einmal vor. Nach dem Brieftext stehen Grußformel und Name.",
+    "status": "Übung"
+  },
+  {
+    "n": 8,
+    "title": "Das Briefpuzzle",
+    "goal": "Du ordnest einen durcheinandergeratenen Brief.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Schreibe die Zahlen 1 bis 5 vor die Briefteile."
+      ],
+      [
+        "text",
+        "___ Freundliche Grüße\n\n___ Sehr geehrte Frau Schneider,\n\n___ Mina\n\n___ Dortmund, 16. September 2026\n\n___ für unseren Schulhof wünsche ich mir eine Tischtennisplatte. Ich würde mich darüber sehr freuen."
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe in einem ganzen Satz, was Mina sich wünscht."
+      ]
+    ],
+    "help": "Nutze die Reihenfolge auf Blatt 7 oder Merkblatt 2.",
+    "check": "Ort und Datum stehen zuerst. Grußformel und Name stehen zuletzt. Dein Satz nennt Minas Wunsch.",
+    "status": "Übung"
+  },
+  {
+    "n": 9,
+    "title": "Anrede und Grußformel",
+    "goal": "Du wählst einen passenden Anfang und Schluss.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Im Heft",
+        "Schreibe zu jeder Person eine passende Anrede und eine Grußformel: deine Klassenlehrerin Frau Neumann, Schulleiterin Frau Schneider, deine Freundin Mia."
+      ],
+      [
+        "box",
+        "Du kannst wählen",
+        "Liebe Frau Neumann,\nSehr geehrte Frau Schneider,\nHallo Mia,\n\nViele Grüße\nFreundliche Grüße\nLiebe Grüße"
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe eine Anrede und eine Grußformel für deinen eigenen Wunschbrief."
+      ]
+    ],
+    "help": "Zur Schulleitung passt eine förmliche Anrede. Bei einer Freundin darf der Ton persönlicher sein. Mehrere Grußformeln können passen.",
+    "check": "Jede Anrede nennt die richtige Person. Nach der Anrede steht ein Komma, nach der Grußformel keines.",
+    "status": "Übung"
+  },
+  {
+    "n": 10,
+    "title": "Fehlerwerkstatt Briefaufbau",
+    "goal": "Du bringst Briefteile an die richtige Stelle.",
+    "blocks": [
+      [
+        "box",
+        "Lies den fehlerhaften Brief",
+        "Liebe Frau Berger,\nDortmund, 20. September 2026\nich wünsche mir neue Sitzkissen. Ich würde mich darüber sehr freuen.\nJonas\nViele Grüße"
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Kreise Ort und Datum ein. Unterstreiche Jonas und die Grußformel. Diese Teile stehen falsch."
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe den Brief in der richtigen Reihenfolge. Beginne jeden Briefteil in einer neuen Zeile."
+      ]
+    ],
+    "help": "Vergleiche mit Merkblatt 2: Ort und Datum – Anrede – Brieftext – Grußformel – Name.",
+    "check": "Du hast alle fünf Briefteile übernommen. Sie stehen in der richtigen Reihenfolge.",
+    "status": "Übung"
+  },
+  {
+    "n": 11,
+    "title": "Freundlich und genau",
+    "goal": "Du formulierst einen Wunsch höflich und klar.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Kreuze die beiden freundlich formulierten Wünsche an."
+      ],
+      [
+        "checks",
+        [
+          "Kaufen Sie sofort neue Spiele!",
+          "Wir würden uns über neue Spiele freuen.",
+          "Könnten Sie bitte neue Bälle besorgen?",
+          "Geben Sie uns endlich mehr Sachen!"
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Verbessere: „Geben Sie uns endlich mehr Sachen!“ Schreibe freundlich. Nenne genau, was du dir wünschst."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "In einer Umfrage wählen 18 von 26 Kindern die Spieleausleihe. Verbessere im Heft: „Alle Kinder wollen eine Spieleausleihe.“"
+      ]
+    ],
+    "help": "Nutze „Ich wünsche mir …“ oder „Könnten Sie bitte …?“ Genau heißt hier: Du nennst die gewünschte Sache.",
+    "check": "Dein Satz ist freundlich. Man versteht, welche Sache du dir wünschst.",
+    "status": "Übung"
+  },
+  {
+    "n": 12,
+    "title": "Satzstarter für Wunschbriefe",
+    "goal": "Du ergänzt Satzanfänge zu ganzen Sätzen.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Verbinde jeden Satzanfang mit dem passenden Ende. Trage die Zahlen ein."
+      ],
+      [
+        "text",
+        "A Ich wünsche mir …\nB Ich würde mich freuen, wenn …\n\n1 … Sie eine Spieleausleihe anbieten könnten.\n2 … neue Sitzbänke für den Schulhof.\n\nA: ___     B: ___"
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Wähle A oder B. Schreibe mit diesem Anfang einen eigenen Wunschsatz."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "17 Kinder wünschen sich eine Leseecke. Schreibe das Ergebnis ins Heft. Beginne mit: „In der Umfrage …“"
+      ]
+    ],
+    "help": "Lies Anfang und Ende zusammen laut. Prüfe: Fehlt noch ein Wort?",
+    "check": "Beide Zuordnungen ergeben ganze Sätze. Dein eigener Satz nennt deinen Wunsch.",
+    "status": "Übung"
+  },
+  {
+    "n": 13,
+    "title": "Mein Wunsch für den Schulalltag",
+    "goal": "Du entscheidest dich für deinen eigenen Wunsch.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Kreuze einen Bereich an, zu dem dein Wunsch passt."
+      ],
+      [
+        "checks",
+        [
+          "Spiel und Bewegung",
+          "Pausenangebote",
+          "Räume und Ausstattung",
+          "Unterricht, Projekte oder Ausflüge",
+          "ein anderer Bereich"
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe deinen Wunsch als ganzen Satz. Schreibe darunter, an wen du deinen Brief richten möchtest."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "Wenn du passende Umfragedaten hast, ergänze einen Satz dazu. Ohne Daten lässt du diesen Zusatz weg."
+      ]
+    ],
+    "help": "Nutze für die Ansprechperson Blatt 5. Beginne: „Für unsere Schule wünsche ich mir …“",
+    "check": "Dein Wunsch passt zum gewählten Bereich. Du hast eine Ansprechperson genannt.",
+    "status": "Übung"
+  },
+  {
+    "n": 14,
+    "title": "Einen Grund ergänzen",
+    "goal": "Du erklärst, warum ein Wunsch sinnvoll ist.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Im Heft",
+        "Schreibe einen Grund für eine Leseecke. Erkläre, wozu sie nützlich wäre."
+      ],
+      [
+        "box",
+        "Satzanfang",
+        "Eine Leseecke wäre sinnvoll, weil …"
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe deinen eigenen Wunsch auf. Ergänze einen passenden Grund."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "17 von 26 Kindern wünschen sich eine Leseecke. Ergänze dieses Ergebnis bei deinem Text zur Leseecke. Bei einem anderen Wunsch brauchst du andere, passende Daten."
+      ]
+    ],
+    "help": "Nutze Merkblatt 4. Ein Grund nennt einen Nutzen. „Weil ich das will“ erklärt den Nutzen noch nicht.",
+    "check": "Dein Grund passt zum Wunsch. Er erklärt, was durch die Idee besser wird.",
+    "status": "Noch einen Schritt · freiwillig"
+  },
+  {
+    "n": 15,
+    "title": "Auf ein Bedenken eingehen",
+    "goal": "Du findest eine Lösung für ein mögliches Problem.",
+    "blocks": [
+      [
+        "text",
+        "Wunsch: eine Spieleausleihe.\nBedenken: Spiele könnten verloren gehen."
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Kreuze die Lösung an, die das Problem am besten angeht."
+      ],
+      [
+        "checks",
+        [
+          "Dann sollen keine Spiele verloren gehen.",
+          "Die Spiele werden mit Namenskarten ausgeliehen.",
+          "Wir wollen die Spiele trotzdem haben."
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe drei Sätze: Nenne den Wunsch. Beschreibe das Bedenken. Schlage die Lösung vor."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "Überlege ein Bedenken zu deinem eigenen Wunsch. Schreibe eine mögliche Lösung auf."
+      ]
+    ],
+    "help": "Beginne: „Wir wünschen uns … Ein Problem könnte sein, dass … Deshalb könnten wir …“",
+    "check": "Deine Lösung geht auf das genannte Problem ein. Du hast drei verständliche Sätze geschrieben.",
+    "status": "Für Entdecker · freiwillig"
+  },
+  {
+    "n": 16,
+    "title": "Mein Schreibplan",
+    "goal": "Du planst einen Brief mit kurzen Stichwörtern.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Im Heft",
+        "Schreibe zu jeder Frage kurze Stichwörter. Lass zwischen den Antworten eine Zeile frei."
+      ],
+      [
+        "text",
+        "An wen schreibst du?\nWas wünschst du dir?\nWelcher weitere Satz passt dazu?\nWelche Anrede wählst du?\nWelche Grußformel wählst du?"
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Mündlich",
+        "Erkläre mit deinen Stichwörtern, was du schreiben möchtest. Sprich leise für dich oder mit einem Partnerkind."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "Ergänze einen Grund und/oder ein passendes Umfrageergebnis. Beides darfst du weglassen."
+      ]
+    ],
+    "help": "Ein weiterer Satz kann zum Beispiel sagen, dass du dich über die Idee freuen würdest. Für Satzanfänge hilft Blatt 17.",
+    "check": "Dein Plan nennt Person, Wunsch und einen weiteren Satz. Anrede und Grußformel passen zur Person.",
+    "status": "Übung"
+  },
+  {
+    "n": 17,
+    "title": "Mein Briefgerüst",
+    "goal": "Du nutzt passende Satzanfänge als Schreibhilfe.",
+    "blocks": [
+      [
+        "text",
+        "Brauchst du Satzanfänge? Nutze dieses Blatt. Schreibst du schon ohne diese Hilfe? Gehe zu Blatt 18."
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Markiere Satzanfänge, die du nutzen möchtest."
+      ],
+      [
+        "box",
+        "Dein Briefgerüst",
+        "Ort, Datum\nSehr geehrte Frau …,\nfür unsere Schule wünsche ich mir …\nIch würde mich darüber sehr freuen.\nFreundliche Grüße\nDein Name"
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe mit den gewählten Anfängen deinen eigenen Brief. Setze deinen Wunsch und die richtigen Namen ein."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "Ein Grund: „Das wäre sinnvoll, weil …“\nDaten: „… Kinder wünschen sich …“"
+      ]
+    ],
+    "help": "Andere passende Satzanfänge sind auch richtig. Nutze bei Bedarf die Kinderfassung „Dein Wunschbrief: Das zählt“.",
+    "check": "Dein Brief enthält deinen Wunsch und einen weiteren Satz. Prüfe alle Briefteile mit Blatt 19.",
+    "status": "Schreibhilfe · bei Bedarf"
+  },
+  {
+    "n": 18,
+    "title": "Mein erster Wunschbrief",
+    "goal": "Du schreibst einen vollständigen Wunschbrief.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Im Heft",
+        "Wähle deinen Wunsch und eine passende Person. Plane mit den Fragen auf Blatt 16."
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe deinen Brief. Nutze ganze Sätze. Beginne jeden Briefteil in einer neuen Zeile."
+      ],
+      [
+        "box",
+        "Das gehört dazu",
+        "Ort und Datum\npassende Anrede\ndein freundlicher Wunschsatz\nmindestens ein weiterer passender Satz\nGrußformel und dein Name"
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "Ergänze einen Grund und/oder passende Daten. Ohne diese Zusätze kann dein Brief auch gelingen."
+      ]
+    ],
+    "help": "Nutze Blatt 17 oder die Kinderfassung „Dein Wunschbrief: Das zählt“. Ein kurzer Brief reicht, wenn alles Wichtige enthalten ist.",
+    "check": "Du hast alle Briefteile geschrieben. Dein Wunsch ist verständlich. Prüfe deinen Brief auf Blatt 19.",
+    "status": "Übung"
+  },
+  {
+    "n": 19,
+    "title": "Checkliste Wunschbrief",
+    "goal": "Du prüfst deinen Brief und verbesserst ihn bei Bedarf.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Lies deinen Brief. Hake einen Punkt erst ab, wenn du die passende Stelle im Brief gefunden hast."
+      ],
+      [
+        "checks",
+        [
+          "Ort und Datum stehen oben.",
+          "Die Anrede passt zur Person.",
+          "Dein Wunsch ist klar und freundlich.",
+          "Ein weiterer Satz passt zum Wunsch.",
+          "Du hast ganze Sätze geschrieben.",
+          "Grußformel und Name stehen am Ende.",
+          "Deine Schrift ist lesbar."
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Ergänze oder verbessere fehlende Punkte in deinem Brief. Wenn alles passt, darf der Text so bleiben."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "Nur wenn du Zusätze nutzt: Passt dein Grund? Stimmen Zahl und Wunsch beim Umfrageergebnis?"
+      ]
+    ],
+    "help": "Für den Aufbau hilft Merkblatt 2. Für Anrede und Gruß hilft Blatt 9.",
+    "check": "Du hast jeden Punkt am Brief geprüft. Fehlende Stellen hast du ergänzt oder mit einer Lehrkraft besprochen.",
+    "status": "Übung"
+  },
+  {
+    "n": 20,
+    "title": "Mein Brief wird besser",
+    "goal": "Du verbesserst einen unfreundlichen Wunschbrief.",
+    "blocks": [
+      [
+        "box",
+        "Lies den Übungsbrief",
+        "Dortmund, 20. September 2026\nSehr geehrte Frau Schneider,\ngeben Sie uns endlich eine Leseecke! Machen Sie das sofort!\nViele Grüße\nMila"
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Unterstreiche die Wörter, die unfreundlich oder drängend klingen."
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe die beiden Sätze im Brieftext freundlich um. Der Wunsch bleibt gleich."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "17 von 26 Kindern möchten eine Leseecke. Ersetze „Alle Kinder möchten eine Leseecke“ durch einen richtigen Satz."
+      ]
+    ],
+    "help": "Blatt 11 hilft dir beim freundlichen Formulieren. Für den Zusatz gilt: 17 von 26 sind nicht alle.",
+    "check": "Deine beiden Sätze sind freundlich. Sie passen zum Wunsch nach einer Leseecke.",
+    "status": "Übung"
+  },
+  {
+    "n": 21,
+    "title": "Meine Probearbeit",
+    "goal": "Du probierst aus, was du schon selbstständig kannst.",
+    "blocks": [
+      [
+        "text",
+        "Die Probearbeit ist verpflichtend. Sie wird nicht benotet. Du bekommst das Probearbeitspaket von deiner Lehrkraft."
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Im Probearbeitspaket",
+        "Planung: Lies den Auftrag. Notiere Stichwörter im Schreibplan. Felder für Gründe und Zahlen sind freiwillig."
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Probearbeitspaket",
+        "Durchführung: Schreibe deinen Brief auf den Schreibbogen."
+      ],
+      [
+        "task",
+        "Aufgabe 3 · Im Probearbeitspaket",
+        "Reflexion: Prüfe deinen Brief mit der Kinderfassung „Dein Wunschbrief: Das zählt“. Verbessere ihn bei Bedarf."
+      ]
+    ],
+    "help": "Nutze zuerst nur die Hilfen für die Arbeit: Auftrag, Schreibplan und die beiden Seiten der Kinderfassung. Wenn du feststeckst, frage die Lehrkraft. Sie notiert zusätzliche Hilfe.",
+    "check": "Du hast geplant, geschrieben und geprüft. Zeige deinen Brief der Lehrkraft und besprich den nächsten Lernschritt.",
+    "status": "Probearbeit · ohne Note"
+  },
+  {
+    "n": 22,
+    "title": "Bin ich bereit?",
+    "goal": "Du schätzt dein Können mit deiner Probearbeit ein.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Lege deine Probearbeit daneben. Hake ab, was dein Brief schon zeigt."
+      ],
+      [
+        "checks",
+        [
+          "Du verstehst, an wen du schreibst.",
+          "Du hast die Briefteile richtig geordnet.",
+          "Du hast den Wunsch freundlich formuliert.",
+          "Du hast einen weiteren passenden Satz.",
+          "Du hast den Brief mit Kriterien geprüft."
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe auf, was du noch üben möchtest. Besprich deinen nächsten Schritt mit der Lehrkraft."
+      ],
+      [
+        "box",
+        "Beispiel",
+        "Ich übe, eine passende Anrede zu schreiben."
+      ]
+    ],
+    "help": "Nutze die Rückmeldung zur Probearbeit und die Kinderfassung. Gründe und Daten sind für das Grundziel nicht nötig.",
+    "check": "Deine Einschätzung passt zu deinem Brief. Du weißt, was du als Nächstes übst oder schon sicher kannst.",
+    "status": "Übung"
+  },
+  {
+    "n": 23,
+    "title": "Mein Übungsweg bis zur Arbeit",
+    "goal": "Du wählst eine Übung, die dir jetzt hilft.",
+    "blocks": [
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Kreuze einen Bereich an, den du noch üben möchtest."
+      ],
+      [
+        "table",
+        [
+          [
+            "Deine Wahl",
+            "Passende Blätter"
+          ],
+          [
+            "☐ Person und Wunsch",
+            "4–6"
+          ],
+          [
+            "☐ Briefaufbau",
+            "7–10"
+          ],
+          [
+            "☐ freundlich schreiben",
+            "11–13"
+          ],
+          [
+            "☐ planen und schreiben",
+            "16–18"
+          ],
+          [
+            "☐ prüfen und verbessern",
+            "19–20"
+          ]
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Schreibe: „Zuerst übe ich mit Blatt …“ Besprich deinen gewünschten Prüfungstermin mit der Lehrkraft."
+      ],
+      [
+        "box",
+        "Zusatz · freiwillig",
+        "Gründe: Blatt 14. Bedenken: Blatt 15. Daten: die freiwilligen Zusätze auf Blatt 3, 12 oder 20."
+      ]
+    ],
+    "help": "Schau auf Blatt 22 und die Rückmeldung zur Probearbeit. Wähle eine passende Übung, statt alles noch einmal zu machen.",
+    "check": "Du hast eine passende Blattnummer gewählt. Deinen Termin hast du mit der Lehrkraft besprochen.",
+    "status": "Übung"
+  },
+  {
+    "n": 24,
+    "title": "Mein Rückblick auf das Prüfungsfenster",
+    "goal": "Du nutzt deine Erfahrung für dein nächstes Lernen.",
+    "blocks": [
+      [
+        "text",
+        "Bearbeite dieses Blatt nach deiner Lernerfolgskontrolle."
+      ],
+      [
+        "task",
+        "Aufgabe 1 · Auf dem Blatt",
+        "Wie passend war dein Termin? Kreuze an."
+      ],
+      [
+        "checks",
+        [
+          "Du warst gut vorbereitet.",
+          "Du hättest noch etwas üben sollen.",
+          "Du hättest auch früher schreiben können."
+        ]
+      ],
+      [
+        "task",
+        "Aufgabe 2 · Im Heft",
+        "Ergänze die drei Satzanfänge."
+      ],
+      [
+        "text",
+        "Das ist mir gelungen: …\nDiese Hilfe hat mir geholfen: …\nBeim nächsten Mal möchte ich: …"
+      ]
+    ],
+    "help": "Denke an Planung, Durchführung und Reflexion. Nenne eine bestimmte Hilfe oder eine konkrete Stelle in deinem Brief.",
+    "check": "Du hast einen Erfolg und einen nächsten Schritt genannt. Deine Antwort passt zu deiner Erfahrung.",
+    "status": "Reflexion · nach der Arbeit"
+  }
+]

@@ -4,7 +4,7 @@ Dieses Repository bündelt die Materialien zur ersten Deutschreihe in Jahrgang 5
 
 Die Reihe verbindet fachliches Lernen mit ersten Routinen des selbstregulierten Lernens (SRL) und mit dem parallelen Mathematikthema **Umfragen und Daten visualisieren**.
 
-**Stand:** 7. September 2026 · Überarbeitung Schritt 1
+**Stand:** 7. September 2026 · Überarbeitung Schritte 1–2
 
 ## Aktuell: Anforderungen und Bewertung vereinheitlicht
 
@@ -12,7 +12,7 @@ Die [Anforderungen, Lernstufen und Hilfen](materialien/bewertung/Anforderungen_W
 
 Die Materialwebsite richtet sich an Kolleginnen und Kollegen. Kinder arbeiten mit Papier; nur der Kontroll-Kiosk ist am Klassenraum-Laptop verfügbar.
 
-**Übergangsstand:** Arbeitsblätter, übrige Hilfen, Kiosk, Präsentation und Prüfungsaufträge werden in den Schritten 2–8 angeglichen. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
+**Übergangsstand:** Die Arbeitsblätter 1–24 sind überarbeitet. Übrige Hilfen, Kiosk, Lösungen, Präsentation und Prüfungsaufträge werden in den Schritten 3–8 angeglichen. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
 
 ## Ziel der Reihe
 
@@ -69,7 +69,9 @@ Die Datennutzung ist eine Vertiefung und kein eigener Mathematiktest. Eigene Kla
 
 ### Arbeitsblätter 1–24
 
-Die Lernaufgaben liegen im Format DIN A5 hochkant vor. Die Schriftgröße beträgt mindestens 12 pt. Die Blätter führen schrittweise von ersten Schulwünschen über Briefaufbau und Wunschformulierungen bis zur Probearbeit und zur Vorbereitung der Lernerfolgskontrolle.
+Die Lernaufgaben liegen als bearbeitbare DOCX und druckfertige PDF mit genau 24 DIN-A5-Seiten vor (Fassung 3). Die Grundschrift beträgt 14 pt. Jedes Blatt nennt Ziel, Arbeitsort, Hilfe und einen konkreten Selbstcheck. Gründe und Daten sind freiwillig; Blatt 14/15 sind Zusatzangebote, Blatt 17 ist eine Schreibhilfe bei Bedarf. Die Blätter führen schrittweise von ersten Schulwünschen über Briefaufbau und Wunschformulierungen bis zur Probearbeit und zur Vorbereitung der Lernerfolgskontrolle.
+
+[PDF Arbeitsblätter](materialien/arbeitsblaetter/Arbeitsblaetter_1-24_DIN_A5_ueberarbeitet.pdf) · [DOCX Arbeitsblätter](materialien/arbeitsblaetter/Arbeitsblaetter_1-24_DIN_A5_ueberarbeitet.docx) · [Einsatzhinweise zur Fassung 3](materialien/arbeitsblaetter/Hinweise_Arbeitsblaetter_Fassung3.md)
 
 ### Mein Lernweg
 
@@ -114,6 +116,8 @@ Enthalten sind:
 Datei: `materialien/strategiekarten/Strategiekarten_Lernbuddy_Querstreifen_8_Karten.pdf`
 
 ### Kontroll-Kiosk
+
+**Noch nicht synchronisiert:** Kiosk und bisheriges Lösungspaket beziehen sich auf die ältere Aufgabenfassung. Bis Schritt 6 keine automatische Selbstkontrolle der neuen Blätter damit durchführen; die Lehrkraft übernimmt die Rückmeldung.
 
 Die Single-File-HTML-App bietet zu Blatt 1–24 wahlweise einen Tipp oder eine Lösung beziehungsweise ein Lösungsbeispiel. Sie ist für die Nutzung an einem Klassenraum-Laptop im Vollbildmodus gedacht.
 

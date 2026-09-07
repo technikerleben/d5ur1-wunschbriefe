@@ -1,8 +1,8 @@
 # Anforderungen und Bewertung: Wunschbriefe
 
-Stand: 7. September 2026 · Fassung 2 · Schritt 1 abgeschlossen
+Stand: 7. September 2026 · Fassung 2 · Schritte 1–2 abgeschlossen
 
-Diese Grundlage ist für die Überarbeitung der Reihe maßgeblich. Sie präzisiert die älteren Zusammenfassungen in README, skill.md und Materialien. Die noch nicht überarbeiteten Arbeitsblätter, Lösungen, Kiosktexte, Präsentation und Prüfungsaufträge werden in den weiteren Durchgängen angeglichen; sie dürfen keine abweichenden Pflichtanforderungen begründen.
+Diese Grundlage ist für die Überarbeitung der Reihe maßgeblich. Sie präzisiert die älteren Zusammenfassungen in README, skill.md und Materialien. Die Arbeitsblätter 1–24 sind in Fassung 3 angeglichen. Die noch nicht überarbeiteten Lösungen, Kiosktexte, Präsentation und Prüfungsaufträge werden in den weiteren Durchgängen angeglichen; sie dürfen keine abweichenden Pflichtanforderungen begründen.
 
 ## Nutzung
 
@@ -64,7 +64,7 @@ Kontrollieren gehört zur Durchführung und Reflexion. Volle Punkte setzen keine
 
 ## Angleichung in den nächsten Durchgängen
 
-- Schritt 2: Datenanteile in Blatt 3, 4, 6 und 12 aus dem Pflichtkern lösen; Grund auf Blatt 16/18 freiwillig markieren; Ort/Datum in vollständigen Checklisten ergänzen; Arbeitsaufträge und Arbeitsorte klären.
+- Schritt 2 abgeschlossen (Arbeitsblätter Fassung 3, DOCX und PDF): Datenanteile in Blatt 3, 4, 6 und 12 aus dem Pflichtkern lösen; Grund auf Blatt 16/18 freiwillig markieren; Ort/Datum in vollständigen Checklisten ergänzen; Arbeitsaufträge und Arbeitsorte klären.
 - Schritt 3: Kompetenzchecks und Papierlernweg auf die sechs Kernmerkmale beziehen; Hilfenutzung nicht mit niedrigem Leistungsniveau gleichsetzen.
 - Schritt 4: Merkblätter und Hilfekette angleichen; Ort/Datum sichtbar halten; Gründe und Daten als freiwillig kennzeichnen.
 - Schritt 5: Anspruchsvolle Erweiterungen und Projekte freiwillig halten. Gründe gewichten und Bedenken bearbeiten, ohne zusätzliche Pflichtanforderungen zu schaffen.
