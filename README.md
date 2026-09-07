@@ -4,7 +4,15 @@ Dieses Repository bündelt die Materialien zur ersten Deutschreihe in Jahrgang 5
 
 Die Reihe verbindet fachliches Lernen mit ersten Routinen des selbstregulierten Lernens (SRL) und mit dem parallelen Mathematikthema **Umfragen und Daten visualisieren**.
 
-**Stand:** 1. September 2026
+**Stand:** 7. September 2026 · Überarbeitung Schritt 1
+
+## Aktuell: Anforderungen und Bewertung vereinheitlicht
+
+Die [Anforderungen, Lernstufen und Hilfen](materialien/bewertung/Anforderungen_Wunschbriefe.md) sind die maßgebliche Grundlage für die weitere Überarbeitung. Das [Bewertungsraster](materialien/lernerfolgskontrolle/Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.docx) wurde ersetzt. Neu ist die druckbare [Kinderfassung mit erlaubter Schreibhilfe](materialien/lernerfolgskontrolle/Wunschbrief_Das_zaehlt_Kinderfassung.pdf).
+
+Die Materialwebsite richtet sich an Kolleginnen und Kollegen. Kinder arbeiten mit Papier; nur der Kontroll-Kiosk ist am Klassenraum-Laptop verfügbar.
+
+**Übergangsstand:** Arbeitsblätter, übrige Hilfen, Kiosk, Präsentation und Prüfungsaufträge werden in den Schritten 2–8 angeglichen. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
 
 ## Ziel der Reihe
 

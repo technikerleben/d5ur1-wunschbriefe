@@ -1,20 +1,16 @@
 # Bewertungsraster Wunschbrief
 
-Die verbindliche DOCX-Datei für die Bewertung der drei Lernerfolgskontrollen wird in diesem Ordner geführt.
+Stand: 7. September 2026 · Fassung 2
 
-## Bewertungslogik
+Verbindliche Grundlage: [Anforderungen_Wunschbriefe.md](Anforderungen_Wunschbriefe.md).
 
-- Grundraster: 18 Punkte
-- Vertiefung: 4 Zusatzpunkte
-- Gesamt: 22 Punkte
-- Sachlicher Grund und Umfragedaten sind Zusatzleistungen.
-- Der Mindeststandard kann ohne Datennutzung erreicht werden.
+- Sechs Grundbereiche mit jeweils 0–3 Punkten: insgesamt 18 Grundpunkte.
+- Sachlicher Grund und passende Umfragedaten: jeweils 0–2 Zusatzpunkte, insgesamt 4.
+- Kernmerkmale und Einstufung sind in der Grundlage lückenlos festgelegt.
+- Ort/Datum gehören zum vollständigen Aufbau; ihr Fehlen allein verhindert den Mindeststandard nicht.
+- Gründe und Daten bleiben freiwillig. Erlaubte Hilfen führen zu keinem Abzug.
+- Sichtbare Änderungen sind keine Voraussetzung für volle Punkte.
 
-## Stufen
+[Lehrkraftraster DOCX](../lernerfolgskontrolle/Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.docx) · [PDF](../lernerfolgskontrolle/Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.pdf)
 
-- 0–8 Grundpunkte: noch nicht erreicht
-- 9–12 Grundpunkte: Mindeststandard
-- 13–16 Grundpunkte: Regelstandard
-- 17–18 Grundpunkte plus mindestens 2 Zusatzpunkte: Vertiefung
-
-Die Punktgrenzen dienen als Orientierung. Entscheidend bleibt, dass ein vollständiger, freundlicher und verständlicher Wunschbrief erkennbar ist.
+[Kinderfassung DOCX](../lernerfolgskontrolle/Wunschbrief_Das_zaehlt_Kinderfassung.docx) · [PDF](../lernerfolgskontrolle/Wunschbrief_Das_zaehlt_Kinderfassung.pdf)
