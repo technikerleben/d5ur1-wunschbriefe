@@ -4,7 +4,7 @@ Dieses Repository bündelt die Materialien zur ersten Deutschreihe in Jahrgang 5
 
 Die Reihe verbindet fachliches Lernen mit ersten Routinen des selbstregulierten Lernens (SRL) und mit dem parallelen Mathematikthema **Umfragen und Daten visualisieren**.
 
-**Stand:** 7. September 2026 · Überarbeitung Schritte 1–2
+**Stand:** 7. September 2026 · Überarbeitung Schritte 1–3
 
 ## Aktuell: Anforderungen und Bewertung vereinheitlicht
 
@@ -12,7 +12,7 @@ Die [Anforderungen, Lernstufen und Hilfen](materialien/bewertung/Anforderungen_W
 
 Die Materialwebsite richtet sich an Kolleginnen und Kollegen. Kinder arbeiten mit Papier; nur der Kontroll-Kiosk ist am Klassenraum-Laptop verfügbar.
 
-**Übergangsstand:** Die Arbeitsblätter 1–24 sind überarbeitet. Übrige Hilfen, Kiosk, Lösungen, Präsentation und Prüfungsaufträge werden in den Schritten 3–8 angeglichen. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
+**Übergangsstand:** Die Arbeitsblätter 1–24, der Papierlernweg und der Kompetenzcheck sind überarbeitet. Übrige Hilfen, Kiosk, Lösungen, Präsentation und Prüfungsaufträge werden in den Schritten 4–8 angeglichen. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
 
 ## Ziel der Reihe
 
@@ -75,14 +75,15 @@ Die Lernaufgaben liegen als bearbeitbare DOCX und druckfertige PDF mit genau 24 
 
 ### Mein Lernweg
 
-Die zentrale Übersicht über die Reihe umfasst zwei DIN-A4-Seiten. Sie enthält:
+Der Papierlernweg umfasst zwei DIN-A4-Seiten in 14-Punkt-Schrift. Alle 24 Blätter sind mit Checkboxen aufgeführt. Freiwillige Aufgaben, das Briefgerüst bei Bedarf und der Rückblick nach der Arbeit sind gekennzeichnet. Haltepunkte nach Blatt 12 und 19 sowie Felder für nächsten Schritt und Prüfungstermin unterstützen die Orientierung.
 
-- das Ziel der Reihe,
-- alle Blätter 1–24 als einspaltige Liste,
-- eine Checkbox für jedes erledigte Blatt,
-- die Legende für **Aufgabe**, **Tipp** und **Beispiel**,
-- die freiwilligen Kennzeichnungen **🔼 Noch einen Schritt** und **⭐ Für Entdecker**,
-- ein Feld für den Termin der Lernerfolgskontrolle.
+[PDF Lernweg](materialien/arbeitsblaetter/Mein_Lernweg.pdf) · [DOCX Lernweg](materialien/arbeitsblaetter/Mein_Lernweg.docx)
+
+### Kompetenzcheck
+
+Zwei A4-Seiten verbinden die sechs Kernmerkmale mit Belegstellen im eigenen Brief und einer passenden nächsten Übung. Ort und Datum werden mitgeprüft. Hilfenutzung wird getrennt von der Textleistung betrachtet. Der Check ist unbenotet und für Übung und Rückmeldung gedacht.
+
+[PDF Kompetenzcheck](materialien/arbeitsblaetter/Kompetenzcheck_Wunschbrief.pdf) · [DOCX Kompetenzcheck](materialien/arbeitsblaetter/Kompetenzcheck_Wunschbrief.docx) · [Einsatzhinweise](materialien/arbeitsblaetter/Hinweise_Lernweg_Kompetenzcheck.md)
 
 ### Merkblätter
 
