@@ -41,4 +41,4 @@ Bei vollständigen Briefen die sechs Kernmerkmale sowie Ort und Datum mit Merkbl
 
 ## Dateien und Übergang
 
-`tools/generate_projekte.py` erzeugt beide DOCX-Dateien. Nach Änderungen PDF neu rendern und alle Seiten prüfen. Kiosk und Lösungspaket zu den Arbeitsblättern folgen in Schritt 6. Die hier enthaltenen Hinweise dienen bereits der Rückmeldung zu den neuen freiwilligen Angeboten.
+`tools/generate_projekte.py` erzeugt beide DOCX-Dateien. Nach Änderungen PDF neu rendern und alle Seiten prüfen. Kiosk und Lösungspaket zu den Arbeitsblättern sind seit Schritt 6 synchronisiert. Die hier enthaltenen Hinweise dienen bereits der Rückmeldung zu den neuen freiwilligen Angeboten.

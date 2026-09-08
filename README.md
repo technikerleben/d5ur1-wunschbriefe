@@ -4,7 +4,7 @@ Dieses Repository bündelt die Materialien zur ersten Deutschreihe in Jahrgang 5
 
 Die Reihe verbindet fachliches Lernen mit ersten Routinen des selbstregulierten Lernens (SRL) und mit dem parallelen Mathematikthema **Umfragen und Daten visualisieren**.
 
-**Stand:** 8. September 2026 · Überarbeitung Schritte 1–5
+**Stand:** 8. September 2026 · Überarbeitung Schritte 1–6
 
 ## Aktuell: Anforderungen und Bewertung vereinheitlicht
 
@@ -12,7 +12,7 @@ Die [Anforderungen, Lernstufen und Hilfen](materialien/bewertung/Anforderungen_W
 
 Die Materialwebsite richtet sich an Kolleginnen und Kollegen. Kinder arbeiten mit Papier; nur der Kontroll-Kiosk ist am Klassenraum-Laptop verfügbar.
 
-**Übergangsstand:** Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter, die Strategiekarten und die freiwilligen Projekte und Vertiefungen sind überarbeitet. Übrige Hilfen, Kiosk, Lösungen, Präsentation und Prüfungsaufträge werden in den Schritten 6–8 angeglichen. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
+**Übergangsstand:** Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter, die Strategiekarten und die freiwilligen Projekte und Vertiefungen sind überarbeitet. Kiosk und Lösungspaket sind ebenfalls synchronisiert. Präsentation, übrige Übersichten und Prüfungsaufträge werden in den Schritten 7–8 angeglichen. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
 
 ## Ziel der Reihe
 
@@ -120,7 +120,9 @@ Datei: `materialien/strategiekarten/Strategiekarten_Lernbuddy_Querstreifen_8_Kar
 
 ### Kontroll-Kiosk
 
-**Noch nicht synchronisiert:** Kiosk und bisheriges Lösungspaket beziehen sich auf die ältere Aufgabenfassung. Bis Schritt 6 keine automatische Selbstkontrolle der neuen Blätter damit durchführen; die Lehrkraft übernimmt die Rückmeldung.
+**Fassung 3:** Kiosk und Drucklösungen passen zu allen 24 aktuellen Arbeitsblättern und werden aus einer gemeinsamen Datenquelle erzeugt. Freiwillige Zusätze sind im Kiosk eingeklappt. Beim Lesen gibt es keine Zeitbegrenzung; die Nummerneingabe wird nach drei Minuten ohne Bedienung zurückgesetzt. Die gespeicherte HTML-Datei funktioniert offline.
+
+[Einsatzhinweise](materialien/arbeitsblaetter/Hinweise_Kiosk_Loesungen.md) · [PDF Lösungspaket](materialien/arbeitsblaetter/Loesungspaket_Arbeitsblaetter_1-24_Wunschbriefe.pdf)
 
 Die Single-File-HTML-App bietet zu Blatt 1–24 wahlweise einen Tipp oder eine Lösung beziehungsweise ein Lösungsbeispiel. Sie ist für die Nutzung an einem Klassenraum-Laptop im Vollbildmodus gedacht.
 

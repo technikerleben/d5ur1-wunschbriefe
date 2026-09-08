@@ -1,8 +1,8 @@
 # Anforderungen und Bewertung: Wunschbriefe
 
-Stand: 8. September 2026 · Fassung 2 · Schritte 1–5 abgeschlossen
+Stand: 8. September 2026 · Fassung 2 · Schritte 1–6 abgeschlossen
 
-Diese Grundlage ist für die Überarbeitung der Reihe maßgeblich. Sie präzisiert die älteren Zusammenfassungen in README, skill.md und Materialien. Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter und die Strategiekarten sind in Fassung 3 angeglichen. Die noch nicht überarbeiteten Lösungen, Kiosktexte, Präsentation und Prüfungsaufträge werden in den weiteren Durchgängen angeglichen; sie dürfen keine abweichenden Pflichtanforderungen begründen.
+Diese Grundlage ist für die Überarbeitung der Reihe maßgeblich. Sie präzisiert die älteren Zusammenfassungen in README, skill.md und Materialien. Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter und die Strategiekarten sind in Fassung 3 angeglichen. Kiosk und Lösungspaket sind ebenfalls angeglichen. Die noch nicht überarbeiteten Präsentationen und Prüfungsaufträge werden in den weiteren Durchgängen angeglichen; sie dürfen keine abweichenden Pflichtanforderungen begründen.
 
 ## Nutzung
 
@@ -68,7 +68,7 @@ Kontrollieren gehört zur Durchführung und Reflexion. Volle Punkte setzen keine
 - Schritt 3 abgeschlossen (Papierlernweg und Kompetenzcheck, jeweils DOCX und PDF): Kompetenzchecks und Papierlernweg auf die sechs Kernmerkmale beziehen; Hilfenutzung nicht mit niedrigem Leistungsniveau gleichsetzen.
 - Schritt 4 abgeschlossen (acht Merkblätter, Hilfekette und acht Strategiekarten): Merkblätter und Hilfekette angleichen; Ort/Datum sichtbar halten; Gründe und Daten als freiwillig kennzeichnen.
 - Schritt 5 abgeschlossen (sechs Papierprojekte mit Datenkarte und vier zusätzliche Vertiefungen): Anspruchsvolle Erweiterungen und Projekte freiwillig halten. Gründe gewichten und Bedenken bearbeiten, ohne zusätzliche Pflichtanforderungen zu schaffen.
-- Schritt 6: Kiosk und Lösungspaket synchronisieren; plausible Alternativen anerkennen; keine obligatorische Textänderung verlangen.
+- Schritt 6 abgeschlossen (Kiosk und Lösungspaket aus gemeinsamer Datenquelle): Kiosk und Lösungspaket synchronisieren; plausible Alternativen anerkennen; keine obligatorische Textänderung verlangen.
 - Schritt 7: Probearbeit und drei Varianten mit neutralen Schreibplänen und identischen Hilfen ausstatten; Datenfelder als freiwillig markieren; Grammatikfehler korrigieren.
 - Schritt 8: Präsentation, Lehrkraft-Cockpit, ältere Projektbeschreibung und Materialzentrale vollständig angleichen.
 

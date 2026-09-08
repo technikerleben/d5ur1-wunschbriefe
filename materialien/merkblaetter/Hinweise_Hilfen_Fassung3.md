@@ -18,7 +18,7 @@ Der Musterbrief enthält einen Wunsch und einen weiteren passenden Satz ohne ver
 
 ## Prüfungen und Übergang
 
-Die Merkblätter und Strategiekarten sind Übungshilfen, keine zusätzlichen Prüfungshilfen. Für Probearbeit und Lernerfolgskontrolle gelten die gemeinsamen Anforderungen und die dort festgelegten Hilfen. Kiosk und altes Lösungspaket werden in Schritt 6 synchronisiert; bis dahin die neuen Aufgaben durch die Lehrkraft kontrollieren. Die Hilfekette setzt keinen Online-Zugriff voraus.
+Die Merkblätter und Strategiekarten sind Übungshilfen, keine zusätzlichen Prüfungshilfen. Für Probearbeit und Lernerfolgskontrolle gelten die gemeinsamen Anforderungen und die dort festgelegten Hilfen. Kiosk und Lösungspaket sind seit Schritt 6 synchronisiert und für die Kontrolle in der Übung nutzbar. Die Hilfekette setzt keinen Online-Zugriff voraus.
 
 ## Bearbeitung
 

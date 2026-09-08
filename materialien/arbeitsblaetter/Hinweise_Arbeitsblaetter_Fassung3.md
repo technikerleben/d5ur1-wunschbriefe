@@ -10,7 +10,7 @@ Die Kinder arbeiten mit ausgedruckten Materialien und ihrem Heft. Jeder Arbeitsa
 - Merkblätter und die beiden Seiten der Kinderfassung „Dein Wunschbrief: Das zählt“ ausdrucken und erreichbar bereitlegen. Die Lehrkraft klärt abweichende Pflichtangaben in älteren Hilfen anhand der gemeinsamen Anforderungen.
 - Blatt 14 und 15 sind vollständig freiwillig. Blatt 17 ist eine Schreibhilfe bei Bedarf; wer sie nicht braucht, geht zu Blatt 18. Freiwillige Zusätze auf anderen Blättern sind ausdrücklich gekennzeichnet.
 - Blatt 21 ist die Orientierung zur gesondert ausgeteilten Probearbeit, kein zweiter Schreibauftrag. Das Probearbeitspaket wird in Schritt 7 angeglichen. Bis dahin vor Ausgabe Gründe und Daten als freiwillig klären und beide Seiten der Kinderfassung ergänzen; zusätzliche Hilfe dokumentieren.
-- Kiosk und bisheriges Lösungspaket gehören noch zur älteren Aufgabenfassung. Bis zur Synchronisierung in Schritt 6 übernimmt die Lehrkraft die Kontrolle. Die neuen Blätter enthalten bereits eigene Selbstchecks.
+- Kiosk und Lösungspaket sind seit Schritt 6 auf diese Aufgabenfassung abgestimmt. Die Blätter enthalten zusätzlich eigene Selbstchecks.
 - Hilfen dürfen in der Übung auf jedem Leistungsniveau genutzt werden. Gründe und Daten sind keine Voraussetzung für einen gelungenen Grundtext.
 
 ## Was geändert wurde
