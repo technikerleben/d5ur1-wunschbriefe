@@ -1,8 +1,8 @@
 # Anforderungen und Bewertung: Wunschbriefe
 
-Stand: 8. September 2026 · Fassung 2 · Schritte 1–7 abgeschlossen
+Stand: 8. September 2026 · Fassung 2 · Schritte 1–8 abgeschlossen
 
-Diese Grundlage ist für die Überarbeitung der Reihe maßgeblich. Sie präzisiert die älteren Zusammenfassungen in README, skill.md und Materialien. Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter und die Strategiekarten sind in Fassung 3 angeglichen. Kiosk und Lösungspaket sind ebenfalls angeglichen. Probearbeit und drei Prüfungsvarianten sind mit neutralen Schreibplänen und identischen Hilfen angeglichen. Die noch nicht überarbeiteten Präsentationen und übrigen Übersichten folgen in Schritt 8; sie dürfen keine abweichenden Pflichtanforderungen begründen.
+Diese Grundlage ist für die Reihe maßgeblich. README, Projektanleitung und Unterrichtshinweise verweisen auf diese Anforderungen. Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter und die Strategiekarten sind in Fassung 3 angeglichen. Kiosk und Lösungspaket sind ebenfalls angeglichen. Probearbeit und drei Prüfungsvarianten sind mit neutralen Schreibplänen und identischen Hilfen angeglichen. Präsentation, Lehrkraft-Cockpit und Materialzentrale sind angeglichen. Ergänzende Teilübungen im offenen Anfang werden durch eigene Einsatzhinweise eingeordnet und ersetzen keine vollständigen Briefkriterien.
 
 ## Nutzung
 
@@ -62,7 +62,7 @@ Kontrollieren gehört zur Durchführung und Reflexion. Volle Punkte setzen keine
 
 **Lernerfolgskontrolle:** Alle Kinder erhalten Auftrag, passenden Datensatz als freiwilliges Zusatzangebot, neutralen Schreibplan, Schreibpapier und beide Seiten der Kinderfassung „Dein Wunschbrief: Das zählt“. Die dort enthaltenen allgemeinen Satzanfänge enthalten keine inhaltliche Lösung. Nutzung ohne Punktabzug. Der Auftrag darf wortgetreu vorgelesen werden; organisatorische Fragen dürfen geklärt werden. Keine inhaltlichen Ideen, Dateninterpretationen oder Textformulierungen durch die Lehrkraft. Kein Kiosk, keine Partnerhilfe, Musterbriefe, eigenen fertigen Texte oder zusätzlichen Merkblätter während der Arbeit. Individuell bereits vereinbarte Hilfen bleiben berücksichtigt und werden dokumentiert. Die Hilfen müssen vorab erprobt werden und an allen drei Terminen gleich sein; Änderungen sind vor Beginn des Prüfungsfensters zu klären.
 
-## Angleichung in den nächsten Durchgängen
+## Abgeschlossene Überarbeitung
 
 - Schritt 2 abgeschlossen (Arbeitsblätter Fassung 3, DOCX und PDF): Datenanteile in Blatt 3, 4, 6 und 12 aus dem Pflichtkern lösen; Grund auf Blatt 16/18 freiwillig markieren; Ort/Datum in vollständigen Checklisten ergänzen; Arbeitsaufträge und Arbeitsorte klären.
 - Schritt 3 abgeschlossen (Papierlernweg und Kompetenzcheck, jeweils DOCX und PDF): Kompetenzchecks und Papierlernweg auf die sechs Kernmerkmale beziehen; Hilfenutzung nicht mit niedrigem Leistungsniveau gleichsetzen.
@@ -70,7 +70,7 @@ Kontrollieren gehört zur Durchführung und Reflexion. Volle Punkte setzen keine
 - Schritt 5 abgeschlossen (sechs Papierprojekte mit Datenkarte und vier zusätzliche Vertiefungen): Anspruchsvolle Erweiterungen und Projekte freiwillig halten. Gründe gewichten und Bedenken bearbeiten, ohne zusätzliche Pflichtanforderungen zu schaffen.
 - Schritt 6 abgeschlossen (Kiosk und Lösungspaket aus gemeinsamer Datenquelle): Kiosk und Lösungspaket synchronisieren; plausible Alternativen anerkennen; keine obligatorische Textänderung verlangen.
 - Schritt 7 abgeschlossen (Probearbeit, drei Einzelpakete und Sammlung, jeweils DOCX und PDF, mit Durchführungshinweisen): Probearbeit und drei Varianten mit neutralen Schreibplänen und identischen Hilfen ausstatten; Datenfelder als freiwillig markieren; Grammatikfehler korrigieren.
-- Schritt 8: Präsentation, Lehrkraft-Cockpit, ältere Projektbeschreibung und Materialzentrale vollständig angleichen.
+- Schritt 8 abgeschlossen: Präsentation, Lehrkraft-Cockpit, Projektbeschreibung und Materialzentrale angeglichen; Unterrichtshinweise mit Input-Zuordnung, Hilfen und SRL-Strategien ergänzt.
 
 ## Dateien
 

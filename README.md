@@ -1,254 +1,83 @@
-# Deutsch 5 – Wunschbriefe für unsere Schule
+# Deutsch 5 · Wunschbriefe für unsere Schule
 
-Dieses Repository bündelt die Materialien zur ersten Deutschreihe in Jahrgang 5. Die Schülerinnen und Schüler lernen, einen Brief zu schreiben und darin einen Wunsch für ihren neuen Schulalltag freundlich, verständlich und passend zum Empfänger zu äußern.
+**Stand: 8. September 2026 · Überarbeitungsschritte 1–8 abgeschlossen**
 
-Die Reihe verbindet fachliches Lernen mit ersten Routinen des selbstregulierten Lernens (SRL) und mit dem parallelen Mathematikthema **Umfragen und Daten visualisieren**.
+Ziel: Ich kann einen Brief schreiben und darin einen Wunsch für unseren Schulalltag freundlich und verständlich äußern.
 
-**Stand:** 8. September 2026 · Überarbeitung Schritte 1–7
+Die [Materialzentrale](https://d5ur1-wunschbriefe.vercel.app/) richtet sich an das Kollegium. Kinder arbeiten auf Papier. Nur der Kontroll-Kiosk ist für sie an einem Laptop im Raum verfügbar; die Lehrkraft kann Impulsfolien projizieren.
 
-## Aktuell: Anforderungen und Bewertung vereinheitlicht
+## Gemeinsame Anforderungen
 
-Die [Anforderungen, Lernstufen und Hilfen](materialien/bewertung/Anforderungen_Wunschbriefe.md) sind die maßgebliche Grundlage für die weitere Überarbeitung. Das [Bewertungsraster](materialien/lernerfolgskontrolle/Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.docx) wurde ersetzt. Neu ist die druckbare [Kinderfassung mit erlaubter Schreibhilfe](materialien/lernerfolgskontrolle/Wunschbrief_Das_zaehlt_Kinderfassung.pdf).
+Maßgeblich sind die [Anforderungen, Lernstufen und Hilfen](materialien/bewertung/Anforderungen_Wunschbriefe.md). Der Brief enthält eine passende Anrede, einen klaren passenden Wunsch, mindestens einen weiteren passenden Satz, Grußformel und Namen. Ton und Sprache sind freundlich, verständlich und lesbar. Ort und Datum gehören zum vollständigen Aufbau.
 
-Die Materialwebsite richtet sich an Kolleginnen und Kollegen. Kinder arbeiten mit Papier; nur der Kontroll-Kiosk ist am Klassenraum-Laptop verfügbar.
-
-**Übergangsstand:** Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter, die Strategiekarten und die freiwilligen Projekte und Vertiefungen sind überarbeitet. Kiosk und Lösungspaket sind ebenfalls synchronisiert. Probearbeit und alle drei Arbeiten sind mit identischen Hilfen angeglichen. Präsentation und übrige Übersichten folgen in Schritt 8. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
-
-## Ziel der Reihe
-
-> Ich kann einen Brief schreiben und darin einen Wunsch für unseren Schulalltag freundlich und verständlich äußern.
-
-Für den Mindeststandard verfassen die Schülerinnen und Schüler einen vollständigen Wunschbrief mit:
-
-- passender Anrede,
-- klar und freundlich formuliertem Wunsch,
-- zusammenhängendem Brieftext,
-- passender Grußformel,
-- eigenem Namen.
-
-Begründungen, Umfrageergebnisse, mögliche Bedenken und Lösungsvorschläge erweitern den Brief. Sie sind nicht Voraussetzung für den Mindeststandard.
-
-## Verbindliches SRL-Wording
-
-Die drei Phasen heißen durchgehend:
+Gründe und passende Umfragedaten sind freiwillig. Ein kurzer Brief kann alle 18 Grundpunkte erreichen. Bis zu vier Zusatzpunkte werden getrennt ausgewiesen. Die Lernstufen sind keine Schulnoten; 22 Punkte sind kein automatischer Notenschlüssel. Erlaubte Hilfen und Arbeitstempo bringen keinen Punktabzug. Ein bereits gelungener Brief braucht keine sichtbare Änderung.
 
 **Planung → Durchführung → Reflexion**
 
-Der Lernweg lautet:
-
 **Input → Übung → Vertiefung → Probearbeit → Projekte → Lernerfolgskontrolle (Arbeit)**
 
-Dabei gilt:
+Die Probearbeit ist verpflichtend und unbenotet. Blatt 14/15, zusätzliche Vertiefungen und Projekte sind freiwillig. Blatt 17 ist eine Hilfe bei Bedarf. Die Lehrkraft vereinbart passende Übungen nach Lernbedarf; nicht jedes Kind muss alles wiederholen.
 
-- Die Probearbeit ist verpflichtend und unbenotet.
-- Projekte sind freiwillig.
-- **🔼 Noch einen Schritt** ist freiwillig und gehört nicht zum verpflichtenden Lernweg.
-- **⭐ Für Entdecker** ist freiwillig und gehört nicht zum verpflichtenden Lernweg.
-- Die Lernerfolgskontrolle findet in einem begleiteten Prüfungsfenster statt.
+## Für die Vorbereitung
 
-## Unterrichtsstruktur
+- [Unterrichtshinweise: Inputs, Material, Strategien und Doppelbesetzung](materialien/lehrkraft/Hinweise_Unterricht_Fassung3.md)
+- [Lehrkraft-Cockpit A3 (PDF)](materialien/lehrkraft/Lehrkraft_Cockpit_Wunschbriefe_A3.pdf): alle 24 Blätter, SRL-Strategie, Verbindlichkeit, Input und passende Hilfe; 12-Punkt-Schrift.
+- [Impuls-Präsentation (PPTX)](praesentationen/Impulse_Wunschbriefe_SRL_Mathe.pptx): 24 Folien im vorhandenen Design; fünf Inputs, freiwillige Datenimpulse, kurzer Musterbrief, Kriterien und Kiosk.
+- [Prüfungshinweise](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md): Druckbereiche, gleiche Arbeitszeit, Hilfen und Rückmeldung.
 
-Vorgesehen sind pro Woche zwei Doppelstunden:
+## Papiermaterialien
 
-1. **Input-Doppelstunde** mit fachlichem Schwerpunkt und anschließender Bearbeitungszeit
-2. **90-minütige Lernzeit** mit Doppelbesetzung
-
-Die Lernzeit folgt jeweils dem Ablauf **Planung – Durchführung – Reflexion**.
-
-Eine konkrete Wochenübersicht und die Organisation des Prüfungsfensters werden ergänzt, sobald der Stundenplan feststeht.
-
-## Verbindung mit Mathematik
-
-Parallel führt die Klasse im Mathematikunterricht Umfragen durch und stellt Ergebnisse als Balken- oder Säulendiagramme dar. Im Deutschunterricht können passende Ergebnisse als zusätzliche Argumente genutzt werden, zum Beispiel:
-
-> In unserer Umfrage haben sich 18 von 26 Kindern eine Spieleausleihe gewünscht.
-
-Die Datennutzung ist eine Vertiefung und kein eigener Mathematiktest. Eigene Klassendaten dürfen die Beispieldaten ersetzen, sofern sie korrekt wiedergegeben werden.
-
-## Zentrale Materialien
-
-### Arbeitsblätter 1–24
-
-Die Lernaufgaben liegen als bearbeitbare DOCX und druckfertige PDF mit genau 24 DIN-A5-Seiten vor (Fassung 3). Die Grundschrift beträgt 14 pt. Jedes Blatt nennt Ziel, Arbeitsort, Hilfe und einen konkreten Selbstcheck. Gründe und Daten sind freiwillig; Blatt 14/15 sind Zusatzangebote, Blatt 17 ist eine Schreibhilfe bei Bedarf. Die Blätter führen schrittweise von ersten Schulwünschen über Briefaufbau und Wunschformulierungen bis zur Probearbeit und zur Vorbereitung der Lernerfolgskontrolle.
-
-[PDF Arbeitsblätter](materialien/arbeitsblaetter/Arbeitsblaetter_1-24_DIN_A5_ueberarbeitet.pdf) · [DOCX Arbeitsblätter](materialien/arbeitsblaetter/Arbeitsblaetter_1-24_DIN_A5_ueberarbeitet.docx) · [Einsatzhinweise zur Fassung 3](materialien/arbeitsblaetter/Hinweise_Arbeitsblaetter_Fassung3.md)
-
-### Mein Lernweg
-
-Der Papierlernweg umfasst zwei DIN-A4-Seiten in 14-Punkt-Schrift. Alle 24 Blätter sind mit Checkboxen aufgeführt. Freiwillige Aufgaben, das Briefgerüst bei Bedarf und der Rückblick nach der Arbeit sind gekennzeichnet. Haltepunkte nach Blatt 12 und 19 sowie Felder für nächsten Schritt und Prüfungstermin unterstützen die Orientierung.
-
-[PDF Lernweg](materialien/arbeitsblaetter/Mein_Lernweg.pdf) · [DOCX Lernweg](materialien/arbeitsblaetter/Mein_Lernweg.docx)
-
-### Kompetenzcheck
-
-Zwei A4-Seiten verbinden die sechs Kernmerkmale mit Belegstellen im eigenen Brief und einer passenden nächsten Übung. Ort und Datum werden mitgeprüft. Hilfenutzung wird getrennt von der Textleistung betrachtet. Der Check ist unbenotet und für Übung und Rückmeldung gedacht.
-
-[PDF Kompetenzcheck](materialien/arbeitsblaetter/Kompetenzcheck_Wunschbrief.pdf) · [DOCX Kompetenzcheck](materialien/arbeitsblaetter/Kompetenzcheck_Wunschbrief.docx) · [Einsatzhinweise](materialien/arbeitsblaetter/Hinweise_Lernweg_Kompetenzcheck.md)
-
-### Merkblätter
-
-Acht DIN-A5-Seiten mit 14-Punkt-Grundschrift: Schreibsituation, Briefaufbau, Formulierungen, freiwillige Gründe und Daten, Schreibprozess, vollständige Checkliste, Lernzeit und Hilfekette. Merkblatt 8 führt zur passenden Papierhilfe; bei Lese- oder Verständnisproblemen darf sofort gefragt werden.
-
-[PDF Merkblätter](materialien/merkblaetter/Merkblaetter_Wunschbriefe_DIN_A5_Mathe_angepasst.pdf) · [DOCX Merkblätter](materialien/merkblaetter/Merkblaetter_Wunschbriefe_DIN_A5_Mathe_angepasst.docx) · [Einsatzhinweise](materialien/merkblaetter/Hinweise_Hilfen_Fassung3.md)
-
-### Lernbuddy
-
-Der Lernbuddy ist eine wiederverwendbare DIN-A4-Unterlage. Ein DIN-A5-Arbeitsblatt wird in die Mitte gelegt. Der Rahmen unterstützt:
-
-- **Planung:** Ziel, Energie und mögliche Ablenker,
-- **Durchführung:** Arbeitsschritte, Hilfekette und Strategiekarte,
-- **Reflexion:** Einschätzung, Stolz und nächster Schritt.
-
-Die druckfertige Fassung liegt als `materialien/arbeitsblaetter/Lernbuddy_A4.pdf` vor.
-
-### Strategiekarten
-
-Acht SRL-Strategien liegen in Fassung 3 als tonersparende Querstreifen mit 14-Punkt-Auftragstext vor. Die Hilfekette erlaubt direkte Hilfe bei Verständnisproblemen. Beim Prüfen wird nur geändert, was nötig ist. Vier Karten passen untereinander auf eine DIN-A4-Seite und können nach dem Zerschneiden seitlich an den Lernbuddy angelegt werden.
-
-Enthalten sind:
-
-1. Auftrag klären
-2. Lernziel setzen
-3. Arbeit in Schritte teilen
-4. Beispiel nutzen
-5. Zwischenstopp machen
-6. Hilfekette nutzen
-7. Mit Kriterien prüfen
-8. Lernprozess reflektieren
-
-Datei: `materialien/strategiekarten/Strategiekarten_Lernbuddy_Querstreifen_8_Karten.pdf`
-
-### Kontroll-Kiosk
-
-**Fassung 3:** Kiosk und Drucklösungen passen zu allen 24 aktuellen Arbeitsblättern und werden aus einer gemeinsamen Datenquelle erzeugt. Freiwillige Zusätze sind im Kiosk eingeklappt. Beim Lesen gibt es keine Zeitbegrenzung; die Nummerneingabe wird nach drei Minuten ohne Bedienung zurückgesetzt. Die gespeicherte HTML-Datei funktioniert offline.
-
-[Einsatzhinweise](materialien/arbeitsblaetter/Hinweise_Kiosk_Loesungen.md) · [PDF Lösungspaket](materialien/arbeitsblaetter/Loesungspaket_Arbeitsblaetter_1-24_Wunschbriefe.pdf)
-
-Die Single-File-HTML-App bietet zu Blatt 1–24 wahlweise einen Tipp oder eine Lösung beziehungsweise ein Lösungsbeispiel. Sie ist für die Nutzung an einem Klassenraum-Laptop im Vollbildmodus gedacht.
-
-### Probearbeit
-
-Die Probearbeit ist verpflichtend und unbenotet. Das sechsseitige A4-Paket enthält einen klaren Auftrag mit freiwilliger Datentabelle, einen leeren Schreibplan, liniertes Schreibpapier, beide bekannten Hilfeseiten und einen Rückmeldebogen. Zusätzliche Hilfe sowie erste Fassung und unterstützte Überarbeitung werden getrennt festgehalten.
-
-[PDF](materialien/probearbeit/Probearbeit_Wunschbrief_Komplettpaket.pdf) · [DOCX](materialien/probearbeit/Probearbeit_Wunschbrief_Komplettpaket.docx) · [Hinweise zur Durchführung](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md)
-
-### Lehrkraft-Cockpit
-
-Das A3-Cockpit bündelt die Steuerung der gesamten Reihe auf einer Seite. Für jedes Blatt werden angezeigt:
-
-- fachlicher Fokus,
-- passende SRL-Strategie,
-- Verbindlichkeit,
-- zugehöriger Input,
-- Kontrolle beziehungsweise Hilfe.
-
-Im oberen Bereich wird zusätzlich gezeigt, an welcher Stelle die acht SRL-Strategien schrittweise eingeführt werden.
-
-Datei: `materialien/lehrkraft/Lehrkraft_Cockpit_Wunschbriefe_A3.pdf`
-
-### Lernerfolgskontrolle
-
-Drei Varianten mit gleichem Aufgabenaufbau und identischen Hilfen liegen jeweils als fünfseitiges A4-Paket vor. Die Wünsche unterscheiden sich; Datentabellen haben dieselbe Struktur und dieselben Zahlenwerte. Gründe und Daten sind freiwillig. Arbeitszeit vor der Ausgabe für alle Termine einheitlich eintragen; vereinbarte individuelle Anpassungen berücksichtigen.
-
-| Variante | PDF | DOCX |
+| Material | Format | Downloads |
 |---|---|---|
-| Termin 1 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_1.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_1.docx) |
-| Termin 2 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_2.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_2.docx) |
-| Termin 3 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_3.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_3.docx) |
+| Arbeitsblätter 1–24 | 24 Seiten A5, Grundschrift 14 pt | [PDF](materialien/arbeitsblaetter/Arbeitsblaetter_1-24_DIN_A5_ueberarbeitet.pdf) · [DOCX](materialien/arbeitsblaetter/Arbeitsblaetter_1-24_DIN_A5_ueberarbeitet.docx) |
+| Mein Lernweg | 2 Seiten A4 | [PDF](materialien/arbeitsblaetter/Mein_Lernweg.pdf) · [DOCX](materialien/arbeitsblaetter/Mein_Lernweg.docx) |
+| Kompetenzcheck | 2 Seiten A4 | [PDF](materialien/arbeitsblaetter/Kompetenzcheck_Wunschbrief.pdf) · [DOCX](materialien/arbeitsblaetter/Kompetenzcheck_Wunschbrief.docx) |
+| Lernbuddy | A4, wiederverwendbar | [PDF](materialien/arbeitsblaetter/Lernbuddy_A4.pdf) |
+| Acht Merkblätter | 8 Seiten A5 | [PDF](materialien/merkblaetter/Merkblaetter_Wunschbriefe_DIN_A5_Mathe_angepasst.pdf) · [DOCX](materialien/merkblaetter/Merkblaetter_Wunschbriefe_DIN_A5_Mathe_angepasst.docx) |
+| Acht Strategiekarten | 2 Seiten A4, ausschneiden | [PDF](materialien/strategiekarten/Strategiekarten_Lernbuddy_Querstreifen_8_Karten.pdf) |
+| Sechs Projekte mit Übersicht und Datenkarte | 8 Seiten A5, freiwillig | [PDF](materialien/projekte/Freiwillige_Projekte_Wunschbriefe_DIN_A5.pdf) · [DOCX](materialien/projekte/Freiwillige_Projekte_Wunschbriefe_DIN_A5.docx) |
+| Vier Vertiefungen | 4 Seiten A5, freiwillig | [PDF](materialien/projekte/Freiwillige_Vertiefungen_Wunschbriefe_DIN_A5.pdf) · [DOCX](materialien/projekte/Freiwillige_Vertiefungen_Wunschbriefe_DIN_A5.docx) |
+| Lösungen und Tipps zu Blatt 1–24 | 24 Seiten A5 | [PDF](materialien/arbeitsblaetter/Loesungspaket_Arbeitsblaetter_1-24_Wunschbriefe.pdf) · [DOCX](materialien/arbeitsblaetter/Loesungspaket_Arbeitsblaetter_1-24_Wunschbriefe.docx) |
 
-[Sammlung aller drei Termine (15 Seiten, PDF)](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_3_Termine.pdf) · [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_3_Termine.docx) · [Druckbereiche, Hilfen und Bewertung](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md)
+Originalgröße beibehalten. Die Aufträge nennen den Arbeitsort: auf dem Blatt, im Heft oder mündlich. Kinder benötigen keine Online-Ressourcen.
 
-### Bewertungsraster
+[Hinweise Arbeitsblätter](materialien/arbeitsblaetter/Hinweise_Arbeitsblaetter_Fassung3.md) · [Lernweg und Kompetenzcheck](materialien/arbeitsblaetter/Hinweise_Lernweg_Kompetenzcheck.md) · [Merkblätter und Strategien](materialien/merkblaetter/Hinweise_Hilfen_Fassung3.md) · [Projekte und Vertiefungen](materialien/projekte/Hinweise_Projekte_Vertiefungen.md)
 
-Das Raster bewertet sechs Grundbereiche mit insgesamt 18 Grundpunkten. Bis zu vier Zusatzpunkte können für einen sachlichen Grund und korrekt genutzte Umfragedaten vergeben werden. Die Zusatzleistungen sind nicht erforderlich, um den Mindeststandard zu erreichen.
+## Probearbeit und drei Arbeiten
 
-### Lösungspaket
+Jedes Paket enthält Auftrag mit freiwilligem Datensatz, leeren Schreibplan, linierten Schreibbogen und beide bekannten Hilfeseiten. Die Probearbeit hat zusätzlich einen Rückmeldebogen. Erste Fassung, zusätzliche Hilfe und unterstützte Überarbeitung bleiben unterscheidbar.
 
-Das Lehrkraftpaket enthält zu Blatt 1–24:
+| Paket | Seiten A4 | PDF | DOCX |
+|---|---:|---|---|
+| Probearbeit: Ablagefächer | 6 | [PDF](materialien/probearbeit/Probearbeit_Wunschbrief_Komplettpaket.pdf) | [DOCX](materialien/probearbeit/Probearbeit_Wunschbrief_Komplettpaket.docx) |
+| Termin 1: Spieleausleihe | 5 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_1.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_1.docx) |
+| Termin 2: Leseecke | 5 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_2.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_2.docx) |
+| Termin 3: Sitzplätze | 5 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_3.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_3.docx) |
+| Sammlung aller Termine | 15 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_3_Termine.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_3_Termine.docx) |
 
-- eindeutige Lösungen,
-- mögliche Antworten bei offenen Aufgaben,
-- Erfolgskriterien,
-- typische Fehler,
-- Hinweise zur schnellen Diagnose und Förderung.
+Gleicher Aufbau, identische Hilfen und gleich strukturierte Datentabellen machen die Aufgaben vergleichbar. Die Arbeitszeit vor der Ausgabe einheitlich eintragen; bestehende individuelle Anpassungen berücksichtigen. Während der Arbeit: keine Partnerhilfe und kein Kiosk. Details in den [Durchführungshinweisen](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md).
 
-### Freiwillige Projekte
+## Bewertung und Kinderhilfe
 
-Sechs überarbeitete Projekte ermöglichen Briefe, Poster, Entwürfe und begründete Antworten auf Einwände. Alle funktionieren vollständig mit Papier. Eine erfundene Datenkarte liegt bei. Vier zusätzliche Vertiefungskarten fördern das Abwägen von Gründen, den Umgang mit Bedenken, kritische Datennutzung und faire Lösungen. Alle Angebote sind freiwillig.
+- [Lehrkraftraster PDF](materialien/lernerfolgskontrolle/Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.pdf) · [DOCX](materialien/lernerfolgskontrolle/Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.docx)
+- [„Dein Wunschbrief: Das zählt“ PDF](materialien/lernerfolgskontrolle/Wunschbrief_Das_zaehlt_Kinderfassung.pdf) · [DOCX](materialien/lernerfolgskontrolle/Wunschbrief_Das_zaehlt_Kinderfassung.docx)
 
-[PDF Projekte](materialien/projekte/Freiwillige_Projekte_Wunschbriefe_DIN_A5.pdf) · [DOCX Projekte](materialien/projekte/Freiwillige_Projekte_Wunschbriefe_DIN_A5.docx)
+Beide Kinderhilfeseiten sind bereits in jedem Prüfungspaket enthalten. In den Lernzeiten vorher gemeinsam erproben. Nutzung ohne Punktabzug.
 
-[PDF Vertiefungen](materialien/projekte/Freiwillige_Vertiefungen_Wunschbriefe_DIN_A5.pdf) · [DOCX Vertiefungen](materialien/projekte/Freiwillige_Vertiefungen_Wunschbriefe_DIN_A5.docx) · [Einsatz- und Lösungshinweise](materialien/projekte/Hinweise_Projekte_Vertiefungen.md)
+## Kontroll-Kiosk
 
-## Ordnerstruktur
+[Kiosk öffnen](apps/kontroll-kiosk/index.html) · [Einsatzhinweise](materialien/arbeitsblaetter/Hinweise_Kiosk_Loesungen.md)
 
-```text
-/
-├── README.md
-├── skill.md
-├── index.html
-├── apps/
-│   └── kontroll-kiosk/
-│       └── index.html
-├── materialien/
-│   ├── arbeitsblaetter/
-│   │   ├── Arbeitsblaetter_1-24_DIN_A5_ueberarbeitet.docx
-│   │   ├── Lernbuddy_A4.pdf
-│   │   └── Mein_Lernweg.docx
-│   ├── strategiekarten/
-│   │   └── Strategiekarten_Lernbuddy_Querstreifen_8_Karten.pdf
-│   ├── lehrkraft/
-│   │   └── Lehrkraft_Cockpit_Wunschbriefe_A3.pdf
-│   ├── merkblaetter/
-│   ├── probearbeit/
-│   ├── lernerfolgskontrolle/
-│   ├── bewertung/
-│   └── projekte/
-├── praesentationen/
-└── tools/
-```
+„Tipp“ oder „Lösung“ wählen, Blattnummer 1–24 per Tastatur oder Zahlenfeld eingeben. Freiwillige Zusätze sind eingeklappt. Beim Lesen gibt es kein Zeitlimit. Nach drei Minuten ohne Eingabe wird nur die Nummerneingabe zurückgesetzt. Die gespeicherte einzelne HTML-Datei funktioniert offline. Blatt 21 bietet Orientierung zur Probearbeit, keinen Musterbrief als Lösung.
 
-## Aktueller Projektstand
+## Ergänzende Teilübungen
 
-Fertig erstellt sind:
+[Offener Anfang: sechs Angebote (PDF)](materialien/offener-anfang/Offener_Anfang_Wunschbriefe_Druckpaket.pdf) · [Einsatzhinweise](materialien/offener-anfang/Hinweise_Offener_Anfang.md)
 
-- 24 überarbeitete Arbeitsblätter
-- angepasste Merkblätter
-- zentrale Lernwegübersicht
-- Lernbuddy
-- acht SRL-Strategiekarten
-- Lehrkraft-Cockpit A3
-- Kontroll-Kiosk
-- Probearbeit
-- drei Lernerfolgskontrollen
-- Bewertungsraster
-- Lösungspaket für Lehrkräfte
-- freiwillige Projekte
-- Impuls-Präsentation
-- schwarzweiße Otter-Illustrationen
-- zentrale Materialzentrale `index.html`
+Dieses zusätzliche Paket übt Teilfertigkeiten. Die Briefausschnitte und Satzbauspiele sind keine vollständigen Briefvorlagen; die Einsatzhinweise klären Ergänzungen und den Umgang mit unbelegten Datenaussagen.
 
-Noch sinnvoll zu ergänzen sind:
+## Pflege und Qualität
 
-- Beobachtungs- und Coachingbogen für die Lernzeiten
-- Auffrischungsmaterial nach Projektwoche und Herbstferien
-- Wochenübersicht nach Bekanntgabe des Stundenplans
-- Organisationsmaterial für das Prüfungsfenster nach Bekanntgabe des Stundenplans
-- Praxistest des Kontroll-Kiosks auf dem Schullaptop
-- vollständiges PDF-Druckpaket aller zentralen Materialien
+[Projektanleitung](skill.md) und [gemeinsame Grundlage](materialien/bewertung/Anforderungen_Wunschbriefe.md) dokumentieren den aktuellen Stand. Arbeitsblätter und Cockpit nutzen gemeinsame Aufgabendaten; Kiosk und Drucklösungen nutzen eine gemeinsame Lösungsquelle. Bei Änderungen zusammengehörige Ausgaben gemeinsam aktualisieren und Druckseiten visuell prüfen.
 
-## Gestaltungsregeln
-
-Für neue Materialien gelten verbindlich:
-
-- einfache, klare Sprache für Jahrgang 5,
-- direkte Ansprache mit „du“,
-- konsequentes Wording **Planung – Durchführung – Reflexion**,
-- Arbeitsblätter in DIN A5 hochkant,
-- Schriftgröße nie unter 12 pt,
-- möglichst vollständige Nutzung der Seite,
-- mindestens eine freie Zeile nach jeder Aufgabe,
-- deutlich sichtbare Blattnummer,
-- **🔼 Noch einen Schritt** und **⭐ Für Entdecker** immer freiwillig,
-- Projekte immer freiwillig,
-- Daten als Zusatz und nicht als Voraussetzung für den Mindeststandard.
+Die acht vereinbarten Überarbeitungsschritte sind abgeschlossen. Die nächste sinnvolle Prüfung ist der Einsatz mit der Lerngruppe: Verständlichkeit der Aufträge, Auffindbarkeit der Hilfen, Schreibraum und passende Herausforderungen beobachten. Ein automatischer Nachweis gleicher Schwierigkeit oder pädagogischer Wirksamkeit wird damit nicht behauptet.
