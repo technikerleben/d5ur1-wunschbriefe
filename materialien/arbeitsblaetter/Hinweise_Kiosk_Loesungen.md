@@ -14,7 +14,7 @@ Die Datei `apps/kontroll-kiosk/index.html` als vollständige HTML-Datei auf dem 
 
 Die Lösungen passen zu den Arbeitsblättern in Fassung 3. Geschlossene Aufgaben erhalten ihre konkrete Antwort, offene Aufgaben Vergleichsbeispiele und Kriterien. Plausible Alternativen sind besonders bei Zuständigkeiten, Wünschen, Anreden, Gründen und Reflexionen zulässig. Kein wortgleiches Abschreiben verlangen. Die Kiosktexte sind Orientierung, keine automatische Bewertung.
 
-Blatt 21 enthält keinen Musterbrief zur Probearbeit. Für den ersten Versuch gelten die festgelegten Hilfen; zusätzliche Unterstützung wird notiert. Der Kiosk gehört nicht zu den regulären Prüfungshilfen. Nach der Probearbeit erfolgt die Rückmeldung mit der Lehrkraft. Prüfungsunterlagen werden in Schritt 7 angeglichen.
+Blatt 21 enthält keinen Musterbrief zur Probearbeit. Für den ersten Versuch gelten die festgelegten Hilfen; zusätzliche Unterstützung wird notiert. Der Kiosk gehört nicht zu den regulären Prüfungshilfen. Nach der Probearbeit erfolgt die Rückmeldung mit der Lehrkraft. Die angeglichenen Prüfungsunterlagen enthalten bereits beide erlaubten Hilfeseiten; siehe [Durchführungshinweise](../lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md).
 
 Der Kiosk deckt Blatt 1–24 ab. Die neuen freiwilligen Projekte und Vertiefungen haben eigene Einsatz- und Lösungshinweise im Projektordner. Keine Projektzahl in den Kiosk eingeben.
 

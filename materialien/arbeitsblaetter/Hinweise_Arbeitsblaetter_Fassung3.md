@@ -9,7 +9,7 @@ Die Kinder arbeiten mit ausgedruckten Materialien und ihrem Heft. Jeder Arbeitsa
 - PDF mit 24 DIN-A5-Seiten drucken. Auf A5 in tatsächlicher Größe oder zwei A5-Seiten auf A4 ohne zusätzliche Verkleinerung ausgeben. Grundschrift: 14 pt.
 - Merkblätter und die beiden Seiten der Kinderfassung „Dein Wunschbrief: Das zählt“ ausdrucken und erreichbar bereitlegen. Die Lehrkraft klärt abweichende Pflichtangaben in älteren Hilfen anhand der gemeinsamen Anforderungen.
 - Blatt 14 und 15 sind vollständig freiwillig. Blatt 17 ist eine Schreibhilfe bei Bedarf; wer sie nicht braucht, geht zu Blatt 18. Freiwillige Zusätze auf anderen Blättern sind ausdrücklich gekennzeichnet.
-- Blatt 21 ist die Orientierung zur gesondert ausgeteilten Probearbeit, kein zweiter Schreibauftrag. Das Probearbeitspaket wird in Schritt 7 angeglichen. Bis dahin vor Ausgabe Gründe und Daten als freiwillig klären und beide Seiten der Kinderfassung ergänzen; zusätzliche Hilfe dokumentieren.
+- Blatt 21 ist die Orientierung zur gesondert ausgeteilten Probearbeit, kein zweiter Schreibauftrag. Das angeglichene Probearbeitspaket enthält bereits beide Seiten der Kinderfassung; Gründe und Daten sind ausdrücklich freiwillig. Zusätzliche Hilfe dokumentieren; siehe [Durchführungshinweise](../lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md).
 - Kiosk und Lösungspaket sind seit Schritt 6 auf diese Aufgabenfassung abgestimmt. Die Blätter enthalten zusätzlich eigene Selbstchecks.
 - Hilfen dürfen in der Übung auf jedem Leistungsniveau genutzt werden. Gründe und Daten sind keine Voraussetzung für einen gelungenen Grundtext.
 

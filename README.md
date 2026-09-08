@@ -4,7 +4,7 @@ Dieses Repository bündelt die Materialien zur ersten Deutschreihe in Jahrgang 5
 
 Die Reihe verbindet fachliches Lernen mit ersten Routinen des selbstregulierten Lernens (SRL) und mit dem parallelen Mathematikthema **Umfragen und Daten visualisieren**.
 
-**Stand:** 8. September 2026 · Überarbeitung Schritte 1–6
+**Stand:** 8. September 2026 · Überarbeitung Schritte 1–7
 
 ## Aktuell: Anforderungen und Bewertung vereinheitlicht
 
@@ -12,7 +12,7 @@ Die [Anforderungen, Lernstufen und Hilfen](materialien/bewertung/Anforderungen_W
 
 Die Materialwebsite richtet sich an Kolleginnen und Kollegen. Kinder arbeiten mit Papier; nur der Kontroll-Kiosk ist am Klassenraum-Laptop verfügbar.
 
-**Übergangsstand:** Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter, die Strategiekarten und die freiwilligen Projekte und Vertiefungen sind überarbeitet. Kiosk und Lösungspaket sind ebenfalls synchronisiert. Präsentation, übrige Übersichten und Prüfungsaufträge werden in den Schritten 7–8 angeglichen. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
+**Übergangsstand:** Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter, die Strategiekarten und die freiwilligen Projekte und Vertiefungen sind überarbeitet. Kiosk und Lösungspaket sind ebenfalls synchronisiert. Probearbeit und alle drei Arbeiten sind mit identischen Hilfen angeglichen. Präsentation und übrige Übersichten folgen in Schritt 8. Dort noch enthaltene widersprüchliche Pflichtangaben gelten nicht als zusätzliche Anforderungen; die Lehrkraft klärt dies vor dem Einsatz anhand der neuen Grundlage.
 
 ## Ziel der Reihe
 
@@ -128,7 +128,9 @@ Die Single-File-HTML-App bietet zu Blatt 1–24 wahlweise einen Tipp oder eine L
 
 ### Probearbeit
 
-Die Probearbeit ist verpflichtend und unbenotet. Sie enthält Schreibsituation, Diagramm, Schreibplan, Schreibbogen, Checkliste und Rückmeldung zur Prüfungsreife.
+Die Probearbeit ist verpflichtend und unbenotet. Das sechsseitige A4-Paket enthält einen klaren Auftrag mit freiwilliger Datentabelle, einen leeren Schreibplan, liniertes Schreibpapier, beide bekannten Hilfeseiten und einen Rückmeldebogen. Zusätzliche Hilfe sowie erste Fassung und unterstützte Überarbeitung werden getrennt festgehalten.
+
+[PDF](materialien/probearbeit/Probearbeit_Wunschbrief_Komplettpaket.pdf) · [DOCX](materialien/probearbeit/Probearbeit_Wunschbrief_Komplettpaket.docx) · [Hinweise zur Durchführung](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md)
 
 ### Lehrkraft-Cockpit
 
@@ -146,7 +148,15 @@ Datei: `materialien/lehrkraft/Lehrkraft_Cockpit_Wunschbriefe_A3.pdf`
 
 ### Lernerfolgskontrolle
 
-Es liegen drei gleichwertige Varianten für drei mögliche Prüfungstermine vor. Die Themen unterscheiden sich, Aufbau, Hilfen und Anspruchsniveau bleiben vergleichbar.
+Drei Varianten mit gleichem Aufgabenaufbau und identischen Hilfen liegen jeweils als fünfseitiges A4-Paket vor. Die Wünsche unterscheiden sich; Datentabellen haben dieselbe Struktur und dieselben Zahlenwerte. Gründe und Daten sind freiwillig. Arbeitszeit vor der Ausgabe für alle Termine einheitlich eintragen; vereinbarte individuelle Anpassungen berücksichtigen.
+
+| Variante | PDF | DOCX |
+|---|---|---|
+| Termin 1 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_1.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_1.docx) |
+| Termin 2 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_2.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_2.docx) |
+| Termin 3 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_3.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_3.docx) |
+
+[Sammlung aller drei Termine (15 Seiten, PDF)](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_3_Termine.pdf) · [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_3_Termine.docx) · [Druckbereiche, Hilfen und Bewertung](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md)
 
 ### Bewertungsraster
 
