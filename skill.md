@@ -33,7 +33,7 @@ Beispieldaten als erfunden kennzeichnen, Gesamtzahl und Mehrfachantworten kläre
 
 ## Quellen und Weiterarbeit
 
-- [README](README.md): aktueller Materialbestand und direkte Downloads.
+- [README](https://github.com/technikerleben/d5ur1-wunschbriefe/blob/main/README.md): aktueller Materialbestand und direkte Downloads.
 - [Unterrichtshinweise](materialien/lehrkraft/Hinweise_Unterricht_Fassung3.md): fünf Inputs, Papiermaterial, SRL-Strategien und Doppelbesetzung.
 - Arbeitsblätter: `materialien/arbeitsblaetter/arbeitsblaetter_inhalte.json`, Generator `tools/generate_arbeitsblaetter.py`.
 - Kiosk und Drucklösungen: `materialien/arbeitsblaetter/loesungen_inhalte.json`, Generator `tools/generate_loesungen.py`; beide Ausgaben gemeinsam aktualisieren.
