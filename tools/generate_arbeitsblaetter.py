@@ -8,6 +8,66 @@ from docx.oxml.ns import qn
 ROOT=Path(__file__).resolve().parents[1]
 DATA=ROOT/'materialien/arbeitsblaetter/arbeitsblaetter_inhalte.json'
 OUT=ROOT/'materialien/arbeitsblaetter/Arbeitsblaetter_1-24_DIN_A5_ueberarbeitet.docx'
+ILLUSTRATION=ROOT/'materialien/Collage Otterbilder Briefe.png'
+# Native Word crops preserve the supplied artwork without making new images.
+# Bounding boxes are fractions of the original collage, not stretched tiles.
+MOTIFS={
+ 'denken':(.368,.31,.602,.603),
+ 'lesen':(.055,.335,.328,.641),
+ 'schreiben':(.345,.037,.635,.298),
+ 'post':(.029,.009,.331,.321),
+ 'fertig':(.654,.611,.946,.95),
+}
+MOTIF_BY_SHEET=['denken','denken','denken','post','post','lesen',
+ 'lesen','lesen','schreiben','lesen','schreiben','schreiben',
+ 'denken','denken','denken','denken','schreiben','schreiben',
+ 'lesen','schreiben','schreiben','fertig','denken','fertig']
+
+def add_otter(paragraph, number):
+ """Place one cropped motif in the unused top-right header space."""
+ motif=MOTIF_BY_SHEET[number-1]
+ left,top,right,bottom=MOTIFS[motif]
+ # Source aspect ratio is 1448:1086. Keep the crop's natural proportions.
+ height=Cm(1.55)
+ width=round(height*(1448/1086)*(right-left)/(bottom-top))
+ picture=paragraph.add_run().add_picture(str(ILLUSTRATION),width=width,height=height)
+ inline=picture._inline
+ crop=OxmlElement('a:srcRect')
+ for key,value in [('l',left),('t',top),('r',1-right),('b',1-bottom)]:
+  crop.set(key,str(round(value*100000)))
+ fill=inline.find('.//'+qn('pic:blipFill'))
+ fill.insert(1,crop)
+ if motif=='lesen':
+  # The next collage motif starts beneath the chair. Clip only that corner
+  # with Word's native picture geometry; retain the reader's complete tail.
+  props=inline.find('.//'+qn('pic:spPr'))
+  shape=props.find(qn('a:prstGeom'))
+  geom=OxmlElement('a:custGeom')
+  for name in ['avLst','gdLst','ahLst','cxnLst']:geom.append(OxmlElement('a:'+name))
+  rect=OxmlElement('a:rect')
+  for key,value in [('l','0'),('t','0'),('r','r'),('b','b')]:rect.set(key,value)
+  geom.append(rect)
+  paths=OxmlElement('a:pathLst');path=OxmlElement('a:path');path.set('w','100000');path.set('h','100000')
+  for i,(x,y) in enumerate([(0,0),(100000,0),(100000,94500),(44000,94500),(44000,100000),(0,100000)]):
+   command=OxmlElement('a:moveTo' if i==0 else 'a:lnTo');point=OxmlElement('a:pt');point.set('x',str(x));point.set('y',str(y));command.append(point);path.append(command)
+  path.append(OxmlElement('a:close'));paths.append(path);geom.append(paths)
+  props.replace(shape,geom)
+ inline.docPr.set('descr','Otter '+{'denken':'denkt nach','lesen':'liest einen Brief','schreiben':'schreibt einen Brief','post':'bringt einen Brief','fertig':'zeigt einen fertigen Brief'}[motif])
+ anchor=OxmlElement('wp:anchor')
+ for key,value in {'distT':'0','distB':'0','distL':'0','distR':'0','simplePos':'0','relativeHeight':'0','behindDoc':'0','locked':'0','layoutInCell':'1','allowOverlap':'0'}.items():
+  anchor.set(key,value)
+ pos=OxmlElement('wp:simplePos');pos.set('x','0');pos.set('y','0');anchor.append(pos)
+ horizontal=OxmlElement('wp:positionH');horizontal.set('relativeFrom','column')
+ align=OxmlElement('wp:align');align.text='right';horizontal.append(align);anchor.append(horizontal)
+ vertical=OxmlElement('wp:positionV');vertical.set('relativeFrom','paragraph')
+ offset=OxmlElement('wp:posOffset');offset.text='0';vertical.append(offset);anchor.append(vertical)
+ for tag in ['extent','effectExtent']:
+  child=inline.find(qn('wp:'+tag))
+  if child is not None:anchor.append(child)
+ anchor.append(OxmlElement('wp:wrapNone'))
+ for child in list(inline):anchor.append(child)
+ inline.getparent().replace(inline,anchor)
+ paragraph.paragraph_format.right_indent=Cm(3)
 D=Document()
 s=D.sections[0];s.page_width=Cm(14.8);s.page_height=Cm(21)
 s.top_margin=Cm(.8);s.bottom_margin=Cm(.8);s.left_margin=Cm(.9);s.right_margin=Cm(.9)
@@ -55,7 +115,8 @@ def table(rows):
  return t
 for item in json.loads(DATA.read_text()):
  p=para('Blatt '+str(item['n']),True,20);p.paragraph_format.space_after=Pt(3);p.paragraph_format.page_break_before=item['n']>1
- para(item['status'],True)
+ add_otter(p,item['n'])
+ para(item['status'],True).paragraph_format.right_indent=Cm(3)
  D.add_paragraph(item['title'],'Heading 1')
  band('Dein Ziel',item['goal'])
  for b in item['blocks']:
