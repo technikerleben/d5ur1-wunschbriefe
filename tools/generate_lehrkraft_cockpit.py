@@ -55,5 +55,5 @@ assert base>85
 text('Pflichtkern: Anrede · klarer Wunsch · weiterer passender Satz · Gruß + Name · freundlich · lesbar und verständlich.',M,base-18,12)
 text('Ort/Datum gehören dazu. Gründe und Daten bleiben freiwillig. Blatt 17 ist eine Hilfe bei Bedarf; alle Projekte sind freiwillig.',M,base-34,12)
 text('Die Lehrkraft vereinbart passende Übungen. Bei der Arbeit: nur das Prüfungspaket und vereinbarte individuelle Hilfen.',M,base-50,12)
-text('Strategien schrittweise einführen; Ablauf, Rollen und Druckbedarf: Hinweise_Unterricht_Fassung3.md',M,base-66,12)
+text('Strategien schrittweise einführen; Ablauf, Rollen und Druckbedarf: Hinweise_Unterricht_Fassung3.md',M,base-66,12)\ntext('Grafische Druckfassungen für Arbeitsblätter, Merkblätter, Strategiekarten, Probearbeit und Projekte: siehe Materialzentrale (index.html).',M,base-82,11)
 c.showPage();c.save();print(OUT)
