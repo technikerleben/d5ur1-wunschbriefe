@@ -35,4 +35,5 @@ jobs:
             materialien/probearbeit/Probearbeit_Wunschbrief_grafisch.pdf \
             materialien/projekte/Freiwillige_Projekte_Wunschbriefe_DIN_A5_grafisch.pdf
           git diff --cached --quiet || git commit -m 'Grafische Druckfassungen aktualisieren'
+          git pull --rebase origin main
           git push
