@@ -121,6 +121,11 @@ def strategy_design(src_path: Path, out_path: Path):
     print(out_path)
 
 def main():
+    A5 = fitz.paper_size('a5')
+    copy_with_design(
+        ROOT/'materialien/arbeitsblaetter/Mein_Lernweg.pdf',
+        ROOT/'materialien/arbeitsblaetter/Mein_Lernweg_grafisch_A5.pdf',
+        kind='a5', scale_to=A5)
     copy_with_design(
         ROOT/'materialien/arbeitsblaetter/Arbeitsblaetter_1-24_DIN_A5_ueberarbeitet.pdf',
         ROOT/'materialien/arbeitsblaetter/Arbeitsblaetter_1-24_DIN_A5_grafisch.pdf',
