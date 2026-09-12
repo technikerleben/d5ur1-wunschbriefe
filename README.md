@@ -22,7 +22,7 @@ Die Probearbeit ist verpflichtend und unbenotet. Blatt 14/15, zusätzliche Verti
 
 - [Unterrichtshinweise: Inputs, Material, Strategien und Doppelbesetzung](materialien/lehrkraft/Hinweise_Unterricht_Fassung3.md)
 - [Lehrkraft-Cockpit A3 (PDF)](materialien/lehrkraft/Lehrkraft_Cockpit_Wunschbriefe_A3.pdf): alle 24 Blätter, SRL-Strategie, Verbindlichkeit, Input und passende Hilfe; 12-Punkt-Schrift.
-- [Impuls-Präsentation (PPTX)](praesentationen/Impulse_Wunschbriefe_SRL_Mathe.pptx): 24 Folien im vorhandenen Design; fünf Inputs, freiwillige Datenimpulse, kurzer Musterbrief, Kriterien und Kiosk.
+- [Interaktive Impuls-Präsentation (HTML)](praesentationen/Impulse_Wunschbriefe_SRL_Mathe.html): 24 Folien im Otterklasse-Design; fünf Inputs, Briefpuzzle, anklickbare Checklisten, animierte freiwillige Datenimpulse, kurzer Musterbrief, Kriterien und Kiosk. Für Beamer, Tastatur und Touch – direkt im Browser und ohne PowerPoint.
 - [Prüfungshinweise](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md): Druckbereiche, gleiche Arbeitszeit, Hilfen und Rückmeldung.
 
 ## Papiermaterialien
