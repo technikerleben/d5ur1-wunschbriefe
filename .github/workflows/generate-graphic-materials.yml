@@ -1,0 +1,37 @@
+name: Generate graphic material PDFs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/generate_graphic_materials.py'
+      - '.github/workflows/generate-graphic-materials.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF tools
+        run: python -m pip install pymupdf pillow
+      - name: Generate graphic PDFs
+        run: python tools/generate_graphic_materials.py
+      - name: Commit generated PDFs
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            materialien/arbeitsblaetter/Arbeitsblaetter_1-24_DIN_A5_grafisch.pdf \
+            materialien/merkblaetter/Merkblaetter_Wunschbriefe_A3_grafisch.pdf \
+            materialien/strategiekarten/Strategiekarten_Lernbuddy_Querstreifen_grafisch.pdf \
+            materialien/probearbeit/Probearbeit_Wunschbrief_grafisch.pdf \
+            materialien/projekte/Freiwillige_Projekte_Wunschbriefe_DIN_A5_grafisch.pdf
+          git diff --cached --quiet || git commit -m 'Grafische Druckfassungen aktualisieren'
+          git push
