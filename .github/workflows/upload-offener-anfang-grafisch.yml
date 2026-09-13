@@ -1,0 +1,30 @@
+name: Upload graphic open-beginning PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/upload-offener-anfang-grafisch.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download graphic PDF
+        run: |
+          mkdir -p materialien/offener-anfang
+          curl -fL 'https://d2ol7oe51mr4n9.cloudfront.net/user_36l85Ny3LLOpg24AAAn7md1G7SK/ca657590-61e3-4cfb-9360-ffccc80d07f4.pdf' -o materialien/offener-anfang/Offener_Anfang_Wunschbriefe_grafisch_A5.pdf
+          test -s materialien/offener-anfang/Offener_Anfang_Wunschbriefe_grafisch_A5.pdf
+      - name: Commit PDF
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add materialien/offener-anfang/Offener_Anfang_Wunschbriefe_grafisch_A5.pdf
+          git diff --cached --quiet || git commit -m 'Grafischen Offenen Anfang ergänzen'
+          git pull --rebase origin main
+          git push
