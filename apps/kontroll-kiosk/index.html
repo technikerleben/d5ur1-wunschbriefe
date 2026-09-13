@@ -1,18 +1,257 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kontroll-Kiosk Wunschbriefe</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#245688">
+<title>Kontroll-Kiosk · Wunschbriefe</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23245688'/%3E%3Cpath d='M13 19h38v28H13z' fill='white'/%3E%3Cpath d='m14 21 18 15 18-15' fill='none' stroke='%23F0A66F' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
-:root{--slate:#3E5668;--rust:#D97A4A;--sage:#7DBB6F;--paper:#F5F4F1;--ink:#1f2b33;--muted:#65737c;--shadow:0 14px 35px rgba(30,45,55,.16)}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:var(--paper);color:var(--ink)}body{display:flex;align-items:center;justify-content:center;padding:22px}.app{width:min(980px,100%);min-height:640px;background:white;border-radius:28px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}header{background:var(--slate);color:white;padding:18px 26px;display:flex;align-items:center;justify-content:space-between;gap:12px}header h1{font-size:clamp(1.35rem,3vw,2rem);margin:0}.subtitle{opacity:.86;font-size:.94rem}.header-actions{display:flex;gap:10px}.header-btn{border:2px solid rgba(255,255,255,.55);background:transparent;color:white;border-radius:12px;padding:9px 13px;font-weight:800;cursor:pointer}main{flex:1;padding:34px;display:flex;align-items:center;justify-content:center}.screen{width:100%;max-width:790px;text-align:center}.hidden{display:none!important}.lead{font-size:clamp(1.15rem,2vw,1.45rem);margin:0 0 26px}.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.big-btn{border:0;border-radius:24px;padding:40px 20px;font-size:clamp(1.6rem,4vw,2.5rem);font-weight:850;cursor:pointer;box-shadow:var(--shadow);transition:.15s}.big-btn:hover,.big-btn:focus-visible{transform:translateY(-2px);outline:4px solid rgba(62,86,104,.25)}.tip{background:var(--sage);color:#15331a}.solution{background:var(--rust);color:#3c1b09}.mode-chip{display:inline-block;padding:8px 15px;border-radius:999px;font-weight:850;margin-bottom:8px}.mode-tip{background:#dcefd7;color:#25552a}.mode-solution{background:#f5dfd0;color:#7a3b18}.number-display{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:850;background:#edf1f3;border-radius:18px;padding:18px;margin:12px auto 22px;min-height:108px;display:flex;align-items:center;justify-content:center}.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;max-width:440px;margin:auto}.key{border:0;border-radius:15px;padding:17px;font-size:1.55rem;font-weight:850;background:#e5ebee;cursor:pointer}.key:hover,.key:focus-visible{outline:4px solid rgba(62,86,104,.2)}.key.action{font-size:1rem;background:#d7e0e5}.key.show{grid-column:span 3;background:var(--slate);color:white}.error{min-height:26px;margin-top:13px;color:#a33737;font-weight:800}.result-card{text-align:left;background:#f7f8f8;border:1px solid #dbe1e4;border-radius:22px;padding:27px;box-shadow:0 8px 18px rgba(0,0,0,.06)}.result-card h2{color:var(--slate);margin:0 0 5px}.result-type{font-size:.86rem;font-weight:850;color:var(--rust);text-transform:uppercase;letter-spacing:.055em;margin:8px 0 16px}.result-text{font-size:1.18rem;line-height:1.62;white-space:pre-line}.actions{display:flex;justify-content:center;gap:13px;flex-wrap:wrap;margin-top:22px}.primary,.secondary{border-radius:14px;padding:13px 21px;font-weight:850;cursor:pointer}.primary{border:0;background:var(--slate);color:white}.secondary{border:2px solid var(--slate);background:white;color:var(--slate)}footer{text-align:center;padding:11px 20px;color:var(--muted);font-size:.84rem}@media(max-width:700px){body{padding:0}.app{min-height:100vh;border-radius:0}.choice-grid{grid-template-columns:1fr}main{padding:24px 17px}}
-button:focus-visible,summary:focus-visible{outline:3px solid #153f62;outline-offset:4px}summary{cursor:pointer;font-weight:800;font-size:1.2rem;padding:14px 0}details{margin-top:18px;border-top:1px solid #ccd5dc}.result-type{color:#794222}.result-text{line-height:1.5}#resultTitle:focus{outline:none}</style></head>
-<body><div class="app"><header><div><h1>Kontroll-Kiosk</h1><div class="subtitle">Tipp oder Vergleich zu Blatt 1–24</div></div><div class="header-actions"><button class="header-btn" id="fullscreen">Vollbild</button><button class="header-btn" id="homeHeader">Start</button></div></header>
-<main>
-<section class="screen" id="startScreen"><p class="lead">Was möchtest du sehen?</p><div class="choice-grid"><button class="big-btn tip" data-mode="tip">Tipp</button><button class="big-btn solution" data-mode="solution">Lösung</button></div></section>
-<section class="screen hidden" id="numberScreen"><div id="modeChip" class="mode-chip"></div><p class="lead">Gib die Nummer des Arbeitsblattes ein.</p><div class="number-display" id="display" role="status" aria-label="Blattnummer">–</div><div class="keypad"><button class="key">1</button><button class="key">2</button><button class="key">3</button><button class="key">4</button><button class="key">5</button><button class="key">6</button><button class="key">7</button><button class="key">8</button><button class="key">9</button><button class="key action" data-action="clear">Löschen</button><button class="key">0</button><button class="key action" data-action="backspace" aria-label="Letzte Ziffer löschen">⌫</button><button class="key show" data-action="show">Anzeigen</button></div><div class="error" id="error" role="alert"></div></section>
-<section class="screen hidden" id="resultScreen"><div class="result-card"><div id="resultMode" class="mode-chip"></div><h2 id="resultTitle" tabindex="-1"></h2><div class="result-type" id="resultType"></div><div class="result-text" id="resultText"></div><details id="extra" class="hidden"><summary>Zusatz · freiwillig</summary><div class="result-text" id="extraText"></div></details></div><div class="actions"><button class="secondary" id="switchMode">Lösung ansehen</button><button class="secondary" id="another">Andere Blattnummer</button><button class="primary" id="home">Zurück zum Start</button></div></section>
-</main><footer>Lies in Ruhe. Danach: „Zurück zum Start“. Bei der Nummerneingabe: nach 3 Minuten zurück zum Start. · Fassung 3</footer></div>
+:root{
+  --blue:#245688;--blue-700:#1f4770;--blue-900:#19334e;--blue-50:#eff5fa;--blue-100:#ddeaf4;
+  --mint:#48dccb;--mint-50:#effcfa;--mint-100:#d6f8f3;--mint-600:#1b958a;
+  --orange:#f0a66f;--orange-50:#fff8f2;--orange-100:#feeedD;--orange-600:#cf6320;
+  --ink:#18324a;--muted:#3d5061;--line:#c5d0d9;--white:#fff;
+  --shadow:0 20px 60px rgba(15,33,52,.25);--radius:clamp(16px,2vw,28px)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Trebuchet MS",Aptos,"Segoe UI",Arial,sans-serif;color:var(--ink)}
+body{
+  min-height:100vh;display:grid;place-items:center;padding:clamp(8px,2.2vh,22px);
+  background:
+    radial-gradient(circle at 12% 12%,rgba(72,220,203,.12),transparent 26%),
+    radial-gradient(circle at 88% 88%,rgba(240,166,111,.14),transparent 26%),
+    linear-gradient(135deg,#0f2134,#245688)
+}
+button{font:inherit}
+button:focus-visible,summary:focus-visible{outline:4px solid #e8833b;outline-offset:3px}
+.app{
+  position:relative;width:min(1120px,100%);height:min(780px,calc(100vh - 28px));min-height:620px;
+  background:var(--white);border:clamp(2px,.22vw,4px) solid var(--blue);border-radius:var(--radius);
+  box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-rows:auto minmax(0,1fr) auto
+}
+.app::before,.app::after{content:"";position:absolute;z-index:4;width:clamp(6px,.6vw,9px);height:11%;pointer-events:none}
+.app::before{left:-1px;top:-1px;background:var(--orange)}
+.app::after{right:-1px;bottom:-1px;background:var(--mint)}
+header{
+  position:relative;z-index:3;padding:18px clamp(22px,3.5vw,42px);display:flex;align-items:center;justify-content:space-between;gap:18px;
+  background:linear-gradient(90deg,var(--blue-50),#fff 58%);border-bottom:1px solid var(--blue-100)
+}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.brand-mark{
+  width:46px;height:46px;flex:0 0 auto;border-radius:14px;background:var(--blue);display:grid;place-items:center;
+  box-shadow:0 5px 0 rgba(36,86,136,.14)
+}
+.brand-mark svg{width:28px;height:28px}
+header h1{margin:0;font-size:clamp(1.45rem,2.8vw,2.35rem);letter-spacing:-.035em;line-height:1;color:var(--ink)}
+.subtitle{margin-top:5px;color:var(--muted);font-size:clamp(.82rem,1.25vw,1rem)}
+.header-actions{display:flex;gap:9px}
+.header-btn{
+  min-height:44px;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:12px;padding:9px 14px;font-weight:850;cursor:pointer
+}
+.header-btn:hover{background:var(--blue-50);transform:translateY(-1px)}
+main{min-height:0;padding:clamp(20px,3.2vw,42px);display:grid;place-items:center;overflow:auto}
+.screen{width:100%;max-width:920px;text-align:center;animation:screenIn .22s ease-out}
+@keyframes screenIn{from{opacity:.25;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hidden{display:none!important}
+.start-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,4vw,54px);align-items:center;text-align:left}
+.kicker{
+  display:inline-flex;margin:0 0 .55em;padding:.3em .7em;border-radius:.55em;background:var(--blue-100);color:var(--blue-900);
+  font-weight:900;font-size:.9rem;letter-spacing:.02em
+}
+.start-copy h2,.number-head h2,.result-card h2{
+  margin:0;color:var(--ink);letter-spacing:-.035em;line-height:1.05;font-weight:950
+}
+.start-copy h2{font-size:clamp(2rem,4.4vw,4rem)}
+.start-copy h2::after,.number-head h2::after,.result-card h2::after{
+  content:"";display:block;width:42%;max-width:210px;height:.11em;margin-top:.15em;border-radius:99px;background:#8dc7ee;transform:rotate(-1deg)
+}
+.lead{font-size:clamp(1.02rem,1.8vw,1.28rem);line-height:1.45;color:var(--muted);margin:.8em 0 1.2em}
+.otter-frame{
+  position:relative;min-height:330px;border-radius:var(--radius);
+  background:linear-gradient(145deg,#f7fcff,#e5f4ff 58%,#effcf8);border:2px solid #8dc7ee;overflow:hidden
+}
+.otter-frame::before{content:"";position:absolute;inset:7%;background:url('../../praesentationen/assets/otter/kiosk.png') center/contain no-repeat;filter:drop-shadow(0 7px 7px rgba(36,86,136,.12))}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.big-btn{
+  position:relative;min-height:138px;border-radius:18px;padding:22px 20px;text-align:left;cursor:pointer;
+  box-shadow:0 5px 0 rgba(36,86,136,.08);transition:.15s;border:3px solid var(--blue);background:var(--blue-50);color:var(--ink)
+}
+.big-btn:hover,.big-btn:focus-visible{transform:translateY(-2px)}
+.big-btn.solution{border-color:var(--orange-600);background:var(--orange-50)}
+.big-btn .btn-title{display:block;font-size:clamp(1.55rem,3vw,2.35rem);font-weight:950;line-height:1}
+.big-btn.tip .btn-title{color:var(--mint-600)}
+.big-btn.solution .btn-title{color:var(--orange-600)}
+.big-btn .btn-copy{display:block;margin-top:.55em;font-size:.92rem;line-height:1.35;color:var(--muted);font-weight:700}
+.flow{
+  grid-column:1/-1;display:flex;align-items:center;gap:9px;margin-top:4px;color:var(--muted);font-size:.8rem;font-weight:800
+}
+.flow-step{flex:1;text-align:center;padding:9px 8px;border-radius:10px;background:var(--blue-50);border:1px solid var(--blue-100)}
+.flow-arrow{color:var(--orange-600);font-weight:950}
+.number-wrap{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:clamp(24px,5vw,56px);align-items:center;text-align:left}
+.number-head{align-self:start}
+.number-head h2{font-size:clamp(1.7rem,3vw,2.7rem)}
+.mode-chip{
+  display:inline-flex;align-items:center;padding:8px 15px;border-radius:999px;font-weight:900;margin-bottom:12px;border:2px solid transparent
+}
+.mode-tip{background:var(--mint-50);color:#126e65;border-color:var(--mint)}
+.mode-solution{background:var(--orange-50);color:#8a4217;border-color:var(--orange)}
+.number-display{
+  font-size:clamp(3rem,7vw,5.5rem);font-weight:950;line-height:1;background:var(--blue-50);border:2px solid #8dc7ee;
+  border-radius:18px;padding:16px;margin:18px 0;min-height:116px;display:flex;align-items:center;justify-content:center;color:var(--blue);
+  box-shadow:0 5px 0 rgba(36,86,136,.08);font-variant-numeric:tabular-nums
+}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.key{
+  min-height:62px;border:2px solid var(--blue-100);border-radius:14px;padding:12px;font-size:1.45rem;font-weight:900;
+  background:#fff;color:var(--ink);cursor:pointer;box-shadow:0 3px 0 rgba(36,86,136,.08)
+}
+.key:hover,.key:focus-visible{border-color:var(--blue);background:var(--blue-50);transform:translateY(-1px)}
+.key.action{font-size:.92rem;background:var(--blue-50);color:var(--blue)}
+.key.show{grid-column:span 3;background:var(--blue);border-color:var(--blue);color:white;font-size:1.05rem}
+.key.show:hover{background:var(--blue-700)}
+.number-otter{
+  width:100%;aspect-ratio:1/1;border-radius:20px;border:2px solid #8dc7ee;background:
+  url('../../praesentationen/assets/otter/kiosk.png') center/82% no-repeat,
+  linear-gradient(145deg,#f7fcff,#e5f4ff 58%,#effcf8)
+}
+.error{min-height:26px;margin-top:12px;color:#9b3030;font-weight:850}
+.result-wrap{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:24px;align-items:start;text-align:left}
+.result-card{
+  background:#fff;border:2px solid #8dc7ee;border-radius:22px;padding:clamp(22px,3vw,34px);
+  box-shadow:0 6px 0 rgba(36,86,136,.08)
+}
+.result-card h2{font-size:clamp(1.6rem,2.7vw,2.45rem)}
+.result-type{font-size:.8rem;font-weight:900;color:var(--orange-600);text-transform:uppercase;letter-spacing:.065em;margin:13px 0 18px}
+.result-text{font-size:clamp(1rem,1.65vw,1.22rem);line-height:1.56;white-space:pre-line}
+.result-otter{
+  width:150px;height:150px;border-radius:18px;background:url('../../praesentationen/assets/otter/lesen.png') center/contain no-repeat;
+  filter:drop-shadow(0 5px 5px rgba(36,86,136,.12))
+}
+details{margin-top:20px;padding-top:12px;border-top:2px solid var(--blue-100)}
+summary{cursor:pointer;font-weight:900;font-size:1.05rem;color:var(--blue)}
+.actions{grid-column:1/-1;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:0}
+.primary,.secondary{min-height:46px;border-radius:12px;padding:12px 19px;font-weight:900;cursor:pointer}
+.primary{border:2px solid var(--blue);background:var(--blue);color:white}
+.primary:hover{background:var(--blue-700)}
+.secondary{border:2px solid var(--blue);background:#fff;color:var(--blue)}
+.secondary:hover{background:var(--blue-50)}
+footer{
+  position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:11px clamp(22px,3.5vw,42px);border-top:1px solid var(--blue-100);font-size:.78rem;color:var(--muted);background:#fff
+}
+.phase{color:var(--mint-600);font-weight:850;white-space:nowrap}
+#resultTitle:focus{outline:none}
+@media(max-width:820px){
+  body{padding:0;background:#fff}.app{width:100%;height:100vh;min-height:100vh;border-radius:0;border-width:0}
+  .start-layout,.number-wrap{grid-template-columns:1fr}.otter-frame,.number-otter{display:none}
+  .result-wrap{grid-template-columns:1fr}.result-otter{display:none}
+  main{padding:22px 18px}.choice-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  header{align-items:flex-start}.brand-mark{display:none}.header-actions{gap:6px}.header-btn{padding:8px 10px}
+  .choice-grid{grid-template-columns:1fr}.big-btn{min-height:112px}.flow{display:none}
+  footer{display:block;text-align:center}.phase{display:block;margin-top:3px}
+}
+@media(max-height:650px) and (min-width:821px){
+  .app{min-height:0}.otter-frame{min-height:260px}.big-btn{min-height:112px}.number-otter{max-height:230px}
+  main{padding-top:20px;padding-bottom:20px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><path d="M13 19h38v28H13z" fill="white"/><path d="m14 21 18 15 18-15" fill="none" stroke="#F0A66F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div><h1>Kontroll-Kiosk</h1><div class="subtitle">Wunschbriefe · Blatt 1–24 · nur beim Üben</div></div>
+    </div>
+    <div class="header-actions">
+      <button class="header-btn" id="fullscreen">Vollbild</button>
+      <button class="header-btn" id="homeHeader">Start</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="screen" id="startScreen">
+      <div class="start-layout">
+        <div class="start-copy">
+          <p class="kicker">Selbst kontrollieren</p>
+          <h2>Tipp oder Lösung?</h2>
+          <p class="lead">Wähle zuerst, was du brauchst. Nutze einen Tipp, wenn du selbst weiterarbeiten möchtest. Vergleiche mit der Lösung, wenn du fertig bist.</p>
+          <div class="choice-grid">
+            <button class="big-btn tip" data-mode="tip">
+              <span class="btn-title">Tipp</span>
+              <span class="btn-copy">Ein Hinweis hilft dir beim Weiterdenken.</span>
+            </button>
+            <button class="big-btn solution" data-mode="solution">
+              <span class="btn-title">Lösung</span>
+              <span class="btn-copy">Vergleiche dein Ergebnis und ändere nur, was nötig ist.</span>
+            </button>
+            <div class="flow" aria-hidden="true">
+              <div class="flow-step">1. auswählen</div><span class="flow-arrow">→</span>
+              <div class="flow-step">2. Blattnummer</div><span class="flow-arrow">→</span>
+              <div class="flow-step">3. lesen &amp; zurück</div>
+            </div>
+          </div>
+        </div>
+        <div class="otter-frame" role="img" aria-label="Otter arbeitet an einem Laptop"></div>
+      </div>
+    </section>
+
+    <section class="screen hidden" id="numberScreen">
+      <div class="number-wrap">
+        <div>
+          <div id="modeChip" class="mode-chip"></div>
+          <div class="number-head">
+            <h2>Welche Blattnummer?</h2>
+            <p class="lead">Gib die Nummer deines Arbeitsblattes ein.</p>
+          </div>
+          <div class="number-display" id="display" role="status" aria-label="Blattnummer">–</div>
+          <div class="keypad">
+            <button class="key">1</button><button class="key">2</button><button class="key">3</button>
+            <button class="key">4</button><button class="key">5</button><button class="key">6</button>
+            <button class="key">7</button><button class="key">8</button><button class="key">9</button>
+            <button class="key action" data-action="clear">Löschen</button><button class="key">0</button>
+            <button class="key action" data-action="backspace" aria-label="Letzte Ziffer löschen">⌫</button>
+            <button class="key show" data-action="show">Anzeigen</button>
+          </div>
+          <div class="error" id="error" role="alert"></div>
+        </div>
+        <div class="number-otter" role="img" aria-label="Otter am Kontroll-Kiosk"></div>
+      </div>
+    </section>
+
+    <section class="screen hidden" id="resultScreen">
+      <div class="result-wrap">
+        <div class="result-card">
+          <div id="resultMode" class="mode-chip"></div>
+          <h2 id="resultTitle" tabindex="-1"></h2>
+          <div class="result-type" id="resultType"></div>
+          <div class="result-text" id="resultText"></div>
+          <details id="extra" class="hidden">
+            <summary>Zusatz · freiwillig</summary>
+            <div class="result-text" id="extraText"></div>
+          </details>
+        </div>
+        <div class="result-otter" role="img" aria-label="Otter liest und arbeitet"></div>
+        <div class="actions">
+          <button class="secondary" id="switchMode">Lösung ansehen</button>
+          <button class="secondary" id="another">Andere Blattnummer</button>
+          <button class="primary" id="home">Zurück zum Start</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Lies in Ruhe. Kehre danach zu deiner Papieraufgabe zurück. · Fassung 4</span>
+    <span class="phase">Planung → Durchführung → Reflexion</span>
+  </footer>
+</div>
 <script>
 /* DATA_START */const DATA={"1": {"title": "Unsere Wünsche für die neue Schule", "tip": "Denke an Räume, Pausen und Angebote in der Schule. Ein privater Urlaub verändert die Schule nicht.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1: Richtig sind Sitzplätze, neue Spiele, Theater-AG und ruhiger Lesebereich. Bett und Urlaub passen nicht.\n\nAufgabe 2 – Beispiel: „Ich wünsche mir neue Bälle für die Pause.“ Andere ganze Sätze mit einem Schulwunsch passen auch.", "extra": "", "status": "Übung"}, "2": {"title": "Mein Lernweg", "tip": "Lies die Erklärung oben. Welche Aussagen passen dazu? Dein Lernziel nennt etwas, das du können möchtest.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1: Richtig sind „Du darfst dir Hilfe holen“ und „Du schreibst eine Probearbeit“.\n\nAufgabe 2 – Beispiel: „Ich möchte eine passende Anrede schreiben.“ Dein eigenes kleines Lernziel darf anders sein.", "extra": "", "status": "Übung"}, "3": {"title": "Wünsche für unsere Schule", "tip": "Suche die Wörter für Ruhe und Sitzen. Wähle danach einen Wunsch für deinen eigenen Satz.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1: Unterstreiche „Ruheraum“. Kreise „Sitzplätze“ ein.\n\nAufgabe 2 – Beispiel: „Ich wünsche mir mehr Sitzplätze auf dem Schulhof.“", "extra": "Beispiel: „18 Kinder wünschen sich eine Spieleausleihe.“ Auch richtig: neue Bälle 15, Ruheraum 9, Sitzplätze 12. Mehrere Antworten waren erlaubt. Eine Gesamtzahl der Kinder ist nicht angegeben.", "status": "Übung"}, "4": {"title": "Wer schreibt wem?", "tip": "Die Anrede zeigt, wer den Brief bekommt. Der Name am Ende zeigt, wer ihn schreibt.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1: Richtig sind „Lena schreibt den Brief“ und „Lena wünscht sich eine Leseecke“.\n\nAufgabe 2: „Lena schreibt an Frau Neumann. Sie wünscht sich eine Leseecke für die Klasse.“", "extra": "", "status": "Übung"}, "5": {"title": "Wer kann dabei helfen?", "tip": "Wer kann besprechen, planen, reparieren oder Geld geben? Manchmal kann mehr als eine Person helfen.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1 – mögliche Zuordnung:\nKlassenausflug: 1 Klassenleitung\nRuheraum: 2 Schulleitung\nHaken: 3 Hausmeisterei\nSpieleausleihe: 4 Schülervertretung\nGeld für Bälle: 5 Förderverein\n\nAufgabe 2 – Beispiel: „Die Klassenleitung kann den Ausflug mit uns planen.“ Andere Zuordnungen sind möglich, wenn die Person dabei helfen kann.", "extra": "", "status": "Übung"}, "6": {"title": "Was ist der Wunsch?", "tip": "Suche den Satz mit „wünsche“. Ein weiterer Grund erklärt, wozu Ablagefächer helfen.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1: Unterstreiche „Ich wünsche mir Ablagefächer für unsere Klasse.“\n\nAufgabe 2 – Beispiel: „Für unsere Klasse wünsche ich mir neue Ablagefächer.“", "extra": "Ein weiterer Grund: „In Ablagefächern finden wir unsere Hefte schneller wieder.“ Eine Zahl allein erklärt noch keinen Nutzen.", "status": "Übung"}, "7": {"title": "Die Teile eines Briefes", "tip": "Beginne mit Ort und Datum. Nach der Anrede kommt der Brieftext.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1 – Zahlen von oben nach unten: 4, 1, 5, 3, 2.\n\nAufgabe 2 – richtige Reihenfolge:\n1. Ort und Datum\n2. Anrede\n3. Brieftext\n4. Grußformel\n5. Name", "extra": "", "status": "Übung"}, "8": {"title": "Das Briefpuzzle", "tip": "Suche Ort und Datum, dann die Anrede. Der Name steht zuletzt.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1 – Zahlen von oben nach unten: 4, 2, 5, 1, 3.\n\nAufgabe 2: „Mina wünscht sich eine Tischtennisplatte für den Schulhof.“", "extra": "", "status": "Übung"}, "9": {"title": "Anrede und Grußformel", "tip": "Zu einer Freundin darf der Ton persönlicher sein. Nach der Anrede steht ein Komma, nach dem Gruß keines.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1 – Beispiele:\nLiebe Frau Neumann, / Viele Grüße\nSehr geehrte Frau Schneider, / Freundliche Grüße\nHallo Mia, / Liebe Grüße\n\nAufgabe 2: Wähle Anfang und Schluss passend zu deiner Person. Mehrere Grußformeln können richtig sein.", "extra": "", "status": "Übung"}, "10": {"title": "Fehlerwerkstatt Briefaufbau", "tip": "Ort und Datum stehen vor der Anrede. Grußformel und Name schließen den Brief ab.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1: Kreise „Dortmund, 20. September 2026“ ein. Unterstreiche „Jonas“ und „Viele Grüße“.\n\nAufgabe 2:\nDortmund, 20. September 2026\nLiebe Frau Berger,\nich wünsche mir neue Sitzkissen. Ich würde mich darüber sehr freuen.\nViele Grüße\nJonas", "extra": "", "status": "Übung"}, "11": {"title": "Freundlich und genau", "tip": "„Sofort“ und „endlich“ machen hier Druck. Nenne eine konkrete Sache und bitte freundlich darum.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1: Richtig sind „Wir würden uns über neue Spiele freuen“ und „Könnten Sie bitte neue Bälle besorgen?“\n\nAufgabe 2 – Beispiel: „Ich wünsche mir neue Bälle für die Pause.“", "extra": "„18 von 26 Kindern wünschen sich eine Spieleausleihe.“ 18 von 26 sind nicht alle.", "status": "Übung"}, "12": {"title": "Satzstarter für Wunschbriefe", "tip": "Lies Anfang und Ende zusammen. Ergibt sich ein ganzer Satz?", "type": "Lösung und Vergleich", "solution": "Aufgabe 1: A–2 und B–1.\n„Ich wünsche mir neue Sitzbänke für den Schulhof.“\n„Ich würde mich freuen, wenn Sie eine Spieleausleihe anbieten könnten.“\n\nAufgabe 2 – Beispiel: „Ich wünsche mir neue Bälle für die Pause.“", "extra": "„In der Umfrage wünschen sich 17 Kinder eine Leseecke.“ Eine Gesamtzahl ist hier nicht genannt.", "status": "Übung"}, "13": {"title": "Mein Wunsch für den Schulalltag", "tip": "Wähle zuerst deinen Wunsch. Überlege dann, zu welchem Bereich und zu welcher Person er passt.", "type": "Lösung und Vergleich", "solution": "Beispiel: Kreuze „Räume und Ausstattung“ an. Schreibe: „Ich wünsche mir Sitzbänke auf dem Schulhof.“ Als Person kannst du die Schulleitung nennen.\n\nAuch andere Wünsche, passende Bereiche und Personen sind richtig.", "extra": "Nutze nur echte oder ausgeteilte Daten, die zu deinem Wunsch passen. Ohne passende Daten lässt du den Zusatz weg.", "status": "Übung"}, "14": {"title": "Einen Grund ergänzen", "tip": "Das ganze Blatt ist freiwillig. Ein Grund erklärt, was durch den Wunsch besser wird.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1 – Beispiel: „Eine Leseecke wäre sinnvoll, weil wir dort ruhig lesen könnten.“\n\nAufgabe 2 – Beispiel: „Ich wünsche mir Sitzbänke. Darauf können wir uns in der Pause ausruhen.“", "extra": "Zum Text über die Leseecke: „17 von 26 Kindern wünschen sich eine Leseecke.“ Zu Sitzbänken passt diese Zahl nicht.", "status": "Noch einen Schritt · freiwillig"}, "15": {"title": "Auf ein Bedenken eingehen", "tip": "Das ganze Blatt ist freiwillig. Welche Idee hilft dabei, ausgeliehene Spiele wiederzubekommen?", "type": "Lösung und Vergleich", "solution": "Aufgabe 1: „Die Spiele werden mit Namenskarten ausgeliehen.“\n\nAufgabe 2 – Beispiel mit drei Sätzen:\n„Wir wünschen uns eine Spieleausleihe. Ein Problem könnte sein, dass Spiele verloren gehen. Deshalb könnten wir die Spiele mit Namenskarten ausleihen.“", "extra": "Beispiel: „Neue Sitzbänke brauchen Platz. Wir könnten sie am Rand des Schulhofs aufstellen.“", "status": "Für Entdecker · freiwillig"}, "16": {"title": "Mein Schreibplan", "tip": "Schreibe kurze Stichwörter zu den fünf Fragen. Der weitere Satz darf eine Hoffnung ausdrücken.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1 – Beispielplan:\nPerson: Frau Schneider\nWunsch: Leseecke\nWeiterer Satz: darüber freuen\nAnrede: Sehr geehrte Frau Schneider,\nGruß: Freundliche Grüße\n\nAufgabe 2: Erkläre damit mündlich deinen Brief.", "extra": "Ein Grund und passende Daten dürfen ergänzt werden. Beides ist freiwillig.", "status": "Übung"}, "17": {"title": "Mein Briefgerüst", "tip": "Nutze das Gerüst bei Bedarf. Setze deine Person, deinen Wunsch, Ort, Datum und deinen Namen ein.", "type": "Lösung und Vergleich", "solution": "Eine mögliche Fassung:\nDortmund, 22. September 2026\nSehr geehrte Frau Schneider,\nfür unsere Schule wünsche ich mir eine Leseecke. Ich würde mich darüber sehr freuen.\nFreundliche Grüße\nMila\n\nDein Brief darf anders lauten. Prüfe mit Blatt 19.", "extra": "Gründe und passende Zahlen kannst du ergänzen. Ohne diese Zusätze kann der Brief gelingen.", "status": "Schreibhilfe · bei Bedarf"}, "18": {"title": "Mein erster Wunschbrief", "tip": "Plane mit Blatt 16. Schreibe deinen Wunsch und mindestens einen weiteren passenden Satz. Nutze alle Briefteile.", "type": "Lösung und Vergleich", "solution": "Ein möglicher Brief:\nDortmund, 22. September 2026\nSehr geehrte Frau Schneider,\nfür unsere Schule wünsche ich mir eine Spieleausleihe. Ich würde mich darüber sehr freuen.\nFreundliche Grüße\nAmir\n\nAuch ein anderer passender Brief ist richtig. Vergleiche ihn mit Blatt 19.", "extra": "Ein Grund und passende Daten sind freiwillig.", "status": "Übung"}, "19": {"title": "Checkliste Wunschbrief", "tip": "Hake nur ab, was du im Brief gefunden hast. Lies den ganzen Text für Sprache und Lesbarkeit.", "type": "Lösung und Vergleich", "solution": "Prüfe am eigenen Brief:\nOrt und Datum oben; passende Anrede; klarer und freundlicher Wunsch; weiterer passender Satz; ganze Sätze; Grußformel und Name am Ende; lesbare Schrift.\n\nErgänze Fehlendes. Wenn alles passt, darf dein Text so bleiben.", "extra": "Nur wenn du Zusätze nutzt: Passt der Grund? Stimmen Zahl und Wunsch aus der Umfrage?", "status": "Übung"}, "20": {"title": "Mein Brief wird besser", "tip": "Suche drängende Wörter. Formuliere den Wunsch nach einer Leseecke als freundliche Bitte.", "type": "Lösung und Vergleich", "solution": "Aufgabe 1: Besonders „endlich“ und „sofort“ klingen drängend. Auch die ganzen Aufforderungen kannst du markieren.\n\nAufgabe 2 – Beispiel:\n„Ich wünsche mir eine Leseecke. Ich würde mich darüber sehr freuen.“", "extra": "„17 von 26 Kindern möchten eine Leseecke.“ Die Aussage „alle“ stimmt nicht.", "status": "Übung"}, "21": {"title": "Meine Probearbeit", "tip": "Für den ersten Versuch nutzt du das ausgeteilte Probearbeitspaket und die vereinbarten Hilfen. Frage die Lehrkraft, wenn du feststeckst.", "type": "Orientierung zur Probearbeit", "solution": "Die Probearbeit hat keine feste Kiosk-Lösung.\n\nPlane im Schreibplan des Pakets. Schreibe auf dem Schreibbogen. Prüfe mit den beiden Seiten „Dein Wunschbrief: Das zählt“.\n\nBesprich deinen Brief mit der Lehrkraft. Zusätzliche Hilfe wird notiert. Gründe und Zahlen sind freiwillig.", "extra": "", "status": "Probearbeit · ohne Note"}, "22": {"title": "Bin ich bereit?", "tip": "Lege deine Probearbeit daneben. Zeige zu jedem Haken eine passende Stelle oder erkläre, wie du geprüft hast.", "type": "Lösung und Vergleich", "solution": "Deine Haken hängen von deinem Brief ab. Prüfe: Person verstanden; Briefteile geordnet; Wunsch freundlich; weiterer Satz vorhanden; mit Kriterien geprüft.\n\nEin nächster Schritt kann sein: „Ich übe eine passende Anrede.“ Besprich deine Wahl mit der Lehrkraft. Gründe und Daten sind für das Grundziel nicht nötig.", "extra": "", "status": "Übung"}, "23": {"title": "Mein Übungsweg bis zur Arbeit", "tip": "Wähle eine Übung zu dem Punkt, der dir noch schwerfällt. Du musst nicht alles wiederholen.", "type": "Lösung und Vergleich", "solution": "Person und Wunsch: Blatt 4–6\nBriefaufbau: Blatt 7–10\nFreundlich schreiben: Blatt 11–13\nPlanen und schreiben: Blatt 16–18\nPrüfen und verbessern: Blatt 19–20\n\nBeispiel: „Zuerst übe ich mit Blatt 9.“ Besprich deinen Termin mit der Lehrkraft.", "extra": "Gründe: Blatt 14. Bedenken: Blatt 15. Daten: Zusätze auf Blatt 3, 12 oder 20.", "status": "Übung"}, "24": {"title": "Mein Rückblick auf das Prüfungsfenster", "tip": "Bearbeite das Blatt nach der Arbeit. Denke an einen konkreten Erfolg und eine Hilfe, die dir genutzt hat.", "type": "Lösung und Vergleich", "solution": "Hier gibt es keine feste Lösung. Wähle die Aussage zum Termin, die zu dir passt.\n\nErgänze ehrlich:\n„Das ist mir gelungen: …“\n„Diese Hilfe hat mir geholfen: …“\n„Beim nächsten Mal möchte ich: …“\n\nNenne einen Erfolg und einen nächsten Schritt.", "extra": "", "status": "Reflexion · nach der Arbeit"}};/* DATA_END */let mode=null,number="",timer;
 const screens={start:document.getElementById("startScreen"),number:document.getElementById("numberScreen"),result:document.getElementById("resultScreen")};
