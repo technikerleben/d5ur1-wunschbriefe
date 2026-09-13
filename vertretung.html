@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#245688">
+<title>Vertretung · Deutsch 5 · Wunschbriefe</title>
+<style>
+:root{
+  --blue:#245688;--blue-dark:#19334e;--blue-soft:#eff5fa;--blue-line:#8dc7ee;
+  --mint:#48dccb;--mint-dark:#1b958a;--mint-soft:#effcfa;
+  --orange:#f0a66f;--orange-dark:#cf6320;--orange-soft:#fff8f2;
+  --ink:#18324a;--muted:#516474;--line:#d8e1e8;--paper:#f7f9fb;--white:#fff;
+  --shadow:0 14px 36px rgba(15,33,52,.12)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Trebuchet MS",Aptos,"Segoe UI",Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.48}
+a{color:inherit}
+.shell{width:min(1080px,calc(100% - 28px));margin:auto}
+header{background:linear-gradient(135deg,#0f2134,#245688);color:#fff;padding:34px 0 30px;border-bottom:7px solid var(--orange)}
+.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:28px;align-items:center}
+.eyebrow{font-size:.82rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase;color:#d6f8f3}
+h1{font-size:clamp(2rem,5vw,3.8rem);line-height:1.02;margin:8px 0 12px;letter-spacing:-.04em}
+header p{margin:0;max-width:760px;color:rgba(255,255,255,.88);font-size:1.03rem}
+.otter{min-height:220px;border-radius:24px;background:url('praesentationen/assets/otter/kiosk.png') center/contain no-repeat,linear-gradient(145deg,#f7fcff,#e5f4ff 58%,#effcf8);border:2px solid rgba(255,255,255,.55)}
+.toplinks{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.toplinks a{text-decoration:none;padding:10px 13px;border-radius:11px;background:#fff;color:var(--blue-dark);font-weight:900}
+.toplinks a.alt{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+main{padding:28px 0 50px}
+.notice{background:#fff;border:1px solid var(--line);border-left:7px solid var(--orange);border-radius:16px;padding:17px 19px;box-shadow:var(--shadow);margin-bottom:24px}
+.notice b{color:var(--blue-dark)}
+h2{font-size:1.65rem;margin:32px 0 10px;color:var(--blue-dark);letter-spacing:-.02em}
+h3{margin:0 0 7px;color:var(--blue-dark)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 7px 20px rgba(15,33,52,.06)}
+.card strong{color:var(--blue)}
+.step{border-top:5px solid var(--blue)}
+.step.orange{border-top-color:var(--orange)}
+.step.mint{border-top-color:var(--mint)}
+.big{font-size:1.05rem}
+.muted{color:var(--muted)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.flow .card{position:relative}
+.num{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-weight:950;margin-bottom:10px}
+.badge{display:inline-block;padding:5px 8px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-size:.75rem;font-weight:900;margin-bottom:9px}
+.badge.orange{background:var(--orange-soft);color:var(--orange-dark)}
+.badge.mint{background:var(--mint-soft);color:var(--mint-dark)}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 7px 20px rgba(15,33,52,.05)}
+th,td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--blue-soft);color:var(--blue-dark)}
+tr:last-child td{border-bottom:0}
+.inputlinks{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.btn{display:inline-block;text-decoration:none;background:var(--blue);color:#fff;padding:9px 11px;border-radius:10px;font-weight:900}
+.btn.orange{background:var(--orange-dark)}
+.btn.mint{background:var(--mint-dark)}
+.btn.light{background:#fff;color:var(--blue);border:2px solid var(--blue)}
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.good{border-left:6px solid var(--mint)}
+.warn{border-left:6px solid var(--orange)}
+ul{padding-left:1.2em;margin:.5em 0}
+li{margin:.35em 0}
+.quickgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.quicklink{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:15px;padding:15px;box-shadow:0 6px 18px rgba(15,33,52,.05)}
+.quicklink b{display:block;color:var(--blue);margin-bottom:3px}
+.quicklink span{font-size:.88rem;color:var(--muted)}
+.feedback{background:var(--blue-soft);border:2px solid var(--blue-line);border-radius:16px;padding:18px}
+footer{padding:24px 0 34px;color:var(--muted);font-size:.85rem}
+footer .shell{border-top:1px solid var(--line);padding-top:16px}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.otter{display:none}.grid,.quickgrid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid,.quickgrid,.flow,.do-dont{grid-template-columns:1fr}.shell{width:min(100% - 18px,1080px)}header{padding-top:26px}th:nth-child(3),td:nth-child(3){display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="shell hero">
+    <div>
+      <div class="eyebrow">Deutsch 5 · Wunschbriefe</div>
+      <h1>Vertretung: in wenigen Minuten startklar</h1>
+      <p>Diese Seite erklärt den Ablauf der Lernzeit. Die Nachricht der Fachlehrkraft ergänzt nur noch, <b>wo die Lerngruppe ungefähr steht</b> und <b>ob heute ein Input ansteht</b>.</p>
+      <div class="toplinks">
+        <a href="#ablauf">Stundenablauf</a>
+        <a class="alt" href="#inputs">Inputs & Stand</a>
+        <a class="alt" href="#material">Material öffnen</a>
+      </div>
+    </div>
+    <div class="otter" role="img" aria-label="Otter arbeitet an einem Laptop"></div>
+  </div>
+</header>
+
+<main class="shell">
+  <div class="notice">
+    <b>Bitte zuerst die Nachricht der Fachlehrkraft lesen.</b>
+    Dort steht idealerweise zum Beispiel: „Die Lerngruppe arbeitet ungefähr bei Blatt 8–10. Heute bitte Input 2 zeigen.“ Wenn kein neuer Input angekündigt ist, arbeiten die Kinder auf ihrem bisherigen Lernweg weiter.
+  </div>
+
+  <h2>Das Wichtigste zuerst</h2>
+  <div class="grid">
+    <div class="card step">
+      <span class="badge">Papierarbeit</span>
+      <h3>Die Kinder arbeiten nicht online.</h3>
+      <p class="muted">Lernweg, Aufgaben und Hilfen liegen auf Papier vor. Nur der Kontroll-Kiosk wird beim Üben am Raum-Laptop genutzt.</p>
+    </div>
+    <div class="card step mint">
+      <span class="badge mint">Individueller Lernweg</span>
+      <h3>Nicht alle müssen dasselbe Blatt bearbeiten.</h3>
+      <p class="muted">Die Kinder orientieren sich an ihrem Lernweg und an bereits getroffenen Absprachen. Tempo und Anzahl erledigter Blätter sind kein Leistungsmaß.</p>
+    </div>
+    <div class="card step orange">
+      <span class="badge orange">Wichtig</span>
+      <h3>Freiwilliges bleibt freiwillig.</h3>
+      <p class="muted">Blatt 14 und 15, die Vertiefungen und alle Projekte sind freiwillig. Blatt 17 ist eine Hilfe bei Bedarf.</p>
+    </div>
+  </div>
+
+  <h2 id="ablauf">So kann die Vertretungsstunde laufen</h2>
+  <div class="flow">
+    <div class="card"><div class="num">1</div><h3>Start · ca. 5 Min.</h3><p class="muted">Kurz klären, wo die Kinder auf ihrem Lernweg stehen. Die Nachricht der Fachlehrkraft gibt den ungefähren Bereich vor.</p></div>
+    <div class="card"><div class="num">2</div><h3>Input · nur wenn angekündigt</h3><p class="muted">Den passenden Abschnitt der Präsentation gemeinsam zeigen. Danach gehen die Kinder zurück an ihre Papieraufgaben.</p></div>
+    <div class="card"><div class="num">3</div><h3>Lernzeit · ca. 25–30 Min.</h3><p class="muted">Die Kinder arbeiten weiter. Bei Schwierigkeiten: Auftrag erneut lesen → Beispiel/Merkblatt → Kiosk oder Partnerhilfe → Lehrkraft.</p></div>
+    <div class="card"><div class="num">4</div><h3>Reflexion · ca. 5 Min.</h3><p class="muted">Kurz festhalten oder mündlich sagen: Was habe ich geschafft? Was ist mein nächster Schritt?</p></div>
+  </div>
+
+  <h2 id="inputs">Wo steht die Lerngruppe?</h2>
+  <table>
+    <thead><tr><th>Abschnitt</th><th>Papieraufgaben</th><th>Fokus</th><th>Präsentation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Input 1</b></td>
+        <td>Blatt 1–6</td>
+        <td>Schulwünsche und Schreibsituation</td>
+        <td><a class="btn" href="praesentationen/Impulse_Wunschbriefe_SRL_Mathe.html#folie-3">Input 1 öffnen</a></td>
+      </tr>
+      <tr>
+        <td><b>Input 2</b></td>
+        <td>Blatt 7–10</td>
+        <td>Briefaufbau</td>
+        <td><a class="btn" href="praesentationen/Impulse_Wunschbriefe_SRL_Mathe.html#folie-7">Input 2 öffnen</a></td>
+      </tr>
+      <tr>
+        <td><b>Input 3</b></td>
+        <td>Blatt 11–13<br><span class="muted">14/15 freiwillig</span></td>
+        <td>Freundlich und genau formulieren</td>
+        <td><a class="btn" href="praesentationen/Impulse_Wunschbriefe_SRL_Mathe.html#folie-11">Input 3 öffnen</a></td>
+      </tr>
+      <tr>
+        <td><b>Input 4</b></td>
+        <td>Blatt 16, 18–20<br><span class="muted">17 bei Bedarf</span></td>
+        <td>Planen, schreiben, prüfen</td>
+        <td><a class="btn" href="praesentationen/Impulse_Wunschbriefe_SRL_Mathe.html#folie-15">Input 4 öffnen</a></td>
+      </tr>
+      <tr>
+        <td><b>Input 5</b></td>
+        <td>Blatt 21–23 + Probearbeit<br><span class="muted">24 erst nach der Arbeit</span></td>
+        <td>Probearbeit und Prüfungsreife</td>
+        <td><a class="btn" href="praesentationen/Impulse_Wunschbriefe_SRL_Mathe.html#folie-19">Input 5 öffnen</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Wenn heute kein Input ansteht</h2>
+  <div class="notice" style="border-left-color:var(--mint)">
+    Die Kinder arbeiten einfach an ihrem bisherigen Lernweg weiter. Es ist nicht nötig, einen neuen gemeinsamen Inhalt zu beginnen. Bei Unsicherheit ist „weiterarbeiten und den nächsten Schritt im Lernweg wählen“ die sichere Variante.
+  </div>
+
+  <h2>Was darf als Hilfe genutzt werden?</h2>
+  <div class="do-dont">
+    <div class="card good">
+      <h3>In der normalen Lernzeit</h3>
+      <ul>
+        <li>Auftrag noch einmal lesen oder vorlesen lassen</li>
+        <li>Merkblätter und Strategiekarten</li>
+        <li>Beispiele und Blatt 17 bei Bedarf</li>
+        <li>Partnerhilfe</li>
+        <li>Kontroll-Kiosk für Tipp oder Lösung</li>
+        <li>kurze Hilfe durch die Lehrkraft</li>
+      </ul>
+    </div>
+    <div class="card warn">
+      <h3>Bitte nicht ohne ausdrückliche Nachricht</h3>
+      <ul>
+        <li>keine Lernerfolgskontrolle beginnen</li>
+        <li>keine freiwilligen Aufgaben verpflichtend machen</li>
+        <li>keine Note aus Tempo oder Zahl der Aufgaben ableiten</li>
+        <li>den Kiosk nicht während einer Arbeit einsetzen</li>
+        <li>bei der Probearbeit keine neuen Bewertungskriterien erfinden</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Probearbeit</h2>
+  <div class="card step orange">
+    <p class="big"><b>Die Probearbeit ist verpflichtend, aber unbenotet.</b> Sie sollte in einer Vertretungsstunde nur gestartet werden, wenn die Fachlehrkraft dies ausdrücklich angekündigt hat. Zusätzliche Hilfe darf gegeben werden, sollte dann aber kenntlich bleiben.</p>
+    <div class="inputlinks">
+      <a class="btn orange" href="materialien/probearbeit/Probearbeit_Wunschbrief_grafisch_Graustufen_A4.pdf">Grafische Probearbeit</a>
+      <a class="btn light" href="materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md">Durchführungshinweise</a>
+    </div>
+  </div>
+
+  <h2 id="material">Material schnell öffnen</h2>
+  <div class="quickgrid">
+    <a class="quicklink" href="praesentationen/Impulse_Wunschbriefe_SRL_Mathe.html"><b>Impuls-Präsentation</b><span>Alle fünf Inputs und gemeinsame Erklärungen</span></a>
+    <a class="quicklink" href="materialien/arbeitsblaetter/Lernweg_Wunschbriefe_grafisch_A5.pdf"><b>Mein Lernweg</b><span>Orientierung für den nächsten Schritt</span></a>
+    <a class="quicklink" href="materialien/arbeitsblaetter/Arbeitsblaetter_Wunschbriefe_1-24_grafisch_A5.pdf"><b>Arbeitsblätter 1–24</b><span>Grafische A5-Druckfassung</span></a>
+    <a class="quicklink" href="materialien/merkblaetter/Otterklasse_5_3_Merkblaetter_Wunschbriefe_A3.pdf"><b>Merkblätter</b><span>Hilfen und A3-Plakate</span></a>
+    <a class="quicklink" href="apps/kontroll-kiosk/index.html"><b>Kontroll-Kiosk</b><span>Tipp oder Lösung beim Üben</span></a>
+    <a class="quicklink" href="materialien/lehrkraft/Lehrkraft_Cockpit_Wunschbriefe_A3.pdf"><b>Lehrkraft-Cockpit</b><span>Übersicht über alle 24 Lernaufgaben</span></a>
+    <a class="quicklink" href="materialien/projekte/Freiwillige_Vertiefungen_Wunschbriefe_grafisch_A5.pdf"><b>Vertiefungen</b><span>Freiwillige zusätzliche Herausforderungen</span></a>
+    <a class="quicklink" href="materialien/projekte/Freiwillige_Projekte_Wunschbriefe_grafisch_A5.pdf"><b>Projekte</b><span>Freiwillige längere Aufgaben</span></a>
+  </div>
+
+  <h2>Kurze Rückmeldung an die Fachlehrkraft</h2>
+  <div class="feedback">
+    Am Ende reichen drei kurze Informationen: <b>Bis wohin wurde ungefähr gearbeitet?</b> · <b>Gab es größere Schwierigkeiten?</b> · <b>Fehlt Material oder braucht die Gruppe beim nächsten Mal einen bestimmten Input?</b>
+  </div>
+</main>
+
+<footer>
+  <div class="shell">Vertretungshilfe · Deutsch 5 · Wunschbriefe · Planung → Durchführung → Reflexion</div>
+</footer>
+</body>
+</html>
