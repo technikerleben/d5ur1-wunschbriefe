@@ -110,10 +110,10 @@ ul.clean li,ol.clean li{margin:.22em 0}
 
 .chart-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:4%;align-items:center;min-height:0}
 .chart{height:calc(var(--u)*25);margin-bottom:calc(var(--u)*2.3);display:flex;align-items:flex-end;gap:7%;padding:8% 5% 12%;border-left:2px solid var(--line);border-bottom:2px solid var(--line);background:linear-gradient(to top,transparent 24%,#dfe5ea 25%,transparent 26%,transparent 49%,#dfe5ea 50%,transparent 51%,transparent 74%,#dfe5ea 75%,transparent 76%)}
-.bar-group{height:100%;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative;min-width:0}
-.bar{width:60%;height:0;background:var(--blue);border-radius:8px 8px 0 0;transition:height .85s cubic-bezier(.2,.8,.2,1)}
+.bar-group{height:100%;flex:1;position:relative;min-width:0}
+.bar{position:absolute;left:20%;bottom:0;width:60%;height:0;background:var(--blue);border-radius:8px 8px 0 0;transition:height .85s cubic-bezier(.2,.8,.2,1)}
 .active .bar{height:var(--h)}
-.bar-value{font-weight:900;color:var(--blue);margin-bottom:.25em}
+.bar-value{position:absolute;left:0;right:0;bottom:calc(var(--h) + .25em);text-align:center;font-weight:900;color:var(--blue)}
 .bar-label{position:absolute;top:104%;font-size:max(18px,.55em);text-align:center;width:135%;font-weight:700;line-height:1.15;overflow-wrap:break-word}
 .chart-note{font-size:max(18px,.64em);color:var(--muted);margin-top:.4em}
 
