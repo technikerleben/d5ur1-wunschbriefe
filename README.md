@@ -35,13 +35,13 @@ Die Probearbeit ist verpflichtend und unbenotet. Blatt 14/15, zusätzliche Verti
 | Lernbuddy | A4, wiederverwendbar | [PDF](materialien/arbeitsblaetter/Lernbuddy_A4.pdf) |
 | Acht Merkblätter | 8 Seiten A5 | [PDF](materialien/merkblaetter/Merkblaetter_Wunschbriefe_DIN_A5_Mathe_angepasst.pdf) · [DOCX](materialien/merkblaetter/Merkblaetter_Wunschbriefe_DIN_A5_Mathe_angepasst.docx) |
 | Acht Strategiekarten | 2 Seiten A4, ausschneiden | [PDF](materialien/strategiekarten/Strategiekarten_Lernbuddy_Querstreifen_8_Karten.pdf) |
-| Sechs Projekte mit Übersicht und Datenkarte | 8 Seiten A5, freiwillig | [PDF](materialien/projekte/Freiwillige_Projekte_Wunschbriefe_DIN_A5.pdf) · [DOCX](materialien/projekte/Freiwillige_Projekte_Wunschbriefe_DIN_A5.docx) |
+| Sieben Projekte mit Übersicht und Datenkarte | 9 Seiten A5, freiwillig | [PDF](materialien/projekte/Freiwillige_Projekte_Wunschbriefe_DIN_A5.pdf) · [DOCX](materialien/projekte/Freiwillige_Projekte_Wunschbriefe_DIN_A5.docx) |
 | Vier Vertiefungen | 4 Seiten A5, freiwillig | [PDF](materialien/projekte/Freiwillige_Vertiefungen_Wunschbriefe_DIN_A5.pdf) · [DOCX](materialien/projekte/Freiwillige_Vertiefungen_Wunschbriefe_DIN_A5.docx) |
 | Lösungen und Tipps zu Blatt 1–24 | 24 Seiten A5 | [PDF](materialien/arbeitsblaetter/Loesungspaket_Arbeitsblaetter_1-24_Wunschbriefe.pdf) · [DOCX](materialien/arbeitsblaetter/Loesungspaket_Arbeitsblaetter_1-24_Wunschbriefe.docx) |
 
 Originalgröße beibehalten. Die Aufträge nennen den Arbeitsort: auf dem Blatt, im Heft oder mündlich. Kinder benötigen keine Online-Ressourcen.
 
-[Hinweise Arbeitsblätter](materialien/arbeitsblaetter/Hinweise_Arbeitsblaetter_Fassung3.md) · [Lernweg und Kompetenzcheck](materialien/arbeitsblaetter/Hinweise_Lernweg_Kompetenzcheck.md) · [Merkblätter und Strategien](materialien/merkblaetter/Hinweise_Hilfen_Fassung3.md) · [Projekte und Vertiefungen](materialien/projekte/Hinweise_Projekte_Vertiefungen.md)
+[Hinweise Arbeitsblätter](materialien/arbeitsblaetter/Hinweise_Arbeitsblaetter_Fassung3.md) · [Lernweg und Kompetenzcheck](materialien/arbeitsblaetter/Hinweise_Lernweg_Kompetenzcheck.md) · [Merkblätter und Strategien](materialien/merkblaetter/Hinweise_Hilfen_Fassung3.md) · [Projekte und Vertiefungen](materialien/projekte/Hinweise_Projekte_Vertiefungen.md) · [Projekt 7: E-Mail und Betreff](materialien/projekte/Projekt_7_E-Mail_und_Betreff.md)
 
 ## Probearbeit und drei Arbeiten
 
