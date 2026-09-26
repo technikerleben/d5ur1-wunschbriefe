@@ -4,7 +4,7 @@ Schritt 5 abgeschlossen · 8. September 2026
 
 ## Ausgabe und Einordnung
 
-Das Projektpaket enthält neun DIN-A5-Seiten: Auswahlseite, sieben Projektkarten und eine Datenkarte. Die vier Vertiefungen bilden ein eigenes Paket mit vier DIN-A5-Seiten. Grundschrift 14 pt. In tatsächlicher Größe auf A5 oder zwei Seiten auf A4 drucken, ohne zusätzliche Verkleinerung.
+Die aktuelle Generatorfassung erzeugt neun DIN-A5-Seiten: Auswahlseite, sieben Projektkarten und eine Datenkarte. Die bereits abgelegten Sammeldateien PDF/DOCX stammen noch aus der vorherigen Fassung und müssen nach der Generatoränderung neu gerendert und geprüft werden. Die vier Vertiefungen bilden ein eigenes Paket mit vier DIN-A5-Seiten. Grundschrift 14 pt. In tatsächlicher Größe auf A5 oder zwei Seiten auf A4 drucken, ohne zusätzliche Verkleinerung.
 
 Vertiefungen können in der freiwilligen Vertiefungsphase genutzt werden; Projekte folgen nach der Probearbeit. Nicht alle Karten austeilen und abarbeiten lassen. Ein Kind wählt eine passende Herausforderung. Die Aufgaben sind keine Zugangshürde zur Lernerfolgskontrolle und schaffen keine zusätzlichen Pflichtkriterien. Hilfen dürfen auf jedem Anspruchsniveau genutzt werden. Projektarbeit ergibt keine zusätzlichen Punkte in der Arbeit.
 
