@@ -4,7 +4,7 @@ Schritt 5 abgeschlossen · 8. September 2026
 
 ## Ausgabe und Einordnung
 
-Das Projektpaket enthält acht DIN-A5-Seiten: Auswahlseite, sechs Projektkarten und eine Datenkarte. Die vier Vertiefungen bilden ein eigenes Paket mit vier DIN-A5-Seiten. Grundschrift 14 pt. In tatsächlicher Größe auf A5 oder zwei Seiten auf A4 drucken, ohne zusätzliche Verkleinerung.
+Das Projektpaket enthält neun DIN-A5-Seiten: Auswahlseite, sieben Projektkarten und eine Datenkarte. Die vier Vertiefungen bilden ein eigenes Paket mit vier DIN-A5-Seiten. Grundschrift 14 pt. In tatsächlicher Größe auf A5 oder zwei Seiten auf A4 drucken, ohne zusätzliche Verkleinerung.
 
 Vertiefungen können in der freiwilligen Vertiefungsphase genutzt werden; Projekte folgen nach der Probearbeit. Nicht alle Karten austeilen und abarbeiten lassen. Ein Kind wählt eine passende Herausforderung. Die Aufgaben sind keine Zugangshürde zur Lernerfolgskontrolle und schaffen keine zusätzlichen Pflichtkriterien. Hilfen dürfen auf jedem Anspruchsniveau genutzt werden. Projektarbeit ergibt keine zusätzlichen Punkte in der Arbeit.
 
@@ -20,6 +20,7 @@ Alle Projekte funktionieren mit Papier, Stiften und vorhandenen Merkblättern. F
 | Projekt 4 | Wunsch und Daten für ein Publikum verständlich darstellen |
 | Projekt 5 | Erklärung und Bitte an unterschiedliche Empfänger anpassen |
 | Projekt 6 | Auf Einwände antworten und einen kleinen Versuch planen |
+| Projekt 7 | Brief und E-Mail vergleichen; passende Betreffzeilen formulieren; Erklärplakat gestalten |
 | Vertiefung 1 | Qualität und Wirkung von Gründen vergleichen |
 | Vertiefung 2 | Bedenken berücksichtigen und offene Fragen erkennen |
 | Vertiefung 3 | Übertreibung und unzulässige Verallgemeinerung erkennen |
@@ -36,6 +37,7 @@ Für den Einstieg mündlich vorplanen, jeweils einen Auftrag zeigen und bei Beda
 - Projekt 2/4: Jede korrekt wiedergegebene Zahl von der Karte ist nutzbar; auch ein weniger oft gewählter Wunsch ist zulässig. Angaben müssen als Beispiel kenntlich sein. Ein sachlicher Grund erklärt einen Nutzen und besteht nicht nur aus der Stimmenzahl.
 - Projekt 5: Beispielsweise um das Sammeln weiterer Wünsche bei der Schülervertretung und um die Prüfung eines Versuchs bei der Schulleitung bitten. Nicht nur andere Anreden, sondern Unterschiede in Erklärung und Bitte erwarten.
 - Projekt 6: Vorhandene Spiele und ein kleiner Ausgabezeitraum können die Kosten begrenzen; freiwillige Helfende und Zuständigkeiten müssen erst abgesprochen werden. Gute Texte greifen beide Einwände auf und unterscheiden Vorschlag und Zusage.
+- Projekt 7: Gemeinsam sind Anrede, verständlicher Nachrichtentext, Gruß und Name. Beim in der Reihe geübten Brief gehören Ort und Datum zum Aufbau; die E-Mail besitzt stattdessen ein Empfängerfeld und einen Betreff. Gute Betreffzeilen nennen das Thema konkret und möglichst knapp, zum Beispiel „Wunsch: Leseecke auf dem Schulhof“. Unpassend sind sehr allgemeine Betreffe wie „Hallo“, „Frage“ oder „Wichtig!!!“. Beim Plakat zählt die fachliche Klarheit stärker als dekorative Gestaltung.
 
 Bei vollständigen Briefen die sechs Kernmerkmale sowie Ort und Datum mit Merkblatt 6 prüfen. Besondere Kriterien der Projektkarte zusätzlich beschreibend rückmelden. Ein bereits passender Text muss nicht künstlich geändert werden. Echte Briefe nur nach gemeinsamer Absprache weitergeben; die Durchführung der Projekte löst keine automatische Weitergabe aus.
 
