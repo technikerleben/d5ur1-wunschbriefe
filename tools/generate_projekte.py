@@ -23,7 +23,7 @@ d=new('Freiwillige Projekte')
 page(d,'Freiwillige Projekte','Wähle, was dich interessiert',True)
 p(d,'Nach der Probearbeit kannst du ein Projekt wählen. Es ist freiwillig. Es ersetzt weder die Probearbeit noch die Arbeit.')
 band(d,'Dein Weg','Input → Übung → Vertiefung → Probearbeit → Projekte → Lernerfolgskontrolle (Arbeit)')
-for t in ['1  Ein echter Wunschbrief','2  Eine Umfrage prüfen und nutzen','3  Eine Idee für einen Schulort','4  Ein verständliches Wunschposter','5  Zwei Briefe, zwei Empfänger','6  Auf eine Antwort reagieren']:p(d,t)
+for t in ['1  Ein echter Wunschbrief','2  Eine Umfrage prüfen und nutzen','3  Eine Idee für einen Schulort','4  Ein verständliches Wunschposter','5  Zwei Briefe, zwei Empfänger','6  Auf eine Antwort reagieren','7  Vom Brief zur E-Mail']:p(d,t)
 p(d,'Besprich deine Wahl mit der Lehrkraft. Du kannst allein oder nach Absprache mit einem Partnerkind arbeiten.')
 band(d,'Du brauchst Papier','Arbeite im Heft oder auf Papier. Alle Projekte gehen ohne Laptop. Für Projekt 2 und 4 liegt eine Datenkarte bei.')
 p(d,'Hilfen sind erlaubt. Die besonderen Projektaufträge gelten nur für dein gewähltes Projekt. Sie sind keine neuen Pflichtanforderungen für die Arbeit.')
@@ -63,7 +63,13 @@ projects=[
 'Plane einen Versuch mit vorhandenen Spielen. Wer könnte freiwillig helfen? Schreibe einen vollständigen Antwortbrief. Bedanke dich und gehe auf beide Schwierigkeiten ein.',
 'Prüfe: Was müsste noch abgesprochen werden? Kennzeichne Ideen als Vorschlag, nicht als feste Zusage.',
 'Du gehst auf Geld und Ausgabe ein. Dein Versuch ist konkret. Du versprichst nichts für andere Personen.',
-'Beginne: „Vielen Dank für Ihre Antwort. Ich schlage vor, …“ Die Antwort oben ist ein erfundenes Beispiel.')]
+'Beginne: „Vielen Dank für Ihre Antwort. Ich schlage vor, …“ Die Antwort oben ist ein erfundenes Beispiel.'),
+('Vom Brief zur E-Mail','Ein A3-Plakat: Brief und E-Mail vergleichen + gute Betreffzeilen erklären.','A3-Papier, Stifte, Merkblätter 2 und 6.',
+'Erinnere dich an den Wunschbrief. Überlege: Was braucht auch eine E-Mail? Was ist bei einer E-Mail anders? Lies die Beispiele: „Hallo“, „Wichtig!!!“, „Wunsch: Leseecke auf dem Schulhof“. Entscheide, welcher Betreff am besten erklärt, worum es geht.',
+'Schreibe für drei Schulwünsche je eine passende Betreffzeile. Gestalte dann ein A3-Plakat mit drei Bereichen: „Brief“, „Beide“ und „E-Mail“. Ergänze einen Kasten „Eine gute Betreffzeile …“ und mindestens ein gutes Beispiel.',
+'Zeige dein Plakat einem Partnerkind. Es soll ohne Erklärung beantworten können: Was haben Brief und E-Mail gemeinsam? Was ist anders? Woran erkenne ich einen guten Betreff?',
+'Du zeigst Gemeinsamkeiten und Unterschiede richtig. Deine Betreffzeilen sind kurz und konkret. Man erkennt schon vor dem Öffnen, worum es in der E-Mail geht.',
+'Merke: Beide brauchen Anrede, verständlichen Text, Gruß und Namen. Beim Brief stehen Ort und Datum. Eine E-Mail hat ein Empfängerfeld und einen Betreff. Ein Betreff wie „Hallo“ oder „Wichtig!!!“ sagt zu wenig.')]
 for i,(title,product,material,plan,do,reflect,check,help_) in enumerate(projects,1):
  page(d,f'Projekt {i} · freiwillig',title)
  band(d,'Dein Ergebnis',product)
@@ -110,4 +116,4 @@ for i,(title,goal,example,task,extra,check) in enumerate(vs,1):
  phase(d,'Reflexion',check)
  p(d,'Hilfe: Nutze Merkblatt 4. Besprich deine Ideen zuerst mündlich.')
 d.save(OUT/'Freiwillige_Vertiefungen_Wunschbriefe_DIN_A5.docx')
-print('Generated project package (8 A5 pages) and four optional challenges.')
+print('Generated project package (9 A5 pages) and four optional challenges.')
