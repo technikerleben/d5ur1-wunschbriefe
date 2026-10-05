@@ -4,6 +4,17 @@ Stand: 8. September 2026 · Fassung 2 · Schritte 1–8 abgeschlossen
 
 Diese Grundlage ist für die Reihe maßgeblich. README, Projektanleitung und Unterrichtshinweise verweisen auf diese Anforderungen. Die Arbeitsblätter 1–24, der Papierlernweg, der Kompetenzcheck, die Merkblätter und die Strategiekarten sind in Fassung 3 angeglichen. Kiosk und Lösungspaket sind ebenfalls angeglichen. Probearbeit und drei Prüfungsvarianten sind mit neutralen Schreibplänen und identischen Hilfen angeglichen. Präsentation, Lehrkraft-Cockpit und Materialzentrale sind angeglichen. Ergänzende Teilübungen im offenen Anfang werden durch eigene Einsatzhinweise eingeordnet und ersetzen keine vollständigen Briefkriterien.
 
+
+## Aktualisierung: Lernerfolgskontrolle, Fassung 4 (5. Oktober 2026)
+
+Die drei LEK-Termine verwenden jetzt dieselbe Schreibsituation: Ein Wunschbrief **an Schulleiterin Frau Schneider** für eine **Ausleihe von Spielgeräten auf Schulhof B während der Pausen**. **Ein sachlich passender Grund ist verpflichtend.** Ausschließlich ein Ergebnis aus der Beispielumfrage ist **freiwillig**. Die Arbeitszeit beträgt **maximal 45 Minuten**.
+
+Die Beispielumfrage fragt 26 Kinder nach Wünschen für den Pausenhof (Mehrfachnennungen möglich, Werte erfunden): Ausleihe von Spielgeräten **17**, mehr Sitzbänke **14**, Klettergerüst mit Rutsche **11**, größere Fußballtore **8**.
+
+Nur für diese LEK ersetzt das verpflichtende Kernmerkmal **K3: Mindestens ein passender Grund für den Wunsch** das bisherige „ein weiterer passender Satz“. In den **18 Grundpunkten** wird Begründung statt eines beliebigen weiteren Satzes beurteilt. Maximal **2 Zusatzpunkte** gibt es ausschließlich für eine richtige und sinnvoll verwendete Umfrageangabe (**20 Punkte insgesamt**). Die bisherigen Kompetenzschwellen bleiben: Mindeststandard 9–12, Regelstandard 13–18 Grundpunkte bei erfüllten Kernmerkmalen; Leistungsstandard/Vertiefung 17–18 Grundpunkte und 2 Zusatzpunkte. Eine bloße Umfragezahl ersetzt den Grund nicht.
+
+**Abgrenzung:** Die bereits durchgeführte *Probearbeit* und die Übungsblätter stammen aus der vorherigen Fassung, in der der Grund noch freiwillig war. Sie werden nicht rückwirkend verändert. Aussagen weiter unten zu optionaler Begründung und zu maximal 22 Punkten beschreiben **nur die vorherige Fassung** und sind für die aktuelle LEK nicht anwendbar. Maßgeblich sind das neue [Lehrkraftraster](../lernerfolgskontrolle/Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.pdf) und die [Hinweise Fassung 4](../lernerfolgskontrolle/Hinweise_Pruefungen_Fassung4.md).
+
 ## Nutzung
 
 Die Materialwebsite dient Kolleginnen und Kollegen. Kinder arbeiten analog. Nur der Kontroll-Kiosk steht an einem Laptop im Klassenraum zur Verfügung. Sie brauchen keine Online-Dateien oder eigenen Geräte.
