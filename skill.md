@@ -19,7 +19,7 @@ Vor fachlichen Änderungen [Anforderungen_Wunschbriefe.md](materialien/bewertung
 - Lernweg: **Input → Übung → Vertiefung → Probearbeit → Projekte → Lernerfolgskontrolle (Arbeit)**.
 - Sechs Kernmerkmale: passende Anrede, klarer passender Wunsch, mindestens ein weiterer passender Satz, Grußformel und Name, freundlicher Ton, lesbare verständliche Sätze.
 - Ort und Datum gehören zum vollständigen Brief und in vollständige Checklisten. Ihr Fehlen allein verhindert den Mindeststandard nicht.
-- Gründe und Daten bleiben freiwillig. Ein kurzer Brief kann alle 18 Grundpunkte erreichen. Bis zu vier Zusatzpunkte getrennt ausweisen. Eine Zahl allein zählt nicht doppelt als Grund und Datenbezug.
+- In den bisherigen Übungen und der bereits geschriebenen Probearbeit waren Gründe und Umfragedaten freiwillig (18 Grundpunkte, bis zu 4 Zusatzpunkte). **Für LEK Fassung 4 gilt:** ein Grund ist Pflicht, allein die Nutzung der Pausenhof-Umfrage ist freiwillig (18 Grundpunkte + bis zu 2 Zusatzpunkte). Alle drei Termine: Schulleiterin Frau Schneider, Spielgeräteausleihe für Schulhof B, Arbeitszeit max. 45 Minuten.
 - Blatt 14/15, Vertiefungskarten und alle Projekte sind freiwillig. Blatt 17 ist eine Schreibhilfe bei Bedarf. Übungsumfang nach Lernbedarf vereinbaren; Probearbeit verpflichtend und unbenotet.
 - Erlaubte Hilfen, Tempo, Zahl erledigter Aufgaben, Reflexionsumfang und sichtbare Änderungen sind keine zusätzlichen Textpunkte. Ein gelungener Text darf unverändert bleiben.
 
@@ -27,7 +27,7 @@ Vor fachlichen Änderungen [Anforderungen_Wunschbriefe.md](materialien/bewertung
 
 Kinder in einfacher, deutlicher Du-Form ansprechen. Arbeitsblätter A5 hochkant, große Blattnummer und mindestens 12 pt, bevorzugt 14 pt. „Aufgabe“ mit Zahl hervorheben. Arbeitsort ausdrücklich nennen: auf dem Blatt, im Heft oder mündlich. Tonersparend, ohne dekorative Kartenrahmen; Platz zum Schreiben einplanen. Lernweg und Prüfungspakete sind A4, Lehrkraft-Cockpit A3.
 
-Hilfen dürfen auf jedem Leistungsniveau genutzt werden. Übungen können Wortbanken, mündliche Planung, Partnerhilfe, Merkblätter und Kiosk enthalten. Während der Arbeit gelten die einheitlichen Hilfen aus den [Prüfungshinweisen](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md). Zusätzliche Unterstützung in der Probearbeit dokumentieren; erste Fassung und unterstützte Überarbeitung unterscheiden.
+Hilfen dürfen auf jedem Leistungsniveau genutzt werden. Übungen können Wortbanken, mündliche Planung, Partnerhilfe, Merkblätter und Kiosk enthalten. Während der Arbeit gelten die einheitlichen Hilfen aus den [Prüfungshinweisen](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung4.md). Zusätzliche Unterstützung in der Probearbeit dokumentieren; erste Fassung und unterstützte Überarbeitung unterscheiden.
 
 Beispieldaten als erfunden kennzeichnen, Gesamtzahl und Mehrfachantworten klären. Eigene Klassendaten können Übungsdaten ersetzen; alle davon abhängigen Beispiele und Lösungen mitändern. Prüfungshilfen vor Beginn des Prüfungsfensters einheitlich festlegen.
 
