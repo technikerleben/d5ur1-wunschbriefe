@@ -18,8 +18,8 @@ def new(title):
  for section in d.sections:
   for paragraph in section.footer.paragraphs:
    for run in paragraph.runs:
-    if 'September 2026' in run.text or 'Fassung 2' in run.text:
-     run.text=run.text.replace('7. September 2026','8. September 2026').replace('Fassung 2','Fassung 3')
+    if 'September 2026' in run.text or 'Fassung 4' in run.text:
+     run.text=run.text.replace('5. Oktober 2026','5. Oktober 2026').replace('Fassung 2','Fassung 4')
  d.core_properties.title=title+' · Fassung 3';d.core_properties.subject='Schritt 7 · 8. September 2026';d.core_properties.author='Deutschunterricht'
  for name,size,bold in [('ExamBody',14,False),('ExamTitle',22,True),('ExamHeading',16,True),('ExamLabel',14,True)]:
   st=d.styles.add_style(name,WD_STYLE_TYPE.PARAGRAPH);st.font.name='Arial';st.font.size=Pt(size);st.font.bold=bold;st.font.color.rgb=RGBColor.from_string('24313A');st.paragraph_format.space_before=Pt(0);st.paragraph_format.space_after=Pt(7);st.paragraph_format.line_spacing=1.03;st.paragraph_format.keep_with_next=name!='ExamBody'
@@ -51,45 +51,90 @@ def table(d,rows):
    c=r.cells[j];c.width=Cm(widths[j]);x=c.paragraphs[0];x.style=d.styles['ExamBody'];x.paragraph_format.space_after=Pt(2);run=x.add_run(txt);run.bold=i==0
   if i==0:r._tr.get_or_add_trPr().append(OxmlElement('w:tblHeader'))
  return t
-variants=[('Termin 1','eine Spieleausleihe',['Spieleausleihe','Leseecke','Sitzplätze','Neue Bälle']),('Termin 2','eine Leseecke',['Leseecke','Sitzplätze','Neue Bälle','Spieleausleihe']),('Termin 3','mehr Sitzplätze auf dem Schulhof',['Sitzplätze','Neue Bälle','Spieleausleihe','Leseecke'])]
-mock=('Probearbeit','Ablagefächer für unseren Klassenraum',['Ablagefächer','Sitzkissen','Pflanzen','Bilder an der Wand'])
-def append_help(d):
- content=deepcopy(HELP)
- # Explicit break before the first aid paragraph; keep the aid's internal page break.
- first=content[0];pr=first.find(qn('w:pPr'))
- if pr is None:pr=OxmlElement('w:pPr');first.insert(0,pr)
- br=OxmlElement('w:pageBreakBefore');pr.append(br)
- for el in content:d.element.body.insert(len(d.element.body)-1,el)
+
+# Fassung 4 (October 2026): the three dates use a common task and rubric.
+# Previously completed mock assessment stays untouched.
+variants=[
+ ('Termin 1','eine Ausleihe von Spielgeräten für Schulhof B in den Pausen',
+  ['Ausleihe von Spielgeräten','Mehr Sitzbänke','Klettergerüst mit Rutsche','Größere Fußballtore']),
+ ('Termin 2','eine Ausleihe von Spielgeräten für Schulhof B in den Pausen',
+  ['Ausleihe von Spielgeräten','Mehr Sitzbänke','Klettergerüst mit Rutsche','Größere Fußballtore']),
+ ('Termin 3','eine Ausleihe von Spielgeräten für Schulhof B in den Pausen',
+  ['Ausleihe von Spielgeräten','Mehr Sitzbänke','Klettergerüst mit Rutsche','Größere Fußballtore'])]
+def append_help(d,first=False):
+ page(d,'Dein Wunschbrief: Das zählt',first)
+ p(d,'Dein Ziel: Du schreibst einen freundlichen und verständlichen Wunschbrief mit einem passenden Grund.')
+ p(d,'Das gehört in deinen Brief','ExamHeading')
+ for x in [
+   'Du schreibst Ort und Datum.',
+   'Du verwendest eine passende Anrede.',
+   'Du wünschst dir eine Ausleihe von Spielgeräten für Schulhof B in den Pausen.',
+   'Du nennst mindestens einen passenden Grund für den Wunsch.',
+   'Du schreibst freundlich und in verständlichen Sätzen.',
+   'Deine Schrift ist lesbar. Die Teile des Briefes sind übersichtlich.',
+   'Du beendest den Brief mit einer Grußformel und deinem Namen.'
+ ]:p(d,'☐ '+x)
+ p(d,'Das kannst du zusätzlich zeigen · freiwillig','ExamHeading')
+ p(d,'☐ Du nutzt ein passendes Ergebnis aus der Umfrage und erklärst es sinnvoll.')
+ p(d,'Ein Grund ist Pflicht. Nur die Umfrage ist freiwillig.')
+ p(d,'So wird dein Brief bewertet','ExamHeading')
+ p(d,'Du kannst 18 Grundpunkte bekommen. Bewertet werden der Wunsch, der Briefaufbau, die freundliche Sprache, die Begründung, die sprachliche Richtigkeit und die Lesbarkeit. Für die passende Umfrage kannst du bis zu 2 Zusatzpunkte bekommen.')
+ p(d,'Ein guter Brief muss nicht lang sein. Wichtig ist, dass du deinen Wunsch verständlich formulierst und begründest.')
+ page(d,'Diese Hilfe darfst du nutzen')
+ p(d,'Diese beiden Seiten darfst du bei der Lernerfolgskontrolle nutzen. Dafür gibt es keinen Punktabzug.')
+ p(d,'Planung','ExamHeading')
+ p(d,'Überlege: An wen schreibe ich? Was wünsche ich mir? Warum wäre das sinnvoll? Notiere Stichwörter in deinen Schreibplan.')
+ p(d,'Durchführung','ExamHeading')
+ p(d,'Schreibe deinen Brief in dieser Reihenfolge:')
+ for x in ['1  Ort und Datum','2  freie Zeile','3  Anrede mit Komma','4  freie Zeile','5  Wunsch und mindestens ein passender Grund','6  freie Zeile','7  Grußformel und Name']:p(d,x)
+ p(d,'Wenn du einen Anfang brauchst','ExamHeading')
+ for x in ['Sehr geehrte Frau …,','ich wünsche mir …','Das wäre sinnvoll, weil …','Dann könnten wir …','Freundliche Grüße']:p(d,x)
+ p(d,'Nur freiwillig für die Umfrage','ExamHeading')
+ p(d,'In der Umfrage wünschen sich … Kinder …')
+ p(d,'Reflexion','ExamHeading')
+ p(d,'Prüfe, ob du deinen Wunsch klar nennst und mindestens einen passenden Grund dafür angibst. Kontrolliere das Komma nach der Anrede, den kleingeschriebenen Satzbeginn und die freien Zeilen.')
+ p(d,'Du darfst dir den Auftrag vorlesen lassen. Deinen Brief formulierst du selbst. Keine Partnerhilfe und kein Kontroll-Kiosk während der Arbeit.')
 def packet(d,spec,first=False):
  label,wish,items=spec
  page(d,label+' · Dein Wunschbrief',first)
  p(d,'Name: __________________________  Datum: ______________')
- p(d,'Arbeitszeit: ______ Minuten · Die Lehrkraft trägt die Zeit ein.')
+ p(d,'Arbeitszeit: max. 45 Minuten')
  p(d,'Deine Situation','ExamHeading')
- p(d,'Die Schulleitung sammelt Wünsche für den Schulalltag. Schreibe ihr einen Brief. Dein Wunsch ist: '+wish+'.')
+ p(d,'Schulleiterin Frau Schneider sammelt Wünsche für Schulhof B. Du möchtest eine Ausleihe von Spielgeräten für die Pausen. Schreibe Frau Schneider einen Brief und erkläre, warum dir dieser Wunsch wichtig ist.')
  p(d,'Dein Auftrag','ExamHeading')
- for text in ['Schreibe Ort und Datum oben auf den Brief.','Wähle eine passende Anrede für die Schulleitung.','Formuliere den vorgegebenen Wunsch klar und freundlich.','Schreibe mindestens einen weiteren passenden Satz.','Beende den Brief mit einer Grußformel und deinem Namen.','Schreibe ganze Sätze und so, dass man deine Schrift lesen kann.']:p(d,'☐ '+text)
- p(d,'Zusätze · freiwillig','ExamHeading')
- p(d,'Du kannst einen sachlichen Grund und/oder ein passendes Umfrageergebnis ergänzen. Beides darfst du weglassen.')
- p(d,'Beispielumfrage · nur für den freiwilligen Zusatz','ExamHeading')
- p(d,'26 Kinder einer Beispielklasse wurden gefragt: „Was wünschst du dir für den Schulalltag?“ Mehrere Antworten waren erlaubt. Die Zahlen sind erfunden.')
- table(d,[['Wunsch','Stimmen']]+[[x,str(v)] for x,v in zip(items,[17,14,11,8])])
+ for x in [
+  'Schreibe Ort und Datum oben auf den Brief.',
+  'Wähle eine passende Anrede für Schulleiterin Frau Schneider.',
+  'Formuliere den Wunsch nach einer Ausleihe von Spielgeräten für Schulhof B klar und freundlich.',
+  'Nenne mindestens einen passenden Grund für den Wunsch.',
+  'Beende den Brief mit einer Grußformel und deinem Namen.',
+  'Schreibe verständliche ganze Sätze und lesbar.'
+ ]:p(d,'☐ '+x)
+ p(d,'Freiwillig: Nutze die Umfrage','ExamHeading')
+ p(d,'Wenn du möchtest, ergänze ein passendes Umfrageergebnis. Dies ist der einzige freiwillige Zusatz.')
+ p(d,'26 Kinder einer Beispielklasse wurden gefragt: „Was wünschst du dir für den Pausenhof?“ Mehrere Antworten waren erlaubt. Die Zahlen sind erfunden.')
+ table(d,[['Wunsch für den Pausenhof','Stimmen']]+[[x,str(v)] for x,v in zip(items,[17,14,11,8])])
  p(d,'Arbeite mit Planung → Durchführung → Reflexion.')
- if label=='Probearbeit':p(d,'Diese Probearbeit ist verpflichtend und bleibt ohne Note.')
  page(d,label+' · Planung')
- p(d,'Notiere Stichwörter. Deinen Brief schreibst du erst auf den Schreibbogen. Die beiden Hilfeseiten am Ende darfst du nutzen.')
- for label_ in ['An wen schreibst du?','Was wünschst du dir?','Welcher weitere Satz passt zu deinem Wunsch?','Welche Anrede wählst du?','Welche Grußformel wählst du?']:field(d,label_)
- p(d,'Nur wenn du Zusätze nutzen möchtest','ExamHeading')
- for label_ in ['Welchen sachlichen Grund möchtest du nennen? · freiwillig','Welches passende Umfrageergebnis möchtest du nutzen? · freiwillig']:field(d,label_)
- p(d,'Die beiden Zusatzfelder dürfen leer bleiben.')
+ p(d,'Notiere Stichwörter. Deinen Brief schreibst du erst auf den Schreibbogen. Die beiden Hilfeseiten darfst du nutzen.')
+ for x in [
+  'An wen schreibst du?',
+  'Was wünschst du dir für Schulhof B?',
+  'Warum ist die Ausleihe von Spielgeräten sinnvoll? Nenne einen Grund.',
+  'Welche Anrede wählst du?',
+  'Welche Grußformel wählst du?'
+ ]:field(d,x)
+ p(d,'Nur wenn du die Umfrage nutzen möchtest','ExamHeading')
+ field(d,'Welches passende Umfrageergebnis möchtest du nutzen? · freiwillig')
+ p(d,'Dieses Feld darf leer bleiben. Ein passender Grund gehört aber in den Brief.')
  page(d,label+' · Durchführung')
  p(d,'Name: __________________________  Datum: ______________')
+ p(d,'Arbeitszeit: max. 45 Minuten')
  p(d,'Schreibe hier deinen vollständigen Brief. Bei Bedarf bekommst du weiteres Schreibpapier.')
- lines(d,21,25)
+ lines(d,20,24)
  p(d,'Reflexion','ExamHeading')
- p(d,'Lies deinen Brief. Prüfe ihn mit „Dein Wunschbrief: Das zählt“. Verbessere nur, was nötig ist. Die zwei Hilfeseiten folgen direkt.')
+ p(d,'Lies deinen Brief. Prüfe ihn mit „Dein Wunschbrief: Das zählt“. Verbessere nur, was nötig ist.')
  append_help(d)
-
 def feedback(d):
  page(d,'Rückmeldung zur Probearbeit')
  p(d,'Name: __________________________  Datum: ______________')
@@ -105,11 +150,56 @@ def feedback(d):
  field(d,'Das gelingt dir schon:')
  field(d,'Dein nächster Schritt / passendes Blatt:')
  p(d,'Terminwahl: ☐ besprechen   ☐ nach gezielter Übung besprechen')
-# Save independent student packets; the collection contains the same three packets.
+
+# Save only current LEK variants. The historical Probearbeit remains unchanged.
 for i,spec in enumerate(variants,1):
- d=new('Lernerfolgskontrolle Wunschbrief · Termin '+str(i));packet(d,spec,True);d.save(EX/f'Lernerfolgskontrolle_Wunschbrief_Termin_{i}.docx')
+ d=new('Lernerfolgskontrolle Wunschbrief · Termin '+str(i))
+ packet(d,spec,True)
+ d.save(EX/f'Lernerfolgskontrolle_Wunschbrief_Termin_{i}.docx')
 d=new('Lernerfolgskontrolle Wunschbrief · 3 Termine')
 for i,spec in enumerate(variants):packet(d,spec,i==0)
 d.save(EX/'Lernerfolgskontrolle_Wunschbrief_3_Termine.docx')
-d=new('Probearbeit Wunschbrief · Komplettpaket');packet(d,mock,True);feedback(d);d.save(MOCK/'Probearbeit_Wunschbrief_Komplettpaket.docx')
-print('Generated three individual packets, collection, and mock with feedback.')
+d=new('Wunschbrief Das zählt · Kinderfassung · LEK Fassung 4')
+append_help(d,True)
+d.save(EX/'Wunschbrief_Das_zaehlt_Kinderfassung.docx')
+# Teacher rubric: 18 core points plus up to 2 voluntary survey points.
+d=new('Bewertungsraster · LEK Fassung 4')
+d.styles['ExamBody'].font.size=Pt(10)
+d.styles['ExamTitle'].font.size=Pt(16)
+d.styles['ExamHeading'].font.size=Pt(11)
+d.sections[0].top_margin=Cm(1.15)
+d.sections[0].bottom_margin=Cm(1.1)
+page(d,'Bewertungsraster Wunschbrief',True)
+p(d,'Deutsch 5 · Lernerfolgskontrolle · Fassung 4')
+p(d,'Name: ______________________    Termin: __________')
+p(d,'Pflicht: Spielgeräteausleihe für Schulhof B mit mindestens einem passenden Grund.')
+p(d,'Kernmerkmale · alle müssen erkennbar sein','ExamHeading')
+for x in [
+ 'K1: Passende Anrede.','K2: Vorgegebener Wunsch ist verständlich.',
+ 'K3: Mindestens ein inhaltlich passender Grund.',
+ 'K4: Grußformel und Name.','K5: Freundliche, sachliche Sprache.',
+ 'K6: Verständliche Sätze und lesbarer Brief.'
+]:p(d,'☐ '+x)
+p(d,'Grundpunkte · 0–3 je Bereich','ExamHeading')
+for x in [
+ 'Schreibsituation und Wunsch:   ______ / 3',
+ 'Briefaufbau (Ort, Datum, Leerzeilen, Anrede, Gruß):   ______ / 3',
+ 'Freundliche, angemessene Sprache:   ______ / 3',
+ 'Begründung (nachvollziehbarer, passender Grund):   ______ / 3',
+ 'Sätze, Rechtschreibung, Zeichensetzung:   ______ / 3',
+ 'Lesbarkeit und Gliederung:   ______ / 3'
+]:p(d,x)
+p(d,'Grundpunkte insgesamt: ______ / 18')
+p(d,'Freiwilliger Zusatz · Umfrage','ExamHeading')
+p(d,'0 = nicht genutzt oder unpassend; 1 = passend genannt; 2 = korrekt und sinnvoll für den Wunsch eingesetzt.')
+p(d,'Zusatzpunkte: ______ / 2    Gesamt: ______ / 20')
+p(d,'Kompetenzniveaus','ExamHeading')
+for x in [
+ 'Noch nicht erreicht: Kernmerkmal fehlt oder 0–8 Grundpunkte.',
+ 'Mindeststandard: alle Kernmerkmale und 9–12 Grundpunkte.',
+ 'Regelstandard: alle Kernmerkmale und 13–18 Grundpunkte, sofern Leistungsstandard nicht erreicht.',
+ 'Leistungsstandard / Vertiefung: alle Kernmerkmale, 17–18 Grundpunkte und 2 Zusatzpunkte.'
+]:p(d,x)
+p(d,'Fehlen Ort und Datum allein, erhält der Brief im Aufbau höchstens 2 Punkte. Eine fehlende Begründung ist ein fehlendes Kernmerkmal. Umfragedaten ersetzen keinen Grund.')
+d.save(EX/'Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.docx')
+print('Generated LEK Fassung 4: 3 terms, collection, child help and rubric.')
