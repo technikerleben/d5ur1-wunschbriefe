@@ -8,9 +8,9 @@ Die [Materialzentrale](https://d5ur1-wunschbriefe.vercel.app/) richtet sich an d
 
 ## Gemeinsame Anforderungen
 
-Maßgeblich sind die [Anforderungen, Lernstufen und Hilfen](materialien/bewertung/Anforderungen_Wunschbriefe.md). Der Brief enthält eine passende Anrede, einen klaren passenden Wunsch, mindestens einen weiteren passenden Satz, Grußformel und Namen. Ton und Sprache sind freundlich, verständlich und lesbar. Ort und Datum gehören zum vollständigen Aufbau.
+Maßgeblich sind die [Anforderungen, Lernstufen und Hilfen](materialien/bewertung/Anforderungen_Wunschbriefe.md). In den bisherigen Übungsblättern reicht nach der passenden Anrede und einem klaren Wunsch ein weiterer passender Satz; in der neuen Lernerfolgskontrolle muss dieser Satz **einen Grund** nennen. Grußformel und Name gehören immer dazu. Ton und Sprache sind freundlich, verständlich und lesbar. Ort und Datum gehören zum vollständigen Aufbau.
 
-Gründe und passende Umfragedaten sind freiwillig. Ein kurzer Brief kann alle 18 Grundpunkte erreichen. Bis zu vier Zusatzpunkte werden getrennt ausgewiesen. Die Lernstufen sind keine Schulnoten; 22 Punkte sind kein automatischer Notenschlüssel. Erlaubte Hilfen und Arbeitstempo bringen keinen Punktabzug. Ein bereits gelungener Brief braucht keine sichtbare Änderung.
+Für die bisherigen Übungen und die bereits durchgeführte Probearbeit waren Gründe und Umfragedaten freiwillig (18 Grundpunkte, bis zu vier Zusatzpunkte). **Für die Lernerfolgskontrolle gilt dagegen Fassung 4:** ein sachlicher Grund ist verpflichtend; nur passende Umfragedaten sind freiwillig (18 Grundpunkte, bis zu zwei Zusatzpunkte). Die Lernstufen sind keine Schulnoten. Erlaubte Hilfen und Arbeitstempo bringen keinen Punktabzug. Ein bereits gelungener Brief braucht keine sichtbare Änderung.
 
 **Planung → Durchführung → Reflexion**
 
