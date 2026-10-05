@@ -1,0 +1,72 @@
+name: Aktualisierung LEK Fassung 4
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/generate_pruefungen.py'
+      - '.github/workflows/generate-lek-fassung4.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install python-docx pypdf
+          if ! command -v libreoffice >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y libreoffice-writer fonts-liberation
+          fi
+      - name: Generate DOCX and PDFs
+        run: |
+          python tools/generate_pruefungen.py
+          for f in materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_{1,2,3}.docx                    materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_3_Termine.docx                    materialien/lernerfolgskontrolle/Wunschbrief_Das_zaehlt_Kinderfassung.docx                    materialien/lernerfolgskontrolle/Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.docx; do
+            libreoffice -env:UserInstallation=file:///tmp/lo_lek_v4 --headless --convert-to pdf               --outdir materialien/lernerfolgskontrolle "$f"
+          done
+      - name: Verify page count and assignment text
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from pypdf import PdfReader
+          root=Path('materialien/lernerfolgskontrolle')
+          expected={
+            'Lernerfolgskontrolle_Wunschbrief_Termin_1.pdf':5,
+            'Lernerfolgskontrolle_Wunschbrief_Termin_2.pdf':5,
+            'Lernerfolgskontrolle_Wunschbrief_Termin_3.pdf':5,
+            'Lernerfolgskontrolle_Wunschbrief_3_Termine.pdf':15,
+            'Wunschbrief_Das_zaehlt_Kinderfassung.pdf':2,
+          }
+          for file,pages in expected.items():
+              reader=PdfReader(root/file)
+              assert len(reader.pages)==pages,(file,len(reader.pages),pages)
+              text='\n'.join(p.extract_text() or '' for p in reader.pages)
+              for word in ['45 Minuten','Schulhof B','Umfrage']:
+                  assert word in text,(file,word)
+              assert 'mindestens einen weiteren passenden Satz' not in text,file
+              print('verified',file,pages)
+          rubric=PdfReader(root/'Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.pdf')
+          assert len(rubric.pages)<=2,len(rubric.pages)
+          rt='\n'.join(p.extract_text() or '' for p in rubric.pages)
+          assert '18' in rt and '20' in rt and 'Grund' in rt
+          print('verified rubric',len(rubric.pages))
+          PY
+      - name: Commit document updates
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_{1,2,3}.{docx,pdf}                   materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_3_Termine.{docx,pdf}                   materialien/lernerfolgskontrolle/Wunschbrief_Das_zaehlt_Kinderfassung.{docx,pdf}                   materialien/lernerfolgskontrolle/Bewertungsraster_Wunschbrief_Lernerfolgskontrolle.{docx,pdf}
+          if ! git diff --cached --quiet; then
+            git commit -m 'Regenerate LEK Fassung 4 documents and PDFs'
+            git push
+          else
+            echo 'No binary changes.'
+          fi
