@@ -18,11 +18,15 @@ def new(title):
  for section in d.sections:
   for paragraph in section.footer.paragraphs:
    for run in paragraph.runs:
-    if 'September 2026' in run.text or 'Fassung 4' in run.text:
-     run.text=run.text.replace('5. Oktober 2026','5. Oktober 2026').replace('Fassung 2','Fassung 4')
- d.core_properties.title=title+' · Fassung 3';d.core_properties.subject='Schritt 7 · 8. September 2026';d.core_properties.author='Deutschunterricht'
- for name,size,bold in [('ExamBody',14,False),('ExamTitle',22,True),('ExamHeading',16,True),('ExamLabel',14,True)]:
-  st=d.styles.add_style(name,WD_STYLE_TYPE.PARAGRAPH);st.font.name='Arial';st.font.size=Pt(size);st.font.bold=bold;st.font.color.rgb=RGBColor.from_string('24313A');st.paragraph_format.space_before=Pt(0);st.paragraph_format.space_after=Pt(7);st.paragraph_format.line_spacing=1.03;st.paragraph_format.keep_with_next=name!='ExamBody'
+    run.text=run.text.replace('8. September 2026','5. Oktober 2026').replace('7. September 2026','5. Oktober 2026').replace('Fassung 2','Fassung 4').replace('Fassung 3','Fassung 4')
+ d.core_properties.title=title+' · Fassung 4'
+ d.core_properties.subject='Lernerfolgskontrolle · 5. Oktober 2026'
+ d.core_properties.author='Deutschunterricht'
+ for name,size,bold in [('ExamBody',12,False),('ExamTitle',20,True),('ExamHeading',14,True),('ExamLabel',12,True)]:
+  st=d.styles[name] if name in d.styles else d.styles.add_style(name,WD_STYLE_TYPE.PARAGRAPH)
+  st.font.name='Arial';st.font.size=Pt(size);st.font.bold=bold;st.font.color.rgb=RGBColor.from_string('24313A')
+  st.paragraph_format.space_before=Pt(0);st.paragraph_format.space_after=Pt(6)
+  st.paragraph_format.line_spacing=1.03;st.paragraph_format.keep_with_next=name!='ExamBody'
  return d
 
 def p(d,t='',style='ExamBody'):return d.add_paragraph(t,style)
