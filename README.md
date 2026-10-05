@@ -23,7 +23,7 @@ Die Probearbeit ist verpflichtend und unbenotet. Blatt 14/15, zusätzliche Verti
 - [Unterrichtshinweise: Inputs, Material, Strategien und Doppelbesetzung](materialien/lehrkraft/Hinweise_Unterricht_Fassung3.md)
 - [Lehrkraft-Cockpit A3 (PDF)](materialien/lehrkraft/Lehrkraft_Cockpit_Wunschbriefe_A3.pdf): alle 24 Blätter, SRL-Strategie, Verbindlichkeit, Input und passende Hilfe; 12-Punkt-Schrift.
 - [Interaktive Impuls-Präsentation (HTML)](praesentationen/Impulse_Wunschbriefe_SRL_Mathe.html): 24 Folien im Otterklasse-Design; fünf Inputs, Briefpuzzle, anklickbare Checklisten, animierte freiwillige Datenimpulse, kurzer Musterbrief, Kriterien und Kiosk. Für Beamer, Tastatur und Touch – direkt im Browser und ohne PowerPoint.
-- [Prüfungshinweise](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md): Druckbereiche, gleiche Arbeitszeit, Hilfen und Rückmeldung.
+- [Prüfungshinweise](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung4.md): Druckbereiche, gleiche Arbeitszeit, Hilfen und Rückmeldung.
 
 ## Papiermaterialien
 
@@ -46,6 +46,8 @@ Originalgröße beibehalten. Die Aufträge nennen den Arbeitsort: auf dem Blatt,
 
 [Hinweise Arbeitsblätter](materialien/arbeitsblaetter/Hinweise_Arbeitsblaetter_Fassung3.md) · [Lernweg und Kompetenzcheck](materialien/arbeitsblaetter/Hinweise_Lernweg_Kompetenzcheck.md) · [Merkblätter und Strategien](materialien/merkblaetter/Hinweise_Hilfen_Fassung3.md) · [Projekte und Vertiefungen](materialien/projekte/Hinweise_Projekte_Vertiefungen.md) · [Projekt 7: E-Mail und Betreff](materialien/projekte/Projekt_7_E-Mail_und_Betreff.md)
 
+> **Aktuelle Lernerfolgskontrolle (Fassung 4, Oktober 2026):** In allen drei Terminen schreiben die Lernenden an **Schulleiterin Frau Schneider** und wünschen sich eine **Ausleihe von Spielgeräten für Schulhof B in den Pausen**. Max. **45 Minuten**. Ein passender Grund ist **verpflichtend**, ausschließlich passende **Umfragedaten** sind freiwillig. Für die LEK gelten **18 Grundpunkte + bis zu 2 Zusatzpunkte** (max. 20). Die allgemeine Beschreibung der bisherigen Übungsreihe und der bereits geschriebenen Probearbeit bezieht sich noch auf die alte Fassung.
+
 ## Probearbeit und drei Arbeiten
 
 Jedes Paket enthält Auftrag mit freiwilligem Datensatz, leeren Schreibplan, linierten Schreibbogen und beide bekannten Hilfeseiten. Die Probearbeit hat zusätzlich einen Rückmeldebogen. Erste Fassung, zusätzliche Hilfe und unterstützte Überarbeitung bleiben unterscheidbar.
@@ -53,12 +55,12 @@ Jedes Paket enthält Auftrag mit freiwilligem Datensatz, leeren Schreibplan, lin
 | Paket | Seiten A4 | PDF | DOCX |
 |---|---:|---|---|
 | Probearbeit: Ablagefächer | 6 | [PDF](materialien/probearbeit/Probearbeit_Wunschbrief_Komplettpaket.pdf) | [DOCX](materialien/probearbeit/Probearbeit_Wunschbrief_Komplettpaket.docx) |
-| Termin 1: Spieleausleihe | 5 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_1.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_1.docx) |
-| Termin 2: Leseecke | 5 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_2.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_2.docx) |
-| Termin 3: Sitzplätze | 5 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_3.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_3.docx) |
+| Termin 1: Schulhof-B-Spielgeräteausleihe | 5 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_1.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_1.docx) |
+| Termin 2: Schulhof-B-Spielgeräteausleihe | 5 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_2.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_2.docx) |
+| Termin 3: Schulhof-B-Spielgeräteausleihe | 5 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_3.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_Termin_3.docx) |
 | Sammlung aller Termine | 15 | [PDF](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_3_Termine.pdf) | [DOCX](materialien/lernerfolgskontrolle/Lernerfolgskontrolle_Wunschbrief_3_Termine.docx) |
 
-Gleicher Aufbau, identische Hilfen und gleich strukturierte Datentabellen machen die Aufgaben vergleichbar. Die Arbeitszeit vor der Ausgabe einheitlich eintragen; bestehende individuelle Anpassungen berücksichtigen. Während der Arbeit: keine Partnerhilfe und kein Kiosk. Details in den [Durchführungshinweisen](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md).
+Alle drei Termine verwenden dieselbe neue Schreibsituation sowie identische Hilfen und Umfragewerte. Arbeitszeit: **max. 45 Minuten** (bereits eingedruckt). Die Begründung ist **verpflichtend**, nur Umfragedaten sind freiwillig. Bestehende individuelle Anpassungen berücksichtigen. Während der Arbeit: keine Partnerhilfe und kein Kiosk. Details in den [Durchführungshinweisen](materialien/lernerfolgskontrolle/Hinweise_Pruefungen_Fassung4.md).
 
 ## Bewertung und Kinderhilfe
 
