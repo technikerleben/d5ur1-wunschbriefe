@@ -2,6 +2,9 @@
 
 Stand: 8. September 2026 · Schritt 8
 
+**Aktualisierung LEK Fassung 4 (Oktober 2026):** Die Hinweise zu freiwilliger Begründung beschreiben den bisherigen Unterricht und die alte Probearbeit. Für alle drei LEK-Termine ist **ein passender Grund verpflichtend**; **nur die Pausenhof-Umfrage** ist freiwillig. Empfängerin ist **Schulleiterin Frau Schneider** (Ausleihe von Spielgeräten für **Schulhof B** in den Pausen). **Max. 45 Minuten**, 18 Grundpunkte und höchstens 2 Umfrage-Zusatzpunkte. Die LEK-Regelung steht in den [neuen Durchführungshinweisen](../lernerfolgskontrolle/Hinweise_Pruefungen_Fassung4.md).
+
+
 ## Vorbereitung
 
 Die Website ist die Materialzentrale für das Kollegium. Kinder erhalten Papiermaterialien. Die Lehrkraft kann die Impulse projizieren; Kinder müssen die Präsentation nicht selbst öffnen. Nur der Kontroll-Kiosk wird von Kindern am Laptop im Raum bedient.
@@ -51,7 +54,7 @@ Die Lehrkraft vereinbart Übungen nach dem gezeigten Lernbedarf. Nicht jedes Kin
 
 Eine Lehrkraft führt den kurzen Input und klärt gemeinsame Aufträge; die zweite beobachtet, wer den Auftrag verstanden hat, und unterstützt den Einstieg. In der Arbeitsphase können beide kurze Coachinggespräche führen. Rollen wechseln. Beobachtungen beschreiben konkrete Handlungen, etwa „findet Anrede mit Merkblatt 2“, statt Kinder dauerhaft einer niedrigen Stufe zuzuordnen.
 
-Bei der Probearbeit gemeinsame Hilfen zuerst anbieten, zusätzliche Unterstützung dokumentieren und erste Fassung aufbewahren. Die Terminwahl stützt sich auf die gezeigte Textleistung mit den regulären Prüfungshilfen. Das [Prüfungspaket mit Durchführungshinweisen](../lernerfolgskontrolle/Hinweise_Pruefungen_Fassung3.md) regelt Arbeitszeit, Hilfen, Druckbereiche und Rückmeldung.
+Bei der Probearbeit gemeinsame Hilfen zuerst anbieten, zusätzliche Unterstützung dokumentieren und erste Fassung aufbewahren. Die Terminwahl stützt sich auf die gezeigte Textleistung mit den regulären Prüfungshilfen. Das [Prüfungspaket mit Durchführungshinweisen](../lernerfolgskontrolle/Hinweise_Pruefungen_Fassung4.md) regelt Arbeitszeit, Hilfen, Druckbereiche und Rückmeldung.
 
 ## Ergänzende Materialien
 
