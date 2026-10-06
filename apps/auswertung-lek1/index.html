@@ -74,6 +74,14 @@ main{padding:20px 0 48px}
 .criterion-note{padding:0 12px 12px}
 .criterion-note input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:9px}
 .optional{border-style:dashed;background:#fcfdfd}
+#surveyButtons{grid-template-columns:repeat(3,minmax(0,1fr))}
+#surveyButtons .level-btn{min-height:54px;border:2px solid #c9d4dc;border-radius:10px;transition:background .12s,border-color .12s}
+#surveyButtons .level-btn.selected{font-weight:900;box-shadow:inset 0 0 0 1px currentColor,0 2px 6px rgba(24,59,85,.13)}
+#surveyButtons .level-btn.selected::before{content:"✓ ";font-weight:1000}
+#surveyButtons .level-btn[data-survey="0"].selected{background:#e6ebee;border-color:#73838e;color:#344b59}
+#surveyButtons .level-btn[data-survey="1"].selected{background:#fff0e4;border-color:#d9874f;color:#87410e}
+#surveyButtons .level-btn[data-survey="2"].selected{background:#d8f8f3;border-color:#008f80;color:#006c62}
+#surveyButtons .level-btn:focus-visible{outline:3px solid #245688;outline-offset:3px}
 .feedback-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
 .feedback-card{border:1px solid var(--line);border-radius:16px;padding:14px}
 .feedback-card h3{margin:0 0 8px;color:var(--blue2)}
@@ -196,6 +204,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 
 <section id="printSheet" aria-label="Druckfassung der Lernerfolgskontrolle">
   <h1 class="print-title">Auswertung der Lernerfolgskontrolle (Klassenarbeit) Nr. 1</h1>
+  <div class="print-title-band" aria-hidden="true"></div>
   <div class="print-meta">
     <span><strong>Name:</strong> <span id="printName"></span></span>
     <span><strong>Klasse:</strong> <span id="printClass"></span> &nbsp; <strong>Datum:</strong> <span id="printDate"></span></span>
@@ -207,6 +216,12 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     <tbody id="printRows"></tbody>
   </table>
 
+  <div class="print-key" aria-label="Notenschlüssel">
+    <div class="print-key-heading">So werden die Leistungen benotet</div>
+    <div class="print-key-grid" id="printGradeKey"></div>
+    <div class="print-key-note">Die Grundpunkte zeigen, was du schon kannst. Für die Note zählt auch, wie viele der sechs Kompetenzen das jeweilige Niveau erreichen. Die freiwillige Umfrage zählt nicht zur Note.</div>
+  </div>
+
   <h2 class="print-section">Das kannst du schon</h2>
   <div class="print-strengths" id="printStrengths"></div>
 
@@ -214,11 +229,16 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
   <div class="print-warning hidden" id="printWarning">Du hast leider noch nicht den Mindeststandard erreicht. Herr Wegemann wird mit dir planen, wie du weiterarbeiten kannst, um diesen Standard zu erreichen.</div>
   <div class="print-custom hidden" id="printCustom"></div>
 
-  <div class="print-foot">
+  <footer class="print-foot">
     <p class="print-important">Die Rückmeldung zu deinen erlernten Fähigkeiten ist wichtiger als die Note.</p>
-    <p>Diese Leistung entspricht der Note <span id="printGrade"></span>.</p>
+    <p class="print-note-line">Diese Leistung entspricht der Note <span id="printGrade"></span>.</p>
+    <div class="print-signatures">
+      <div><div class="print-sig-line"></div><div class="print-sig-label">Unterschrift Herr Wegemann</div></div>
+      <div><div class="print-sig-line"></div><div class="print-sig-label">Kenntnisnahme der Eltern (Unterschrift)</div></div>
+    </div>
+    <p class="print-date-line">Datum der Rückmeldung: <span id="printToday"></span></p>
     <p class="print-points">Gesamtzahl der erreichten Punkte: <span id="printPoints"></span> (Grundpunkte: <span id="printCore"></span>; freiwillige Zusatzpunkte: <span id="printExtras"></span>).</p>
-  </div>
+  </footer>
 </section>
 
 <dialog id="settingsDialog">
@@ -464,7 +484,7 @@ function renderSummary(){
 }
 function renderSurvey(){
   const s=current(); if(!s)return;
-  document.querySelectorAll("[data-survey]").forEach(b=>b.classList.toggle("selected",Number(b.dataset.survey)===Number(s.survey)));
+  document.querySelectorAll("[data-survey]").forEach(b=>{const active=Number(b.dataset.survey)===Number(s.survey);b.classList.toggle("selected",active);b.setAttribute("aria-pressed",String(active))});
   el("surveyNote").value=s.surveyNote||"";
 }
 function renderAll(){
