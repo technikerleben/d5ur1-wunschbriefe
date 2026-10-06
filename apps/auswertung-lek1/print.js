@@ -29,12 +29,12 @@
     const min4=requiredCount(settings.grade4Min),min5=requiredCount(settings.grade5Min);
     const minPts2=3*perf2+2*Math.max(0,reg2-perf2);
     const rules=[
-      [1,3*perf1,perf1+" von 6 auf Leistungsstandard"],
-      [2,minPts2,reg2+" von 6 auf Regelstandard, davon mindestens "+Math.min(perf2,reg2)+" auf Leistungsstandard"+(perf2>reg2?" (insgesamt "+perf2+" auf Leistung)":"")],
-      [3,2*reg3,reg3+" von 6 auf Regelstandard"],
-      [4,min4,min4+" von 6 auf Mindeststandard"],
-      [5,min5,min5+" von 6 auf Mindeststandard"],
-      [6,0,"weniger als für Note 5 nötig"]
+      [1,3*perf1,perf1+" × Leistungsstandard"],
+      [2,minPts2,reg2+" × Regelstandard + "+perf2+" × Leistungsstandard"],
+      [3,2*reg3,reg3+" × Regelstandard"],
+      [4,min4,min4+" × Mindeststandard"],
+      [5,min5,min5+" × Mindeststandard"],
+      [6,0,"unter der Schwelle für Note 5"]
     ];
     return rules.map(([grade,minPoints,detail])=>
       '<div class="print-key-cell print-key-grade-'+grade+'">'+
