@@ -41,7 +41,7 @@
     // für Noten beziehen sich auf die Anzahl der erreichten Kompetenzstufen.
     return rows.map(row=>'<div class="print-key-cell print-key-grade-'+row.n+'">'+
       '<strong>'+gradeNames[row.n]+'</strong><span>'+
-      (row.n===6?"":'mindestens '+row.minimum+' Grundpunkte möglich · ')+
+      (row.n===6?"":'Mind. '+row.minimum+' Grundpunkte · ')+
       escapeHtml(row.condition)+'</span></div>').join("");
   }
 
