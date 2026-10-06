@@ -42,6 +42,20 @@
 .print-level-2{color:#174675;background:#e8f1fa;border-color:#245688;border-left:5px solid #245688}
 .print-level-3{color:#086c63;background:#d9f6f1;border-color:#35bbae;border-left:5px solid #35bbae}
 .print-level-extra{color:#4f5d65;background:#f0f3f5;border-color:#b1bdc4}
+/* Kompakter, transparenter Notenschlüssel nach Kompetenzniveaus. */
+.print-key{margin:11px 0 13px;border:1px solid #cbd7df;border-radius:9px;padding:9px 10px;background:#fbfdfe}
+.print-key-heading{font-size:9.8pt;font-weight:900;color:#245688;margin-bottom:7px}
+.print-key-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px 7px}
+.print-key-cell{border:1px solid #d6e0e6;border-left:4px solid #8493a0;border-radius:6px;padding:5px 7px;background:white;break-inside:avoid}
+.print-key-grade{font-size:8.9pt;font-weight:900;color:#245688;margin-bottom:1px}
+.print-key-condition{font-size:8.1pt;line-height:1.28;color:#344854}
+.print-key-condition strong{color:#245688}
+.print-key-grade-1{border-left-color:#20a899;background:#e6faf6}
+.print-key-grade-2,.print-key-grade-3{border-left-color:#245688;background:#eaf2fb}
+.print-key-grade-4,.print-key-grade-5{border-left-color:#e6995e;background:#fff2e8}
+.print-key-grade-6{border-left-color:#a4afb6;background:#f1f3f5}
+.print-key-note{margin-top:7px;font-size:8pt;line-height:1.3;color:#53616b}
+
 .print-strengths{
   border:1.5px solid #48DCCB;border-left:6px solid #48DCCB;
   border-radius:10px;background:#ebfaf8;padding:10px 13px;
@@ -85,5 +99,19 @@
   .print-title,.print-meta,.print-strengths,.print-tip,.print-warning,
   .print-signatures,.print-foot{break-inside:avoid}
   .print-levels tr{break-inside:avoid}
+  .print-levels td,.print-levels th{padding:5px 8px;font-size:9pt}
+  .print-key{padding:7px 9px;margin:8px 0 10px}
+  .print-key-heading{margin-bottom:5px}
+  .print-key-cell{padding:4px 6px}
+  .print-key-grid{gap:4px 6px}
+  .print-level-badge{font-size:8.4pt;padding:4px 6px}
+  .print-meta{margin-bottom:10px}
+  .print-title-band{margin-bottom:10px}
+  .print-strengths{padding:8px 11px;font-size:9.7pt}
+  .print-strengths p{margin:2px 0 5px}
+  .print-tip,.print-warning{padding:8px 10px;margin-top:9px}
+  .print-signatures{margin-top:12px}
+  .print-foot{padding-top:7px}
+
   .print-section{break-after:avoid}
 }
