@@ -103,6 +103,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
   .criterion-note input{border:0;padding:0}.feedback-card textarea{border:0;padding:0;min-height:0}
 }
 </style>
+<link rel="stylesheet" href="print.css">
 </head>
 <body>
 <header>
@@ -192,6 +193,33 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
   </section>
 </div>
 </main>
+
+<section id="printSheet" aria-label="Druckfassung der Lernerfolgskontrolle">
+  <h1 class="print-title">Auswertung der Lernerfolgskontrolle (Klassenarbeit) Nr. 1</h1>
+  <div class="print-meta">
+    <span><strong>Name:</strong> <span id="printName"></span></span>
+    <span><strong>Klasse:</strong> <span id="printClass"></span> &nbsp; <strong>Datum:</strong> <span id="printDate"></span></span>
+  </div>
+
+  <h2 class="print-section">Deine erreichten Kompetenzen</h2>
+  <table class="print-levels" aria-label="Erreichte Niveaustufen und Punkte">
+    <thead><tr><th>Kompetenz</th><th>Erreichte Niveaustufe</th><th>Punkte</th></tr></thead>
+    <tbody id="printRows"></tbody>
+  </table>
+
+  <h2 class="print-section">Das kannst du schon</h2>
+  <div class="print-strengths" id="printStrengths"></div>
+
+  <div class="print-tip"><strong>Dein Übungstipp:</strong> <span id="printTipText"></span></div>
+  <div class="print-warning hidden" id="printWarning">Du hast leider noch nicht den Mindeststandard erreicht. Herr Wegemann wird mit dir planen, wie du weiterarbeiten kannst, um diesen Standard zu erreichen.</div>
+  <div class="print-custom hidden" id="printCustom"></div>
+
+  <div class="print-foot">
+    <p class="print-important">Die Rückmeldung zu deinen erlernten Fähigkeiten ist wichtiger als die Note.</p>
+    <p>Diese Leistung entspricht der Note <span id="printGrade"></span>.</p>
+    <p class="print-points">Gesamtzahl der erreichten Punkte: <span id="printPoints"></span> (Grundpunkte: <span id="printCore"></span>; freiwillige Zusatzpunkte: <span id="printExtras"></span>).</p>
+  </div>
+</section>
 
 <dialog id="settingsDialog">
   <div class="dialog-head"><h2>Notenlogik</h2><button class="btn secondary small" id="closeSettings">Schließen</button></div>
@@ -502,5 +530,6 @@ window.addEventListener("beforeunload",()=>{if(current())syncTop()});
 if(students.length)currentId=students[0].id;
 renderAll();
 </script>
+<script src="print.js"></script>
 </body>
 </html>
