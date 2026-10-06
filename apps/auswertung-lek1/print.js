@@ -18,6 +18,32 @@
     lesbarkeit:"Man kann deinen Brief lesen"
   };
   const names=["Noch nicht erreicht","Mindeststandard","Regelstandard","Leistungsstandard"];
+  const gradeNames={1:"sehr gut (1)",2:"gut (2)",3:"befriedigend (3)",4:"ausreichend (4)",5:"mangelhaft (5)",6:"ungenügend (6)"};
+  function requiredCount(percent){return Math.ceil(6*percent/100)}
+  function gradingKey(){
+    // Mindestpunktzahl ist notwendig, aber allein nicht hinreichend:
+    // Maßgeblich ist die Verteilung der erreichten Kompetenzniveaus.
+    const perf1=requiredCount(settings.grade1Perf);
+    const reg2=requiredCount(settings.grade2Reg), perf2=requiredCount(settings.grade2Perf);
+    const reg3=requiredCount(settings.grade3Reg);
+    const min4=requiredCount(settings.grade4Min),min5=requiredCount(settings.grade5Min);
+    const minPts2=3*perf2+2*Math.max(0,reg2-perf2);
+    const rules=[
+      [1,3*perf1,perf1+" von 6 auf Leistungsstandard"],
+      [2,minPts2,reg2+" von 6 auf Regelstandard, davon mindestens "+Math.min(perf2,reg2)+" auf Leistungsstandard"+(perf2>reg2?" (insgesamt "+perf2+" auf Leistung)":"")],
+      [3,2*reg3,reg3+" von 6 auf Regelstandard"],
+      [4,min4,min4+" von 6 auf Mindeststandard"],
+      [5,min5,min5+" von 6 auf Mindeststandard"],
+      [6,0,"weniger als für Note 5 nötig"]
+    ];
+    return rules.map(([grade,minPoints,detail])=>
+      '<div class="print-key-cell print-key-grade-'+grade+'">'+
+      '<div class="print-key-grade">'+gradeNames[grade]+'</div>'+
+      '<div class="print-key-condition">'+
+      (grade===6?"":'<strong>ab '+minPoints+' Grundpunkten</strong> · ')+detail+
+      '</div></div>'
+    ).join("");
+  }
   function between(value,max){return Math.min(max,Math.max(0,Number(value)||0))}
   function renderPrint(){
     const child=current();
@@ -35,10 +61,12 @@
     p("printRows").innerHTML=rows.map(row=>{
       const title=row.criterion.short;
       return "<tr><td>"+escapeHtml(title[0].toUpperCase()+title.slice(1))+
-        "</td><td>"+names[row.level]+"</td><td>"+row.level+" / 3</td></tr>";
-    }).join("")+"<tr><td>Umfrage (freiwilliger Zusatz)</td><td>"+
+        '</td><td><span class="print-level-badge print-level-'+row.level+'">'+
+        names[row.level]+"</span></td><td>"+row.level+" / 3</td></tr>";
+    }).join("")+'<tr><td>Umfrage (freiwilliger Zusatz)</td><td><span class="print-level-badge print-level-extra">'+
       ["Nicht genutzt","Teilweise passend","Passend genutzt und erklärt"][extras]+
-      "</td><td>"+extras+" / 2</td></tr>";
+      "</span></td><td>"+extras+" / 2</td></tr>";
+    p("printGradeKey").innerHTML=gradingKey();
 
     const positive=rows.filter(row=>row.level>=1)
       .sort((a,b)=>b.level-a.level||a.index-b.index);
@@ -68,7 +96,8 @@
     const comment=(child.teacherComment||"").trim();
     p("printCustom").classList.toggle("hidden",!comment);
     p("printCustom").textContent=comment?"Persönliche Rückmeldung: "+comment:"";
-    p("printGrade").textContent=String(assessment.grade);
+    p("printGrade").textContent=gradeNames[assessment.grade]||String(assessment.grade);
+    p("printToday").textContent=new Date().toLocaleDateString("de-DE",{day:"2-digit",month:"2-digit",year:"numeric"});
     p("printPoints").textContent=String(core+extras);
     p("printCore").textContent=core+" / 18";
     p("printExtras").textContent=extras+" / 2";
