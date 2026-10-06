@@ -30,7 +30,7 @@
     const minPts2=3*perf2+2*Math.max(0,reg2-perf2);
     const rules=[
       [1,3*perf1,perf1+" × Leistungsstandard"],
-      [2,minPts2,reg2+" × Regelstandard + "+perf2+" × Leistungsstandard"],
+      [2,minPts2,reg2+" × Regelstandard, "+(perf2<=reg2?"davon ":"insgesamt ")+perf2+" × Leistungsstandard"],
       [3,2*reg3,reg3+" × Regelstandard"],
       [4,min4,min4+" × Mindeststandard"],
       [5,min5,min5+" × Mindeststandard"],
