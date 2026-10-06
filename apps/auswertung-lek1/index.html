@@ -202,44 +202,67 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 </div>
 </main>
 
-<section id="printSheet" aria-label="Druckfassung der Lernerfolgskontrolle">
-  <h1 class="print-title">Auswertung der Lernerfolgskontrolle (Klassenarbeit) Nr. 1</h1>
-  <div class="print-title-band" aria-hidden="true"></div>
-  <div class="print-meta">
-    <span><strong>Name:</strong> <span id="printName"></span></span>
-    <span><strong>Klasse:</strong> <span id="printClass"></span> &nbsp; <strong>Datum:</strong> <span id="printDate"></span></span>
-  </div>
-
-  <h2 class="print-section">Deine erreichten Kompetenzen</h2>
-  <table class="print-levels" aria-label="Erreichte Niveaustufen und Punkte">
-    <thead><tr><th>Kompetenz</th><th>Erreichte Niveaustufe</th><th>Punkte</th></tr></thead>
-    <tbody id="printRows"></tbody>
-  </table>
-
-  <div class="print-key" aria-label="Notenschlüssel">
-    <div class="print-key-heading">So werden die Leistungen benotet</div>
-    <div class="print-key-grid" id="printGradeKey"></div>
-    <div class="print-key-note">„5 × Regelstandard“ bedeutet: Mindestens fünf der sechs Kompetenzen erreichen dieses Niveau. Die Mindestpunktzahl allein genügt nicht. Die freiwillige Umfrage zählt nicht zur Note.</div>
-  </div>
-
-  <h2 class="print-section">Das kannst du schon</h2>
-  <div class="print-strengths" id="printStrengths"></div>
-
-  <div class="print-tip"><strong>Dein Übungstipp:</strong> <span id="printTipText"></span></div>
-  <div class="print-warning hidden" id="printWarning">Du hast leider noch nicht den Mindeststandard erreicht. Herr Wegemann wird mit dir planen, wie du weiterarbeiten kannst, um diesen Standard zu erreichen.</div>
-  <div class="print-custom hidden" id="printCustom"></div>
-
-  <footer class="print-foot">
-    <p class="print-important">Die Rückmeldung zu deinen erlernten Fähigkeiten ist wichtiger als die Note.</p>
-    <p class="print-note-line">Diese Leistung entspricht der Note <span id="printGrade"></span>.</p>
-    <div class="print-signatures">
-      <div><div class="print-sig-line"></div><div class="print-sig-label">Unterschrift Herr Wegemann</div></div>
-      <div><div class="print-sig-line"></div><div class="print-sig-label">Kenntnisnahme der Eltern (Unterschrift)</div></div>
+<div id="printSheet" aria-label="Zweiseitige Rückmeldung für den Duplexdruck">
+  <section class="print-page print-front" aria-label="Vorderseite: persönliche Lernrückmeldung">
+    <div class="page-eyebrow">DEUTSCH 5 · WUNSCHBRIEFE · OTTERKLASSE 5.3</div>
+    <h1 class="print-title">Auswertung der Lernerfolgskontrolle (Klassenarbeit) Nr. 1</h1>
+    <div class="print-title-band" aria-hidden="true"></div>
+    <div class="print-meta">
+      <div class="print-name"><strong>Name:</strong> <span id="printName"></span></div>
+      <div class="print-meta-small"><strong>Klasse:</strong> <span id="printClass"></span> &nbsp; <strong>Arbeit vom:</strong> <span id="printDate"></span></div>
     </div>
-    <p class="print-date-line">Datum der Rückmeldung: <span id="printToday"></span></p>
-    <p class="print-points">Gesamtzahl der erreichten Punkte: <span id="printPoints"></span> (Grundpunkte: <span id="printCore"></span>; freiwillige Zusatzpunkte: <span id="printExtras"></span>).</p>
-  </footer>
-</section>
+
+    <h2 class="print-section">Das hast du erreicht</h2>
+    <p class="print-intro">Hier siehst du, wie sicher dir die verschiedenen Teile eines Wunschbriefes schon gelingen.</p>
+    <table class="print-levels" aria-label="Erreichte Niveaustufen">
+      <thead><tr><th>Kompetenz</th><th>Dein erreichtes Niveau</th><th>Punkte</th></tr></thead>
+      <tbody id="printRows"></tbody>
+    </table>
+
+    <h2 class="print-section strengths-heading">Das kannst du schon</h2>
+    <div class="print-strengths" id="printStrengths"></div>
+    <div class="print-tip"><strong>Dein nächster Übungstipp</strong><span id="printTipText"></span></div>
+    <div class="print-warning hidden" id="printWarning">Du hast leider noch nicht den Mindeststandard erreicht. Herr Wegemann wird mit dir planen, wie du weiterarbeiten kannst, um diesen Standard zu erreichen.</div>
+    <div class="print-custom hidden" id="printCustom"></div>
+
+    <footer class="print-front-footer">
+      <p class="print-priority-short">Du lernst Schritt für Schritt weiter. Wichtig ist, was du schon kannst und woran du als Nächstes arbeitest.</p>
+      <div class="print-signatures">
+        <div><div class="print-sig-line"></div><div class="print-sig-label">Unterschrift Herr Wegemann</div></div>
+        <div><div class="print-sig-line"></div><div class="print-sig-label">Kenntnisnahme der Eltern (Unterschrift)</div></div>
+      </div>
+      <p class="print-date-line">Datum der Rückmeldung: <span id="printToday"></span></p>
+    </footer>
+  </section>
+
+  <section class="print-page print-back" aria-label="Rückseite: vollständiges Kompetenzraster und Bewertung">
+    <div class="page-eyebrow">ZUM NACHLESEN · DEUTSCH 5 · WUNSCHBRIEFE</div>
+    <h2 class="print-back-title">Unser Kompetenzraster</h2>
+    <div class="print-title-band" aria-hidden="true"></div>
+    <p class="print-back-intro">Das Raster zeigt, was wir bei jedem Teil deines Wunschbriefes betrachten. Die farbigen Stufen beschreiben, wie sicher du eine Kompetenz schon beherrschst.</p>
+    <div class="print-legend">
+      <span class="print-level-badge print-level-0">0 · Noch nicht</span>
+      <span class="print-level-badge print-level-1">1 · Mindeststandard</span>
+      <span class="print-level-badge print-level-2">2 · Regelstandard</span>
+      <span class="print-level-badge print-level-3">3 · Leistungsstandard</span>
+    </div>
+    <div class="print-rubric-grid" id="printRubricGrid"></div>
+    <div class="print-back-notes">
+      <div><strong>Wichtige Grundmerkmale:</strong> passende Anrede, klarer Wunsch, mindestens ein passender Grund, Grußformel mit Namen, freundliche Sprache sowie verständliche und lesbare Sätze.</div>
+      <div><strong>Freiwillig:</strong> Umfrageergebnis passend genutzt (0–2 Zusatzpunkte). Die Umfrage ersetzt keinen Grund. Insgesamt sind 18 Grundpunkte und 2 Zusatzpunkte möglich.</div>
+    </div>
+    <div class="print-evaluation">
+      <h3>So entsteht der Notenvorschlag</h3>
+      <p>Der Notenvorschlag richtet sich danach, wie viele der sechs Kompetenzen ein Niveau erreichen. Punkte allein genügen dafür nicht. Die Umfragepunkte zählen nicht zur Note.</p>
+      <div class="print-key-grid" id="printGradeKey"></div>
+      <p class="print-grade-line">Diese Leistung entspricht der Note <span id="printGrade"></span>.</p>
+      <p class="print-points">Gesamtzahl der erreichten Punkte: <span id="printPoints"></span> (Grundpunkte: <span id="printCore"></span>; freiwillige Zusatzpunkte: <span id="printExtras"></span>).</p>
+    </div>
+    <div class="print-philosophy">
+      <strong>Was wirklich zählt:</strong> Der Aufbau deiner Kompetenzen steht im Vordergrund. Eine Note kann nicht deinen gesamten Lernerfolg zeigen. Die Rückmeldung zu deinen Fähigkeiten und deinen nächsten Lernschritten ist deshalb wichtiger als die Note.
+    </div>
+  </section>
+</div>
 
 <dialog id="settingsDialog">
   <div class="dialog-head"><h2>Notenlogik</h2><button class="btn secondary small" id="closeSettings">Schließen</button></div>
