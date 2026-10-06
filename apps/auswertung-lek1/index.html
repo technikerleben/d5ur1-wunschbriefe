@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#245688">
+<title>Auswertung · Lernerfolgskontrolle Wunschbrief</title>
+<style>
+:root{
+  --blue:#245688;--blue2:#173d63;--mint:#48DCCB;--mint-soft:#e8fbf8;
+  --orange:#F0A66F;--orange-soft:#fff2e8;--paper:#f6f7f8;--ink:#1f2933;
+  --muted:#687680;--line:#d8e0e6;--white:#fff;--danger:#b64646;
+  --shadow:0 10px 28px rgba(26,55,78,.09);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:var(--paper);color:var(--ink)}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+.shell{width:min(1380px,calc(100% - 24px));margin:auto}
+header{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff;border-bottom:6px solid var(--mint);padding:22px 0}
+.header-row{display:flex;gap:18px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap}
+.eyebrow{font-size:.78rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+h1{margin:5px 0 8px;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05}
+header p{margin:0;color:rgba(255,255,255,.86);max-width:780px;line-height:1.45}
+.header-badge{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.09);border-radius:16px;padding:12px 15px;max-width:330px;font-size:.88rem;line-height:1.4}
+main{padding:20px 0 48px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.btn{border:0;border-radius:11px;padding:10px 13px;font-weight:850;background:var(--blue);color:#fff}
+.btn.secondary{background:#fff;color:var(--blue);border:1px solid var(--line)}
+.btn.mint{background:#1fae9f}
+.btn.orange{background:#d77b39}
+.btn.danger{background:#fff;color:var(--danger);border:1px solid #e7bcbc}
+.btn.small{padding:7px 10px;font-size:.86rem}
+.grid{display:grid;grid-template-columns:330px minmax(0,1fr);gap:16px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.sidebar{position:sticky;top:10px;overflow:hidden}
+.panel-head{padding:15px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center}
+.panel-head h2,.panel-head h3{margin:0;color:var(--blue2)}
+.panel-body{padding:16px}
+.search{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfcfd}
+.student-list{max-height:70vh;overflow:auto;padding:7px}
+.student-item{width:100%;text-align:left;border:1px solid transparent;background:#fff;padding:10px;border-radius:12px;margin-bottom:5px;display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center}
+.student-item:hover{background:#f5f8fa}
+.student-item.active{background:var(--mint-soft);border-color:#9de7df}
+.student-item strong{display:block;color:var(--blue2)}
+.student-item small{color:var(--muted)}
+.grade-pill{min-width:34px;height:34px;border-radius:999px;display:grid;place-items:center;background:#edf1f4;font-weight:950;color:var(--blue)}
+.empty{padding:22px 14px;text-align:center;color:var(--muted);line-height:1.5}
+.editor{padding:18px}
+.top-form{display:grid;grid-template-columns:1.4fr .75fr .75fr;gap:12px;margin-bottom:18px}
+.field label{display:block;font-size:.78rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 11px;background:#fff;color:var(--ink)}
+.field textarea{min-height:72px;resize:vertical}
+.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:0 0 18px}
+.stat{border:1px solid var(--line);border-radius:14px;padding:11px;background:#fbfcfd}
+.stat b{display:block;font-size:1.25rem;color:var(--blue2)}
+.stat span{font-size:.76rem;color:var(--muted);font-weight:750}
+.stat.level{background:var(--mint-soft)}
+.stat.grade{background:var(--orange-soft)}
+.rubric{display:grid;gap:12px}
+.criterion{border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.criterion-head{padding:12px 14px;background:#f8fafb;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.criterion-head h3{margin:0;color:var(--blue2);font-size:1rem}
+.criterion-head p{margin:3px 0 0;color:var(--muted);font-size:.86rem;line-height:1.35}
+.level-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding:11px 12px 8px}
+.level-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 7px;text-align:center;font-size:.82rem;font-weight:850;color:#52616b}
+.level-btn[data-level="0"].selected{background:#f3eaea;border-color:#dca5a5;color:#8a3434}
+.level-btn[data-level="1"].selected{background:#f5f1df;border-color:#d7c77e;color:#6c5b10}
+.level-btn[data-level="2"].selected{background:#eaf5ff;border-color:#91c1e8;color:#195d91}
+.level-btn[data-level="3"].selected{background:var(--mint-soft);border-color:#71d9cd;color:#08776d}
+.descriptor{padding:0 13px 9px;color:#46545d;font-size:.88rem;min-height:30px}
+.criterion-note{padding:0 12px 12px}
+.criterion-note input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:9px}
+.optional{border-style:dashed;background:#fcfdfd}
+.feedback-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.feedback-card{border:1px solid var(--line);border-radius:16px;padding:14px}
+.feedback-card h3{margin:0 0 8px;color:var(--blue2)}
+.feedback-card p,.feedback-card li{line-height:1.45}
+.feedback-text{white-space:pre-wrap;background:#fbfcfd;border:1px solid var(--line);border-radius:10px;padding:11px;min-height:120px}
+.feedback-card textarea{width:100%;min-height:120px;border:1px solid var(--line);border-radius:10px;padding:11px}
+.actions-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.notice{margin-top:12px;font-size:.82rem;color:var(--muted);line-height:1.4}
+dialog{border:0;border-radius:18px;box-shadow:0 20px 70px rgba(0,0,0,.25);max-width:min(760px,calc(100% - 24px));width:100%}
+dialog::backdrop{background:rgba(20,35,45,.4)}
+.dialog-head{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:10px}
+.dialog-head h2{margin:0}
+.settings-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:15px 0}
+.setting{border:1px solid var(--line);border-radius:12px;padding:11px}
+.setting label{font-weight:850;color:var(--blue2);display:block;margin-bottom:5px}
+.setting input{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px}
+dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 0 0}
+.hidden{display:none!important}
+@media(max-width:1000px){.grid{grid-template-columns:1fr}.sidebar{position:static}.student-list{max-height:280px}.summary{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.top-form{grid-template-columns:1fr}.summary{grid-template-columns:repeat(2,1fr)}.level-buttons{grid-template-columns:1fr 1fr}.feedback-grid{grid-template-columns:1fr}}
+@media print{
+  body{background:#fff}.no-print,header,.sidebar,.toolbar,.actions-row,.notice{display:none!important}
+  .shell{width:100%}.grid{display:block}.panel{box-shadow:none;border:0}.editor{padding:0}
+  .criterion{break-inside:avoid}.feedback-grid{grid-template-columns:1fr 1fr}
+  .top-form input,.top-form select{border:0;padding:0}
+  .level-btn:not(.selected){display:none}.level-buttons{display:block;padding:4px 12px}.level-btn.selected{display:inline-block}
+  .criterion-note input{border:0;padding:0}.feedback-card textarea{border:0;padding:0;min-height:0}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="shell header-row">
+  <div>
+    <div class="eyebrow">Deutsch 5 · Wunschbriefe · Lernerfolgskontrolle</div>
+    <h1>Auswertung & Rückmeldung</h1>
+    <p>Kompetenzorientiert auswerten, Rückmeldung erzeugen und einen transparenten Notenvorschlag erhalten. Alle Daten bleiben ausschließlich im Browserspeicher dieses Geräts.</p>
+  </div>
+  <div class="header-badge"><b>Notenlogik · Voreinstellung</b><br>Note 4 ab 80 % Mindeststandard · Note 1 ab 80 % Leistungsstandard. Die Zwischenstufen sind als Vorschlag hinterlegt und in den Einstellungen anpassbar.</div>
+</div>
+</header>
+
+<main class="shell">
+<div class="toolbar no-print">
+  <button class="btn" id="newStudent">+ Neues Kind</button>
+  <button class="btn secondary" id="settingsBtn">Notenlogik</button>
+  <button class="btn secondary" id="exportCsv">CSV exportieren</button>
+  <button class="btn secondary" id="exportJson">Sicherung exportieren</button>
+  <label class="btn secondary" for="importJson" style="cursor:pointer">Sicherung importieren</label>
+  <input id="importJson" class="hidden" type="file" accept=".json,application/json">
+</div>
+
+<div class="grid">
+  <aside class="panel sidebar no-print">
+    <div class="panel-head"><h2>Klasse</h2><span id="countBadge">0 Kinder</span></div>
+    <div class="panel-body" style="padding-bottom:8px"><input class="search" id="search" placeholder="Name suchen …"></div>
+    <div class="student-list" id="studentList"></div>
+  </aside>
+
+  <section class="panel">
+    <div class="editor" id="editor">
+      <div id="welcome" class="empty">
+        <h2>Auswertung starten</h2>
+        <p>Lege ein Kind an oder wähle links einen vorhandenen Eintrag. Die sechs Kernbereiche entsprechen der aktuellen Lernerfolgskontrolle.</p>
+      </div>
+
+      <div id="formWrap" class="hidden">
+        <div class="top-form">
+          <div class="field"><label>Name des Kindes</label><input id="studentName" autocomplete="off"></div>
+          <div class="field"><label>Klasse</label><input id="studentClass" value="5.3"></div>
+          <div class="field"><label>Datum</label><input id="studentDate" type="date"></div>
+        </div>
+
+        <div class="summary">
+          <div class="stat"><b id="pctMin">0 %</b><span>Mindeststandard erreicht</span></div>
+          <div class="stat"><b id="pctReg">0 %</b><span>Regelstandard erreicht</span></div>
+          <div class="stat"><b id="pctPerf">0 %</b><span>Leistungsstandard erreicht</span></div>
+          <div class="stat level"><b id="overallLevel">–</b><span>Gesamtniveau</span></div>
+          <div class="stat grade"><b id="gradeSuggestion">–</b><span>Notenvorschlag</span></div>
+        </div>
+
+        <div class="rubric" id="rubric"></div>
+
+        <div class="criterion optional">
+          <div class="criterion-head">
+            <div><h3>Zusatz: Umfrageergebnis</h3><p>Freiwillige Zusatzleistung. Sie senkt die Einstufung nicht.</p></div>
+          </div>
+          <div class="level-buttons" id="surveyButtons">
+            <button class="level-btn" data-survey="0">nicht genutzt</button>
+            <button class="level-btn" data-survey="1">teilweise passend</button>
+            <button class="level-btn" data-survey="2">passend & erklärt</button>
+          </div>
+          <div class="criterion-note"><input id="surveyNote" placeholder="Optional: kurze Notiz zur Datennutzung"></div>
+        </div>
+
+        <div class="feedback-grid">
+          <div class="feedback-card">
+            <h3>Automatische Rückmeldung</h3>
+            <div class="feedback-text" id="autoFeedback"></div>
+          </div>
+          <div class="feedback-card">
+            <h3>Eigene Ergänzung</h3>
+            <textarea id="teacherComment" placeholder="Optional: persönliche Rückmeldung, konkrete Textstelle, nächster Lernschritt …"></textarea>
+          </div>
+        </div>
+
+        <div class="actions-row no-print">
+          <button class="btn mint" id="saveStudent">Speichern</button>
+          <button class="btn secondary" id="copyFeedback">Rückmeldung kopieren</button>
+          <button class="btn orange" id="printFeedback">Rückmeldung drucken</button>
+          <button class="btn danger" id="deleteStudent">Eintrag löschen</button>
+        </div>
+        <div class="notice">Der Notenvorschlag ist eine rechnerische Orientierung und ersetzt keine pädagogische Gesamtentscheidung. Die freiwillige Umfrageleistung wird positiv rückgemeldet, aber nicht als fehlende Grundkompetenz verrechnet.</div>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<dialog id="settingsDialog">
+  <div class="dialog-head"><h2>Notenlogik</h2><button class="btn secondary small" id="closeSettings">Schließen</button></div>
+  <p>Die Prozentwerte beziehen sich auf die sechs Kernkriterien. Ein Kriterium zählt für einen Standard, wenn dieses Niveau oder ein höheres ausgewählt wurde.</p>
+  <div class="settings-grid">
+    <div class="setting"><label>Note 1: Leistungsstandard mindestens</label><input id="sGrade1" type="number" min="0" max="100" step="1"></div>
+    <div class="setting"><label>Note 2: Regelstandard mindestens</label><input id="sGrade2Reg" type="number" min="0" max="100" step="1"></div>
+    <div class="setting"><label>Note 2: Leistungsstandard mindestens</label><input id="sGrade2Perf" type="number" min="0" max="100" step="1"></div>
+    <div class="setting"><label>Note 3: Regelstandard mindestens</label><input id="sGrade3" type="number" min="0" max="100" step="1"></div>
+    <div class="setting"><label>Note 4: Mindeststandard mindestens</label><input id="sGrade4" type="number" min="0" max="100" step="1"></div>
+    <div class="setting"><label>Note 5: Mindeststandard mindestens</label><input id="sGrade5" type="number" min="0" max="100" step="1"></div>
+  </div>
+  <p class="notice">Voreinstellung: 1 ab 80 % Leistungsstandard · 2 ab 80 % Regelstandard und 50 % Leistungsstandard · 3 ab 80 % Regelstandard · 4 ab 80 % Mindeststandard · 5 ab 50 % Mindeststandard · sonst 6.</p>
+  <menu>
+    <button class="btn secondary" id="resetSettings">Standardwerte</button>
+    <button class="btn mint" id="saveSettings">Übernehmen</button>
+  </menu>
+</dialog>
+
+<script>
+const STORAGE_KEY="d5ur1_lek1_auswertung_v1";
+const SETTINGS_KEY="d5ur1_lek1_notenlogik_v1";
+
+const LEVEL_NAMES=["noch nicht erreicht","Mindeststandard","Regelstandard","Leistungsstandard"];
+
+const CRITERIA=[
+  {
+    id:"situation", title:"1. Schreibsituation und Wunsch",
+    short:"Schreibsituation und Wunsch",
+    desc:"Adressat, Anlass und Wunsch passend erfassen.",
+    levels:[
+      "Ein passender Wunsch ist noch nicht sicher erkennbar oder die Schreibsituation wird verfehlt.",
+      "Adressat und Wunsch sind erkennbar und passen grundsätzlich zur Schreibsituation.",
+      "Adressat, Anlass und Wunsch sind klar, passend und verständlich formuliert.",
+      "Die Schreibsituation wird sehr sicher erfasst; der Wunsch ist präzise und besonders adressatengerecht formuliert."
+    ]
+  },
+  {
+    id:"aufbau", title:"2. Briefaufbau",
+    short:"Briefaufbau",
+    desc:"Ort und Datum, Anrede, Brieftext, Grußformel und Name sinnvoll setzen.",
+    levels:[
+      "Die Briefform ist noch nicht sicher erkennbar; mehrere wichtige Teile fehlen oder sind ungeordnet.",
+      "Die Briefform ist erkennbar; die wichtigsten Teile sind vorhanden, auch wenn einzelne Formmerkmale noch unsicher sind.",
+      "Der Brief ist vollständig und sinnvoll gegliedert; Ort/Datum, Anrede, Text, Grußformel und Name stehen passend.",
+      "Der Brief ist vollständig, sicher und normgerecht gesetzt; auch freie Zeilen und Anordnung unterstützen die Lesbarkeit."
+    ]
+  },
+  {
+    id:"freundlichkeit", title:"3. Freundliche und passende Sprache",
+    short:"freundliche Sprache",
+    desc:"Höflich, respektvoll und passend zur Adressatin schreiben.",
+    levels:[
+      "Mehrere Formulierungen wirken noch unpassend, fordernd oder wenig adressatengerecht.",
+      "Der Brief ist insgesamt höflich und respektvoll, auch wenn einzelne Formulierungen noch schlicht oder unsicher sind.",
+      "Der Brief ist durchgehend freundlich und passend zur Adressatin formuliert.",
+      "Die Sprache ist besonders sicher, freundlich und adressatengerecht; Bitte und Schluss wirken überzeugend und angemessen."
+    ]
+  },
+  {
+    id:"begruendung", title:"4. Begründung",
+    short:"Begründung",
+    desc:"Mindestens einen passenden Grund nennen und verständlich erklären.",
+    levels:[
+      "Ein passender Grund fehlt noch oder bleibt so unklar, dass der Nutzen des Wunsches nicht verständlich wird.",
+      "Mindestens ein passender Grund ist erkennbar und erklärt grundsätzlich, warum der Wunsch sinnvoll ist.",
+      "Der Grund ist nachvollziehbar ausgeführt und klar mit dem Wunsch verbunden.",
+      "Die Begründung ist besonders überzeugend, genauer ausgeführt oder verbindet mehrere passende Gedanken sinnvoll miteinander."
+    ]
+  },
+  {
+    id:"sprache", title:"5. Sätze, Rechtschreibung und Zeichensetzung",
+    short:"sprachliche Richtigkeit",
+    desc:"Verständliche ganze Sätze schreiben; Rechtschreibung und Satzzeichen sichern.",
+    levels:[
+      "Satzbau oder sprachliche Fehler erschweren das Verstehen deutlich.",
+      "Der Text ist insgesamt verständlich; Fehler kommen vor, verhindern das Verstehen aber nicht.",
+      "Die Sätze sind überwiegend vollständig und sprachlich sicher; Fehler stören das Lesen kaum.",
+      "Der Text ist sprachlich sehr sicher; Satzbau, Rechtschreibung und Zeichensetzung gelingen fast durchgehend."
+    ]
+  },
+  {
+    id:"lesbarkeit", title:"6. Lesbarkeit und Gliederung",
+    short:"Lesbarkeit und Gliederung",
+    desc:"Gut lesbar schreiben und Briefteile übersichtlich gliedern.",
+    levels:[
+      "Mehrere Stellen sind schwer zu entziffern oder die Gliederung erschwert das Lesen.",
+      "Der Text ist überwiegend lesbar; die wichtigsten Briefteile sind optisch erkennbar.",
+      "Der Brief ist gut lesbar und übersichtlich gegliedert; Abstände und Zeilenführung unterstützen das Lesen.",
+      "Der Brief ist sehr klar, sicher und übersichtlich gestaltet; die Gliederung unterstützt den Inhalt besonders gut."
+    ]
+  }
+];
+
+const FEEDBACK={
+  situation:[
+    "Dein Wunsch und die Schreibsituation sind noch nicht sicher getroffen.",
+    "Du zeigst, an wen du schreibst und was du dir wünschst.",
+    "Du triffst die Schreibsituation und formulierst deinen Wunsch klar.",
+    "Du erfasst die Schreibsituation sehr sicher und formulierst deinen Wunsch besonders präzise."
+  ],
+  aufbau:[
+    "Beim Briefaufbau brauchst du noch Unterstützung.",
+    "Dein Text ist als Brief erkennbar und enthält die wichtigsten Teile.",
+    "Du baust deinen Brief vollständig und sinnvoll auf.",
+    "Du setzt deinen Brief sehr sicher und besonders übersichtlich."
+  ],
+  freundlichkeit:[
+    "Achte noch stärker auf freundliche und passende Formulierungen.",
+    "Du schreibst insgesamt höflich und respektvoll.",
+    "Du formulierst deinen Brief durchgehend freundlich und passend.",
+    "Du formulierst besonders sicher, höflich und adressatengerecht."
+  ],
+  begruendung:[
+    "Ein verständlicher, passender Grund fehlt noch.",
+    "Du nennst einen passenden Grund für deinen Wunsch.",
+    "Du erklärst deinen Grund nachvollziehbar und passend.",
+    "Du begründest deinen Wunsch besonders überzeugend und verbindest deine Gedanken sinnvoll."
+  ],
+  sprache:[
+    "Sprachliche Fehler erschweren das Verstehen noch deutlich.",
+    "Man kann deinen Text verstehen, auch wenn noch einige Fehler vorkommen.",
+    "Deine Sätze sind überwiegend vollständig und sprachlich sicher.",
+    "Du schreibst sprachlich sehr sicher; Rechtschreibung und Zeichensetzung gelingen fast durchgehend."
+  ],
+  lesbarkeit:[
+    "Achte darauf, dass man deinen Brief leichter lesen und die Teile besser erkennen kann.",
+    "Dein Brief ist überwiegend lesbar und grundsätzlich gegliedert.",
+    "Du schreibst gut lesbar und gliederst deinen Brief übersichtlich.",
+    "Dein Brief ist sehr klar lesbar und besonders sicher gegliedert."
+  ]
+};
+
+const NEXT_STEPS={
+  situation:"Prüfe vor dem Schreiben: Wer bekommt den Brief? Was genau ist dein Wunsch?",
+  aufbau:"Nutze die Reihenfolge: Ort und Datum – freie Zeile – Anrede – freie Zeile – Text – freie Zeile – Grußformel und Name.",
+  freundlichkeit:"Formuliere deinen Wunsch als freundliche Bitte und vermeide drängende Wörter.",
+  begruendung:"Erkläre mit einem Satz, warum dein Wunsch sinnvoll ist oder was dadurch besser wird.",
+  sprache:"Lies deinen Brief am Ende Satz für Satz. Prüfe Großschreibung, Anrede-Komma und Satzzeichen.",
+  lesbarkeit:"Lass zwischen den Briefteilen freie Zeilen und achte auf gut erkennbare Wörter und Abstände."
+};
+
+const DEFAULT_SETTINGS={grade1Perf:80,grade2Reg:80,grade2Perf:50,grade3Reg:80,grade4Min:80,grade5Min:50};
+
+let students=load(STORAGE_KEY,[]);
+let settings={...DEFAULT_SETTINGS,...load(SETTINGS_KEY,{})};
+let currentId=null;
+
+const el=id=>document.getElementById(id);
+function load(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch(e){return fallback}}
+function persist(){localStorage.setItem(STORAGE_KEY,JSON.stringify(students))}
+function persistSettings(){localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings))}
+function uid(){return "s_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,7)}
+function today(){return new Date().toISOString().slice(0,10)}
+function blankStudent(){return {id:uid(),name:"",className:"5.3",date:today(),levels:Object.fromEntries(CRITERIA.map(c=>[c.id,0])),notes:{},survey:0,surveyNote:"",teacherComment:"",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}}
+function current(){return students.find(s=>s.id===currentId)||null}
+function escapeHtml(s=""){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
+function pct(levels,threshold){const vals=CRITERIA.map(c=>Number(levels[c.id]||0));return Math.round(vals.filter(v=>v>=threshold).length/CRITERIA.length*100)}
+function metrics(s){
+  const min=pct(s.levels,1),reg=pct(s.levels,2),perf=pct(s.levels,3);
+  let overall="noch nicht erreicht";
+  if(perf>=80)overall="Leistungsstandard";
+  else if(reg>=80)overall="Regelstandard";
+  else if(min>=80)overall="Mindeststandard";
+  return {min,reg,perf,overall,grade:gradeFor({min,reg,perf})};
+}
+function gradeFor(m){
+  if(m.perf>=settings.grade1Perf)return 1;
+  if(m.reg>=settings.grade2Reg && m.perf>=settings.grade2Perf)return 2;
+  if(m.reg>=settings.grade3Reg)return 3;
+  if(m.min>=settings.grade4Min)return 4;
+  if(m.min>=settings.grade5Min)return 5;
+  return 6;
+}
+function renderList(){
+  const q=el("search").value.trim().toLowerCase();
+  const list=students.filter(s=>(s.name||"").toLowerCase().includes(q)).sort((a,b)=>(a.name||"").localeCompare(b.name||"","de"));
+  el("countBadge").textContent=students.length+" "+(students.length===1?"Kind":"Kinder");
+  if(!list.length){el("studentList").innerHTML='<div class="empty">Noch keine Einträge.</div>';return}
+  el("studentList").innerHTML=list.map(s=>{
+    const m=metrics(s);
+    return '<button class="student-item '+(s.id===currentId?'active':'')+'" data-id="'+s.id+'"><span><strong>'+escapeHtml(s.name||"Ohne Namen")+'</strong><small>'+escapeHtml(s.className||"")+' · '+escapeHtml(m.overall)+'</small></span><span class="grade-pill">'+m.grade+'</span></button>';
+  }).join("");
+  document.querySelectorAll(".student-item").forEach(b=>b.onclick=()=>openStudent(b.dataset.id));
+}
+function renderRubric(){
+  const s=current(); if(!s)return;
+  el("rubric").innerHTML=CRITERIA.map(c=>{
+    const lv=Number(s.levels[c.id]||0);
+    return '<div class="criterion" data-criterion="'+c.id+'">'+
+      '<div class="criterion-head"><div><h3>'+escapeHtml(c.title)+'</h3><p>'+escapeHtml(c.desc)+'</p></div><span class="grade-pill">'+lv+'</span></div>'+
+      '<div class="level-buttons">'+[0,1,2,3].map(n=>'<button class="level-btn '+(lv===n?'selected':'')+'" data-level="'+n+'" data-cid="'+c.id+'">'+(n===0?'noch nicht':n===1?'Mindest':n===2?'Regel':'Leistung')+'</button>').join("")+'</div>'+
+      '<div class="descriptor">'+escapeHtml(c.levels[lv])+'</div>'+
+      '<div class="criterion-note"><input data-note="'+c.id+'" value="'+escapeHtml(s.notes[c.id]||"")+'" placeholder="Optional: konkrete Beobachtung oder Textstelle"></div>'+
+    '</div>';
+  }).join("");
+  document.querySelectorAll("[data-cid]").forEach(b=>b.onclick=()=>{
+    const s=current();s.levels[b.dataset.cid]=Number(b.dataset.level);s.updatedAt=new Date().toISOString();persist();renderAll();
+  });
+  document.querySelectorAll("[data-note]").forEach(inp=>inp.oninput=()=>{
+    const s=current();s.notes[inp.dataset.note]=inp.value;s.updatedAt=new Date().toISOString();persist();
+  });
+}
+function feedbackText(s){
+  const m=metrics(s);
+  const vals=CRITERIA.map(c=>({c,lv:Number(s.levels[c.id]||0)}));
+  const best=[...vals].sort((a,b)=>b.lv-a.lv);
+  const lowest=[...vals].sort((a,b)=>a.lv-b.lv);
+  const strengths=best.filter(x=>x.lv>=2).slice(0,2);
+  const next=lowest[0];
+  let intro;
+  if(m.overall==="Leistungsstandard")intro="Du zeigst bei deinem Wunschbrief sehr viele Kompetenzen besonders sicher.";
+  else if(m.overall==="Regelstandard")intro="Du schreibst einen insgesamt sicheren und verständlichen Wunschbrief.";
+  else if(m.overall==="Mindeststandard")intro="Du hast die wichtigen Grundlagen des Wunschbriefs erreicht.";
+  else intro="Du zeigst schon einzelne wichtige Grundlagen. An einigen Stellen brauchst du noch Unterstützung.";
+  let parts=[intro,""];
+  if(strengths.length){
+    parts.push("Das gelingt dir schon:");
+    strengths.forEach(x=>parts.push("• "+FEEDBACK[x.c.id][x.lv]));
+  }else{
+    const any=best[0];
+    parts.push("Das gelingt dir schon:");
+    parts.push("• "+FEEDBACK[any.c.id][any.lv]);
+  }
+  parts.push("");
+  parts.push("Dein nächster Schritt:");
+  parts.push("• "+NEXT_STEPS[next.c.id]);
+  if(Number(s.survey)===2){parts.push("");parts.push("Zusätzlich stark: Du hast ein passendes Umfrageergebnis richtig genutzt und erklärt.");}
+  else if(Number(s.survey)===1){parts.push("");parts.push("Zusatz: Du hast die Umfrage genutzt. Prüfe noch einmal, ob Zahl und Aussage genau zusammenpassen.");}
+  parts.push("");
+  if(m.grade<=2)parts.push("Weiter so – du arbeitest bereits sehr sicher.");
+  else if(m.grade===3)parts.push("Du bist auf einem guten Weg. Mit deinem nächsten Schritt kannst du deinen Brief noch sicherer machen.");
+  else if(m.grade===4)parts.push("Die wichtigsten Grundlagen sind da. Übe jetzt gezielt deinen nächsten Schritt.");
+  else parts.push("Arbeite Schritt für Schritt weiter. Nutze deine Rückmeldung, um genau eine Sache als Nächstes zu üben.");
+  return parts.join("\n");
+}
+function renderSummary(){
+  const s=current(); if(!s)return;const m=metrics(s);
+  el("pctMin").textContent=m.min+" %";el("pctReg").textContent=m.reg+" %";el("pctPerf").textContent=m.perf+" %";
+  el("overallLevel").textContent=m.overall;el("gradeSuggestion").textContent=m.grade;
+  el("autoFeedback").textContent=feedbackText(s);
+}
+function renderSurvey(){
+  const s=current(); if(!s)return;
+  document.querySelectorAll("[data-survey]").forEach(b=>b.classList.toggle("selected",Number(b.dataset.survey)===Number(s.survey)));
+  el("surveyNote").value=s.surveyNote||"";
+}
+function renderAll(){
+  renderList();
+  const s=current();
+  el("welcome").classList.toggle("hidden",!!s);
+  el("formWrap").classList.toggle("hidden",!s);
+  if(!s)return;
+  el("studentName").value=s.name||"";el("studentClass").value=s.className||"5.3";el("studentDate").value=s.date||today();
+  el("teacherComment").value=s.teacherComment||"";
+  renderRubric();renderSurvey();renderSummary();
+}
+function openStudent(id){currentId=id;renderAll();window.scrollTo({top:0,behavior:"smooth"})}
+function syncTop(){
+  const s=current();if(!s)return;
+  s.name=el("studentName").value.trim();s.className=el("studentClass").value.trim();s.date=el("studentDate").value;
+  s.teacherComment=el("teacherComment").value;s.surveyNote=el("surveyNote").value;s.updatedAt=new Date().toISOString();persist();renderList();renderSummary();
+}
+function createStudent(){const s=blankStudent();students.push(s);currentId=s.id;persist();renderAll();el("studentName").focus()}
+function deleteCurrent(){const s=current();if(!s)return;if(!confirm('Eintrag für "'+(s.name||"dieses Kind")+'" wirklich löschen?'))return;students=students.filter(x=>x.id!==s.id);persist();currentId=students[0]?.id||null;renderAll()}
+function download(name,text,type){const blob=new Blob([text],{type});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function csv(){
+ const headers=["Name","Klasse","Datum",...CRITERIA.map(c=>c.short),"Mindest_%","Regel_%","Leistung_%","Gesamtniveau","Notenvorschlag","Umfrage_Zusatz","Lehrkraft_Rueckmeldung"];
+ const rows=students.map(s=>{const m=metrics(s);return [s.name,s.className,s.date,...CRITERIA.map(c=>LEVEL_NAMES[Number(s.levels[c.id]||0)]),m.min,m.reg,m.perf,m.overall,m.grade,s.survey===2?"passend & erklärt":s.survey===1?"teilweise passend":"nicht genutzt",s.teacherComment||""]});
+ const esc=v=>'"'+String(v??"").replace(/"/g,'""')+'"';
+ return "\ufeff"+[headers,...rows].map(r=>r.map(esc).join(";")).join("\n");
+}
+function fullFeedback(s){
+ const m=metrics(s);let t=(s.name||"Rückmeldung")+" – Wunschbrief\n";
+ t+="Gesamtniveau: "+m.overall+" · Notenvorschlag: "+m.grade+"\n";
+ t+="Mindeststandard: "+m.min+" % · Regelstandard: "+m.reg+" % · Leistungsstandard: "+m.perf+" %\n\n";
+ t+=feedbackText(s);
+ if(s.teacherComment?.trim())t+="\n\nPersönliche Rückmeldung:\n"+s.teacherComment.trim();
+ return t;
+}
+function settingsToInputs(){
+ el("sGrade1").value=settings.grade1Perf;el("sGrade2Reg").value=settings.grade2Reg;el("sGrade2Perf").value=settings.grade2Perf;el("sGrade3").value=settings.grade3Reg;el("sGrade4").value=settings.grade4Min;el("sGrade5").value=settings.grade5Min;
+}
+function inputsToSettings(){
+ settings={grade1Perf:Number(el("sGrade1").value),grade2Reg:Number(el("sGrade2Reg").value),grade2Perf:Number(el("sGrade2Perf").value),grade3Reg:Number(el("sGrade3").value),grade4Min:Number(el("sGrade4").value),grade5Min:Number(el("sGrade5").value)};
+ persistSettings();renderAll();
+}
+el("newStudent").onclick=createStudent;
+el("search").oninput=renderList;
+["studentName","studentClass","studentDate","teacherComment","surveyNote"].forEach(id=>el(id).addEventListener("input",syncTop));
+document.querySelectorAll("[data-survey]").forEach(b=>b.onclick=()=>{const s=current();s.survey=Number(b.dataset.survey);s.updatedAt=new Date().toISOString();persist();renderSurvey();renderSummary()});
+el("saveStudent").onclick=()=>{syncTop();el("saveStudent").textContent="Gespeichert ✓";setTimeout(()=>el("saveStudent").textContent="Speichern",1200)};
+el("deleteStudent").onclick=deleteCurrent;
+el("copyFeedback").onclick=async()=>{const s=current();if(!s)return;try{await navigator.clipboard.writeText(fullFeedback(s));el("copyFeedback").textContent="Kopiert ✓";setTimeout(()=>el("copyFeedback").textContent="Rückmeldung kopieren",1200)}catch(e){alert("Kopieren nicht möglich. Bitte markiere den Text manuell.")}};
+el("printFeedback").onclick=()=>window.print();
+el("exportCsv").onclick=()=>download("LEK1_Wunschbrief_Auswertung.csv",csv(),"text/csv;charset=utf-8");
+el("exportJson").onclick=()=>download("LEK1_Wunschbrief_Sicherung.json",JSON.stringify({version:1,exportedAt:new Date().toISOString(),settings,students},null,2),"application/json");
+el("importJson").onchange=async e=>{
+ const file=e.target.files[0];if(!file)return;
+ try{const data=JSON.parse(await file.text());if(!Array.isArray(data.students))throw new Error();if(!confirm("Vorhandene Daten durch die Sicherung ersetzen?"))return;students=data.students;settings={...DEFAULT_SETTINGS,...(data.settings||{})};persist();persistSettings();currentId=students[0]?.id||null;renderAll()}
+ catch(err){alert("Die Datei konnte nicht als gültige Sicherung gelesen werden.")}finally{e.target.value=""}
+};
+el("settingsBtn").onclick=()=>{settingsToInputs();el("settingsDialog").showModal()};
+el("closeSettings").onclick=()=>el("settingsDialog").close();
+el("saveSettings").onclick=()=>{inputsToSettings();el("settingsDialog").close()};
+el("resetSettings").onclick=()=>{settings={...DEFAULT_SETTINGS};settingsToInputs()};
+window.addEventListener("beforeunload",()=>{if(current())syncTop()});
+if(students.length)currentId=students[0].id;
+renderAll();
+</script>
+</body>
+</html>
