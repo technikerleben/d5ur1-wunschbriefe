@@ -61,18 +61,18 @@ def table(d,rows):
 variants=[
  ('Termin 1','eine Ausleihe von Spielgeräten für Schulhof B in den Pausen',
   ['Ausleihe von Spielgeräten','Mehr Sitzbänke','Klettergerüst mit Rutsche','Größere Fußballtore']),
- ('Termin 2','eine Ausleihe von Spielgeräten für Schulhof B in den Pausen',
-  ['Ausleihe von Spielgeräten','Mehr Sitzbänke','Klettergerüst mit Rutsche','Größere Fußballtore']),
+ ('Termin 2','einen Besuch im Dortmunder Zoo als Klassenausflug',
+  ['Dortmunder Zoo','Westfalenpark','Deutsches Fußballmuseum','Naturmuseum Dortmund']),
  ('Termin 3','eine Ausleihe von Spielgeräten für Schulhof B in den Pausen',
   ['Ausleihe von Spielgeräten','Mehr Sitzbänke','Klettergerüst mit Rutsche','Größere Fußballtore'])]
-def append_help(d,first=False):
+def append_help(d,first=False,wish=None):
  page(d,'Dein Wunschbrief: Das zählt',first)
  p(d,'Dein Ziel: Du schreibst einen freundlichen und verständlichen Wunschbrief mit einem passenden Grund.')
  p(d,'Das gehört in deinen Brief','ExamHeading')
  for x in [
    'Du schreibst Ort und Datum.',
    'Du verwendest eine passende Anrede.',
-   'Du wünschst dir eine Ausleihe von Spielgeräten für Schulhof B in den Pausen.',
+   ('Du wünschst dir '+wish+'.' if wish else 'Du wünschst dir eine Ausleihe von Spielgeräten für Schulhof B in den Pausen.'),
    'Du nennst mindestens einen passenden Grund für den Wunsch.',
    'Du schreibst freundlich und in verständlichen Sätzen.',
    'Deine Schrift ist lesbar. Die Teile des Briefes sind übersichtlich.',
@@ -92,7 +92,7 @@ def append_help(d,first=False):
  p(d,'Schreibe deinen Brief in dieser Reihenfolge:')
  for x in ['1  Ort und Datum','2  freie Zeile','3  Anrede mit Komma','4  freie Zeile','5  Wunsch und mindestens ein passender Grund','6  freie Zeile','7  Grußformel und Name']:p(d,x)
  p(d,'Wenn du einen Anfang brauchst','ExamHeading')
- for x in ['Sehr geehrte Frau …,','ich wünsche mir …','Das wäre sinnvoll, weil …','Dann könnten wir …','Freundliche Grüße']:p(d,x)
+ for x in [('Sehr geehrter Herr …,' if wish and 'Dortmunder Zoo' in wish else 'Sehr geehrte Frau …,'),'ich wünsche mir …','Das wäre sinnvoll, weil …','Dann könnten wir …','Freundliche Grüße']:p(d,x)
  p(d,'Nur freiwillig für die Umfrage','ExamHeading')
  p(d,'In der Umfrage wünschen sich … Kinder …')
  p(d,'Reflexion','ExamHeading')
@@ -100,31 +100,41 @@ def append_help(d,first=False):
  p(d,'Du darfst dir den Auftrag vorlesen lassen. Deinen Brief formulierst du selbst. Keine Partnerhilfe und kein Kontroll-Kiosk während der Arbeit.')
 def packet(d,spec,first=False):
  label,wish,items=spec
+ is_zoo=(label=='Termin 2')
+ recipient=('deinen Klassenlehrer Herrn Wegemann' if is_zoo else 'Schulleiterin Frau Schneider')
+ situation=('Dein Klassenlehrer Herr Wegemann hat um Vorschläge für einen Klassenausflug gebeten. '
+            'Du wünschst dir einen Besuch im Dortmunder Zoo. Schreibe Herrn Wegemann einen Brief '
+            'und erkläre, warum du diesen Ausflug möchtest.'
+            if is_zoo else
+            'Schulleiterin Frau Schneider sammelt Wünsche für Schulhof B. Du möchtest '
+            'eine Ausleihe von Spielgeräten für die Pausen. Schreibe Frau Schneider '
+            'einen Brief und erkläre, warum dir dieser Wunsch wichtig ist.')
+ poll_question=('Was wünschst du dir als Klassenausflug?' if is_zoo else 'Was wünschst du dir für den Pausenhof?')
  page(d,label+' · Dein Wunschbrief',first)
  p(d,'Name: __________________________  Datum: ______________')
  p(d,'Arbeitszeit: max. 45 Minuten')
  p(d,'Deine Situation','ExamHeading')
- p(d,'Schulleiterin Frau Schneider sammelt Wünsche für Schulhof B. Du möchtest eine Ausleihe von Spielgeräten für die Pausen. Schreibe Frau Schneider einen Brief und erkläre, warum dir dieser Wunsch wichtig ist.')
+ p(d,situation)
  p(d,'Dein Auftrag','ExamHeading')
  for x in [
   'Schreibe Ort und Datum oben auf den Brief.',
-  'Wähle eine passende Anrede für Schulleiterin Frau Schneider.',
-  'Formuliere den Wunsch nach einer Ausleihe von Spielgeräten für Schulhof B klar und freundlich.',
+  ('Wähle eine passende Anrede für deinen Klassenlehrer Herrn Wegemann.' if is_zoo else 'Wähle eine passende Anrede für Schulleiterin Frau Schneider.'),
+  ('Formuliere deinen Wunsch nach einem Besuch im Dortmunder Zoo klar und freundlich.' if is_zoo else 'Formuliere den Wunsch nach einer Ausleihe von Spielgeräten für Schulhof B klar und freundlich.'),
   'Nenne mindestens einen passenden Grund für den Wunsch.',
   'Beende den Brief mit einer Grußformel und deinem Namen.',
   'Schreibe verständliche ganze Sätze und lesbar.'
  ]:p(d,'☐ '+x)
  p(d,'Freiwillig: Nutze die Umfrage','ExamHeading')
  p(d,'Wenn du möchtest, ergänze ein passendes Umfrageergebnis. Dies ist der einzige freiwillige Zusatz.')
- p(d,'26 Kinder einer Beispielklasse wurden gefragt: „Was wünschst du dir für den Pausenhof?“ Mehrere Antworten waren erlaubt. Die Zahlen sind erfunden.')
- table(d,[['Wunsch für den Pausenhof','Stimmen']]+[[x,str(v)] for x,v in zip(items,[17,14,11,8])])
+ p(d,'26 Kinder einer Beispielklasse wurden gefragt: „'+poll_question+'“ Mehrere Antworten waren erlaubt. Die Zahlen sind erfunden.')
+ table(d,[['Ausflugsziel' if is_zoo else 'Wunsch für den Pausenhof','Stimmen']]+[[x,str(v)] for x,v in zip(items,[17,14,11,8])])
  p(d,'Arbeite mit Planung → Durchführung → Reflexion.')
  page(d,label+' · Planung')
  p(d,'Notiere Stichwörter. Deinen Brief schreibst du erst auf den Schreibbogen. Die beiden Hilfeseiten darfst du nutzen.')
  for x in [
   'An wen schreibst du?',
-  'Was wünschst du dir für Schulhof B?',
-  'Warum ist die Ausleihe von Spielgeräten sinnvoll? Nenne einen Grund.',
+  ('Was wünschst du dir als Klassenausflug?' if is_zoo else 'Was wünschst du dir für Schulhof B?'),
+  ('Warum wünschst du dir den Besuch im Dortmunder Zoo? Nenne einen Grund.' if is_zoo else 'Warum ist die Ausleihe von Spielgeräten sinnvoll? Nenne einen Grund.'),
   'Welche Anrede wählst du?',
   'Welche Grußformel wählst du?'
  ]:field(d,x)
@@ -138,7 +148,7 @@ def packet(d,spec,first=False):
  lines(d,20,24)
  p(d,'Reflexion','ExamHeading')
  p(d,'Lies deinen Brief. Prüfe ihn mit „Dein Wunschbrief: Das zählt“. Verbessere nur, was nötig ist.')
- append_help(d)
+ append_help(d,wish=wish)
 def feedback(d):
  page(d,'Rückmeldung zur Probearbeit')
  p(d,'Name: __________________________  Datum: ______________')
@@ -176,7 +186,7 @@ d.sections[0].bottom_margin=Cm(1.1)
 page(d,'Bewertungsraster Wunschbrief',True)
 p(d,'Deutsch 5 · Lernerfolgskontrolle · Fassung 4')
 p(d,'Name: ______________________    Termin: __________')
-p(d,'Pflicht: Spielgeräteausleihe für Schulhof B mit mindestens einem passenden Grund.')
+p(d,'Pflicht: passender Wunsch mit mindestens einem sachlichen Grund. Termin 1 und 3: Spielgeräteausleihe für Schulhof B. Termin 2: Besuch im Dortmunder Zoo als Klassenausflug.')
 p(d,'Kernmerkmale · alle müssen erkennbar sein','ExamHeading')
 for x in [
  'K1: Passende Anrede.','K2: Vorgegebener Wunsch ist verständlich.',
