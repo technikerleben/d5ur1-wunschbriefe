@@ -49,7 +49,13 @@ jobs:
               reader=PdfReader(root/file)
               assert len(reader.pages)==pages,(file,len(reader.pages),pages)
               text='\n'.join(p.extract_text() or '' for p in reader.pages)
-              for word in (['Schulhof B','Umfrage'] if file=='Wunschbrief_Das_zaehlt_Kinderfassung.pdf' else ['45 Minuten','Schulhof B','Umfrage']):
+              if file=='Wunschbrief_Das_zaehlt_Kinderfassung.pdf':
+                  checks=['Schulhof B','Umfrage']
+              elif file=='Lernerfolgskontrolle_Wunschbrief_Termin_2.pdf':
+                  checks=['45 Minuten','Dortmunder Zoo','Herr Wegemann','Umfrage']
+              else:
+                  checks=['45 Minuten','Schulhof B','Umfrage']
+              for word in checks:
                   assert word in text,(file,word)
               assert 'mindestens einen weiteren passenden Satz' not in text,file
               print('verified',file,pages)
