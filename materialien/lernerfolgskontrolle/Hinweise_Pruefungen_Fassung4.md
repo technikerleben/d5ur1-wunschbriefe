@@ -1,22 +1,26 @@
 # Durchführung der Lernerfolgskontrolle – Fassung 4
 
-Stand: 5. Oktober 2026
+Stand: 7. Oktober 2026 · Termin 2 überarbeitet
 
-## Verbindliche Schreibaufgabe (alle drei Termine)
+## Schreibsituationen (je Termin)
 
-Die Schülerinnen und Schüler schreiben einen Brief an **Schulleiterin Frau Schneider** und wünschen sich für **Schulhof B eine Ausleihe von Spielgeräten für die Pausen**.
+- **Termin 1:** Brief an **Schulleiterin Frau Schneider** mit dem Wunsch nach einer **Ausleihe von Spielgeräten für die Pausen auf Schulhof B**.
+- **Termin 2:** Brief an **Klassenlehrer Herrn Wegemann** mit dem Wunsch nach einem **Klassenausflug in den Dortmunder Zoo**.
+- **Termin 3:** Wie Termin 1 (Spielgeräteausleihe für Schulhof B), solange keine neue Schreibsituation festgelegt ist.
 
 **Arbeitszeit: maximal 45 Minuten.** Diese Angabe ist auf der Aufgaben- und Schreibseite fest aufgedruckt.
 
-Alle drei Termine verwenden dieselbe Aufgabenstellung, dieselbe Beispielumfrage, dieselben bekannten Hilfen und dieselbe Bewertung. Nur Terminbeschriftung und Ausgabezeitpunkt unterscheiden sich.
+Die Termine bleiben in **Aufgabenformat, Arbeitszeit, Hilfeseiten, verpflichtendem Begründungssatz, Bewertungsbereichen und Punkten** vergleichbar. In Termin 2 ändern sich ausschließlich Adressat, Wunsch, dazu passende Frageformulierungen sowie die freiwillige Umfrage. Die Hilfen und die Bewertung bleiben gleich.
 
 ## Verbindlich und freiwillig
 
-**Verbindlich:** Ort und Datum, passende Anrede, klar und freundlich geäußerter Wunsch, **mindestens ein sachlich passender Grund** für die Spielgeräteausleihe, Grußformel und Name sowie verständliche, lesbare Sätze. Die Formulierung „mindestens ein weiterer passender Satz“ ist als Kriterium ersetzt worden.
+**Verbindlich:** Ort und Datum, passende Anrede, klar und freundlich geäußerter Wunsch, **mindestens ein sachlich passender Grund** für den jeweiligen Wunsch, Grußformel und Name sowie verständliche, lesbare Sätze. Die Formulierung „mindestens ein weiterer passender Satz“ ist als Kriterium ersetzt worden.
 
 **Ausschließlich freiwillig:** Nutzung eines passenden Ergebnisses aus der Beispielumfrage.
 
-26 Kinder wurden gefragt: **„Was wünschst du dir für den Pausenhof?“** Mehrere Antworten waren erlaubt, alle Werte sind erfunden.
+Die jeweilige Beispielumfrage befragt **26 Kinder**, Mehrfachantworten waren möglich; alle Werte sind ausdrücklich erfunden.
+
+**Termin 1 und 3 – Was wünschst du dir für den Pausenhof?**
 
 | Wunsch für den Pausenhof | Stimmen |
 |---|---:|
@@ -25,7 +29,16 @@ Alle drei Termine verwenden dieselbe Aufgabenstellung, dieselbe Beispielumfrage,
 | Klettergerüst mit Rutsche | 11 |
 | Größere Fußballtore | 8 |
 
-Die Summe der Nennungen muss wegen der erlaubten Mehrfachantworten nicht 26 ergeben. Ein Kind kann etwa schreiben: „17 Kinder wünschen sich eine Spielgeräteausleihe.“ Nicht die bloße Länge, sondern die korrekte und sachlich passende Einbindung kann Zusatzpunkte bringen.
+**Termin 2 – Was wünschst du dir als Klassenausflug?**
+
+| Ausflugsziel | Stimmen |
+|---|---:|
+| Dortmunder Zoo | **17** |
+| Westfalenpark | 14 |
+| Deutsches Fußballmuseum | 11 |
+| Naturmuseum Dortmund | 8 |
+
+Die Summe der Nennungen muss wegen der erlaubten Mehrfachantworten nicht 26 ergeben. Ein Kind kann zum Beispiel in Termin 2 schreiben: „17 Kinder wünschen sich einen Ausflug in den Dortmunder Zoo.“ Nicht die bloße Länge, sondern die korrekte und sachlich passende Einbindung kann Zusatzpunkte bringen.
 
 ## Druckpakete und Hilfen
 
@@ -38,7 +51,7 @@ Die Summe der Nennungen muss wegen der erlaubten Mehrfachantworten nicht 26 erge
 
 ## Bewertung – Fassung 4
 
-Sechs Grundbereiche mit 0 bis 3 Punkten ergeben maximal **18 Grundpunkte**: Schreibsituation/Wunsch, Briefaufbau, freundliche Sprache, **Begründung**, sprachliche Richtigkeit und Lesbarkeit/Gliederung. **Bis zu zwei Zusatzpunkte** sind ausschließlich für eine korrekt und sinnvoll verwendete Umfrageangabe möglich. Maximal **20 Punkte**.
+Sechs Grundbereiche mit 0 bis 3 Punkten ergeben maximal **18 Grundpunkte**: Schreibsituation/Wunsch, Briefaufbau, freundliche Sprache, **Begründung**, sprachliche Richtigkeit und Lesbarkeit/Gliederung. Beim zweiten Termin bezieht sich die Begründung auf den Klassenausflug. **Bis zu zwei Zusatzpunkte** sind ausschließlich für eine korrekt und sinnvoll verwendete Umfrageangabe möglich. Maximal **20 Punkte**.
 
 Die sechs Kernmerkmale K1–K6 sind erforderlich. Das frühere K3 „weiterer passender Satz“ wurde ersetzt durch **K3: passender Grund**. Eine bloße Umfragezahl ohne Begründung erfüllt K3 nicht.
 
