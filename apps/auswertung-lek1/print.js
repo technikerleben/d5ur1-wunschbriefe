@@ -42,8 +42,8 @@
     ).join("");
   }
 
-  function renderRubric(child){
-    p("printRubricGrid").innerHTML=CRITERIA.map(base=>{
+  function renderRubric(child,root){
+    root.querySelector("#printRubricGrid").innerHTML=CRITERIA.map(base=>{
       const criterion=criterionForStudent(base,child);
       return '<article class="print-rubric-card">'+
         '<h3>'+escapeHtml(criterion.title)+'</h3>'+
@@ -59,9 +59,9 @@
     }).join("");
   }
 
-  function renderPrint(){
-    const child=current();
+  function renderPrint(child=current(),root=p("printSheet")){
     if(!child)return;
+    const q=id=>root.querySelector('[id="'+id+'"]');
 
     const assessment=metrics(child);
     const rows=CRITERIA.map((criterion,index)=>({
@@ -69,14 +69,14 @@
     }));
     const extra=clamp(child.survey,2);
 
-    p("printName").textContent=child.name||"______________________";
-    p("printClass").textContent=child.className||"5.3";
-    p("printDate").textContent=child.date?child.date.split("-").reverse().join("."):"__________";
-    p("printToday").textContent=new Date().toLocaleDateString("de-DE",{
+    q("printName").textContent=child.name||"______________________";
+    q("printClass").textContent=child.className||"5.3";
+    q("printDate").textContent=child.date?child.date.split("-").reverse().join("."):"__________";
+    q("printToday").textContent=new Date().toLocaleDateString("de-DE",{
       day:"2-digit",month:"2-digit",year:"numeric"
     });
 
-    p("printRows").innerHTML=rows.map(row=>{
+    q("printRows").innerHTML=rows.map(row=>{
       const shown=criterionForStudent(row.criterion,child);
       const name=shown.short;
       return '<tr><td>'+escapeHtml(name[0].toUpperCase()+name.slice(1))+
@@ -108,40 +108,90 @@
         : "Wir schauen gemeinsam, welche Schritte dir beim Schreiben helfen.");
       messages.push("Wir üben die wichtigen Schritte gemeinsam weiter.");
     }
-    p("printStrengthsHeading").textContent=rows.some(r=>r.level>=1)?"Das kannst du schon":"Deine nächsten Lernschritte";
-    p("printStrengths").replaceChildren();
+    q("printStrengthsHeading").textContent=rows.some(r=>r.level>=1)?"Das kannst du schon":"Deine nächsten Lernschritte";
+    q("printStrengths").replaceChildren();
     messages.forEach(message=>{
       const node=document.createElement("p");
       node.textContent=message;
-      p("printStrengths").appendChild(node);
+      q("printStrengths").appendChild(node);
     });
 
     const showTip=assessment.grade>2;
-    p("printTip").classList.toggle("hidden",!showTip);
+    q("printTip").classList.toggle("hidden",!showTip);
     const weakest=[...rows].sort((a,b)=>a.level-b.level||a.index-b.index)[0];
-    p("printTipText").textContent=showTip?nextStepForStudent(weakest.criterion,child):"";
+    q("printTipText").textContent=showTip?nextStepForStudent(weakest.criterion,child):"";
 
-    p("printWarning").classList.toggle("hidden",assessment.grade<=4);
+    q("printWarning").classList.toggle("hidden",assessment.grade<=4);
     const comment=(child.teacherComment||"").trim();
-    p("printCustom").classList.toggle("hidden",!comment);
-    p("printCustom").textContent=comment?"Persönliche Rückmeldung: "+comment:"";
+    q("printCustom").classList.toggle("hidden",!comment);
+    q("printCustom").textContent=comment?"Persönliche Rückmeldung: "+comment:"";
 
-    p("printFrontPoints").textContent=String(assessment.total)+" Punkte";
-    p("printFrontBonus").textContent=assessment.extra>0
+    q("printFrontPoints").textContent=String(assessment.total)+" Punkte";
+    q("printFrontBonus").textContent=assessment.extra>0
       ? "("+assessment.core+" / 24 Grundpunkte + "+assessment.extra+" Bonus"+(assessment.extra===1?"punkt":"punkte")+")"
       : "("+assessment.core+" / 24 Grundpunkte)";
-    p("printFrontGrade").textContent=gradeNames[assessment.grade]||String(assessment.grade);
+    q("printFrontGrade").textContent=gradeNames[assessment.grade]||String(assessment.grade);
 
-    renderRubric(child);
-    p("printGradeKey").innerHTML=printKey();
+    renderRubric(child,root);
+    q("printGradeKey").innerHTML=printKey();
   }
 
-  const trigger=p("printFeedback");
-  trigger.onclick=()=>{
+  // Für den Klassensatz wird dieselbe Rückmeldungsvorlage für jedes Kind
+  // unabhängig gerendert. Die ursprüngliche Einzelansicht bleibt unverändert.
+  let batchReady=false;
+  const batchHost=p("printBatch");
+  const template=p("printSheet");
+
+  function clearBatch(){
+    document.body.classList.remove("printing-batch");
+    batchReady=false;
+    batchHost.replaceChildren();
+  }
+
+  function buildBatch(){
+    batchHost.replaceChildren();
+    const sorted=[...students].sort((a,b)=>
+      (a.name||"").localeCompare(b.name||"","de",{sensitivity:"base"})
+    );
+    for(const child of sorted){
+      const copy=template.cloneNode(true);
+      copy.removeAttribute("id");
+      renderPrint(child,copy);
+      // Die gedruckten Seitenteile brauchen ihre IDs nicht mehr.
+      // So bleiben die IDs der ursprünglichen Einzelansicht eindeutig.
+      for(const page of [...copy.children]){
+        page.querySelectorAll("[id]").forEach(node=>node.removeAttribute("id"));
+        batchHost.appendChild(page);
+      }
+    }
+    batchReady=true;
+    document.body.classList.add("printing-batch");
+    return sorted.length;
+  }
+
+  p("printFeedback").onclick=()=>{
     if(!current())return;
     syncTop();
+    clearBatch();
     renderPrint();
     window.print();
   };
-  window.addEventListener("beforeprint",renderPrint);
+
+  p("printAllFeedback").onclick=()=>{
+    if(!students.length){
+      alert("Es sind noch keine Rückmeldungen angelegt.");
+      return;
+    }
+    // Offene Änderungen des gerade bearbeiteten Kindes sichern.
+    if(current())syncTop();
+    buildBatch();
+    window.print();
+  };
+
+  window.addEventListener("beforeprint",()=>{
+    if(!batchReady)renderPrint();
+  });
+  window.addEventListener("afterprint",()=>{
+    if(batchReady)clearBatch();
+  });
 })();
