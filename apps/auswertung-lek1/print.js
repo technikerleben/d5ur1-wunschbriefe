@@ -116,8 +116,10 @@
       p("printStrengths").appendChild(node);
     });
 
+    const showTip=assessment.grade>2;
+    p("printTip").classList.toggle("hidden",!showTip);
     const weakest=[...rows].sort((a,b)=>a.level-b.level||a.index-b.index)[0];
-    p("printTipText").textContent=nextStepForStudent(weakest.criterion,child);
+    p("printTipText").textContent=showTip?nextStepForStudent(weakest.criterion,child):"";
 
     p("printWarning").classList.toggle("hidden",assessment.grade<=4);
     const comment=(child.teacherComment||"").trim();
