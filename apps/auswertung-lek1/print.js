@@ -21,23 +21,23 @@
   };
   const lrsSkills={sprache:"vollständige Sätze schreiben und passende Satzschlusszeichen setzen"};
   const lrsStrengths={sprache:"Deine Sätze sind vollständig und deine Satzschlusszeichen passen"};
-  const names=["Noch nicht erreicht","Mindeststandard","Regelstandard","Leistungsstandard"];
+  const names=[null,"In Ansätzen vorhanden","Mindeststandard","Regelstandard","Leistungsstandard"];
   const gradeNames={1:"sehr gut (1)",2:"gut (2)",3:"befriedigend (3)",4:"ausreichend (4)",5:"mangelhaft (5)",6:"ungenügend (6)"};
   const clamp=(v,max)=>Math.min(max,Math.max(0,Number(v)||0));
 
   function printKey(){
     const rows=[
-      {n:1,pct:"ab 87 %",range:"16–20 Punkte"},
-      {n:2,pct:"ab 73 %",range:"14–15 Punkte"},
-      {n:3,pct:"ab 59 %",range:"11–13 Punkte"},
-      {n:4,pct:"ab 45 %",range:"9–10 Punkte"},
-      {n:5,pct:"ab 18 %",range:"4–8 Punkte"},
-      {n:6,pct:"unter 18 %",range:"0–3 Punkte"}
+      {n:1,pct:"ab 87 %",range:"21–26 Punkte"},
+      {n:2,pct:"ab 73 %",range:"18–20 Punkte"},
+      {n:3,pct:"ab 59 %",range:"15–17 Punkte"},
+      {n:4,pct:"ab 45 %",range:"11–14 Punkte"},
+      {n:5,pct:"ab 18 %",range:"5–10 Punkte"},
+      {n:6,pct:"unter 18 %",range:"0–4 Punkte"}
     ];
     return rows.map(row=>
       '<div class="print-key-cell print-key-grade-'+row.n+'">'+
         '<strong>'+gradeNames[row.n]+'</strong>'+
-        '<span>'+row.pct+' von 18 Punkten · '+row.range+'</span>'+
+        '<span>'+row.pct+' von 24 Punkten · '+row.range+'</span>'+
       '</div>'
     ).join("");
   }
@@ -48,12 +48,13 @@
       return '<article class="print-rubric-card">'+
         '<h3>'+escapeHtml(criterion.title)+'</h3>'+
         '<div class="print-rubric-desc">'+escapeHtml(criterion.desc)+'</div>'+
-        criterion.levels.map((description,level)=>
-          '<div class="print-rubric-row">'+
+        criterion.levels.map((description,index)=>{
+          const level=index+1;
+          return '<div class="print-rubric-row">'+
             '<span class="print-rubric-num print-level-'+level+'">'+level+'</span>'+
             '<span>'+escapeHtml(description)+'</span>'+
-          '</div>'
-        ).join("")+
+          '</div>';
+        }).join("")+
       '</article>';
     }).join("");
   }
@@ -64,7 +65,7 @@
 
     const assessment=metrics(child);
     const rows=CRITERIA.map((criterion,index)=>({
-      criterion,index,level:clamp(child.levels[criterion.id],3)
+      criterion,index,level:Math.max(1,clamp(child.levels[criterion.id]??1,4))
     }));
     const extra=clamp(child.survey,2);
 
@@ -80,14 +81,14 @@
       const name=shown.short;
       return '<tr><td>'+escapeHtml(name[0].toUpperCase()+name.slice(1))+
         '</td><td><span class="print-level-badge print-level-'+row.level+'">'+
-        names[row.level]+'</span></td><td>'+row.level+' / 3</td></tr>';
+        names[row.level]+'</span></td><td>'+row.level+' / 4</td></tr>';
     }).join("")+
       '<tr class="print-extra-row"><td>Umfrage (freiwillige Zusatzaufgabe)</td>'+
       '<td><span class="print-level-badge print-level-extra">'+
       ["Nicht genutzt","Passend genannt","Richtig erklärt"][extra]+
       '</span></td><td>'+extra+' / 2</td></tr>';
 
-    const positives=rows.filter(r=>r.level>=1)
+    const positives=rows.filter(r=>r.level>=2)
       .sort((a,b)=>b.level-a.level||a.index-b.index);
     const messages=[];
     if(positives.length){
@@ -101,8 +102,8 @@
       if(extra===2)
         messages.push("Zusätzlich hast du ein Umfrageergebnis richtig erklärt.");
     }else{
-      messages.push("Wir schauen gemeinsam auf deinen Wunschbrief.");
-      messages.push("Wir üben die wichtigen Schritte in Ruhe zusammen.");
+      messages.push("Du hast bereits erste Ansätze für deinen Wunschbrief gezeigt.");
+      messages.push("Wir üben die wichtigen Schritte gemeinsam weiter.");
     }
     p("printStrengths").replaceChildren();
     messages.forEach(message=>{
@@ -121,8 +122,8 @@
 
     p("printFrontPoints").textContent=String(assessment.total)+" Punkte";
     p("printFrontBonus").textContent=assessment.extra>0
-      ? "("+assessment.core+" / 18 Grundpunkte + "+assessment.extra+" Bonus"+(assessment.extra===1?"punkt":"punkte")+")"
-      : "("+assessment.core+" / 18 Grundpunkte)";
+      ? "("+assessment.core+" / 24 Grundpunkte + "+assessment.extra+" Bonus"+(assessment.extra===1?"punkt":"punkte")+")"
+      : "("+assessment.core+" / 24 Grundpunkte)";
     p("printFrontGrade").textContent=gradeNames[assessment.grade]||String(assessment.grade);
 
     renderRubric(child);
