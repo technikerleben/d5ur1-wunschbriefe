@@ -563,7 +563,28 @@ function metrics(s){
   else if(reg>=80)overall="Regelstandard";
   else if(min>=80)overall="Mindeststandard";
   else overall="in Ansätzen vorhanden";
-  return {min,reg,perf,core,extra,total,overall,grade:gradeFor(total)};
+  return {min,reg,perf,core,extra,total,overall,grade:gradeFor(total),gradeDisplay:gradeDisplayFor(total)};
+}
+function gradeDisplayFor(total){
+  // Feinabstufung nur für die Anzeige. Notengrenzen und Notenstatistik
+  // beruhen weiterhin ausschließlich auf gradeFor(total).
+  const points=Number(total)||0;
+  if(points>=24)return "1+";
+  if(points>=22)return "1";
+  if(points>=21)return "1−";
+  if(points>=20)return "2+";
+  if(points>=19)return "2";
+  if(points>=18)return "2−";
+  if(points>=17)return "3+";
+  if(points>=16)return "3";
+  if(points>=15)return "3−";
+  if(points>=14)return "4+";
+  if(points>=12)return "4";
+  if(points>=11)return "4−";
+  if(points>=10)return "5+";
+  if(points>=6)return "5";
+  if(points>=5)return "5−";
+  return "6";
 }
 function gradeFor(total){
   const points=Number(total)||0;
@@ -602,7 +623,7 @@ function renderList(){
   if(!list.length){el("studentList").innerHTML='<div class="empty">Noch keine Einträge.</div>';return}
   el("studentList").innerHTML=list.map(s=>{
     const m=metrics(s);
-    return '<button class="student-item '+(s.id===currentId?'active':'')+'" data-id="'+s.id+'"><span><strong>'+escapeHtml(s.name||"Ohne Namen")+'</strong><small>'+escapeHtml(s.className||"")+' · '+m.total+' Punkte'+(m.extra?' (inkl. Bonus)':'')+'</small></span><span class="grade-pill">'+m.grade+'</span></button>';
+    return '<button class="student-item '+(s.id===currentId?'active':'')+'" data-id="'+s.id+'"><span><strong>'+escapeHtml(s.name||"Ohne Namen")+'</strong><small>'+escapeHtml(s.className||"")+' · '+m.total+' Punkte'+(m.extra?' (inkl. Bonus)':'')+'</small></span><span class="grade-pill">'+m.gradeDisplay+'</span></button>';
   }).join("");
   document.querySelectorAll(".student-item").forEach(b=>b.onclick=()=>openStudent(b.dataset.id));
 }
@@ -667,7 +688,7 @@ function renderSummary(){
   el("corePoints").textContent=m.core+" / 24";
   el("extraPoints").textContent=m.extra+" / 2";
   el("totalPoints").textContent=m.total+" Punkte";
-  el("gradeSuggestion").textContent=m.grade;
+  el("gradeSuggestion").textContent=m.gradeDisplay;
   el("autoFeedback").textContent=feedbackText(s);
 }
 function renderSurvey(){
@@ -698,13 +719,13 @@ function deleteCurrent(){const s=current();if(!s)return;if(!confirm('Eintrag fü
 function download(name,text,type){const blob=new Blob([text],{type});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function csv(){
  const headers=["Name","Klasse","Datum","Nachteilsausgleich_Rechtschreibung",...CRITERIA.map(c=>c.id==="sprache"?"Sprachliche Leistung":c.short),"Grundpunkte","Bonuspunkte","Punkte_fuer_Note","Note","Umfrage_Bonus","Lehrkraft_Rueckmeldung"];
- const rows=students.map(s=>{const m=metrics(s);return [s.name,s.className,s.date,s.lrsNta?"ja":"nein",...CRITERIA.map(c=>LEVEL_NAMES[Number(s.levels[c.id]??0)]),m.core,m.extra,m.total,m.grade,s.survey===2?"2 Bonuspunkte":s.survey===1?"1 Bonuspunkt":"0 Bonuspunkte",s.teacherComment||""]});
+ const rows=students.map(s=>{const m=metrics(s);return [s.name,s.className,s.date,s.lrsNta?"ja":"nein",...CRITERIA.map(c=>LEVEL_NAMES[Number(s.levels[c.id]??0)]),m.core,m.extra,m.total,m.gradeDisplay,s.survey===2?"2 Bonuspunkte":s.survey===1?"1 Bonuspunkt":"0 Bonuspunkte",s.teacherComment||""]});
  const esc=v=>'"'+String(v??"").replace(/"/g,'""')+'"';
  return "\ufeff"+[headers,...rows].map(r=>r.map(esc).join(";")).join("\n");
 }
 function fullFeedback(s){
  const m=metrics(s);let t=(s.name||"Rückmeldung")+" – Wunschbrief\n";
- t+="Punkte für die Note: "+m.total+" · Note: "+m.grade+"\n";
+ t+="Punkte für die Note: "+m.total+" · Note: "+m.gradeDisplay+"\n";
  t+="Grundpunkte: "+m.core+" / 24 · freiwillige Bonuspunkte: "+m.extra+" / 2\n\n";
  t+=feedbackText(s);
  if(s.teacherComment?.trim())t+="\n\nPersönliche Rückmeldung:\n"+s.teacherComment.trim();
