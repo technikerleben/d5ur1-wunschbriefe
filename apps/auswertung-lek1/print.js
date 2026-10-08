@@ -19,38 +19,33 @@
     sprache:"Man kann deine Sätze verstehen",
     lesbarkeit:"Man kann deinen Brief lesen"
   };
+  const lrsSkills={sprache:"vollständige Sätze schreiben und passende Satzschlusszeichen setzen"};
+  const lrsStrengths={sprache:"Deine Sätze sind vollständig und deine Satzschlusszeichen passen"};
   const names=["Noch nicht erreicht","Mindeststandard","Regelstandard","Leistungsstandard"];
   const gradeNames={1:"sehr gut (1)",2:"gut (2)",3:"befriedigend (3)",4:"ausreichend (4)",5:"mangelhaft (5)",6:"ungenügend (6)"};
   const clamp=(v,max)=>Math.min(max,Math.max(0,Number(v)||0));
-  const minPoints=pct=>Math.ceil(MAX_POINTS*pct/100);
 
   function printKey(){
-    const mins={
-      1:minPoints(GRADE_THRESHOLDS[1]),
-      2:minPoints(GRADE_THRESHOLDS[2]),
-      3:minPoints(GRADE_THRESHOLDS[3]),
-      4:minPoints(GRADE_THRESHOLDS[4]),
-      5:minPoints(GRADE_THRESHOLDS[5])
-    };
     const rows=[
-      {n:1,pct:"ab 87 %",range:mins[1]+"–"+MAX_POINTS+" Punkte"},
-      {n:2,pct:"ab 73 %",range:mins[2]+"–"+(mins[1]-1)+" Punkte"},
-      {n:3,pct:"ab 59 %",range:mins[3]+"–"+(mins[2]-1)+" Punkte"},
-      {n:4,pct:"ab 45 %",range:mins[4]+"–"+(mins[3]-1)+" Punkte"},
-      {n:5,pct:"ab 18 %",range:mins[5]+"–"+(mins[4]-1)+" Punkte"},
-      {n:6,pct:"unter 18 %",range:"0–"+(mins[5]-1)+" Punkte"}
+      {n:1,pct:"ab 87 %",range:"16–20 Punkte"},
+      {n:2,pct:"ab 73 %",range:"14–15 Punkte"},
+      {n:3,pct:"ab 59 %",range:"11–13 Punkte"},
+      {n:4,pct:"ab 45 %",range:"9–10 Punkte"},
+      {n:5,pct:"ab 18 %",range:"4–8 Punkte"},
+      {n:6,pct:"unter 18 %",range:"0–3 Punkte"}
     ];
     return rows.map(row=>
       '<div class="print-key-cell print-key-grade-'+row.n+'">'+
         '<strong>'+gradeNames[row.n]+'</strong>'+
-        '<span>'+row.pct+' · '+row.range+'</span>'+
+        '<span>'+row.pct+' von 18 Punkten · '+row.range+'</span>'+
       '</div>'
     ).join("");
   }
 
-  function renderRubric(){
-    p("printRubricGrid").innerHTML=CRITERIA.map(criterion=>
-      '<article class="print-rubric-card">'+
+  function renderRubric(child){
+    p("printRubricGrid").innerHTML=CRITERIA.map(base=>{
+      const criterion=criterionForStudent(base,child);
+      return '<article class="print-rubric-card">'+
         '<h3>'+escapeHtml(criterion.title)+'</h3>'+
         '<div class="print-rubric-desc">'+escapeHtml(criterion.desc)+'</div>'+
         criterion.levels.map((description,level)=>
@@ -59,8 +54,8 @@
             '<span>'+escapeHtml(description)+'</span>'+
           '</div>'
         ).join("")+
-      '</article>'
-    ).join("");
+      '</article>';
+    }).join("");
   }
 
   function renderPrint(){
@@ -81,7 +76,8 @@
     });
 
     p("printRows").innerHTML=rows.map(row=>{
-      const name=row.criterion.short;
+      const shown=criterionForStudent(row.criterion,child);
+      const name=shown.short;
       return '<tr><td>'+escapeHtml(name[0].toUpperCase()+name.slice(1))+
         '</td><td><span class="print-level-badge print-level-'+row.level+'">'+
         names[row.level]+'</span></td><td>'+row.level+' / 3</td></tr>';
@@ -95,11 +91,11 @@
       .sort((a,b)=>b.level-a.level||a.index-b.index);
     const messages=[];
     if(positives.length){
-      messages.push("Du kannst schon "+skills[positives[0].criterion.id]+".");
+      messages.push("Du kannst schon "+((child.lrsNta&&lrsSkills[positives[0].criterion.id])||skills[positives[0].criterion.id])+".");
       if(positives.length>=2)
-        messages.push("Das gelingt dir gut: "+strengths[positives[1].criterion.id]+".");
+        messages.push("Das gelingt dir gut: "+((child.lrsNta&&lrsStrengths[positives[1].criterion.id])||strengths[positives[1].criterion.id])+".");
       if(positives.length>=3)
-        messages.push("Man erkennt, dass du "+skills[positives[2].criterion.id]+" kannst.");
+        messages.push("Man erkennt, dass du "+((child.lrsNta&&lrsSkills[positives[2].criterion.id])||skills[positives[2].criterion.id])+" kannst.");
       if(positives.length<3)
         messages.push("Wir üben gemeinsam weiter. Jeder neue Schritt zählt.");
       if(extra===2)
@@ -116,18 +112,20 @@
     });
 
     const weakest=[...rows].sort((a,b)=>a.level-b.level||a.index-b.index)[0];
-    p("printTipText").textContent=NEXT_STEPS[weakest.criterion.id];
+    p("printTipText").textContent=nextStepForStudent(weakest.criterion,child);
 
     p("printWarning").classList.toggle("hidden",assessment.grade<=4);
     const comment=(child.teacherComment||"").trim();
     p("printCustom").classList.toggle("hidden",!comment);
     p("printCustom").textContent=comment?"Persönliche Rückmeldung: "+comment:"";
 
-    p("printFrontPoints").textContent=String(assessment.total);
-    p("printFrontPercent").textContent=String(assessment.percent);
+    p("printFrontPoints").textContent=String(assessment.total)+" Punkte";
+    p("printFrontBonus").textContent=assessment.extra>0
+      ? "("+assessment.core+" / 18 Grundpunkte + "+assessment.extra+" Bonus"+(assessment.extra===1?"punkt":"punkte")+")"
+      : "("+assessment.core+" / 18 Grundpunkte)";
     p("printFrontGrade").textContent=gradeNames[assessment.grade]||String(assessment.grade);
 
-    renderRubric();
+    renderRubric(child);
     p("printGradeKey").innerHTML=printKey();
   }
 
