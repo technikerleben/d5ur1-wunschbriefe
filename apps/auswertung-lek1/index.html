@@ -125,7 +125,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     <h1>Auswertung & Rückmeldung</h1>
     <p>Kompetenzorientiert auswerten, Rückmeldung erzeugen und die Note transparent aus den erreichten Punkten berechnen. Alle Daten bleiben ausschließlich im Browserspeicher dieses Geräts.</p>
   </div>
-  <div class="header-badge"><b>Notenlogik · Fach Deutsch</b><br>Bewertungsbasis sind 18 Punkte. Bis zu 2 freiwillige Bonuspunkte können die Punktzahl auf 19 oder 20 erhöhen; beide Werte bleiben im Bereich „sehr gut“.</div>
+  <div class="header-badge"><b>Notenlogik · Fach Deutsch</b><br>Sechs Kompetenzbereiche mit jeweils 1 bis 4 Punkten ergeben 24 Grundpunkte. Bis zu 2 freiwillige Bonuspunkte sind möglich. Der Fachschaftsschlüssel bleibt unverändert.</div>
 </div>
 </header>
 
@@ -165,10 +165,10 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
         </div>
 
         <div class="summary">
-          <div class="stat"><b id="corePoints">0 / 18</b><span>Grundpunkte</span></div>
+          <div class="stat"><b id="corePoints">0 / 24</b><span>Grundpunkte</span></div>
           <div class="stat"><b id="extraPoints">0 / 2</b><span>freiwillige Zusatzpunkte</span></div>
           <div class="stat level"><b id="totalPoints">0 Punkte</b><span>Punkte für die Note</span></div>
-          <div class="stat"><b>18 Punkte</b><span>Bewertungsbasis</span></div>
+          <div class="stat"><b>24 Punkte</b><span>Bewertungsbasis</span></div>
           <div class="stat grade"><b id="gradeSuggestion">–</b><span>Note</span></div>
         </div>
 
@@ -176,7 +176,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 
         <div class="criterion optional">
           <div class="criterion-head">
-            <div><h3>Zusatz: Umfrageergebnis</h3><p>Freiwillige Zusatzleistung mit bis zu 2 Bonuspunkten. Sie erhöhen die erreichte Punktzahl; die Bewertungsbasis bleibt bei 18 Punkten.</p></div>
+            <div><h3>Zusatz: Umfrageergebnis</h3><p>Freiwillige Zusatzleistung mit bis zu 2 Bonuspunkten. Sie erhöhen die erreichte Punktzahl; die Bewertungsbasis bleibt bei 24 Punkten.</p></div>
           </div>
           <div class="level-buttons" id="surveyButtons">
             <button class="level-btn" data-survey="0">nicht genutzt</button>
@@ -203,7 +203,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
           <button class="btn orange" id="printFeedback">Rückmeldung drucken</button>
           <button class="btn danger" id="deleteStudent">Eintrag löschen</button>
         </div>
-        <div class="notice">Die Note wird ausschließlich aus den erreichten Punkten berechnet. Die Notengrenzen beziehen sich auf 18 reguläre Punkte; bis zu 2 freiwillige Bonuspunkte können zusätzlich erreicht werden. Die Kompetenzstufen sind kein zusätzliches Notenkriterium.</div>
+        <div class="notice">Die Note wird ausschließlich aus den erreichten Punkten berechnet. Die Notengrenzen beziehen sich auf 24 reguläre Punkte. Bis zu 2 freiwillige Bonuspunkte sind möglich. Fünf von sechs Mindeststandards sind eine pädagogische Orientierung, keine zweite Notenbedingung.</div>
       </div>
     </div>
   </section>
@@ -230,7 +230,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     <h2 class="print-section strengths-heading">Das kannst du schon</h2>
     <div class="print-strengths" id="printStrengths"></div>
     <div class="print-tip"><strong>Dein nächster Übungstipp</strong><span id="printTipText"></span></div>
-    <div class="print-warning hidden" id="printWarning">Du hast leider noch nicht den Mindeststandard erreicht. Herr Wegemann wird mit dir planen, wie du weiterarbeiten kannst, um diesen Standard zu erreichen.</div>
+    <div class="print-warning hidden" id="printWarning">Die Punkteschwelle für eine ausreichende Leistung ist noch nicht erreicht. Herr Wegemann wird mit dir planen, welche Schritte dir beim Weiterlernen helfen.</div>
     <div class="print-custom hidden" id="printCustom"></div>
 
     <footer class="print-front-footer">
@@ -253,21 +253,21 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     <div class="print-title-band" aria-hidden="true"></div>
     <p class="print-back-intro">Das Raster zeigt, was wir bei jedem Teil deines Wunschbriefes betrachten. Die farbigen Stufen beschreiben, wie sicher du eine Kompetenz schon beherrschst.</p>
     <div class="print-legend">
-      <span class="print-level-badge print-level-0">0 · Noch nicht</span>
-      <span class="print-level-badge print-level-1">1 · Mindeststandard</span>
-      <span class="print-level-badge print-level-2">2 · Regelstandard</span>
-      <span class="print-level-badge print-level-3">3 · Leistungsstandard</span>
+      <span class="print-level-badge print-level-1">1 · In Ansätzen vorhanden</span>
+      <span class="print-level-badge print-level-2">2 · Mindeststandard</span>
+      <span class="print-level-badge print-level-3">3 · Regelstandard</span>
+      <span class="print-level-badge print-level-4">4 · Leistungsstandard</span>
     </div>
     <div class="print-rubric-grid" id="printRubricGrid"></div>
     <div class="print-back-notes">
       <div><strong>Wichtige Grundmerkmale:</strong> passende Anrede, klarer Wunsch, mindestens ein passender Grund, Grußformel mit Namen, freundliche Sprache sowie verständliche und lesbare Sätze.</div>
-      <div><strong>Freiwillig:</strong> Umfrageergebnis passend genutzt (0–2 Bonuspunkte). Die Umfrage ersetzt keinen Grund. Die reguläre Bewertungsbasis bleibt bei 18 Punkten.</div>
+      <div><strong>Freiwillig:</strong> Umfrageergebnis passend genutzt (0–2 Bonuspunkte). Die Umfrage ersetzt keinen Grund. Die reguläre Bewertungsbasis bleibt bei 24 Punkten.</div>
     </div>
     <div class="print-evaluation">
       <h3>Notenschlüssel im Fach Deutsch</h3>
-      <p>Die Note wird ausschließlich aus den erreichten Punkten berechnet. Die Prozentgrenzen beziehen sich auf 18 reguläre Punkte. Bonuspunkte können zu 19 oder 20 Punkten führen und erweitern nur den Bereich „sehr gut“ nach oben. Die Kompetenzstufen sind kein zusätzliches Notenkriterium.</p>
+      <p>Die Note wird ausschließlich aus den erreichten Punkten berechnet. Die Noten ergeben sich nur aus den Punkten. Die Prozentgrenzen beziehen sich auf 24 Grundpunkte. Bis zu 2 Bonuspunkte erhöhen lediglich die erreichbare Punktzahl auf 26. Die Fünf-von-sechs-Orientierung ist keine zusätzliche Notenbedingung.</p>
       <div class="print-key-grid" id="printGradeKey"></div>
-      <p class="print-points">Bewertungsbasis: 18 Punkte. Bis zu 2 freiwillige Bonuspunkte können zusätzlich erreicht werden.</p>
+      <p class="print-points">Bewertungsbasis: 24 Punkte (6 × maximal 4). Bis zu 2 freiwillige Bonuspunkte sind zusätzlich möglich.</p>
     </div>
     <div class="print-philosophy">
       <strong>Was wirklich zählt:</strong> Der Aufbau deiner Kompetenzen steht im Vordergrund. Eine Note kann nicht deinen gesamten Lernerfolg zeigen. Die Rückmeldung zu deinen Fähigkeiten und deinen nächsten Lernschritten ist deshalb wichtiger als die Note.
@@ -277,23 +277,24 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 
 <dialog id="settingsDialog">
   <div class="dialog-head"><h2>Notenschlüssel · Fach Deutsch</h2><button class="btn secondary small" id="closeSettings">Schließen</button></div>
-  <p>Die Prozentgrenzen werden auf die regulär erreichbaren <strong>18 Punkte</strong> bezogen. Die zwei freiwilligen Bonuspunkte sind nicht erforderlich.</p>
+  <p>Die Prozentgrenzen werden auf die regulär erreichbaren <strong>24 Punkte</strong> bezogen. Die zwei freiwilligen Bonuspunkte sind nicht erforderlich.</p>
   <div class="settings-grid grade-key-screen">
-    <div class="setting"><label>sehr gut (1)</label><strong>ab 87 % · 16–20 Punkte</strong></div>
-    <div class="setting"><label>gut (2)</label><strong>ab 73 % · 14–15 Punkte</strong></div>
-    <div class="setting"><label>befriedigend (3)</label><strong>ab 59 % · 11–13 Punkte</strong></div>
-    <div class="setting"><label>ausreichend (4)</label><strong>ab 45 % · 9–10 Punkte</strong></div>
-    <div class="setting"><label>mangelhaft (5)</label><strong>ab 18 % · 4–8 Punkte</strong></div>
-    <div class="setting"><label>ungenügend (6)</label><strong>unter 18 % · 0–3 Punkte</strong></div>
+    <div class="setting"><label>sehr gut (1)</label><strong>ab 87 % · 21–26 Punkte</strong></div>
+    <div class="setting"><label>gut (2)</label><strong>ab 73 % · 18–20 Punkte</strong></div>
+    <div class="setting"><label>befriedigend (3)</label><strong>ab 59 % · 15–17 Punkte</strong></div>
+    <div class="setting"><label>ausreichend (4)</label><strong>ab 45 % · 11–14 Punkte</strong></div>
+    <div class="setting"><label>mangelhaft (5)</label><strong>ab 18 % · 5–10 Punkte</strong></div>
+    <div class="setting"><label>ungenügend (6)</label><strong>unter 18 % · 0–4 Punkte</strong></div>
   </div>
-  <p class="notice">Die farbigen Kompetenzstufen beschreiben den Lernstand in den einzelnen Bereichen. Sie verändern die Note nicht zusätzlich. Bonuspunkte können lediglich die erreichte Punktzahl erhöhen.</p>
+  <p class="notice">Fünf von sechs Mindeststandards sind eine Orientierung für die Kompetenzentwicklung. Die erreichten Punkte bestimmen die rechnerische Note; die Lehrkraft begründet ihre Entscheidung pädagogisch.</p>
 </dialog>
 
 <script>
-const STORAGE_KEY="d5ur1_lek1_auswertung_v1";
-const SETTINGS_KEY="d5ur1_lek1_notenlogik_v1"; // nur noch für Abwärtskompatibilität; die Notengrenzen sind fest.
+const LEGACY_STORAGE_KEY="d5ur1_lek1_auswertung_v1";
+const STORAGE_KEY="d5ur1_lek1_auswertung_v2";
+const DATA_VERSION=4;
 
-const LEVEL_NAMES=["noch nicht erreicht","Mindeststandard","Regelstandard","Leistungsstandard"];
+const LEVEL_NAMES=[null,"in Ansätzen vorhanden","Mindeststandard","Regelstandard","Leistungsstandard"];
 
 const CRITERIA=[
   {
@@ -301,7 +302,7 @@ const CRITERIA=[
     short:"Schreibsituation und Wunsch",
     desc:"Adressat, Anlass und Wunsch passend erfassen.",
     levels:[
-      "Ein passender Wunsch ist noch nicht sicher erkennbar oder die Schreibsituation wird verfehlt.",
+      "Erste Ansätze eines zur Schreibsituation passenden Wunsches sind erkennbar.",
       "Adressat und Wunsch sind erkennbar und passen grundsätzlich zur Schreibsituation.",
       "Adressat, Anlass und Wunsch sind klar, passend und verständlich formuliert.",
       "Die Schreibsituation wird sehr sicher erfasst; der Wunsch ist präzise und besonders adressatengerecht formuliert."
@@ -312,7 +313,7 @@ const CRITERIA=[
     short:"Briefaufbau",
     desc:"Ort und Datum, Anrede, Brieftext, Grußformel und Name sinnvoll setzen.",
     levels:[
-      "Die Briefform ist noch nicht sicher erkennbar; mehrere wichtige Teile fehlen oder sind ungeordnet.",
+      "Erste Briefteile sind erkennbar, aber wichtige Bestandteile fehlen noch oder sind ungeordnet.",
       "Die Briefform ist erkennbar; die wichtigsten Teile sind vorhanden, auch wenn einzelne Formmerkmale noch unsicher sind.",
       "Der Brief ist vollständig und sinnvoll gegliedert; Ort/Datum, Anrede, Text, Grußformel und Name stehen passend.",
       "Der Brief ist vollständig, sicher und normgerecht gesetzt; auch freie Zeilen und Anordnung unterstützen die Lesbarkeit."
@@ -323,7 +324,7 @@ const CRITERIA=[
     short:"freundliche Sprache",
     desc:"Höflich, respektvoll und passend zur Adressatin schreiben.",
     levels:[
-      "Mehrere Formulierungen wirken noch unpassend, fordernd oder wenig adressatengerecht.",
+      "Erste höfliche Formulierungen sind vorhanden, die Sprache ist jedoch noch nicht durchgehend passend.",
       "Der Brief ist insgesamt höflich und respektvoll, auch wenn einzelne Formulierungen noch schlicht oder unsicher sind.",
       "Der Brief ist durchgehend freundlich und passend zur Adressatin formuliert.",
       "Die Sprache ist besonders sicher, freundlich und adressatengerecht; Bitte und Schluss wirken überzeugend und angemessen."
@@ -334,7 +335,7 @@ const CRITERIA=[
     short:"Begründung",
     desc:"Mindestens einen passenden Grund nennen und verständlich erklären.",
     levels:[
-      "Ein passender Grund fehlt noch oder bleibt so unklar, dass der Nutzen des Wunsches nicht verständlich wird.",
+      "Erste Ansätze einer Begründung sind vorhanden, der passende Grund bleibt aber noch unklar.",
       "Mindestens ein passender Grund ist erkennbar und erklärt grundsätzlich, warum der Wunsch sinnvoll ist.",
       "Der Grund ist nachvollziehbar ausgeführt und klar mit dem Wunsch verbunden.",
       "Die Begründung ist besonders überzeugend, genauer ausgeführt oder verbindet mehrere passende Gedanken sinnvoll miteinander."
@@ -345,7 +346,7 @@ const CRITERIA=[
     short:"sprachliche Richtigkeit",
     desc:"Verständliche ganze Sätze schreiben; Rechtschreibung und Satzzeichen sichern.",
     levels:[
-      "Satzbau oder sprachliche Fehler erschweren das Verstehen deutlich.",
+      "Erste verständliche Satzteile sind erkennbar; vollständige Sätze und sprachliche Richtigkeit gelingen noch nicht sicher.",
       "Der Text ist insgesamt verständlich; Fehler kommen vor, verhindern das Verstehen aber nicht.",
       "Die Sätze sind überwiegend vollständig und sprachlich sicher; Fehler stören das Lesen kaum.",
       "Der Text ist sprachlich sehr sicher; Satzbau, Rechtschreibung und Zeichensetzung gelingen fast durchgehend."
@@ -356,7 +357,7 @@ const CRITERIA=[
     short:"Lesbarkeit und Gliederung",
     desc:"Gut lesbar schreiben und Briefteile übersichtlich gliedern.",
     levels:[
-      "Mehrere Stellen sind schwer zu entziffern oder die Gliederung erschwert das Lesen.",
+      "Erste Textteile sind lesbar, die Gliederung oder Entzifferbarkeit ist noch oft schwierig.",
       "Der Text ist überwiegend lesbar; die wichtigsten Briefteile sind optisch erkennbar.",
       "Der Brief ist gut lesbar und übersichtlich gegliedert; Abstände und Zeilenführung unterstützen das Lesen.",
       "Der Brief ist sehr klar, sicher und übersichtlich gestaltet; die Gliederung unterstützt den Inhalt besonders gut."
@@ -370,7 +371,7 @@ const LRS_LANGUAGE_CRITERION={
   short:"Sprachliche Leistung",
   desc:"Vollständige Sätze schreiben und passende Satzschlusszeichen setzen.",
   levels:[
-    "Sätze bleiben noch häufig unvollständig oder Satzschlusszeichen fehlen oft.",
+    "Erste Ansätze vollständiger Sätze sind vorhanden; Satzschlusszeichen fehlen noch häufig.",
     "Du schreibst überwiegend vollständige Sätze. Satzschlusszeichen sind teilweise passend gesetzt.",
     "Deine Sätze sind überwiegend vollständig und die Satzschlusszeichen meistens passend.",
     "Du schreibst sicher in vollständigen Sätzen und setzt Satzschlusszeichen passend."
@@ -387,7 +388,7 @@ function criterionForStudent(c,s){
   return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_CRITERION : c;
 }
 function feedbackForStudent(c,s,level){
-  return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_FEEDBACK[level] : FEEDBACK[c.id][level];
+  return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_FEEDBACK[level-1] : FEEDBACK[c.id][level-1];
 }
 function nextStepForStudent(c,s){
   return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_NEXT : NEXT_STEPS[c.id];
