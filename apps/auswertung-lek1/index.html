@@ -121,14 +121,14 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     <h1>Auswertung & Rückmeldung</h1>
     <p>Kompetenzorientiert auswerten, Rückmeldung erzeugen und einen transparenten Notenvorschlag erhalten. Alle Daten bleiben ausschließlich im Browserspeicher dieses Geräts.</p>
   </div>
-  <div class="header-badge"><b>Notenlogik · Voreinstellung</b><br>Note 4 ab 80 % Mindeststandard · Note 1 ab 80 % Leistungsstandard. Die Zwischenstufen sind als Vorschlag hinterlegt und in den Einstellungen anpassbar.</div>
+  <div class="header-badge"><b>Notenlogik · Fach Deutsch</b><br>Die Note ergibt sich ausschließlich aus der Gesamtpunktzahl (max. 20 Punkte): 87 % / 73 % / 59 % / 45 % / 18 %.</div>
 </div>
 </header>
 
 <main class="shell">
 <div class="toolbar no-print">
   <button class="btn" id="newStudent">+ Neues Kind</button>
-  <button class="btn secondary" id="settingsBtn">Notenlogik</button>
+  <button class="btn secondary" id="settingsBtn">Notenschlüssel</button>
   <button class="btn secondary" id="exportCsv">CSV exportieren</button>
   <button class="btn secondary" id="exportJson">Sicherung exportieren</button>
   <label class="btn secondary" for="importJson" style="cursor:pointer">Sicherung importieren</label>
@@ -157,10 +157,10 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
         </div>
 
         <div class="summary">
-          <div class="stat"><b id="pctMin">0 %</b><span>Mindeststandard erreicht</span></div>
-          <div class="stat"><b id="pctReg">0 %</b><span>Regelstandard erreicht</span></div>
-          <div class="stat"><b id="pctPerf">0 %</b><span>Leistungsstandard erreicht</span></div>
-          <div class="stat level"><b id="overallLevel">–</b><span>Gesamtniveau</span></div>
+          <div class="stat"><b id="corePoints">0 / 18</b><span>Grundpunkte</span></div>
+          <div class="stat"><b id="extraPoints">0 / 2</b><span>freiwillige Zusatzpunkte</span></div>
+          <div class="stat level"><b id="totalPoints">0 / 20</b><span>Gesamtpunkte</span></div>
+          <div class="stat"><b id="totalPercent">0 %</b><span>Punktanteil</span></div>
           <div class="stat grade"><b id="gradeSuggestion">–</b><span>Notenvorschlag</span></div>
         </div>
 
@@ -168,7 +168,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 
         <div class="criterion optional">
           <div class="criterion-head">
-            <div><h3>Zusatz: Umfrageergebnis</h3><p>Freiwillige Zusatzleistung. Sie senkt die Einstufung nicht.</p></div>
+            <div><h3>Zusatz: Umfrageergebnis</h3><p>Freiwillige Zusatzleistung mit bis zu 2 Punkten. Die erreichten Zusatzpunkte zählen zur Gesamtpunktzahl.</p></div>
           </div>
           <div class="level-buttons" id="surveyButtons">
             <button class="level-btn" data-survey="0">nicht genutzt</button>
@@ -195,7 +195,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
           <button class="btn orange" id="printFeedback">Rückmeldung drucken</button>
           <button class="btn danger" id="deleteStudent">Eintrag löschen</button>
         </div>
-        <div class="notice">Der Notenvorschlag ist eine rechnerische Orientierung und ersetzt keine pädagogische Gesamtentscheidung. Die freiwillige Umfrageleistung wird positiv rückgemeldet, aber nicht als fehlende Grundkompetenz verrechnet.</div>
+        <div class="notice">Der Notenvorschlag wird ausschließlich aus der erreichten Gesamtpunktzahl von maximal 20 Punkten berechnet. Die Kompetenzstufen dienen der inhaltlichen Rückmeldung und sind kein zusätzliches Notenkriterium.</div>
       </div>
     </div>
   </section>
@@ -226,7 +226,11 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     <div class="print-custom hidden" id="printCustom"></div>
 
     <footer class="print-front-footer">
-      <p class="print-priority-short">Du lernst Schritt für Schritt weiter. Wichtig ist, was du schon kannst und woran du als Nächstes arbeitest.</p>
+      <div class="print-front-result">
+        <span>Erreichte Gesamtpunktzahl: <strong><span id="printFrontPoints"></span> / 20</strong> (<span id="printFrontPercent"></span> %)</span>
+        <span>Diese Leistung entspricht der Note <strong><span id="printFrontGrade"></span></strong>.</span>
+      </div>
+      <p class="print-priority-short">Du lernst Schritt für Schritt weiter. Wichtig ist, was du schon kannst und woran du als Nächstes arbeitest. Die Rückmeldung zu deinen Fähigkeiten ist wichtiger als die Note.</p>
       <div class="print-signatures">
         <div><div class="print-sig-line"></div><div class="print-sig-label">Unterschrift Herr Wegemann</div></div>
         <div><div class="print-sig-line"></div><div class="print-sig-label">Kenntnisnahme der Eltern (Unterschrift)</div></div>
@@ -252,11 +256,10 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
       <div><strong>Freiwillig:</strong> Umfrageergebnis passend genutzt (0–2 Zusatzpunkte). Die Umfrage ersetzt keinen Grund. Insgesamt sind 18 Grundpunkte und 2 Zusatzpunkte möglich.</div>
     </div>
     <div class="print-evaluation">
-      <h3>So entsteht der Notenvorschlag</h3>
-      <p>Der Notenvorschlag richtet sich danach, wie viele der sechs Kompetenzen ein Niveau erreichen. Punkte allein genügen dafür nicht. Die Umfragepunkte zählen nicht zur Note.</p>
+      <h3>Notenschlüssel im Fach Deutsch</h3>
+      <p>Die Note wird ausschließlich aus der Gesamtpunktzahl berechnet. Die Kompetenzstufen oben sind für die Rückmeldung wichtig, aber kein zusätzliches Notenkriterium. Maximal sind 20 Punkte möglich.</p>
       <div class="print-key-grid" id="printGradeKey"></div>
-      <p class="print-grade-line">Diese Leistung entspricht der Note <span id="printGrade"></span>.</p>
-      <p class="print-points">Gesamtzahl der erreichten Punkte: <span id="printPoints"></span> (Grundpunkte: <span id="printCore"></span>; freiwillige Zusatzpunkte: <span id="printExtras"></span>).</p>
+      <p class="print-points">Die 18 Grundpunkte und bis zu 2 freiwilligen Zusatzpunkte ergeben zusammen die Gesamtpunktzahl.</p>
     </div>
     <div class="print-philosophy">
       <strong>Was wirklich zählt:</strong> Der Aufbau deiner Kompetenzen steht im Vordergrund. Eine Note kann nicht deinen gesamten Lernerfolg zeigen. Die Rückmeldung zu deinen Fähigkeiten und deinen nächsten Lernschritten ist deshalb wichtiger als die Note.
@@ -265,26 +268,22 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 </div>
 
 <dialog id="settingsDialog">
-  <div class="dialog-head"><h2>Notenlogik</h2><button class="btn secondary small" id="closeSettings">Schließen</button></div>
-  <p>Die Prozentwerte beziehen sich auf die sechs Kernkriterien. Ein Kriterium zählt für einen Standard, wenn dieses Niveau oder ein höheres ausgewählt wurde.</p>
-  <div class="settings-grid">
-    <div class="setting"><label>Note 1: Leistungsstandard mindestens</label><input id="sGrade1" type="number" min="0" max="100" step="1"></div>
-    <div class="setting"><label>Note 2: Regelstandard mindestens</label><input id="sGrade2Reg" type="number" min="0" max="100" step="1"></div>
-    <div class="setting"><label>Note 2: Leistungsstandard mindestens</label><input id="sGrade2Perf" type="number" min="0" max="100" step="1"></div>
-    <div class="setting"><label>Note 3: Regelstandard mindestens</label><input id="sGrade3" type="number" min="0" max="100" step="1"></div>
-    <div class="setting"><label>Note 4: Mindeststandard mindestens</label><input id="sGrade4" type="number" min="0" max="100" step="1"></div>
-    <div class="setting"><label>Note 5: Mindeststandard mindestens</label><input id="sGrade5" type="number" min="0" max="100" step="1"></div>
+  <div class="dialog-head"><h2>Notenschlüssel · Fach Deutsch</h2><button class="btn secondary small" id="closeSettings">Schließen</button></div>
+  <p>Die Note hängt ausschließlich von der erreichten Gesamtpunktzahl ab. Maximal sind 20 Punkte möglich.</p>
+  <div class="settings-grid grade-key-screen">
+    <div class="setting"><label>sehr gut (1)</label><strong>ab 87 % · 18–20 Punkte</strong></div>
+    <div class="setting"><label>gut (2)</label><strong>ab 73 % · 15–17 Punkte</strong></div>
+    <div class="setting"><label>befriedigend (3)</label><strong>ab 59 % · 12–14 Punkte</strong></div>
+    <div class="setting"><label>ausreichend (4)</label><strong>ab 45 % · 9–11 Punkte</strong></div>
+    <div class="setting"><label>mangelhaft (5)</label><strong>ab 18 % · 4–8 Punkte</strong></div>
+    <div class="setting"><label>ungenügend (6)</label><strong>unter 18 % · 0–3 Punkte</strong></div>
   </div>
-  <p class="notice">Voreinstellung: 1 ab 80 % Leistungsstandard · 2 ab 80 % Regelstandard und 50 % Leistungsstandard · 3 ab 80 % Regelstandard · 4 ab 80 % Mindeststandard · 5 ab 50 % Mindeststandard · sonst 6.</p>
-  <menu>
-    <button class="btn secondary" id="resetSettings">Standardwerte</button>
-    <button class="btn mint" id="saveSettings">Übernehmen</button>
-  </menu>
+  <p class="notice">Die farbigen Kompetenzstufen beschreiben den Lernstand in den einzelnen Bereichen. Sie verändern die Note nicht zusätzlich.</p>
 </dialog>
 
 <script>
 const STORAGE_KEY="d5ur1_lek1_auswertung_v1";
-const SETTINGS_KEY="d5ur1_lek1_notenlogik_v1";
+const SETTINGS_KEY="d5ur1_lek1_notenlogik_v1"; // nur noch für Abwärtskompatibilität; die Notengrenzen sind fest.
 
 const LEVEL_NAMES=["noch nicht erreicht","Mindeststandard","Regelstandard","Leistungsstandard"];
 
@@ -405,16 +404,15 @@ const NEXT_STEPS={
   lesbarkeit:"Lass zwischen den Briefteilen freie Zeilen und achte auf gut erkennbare Wörter und Abstände."
 };
 
-const DEFAULT_SETTINGS={grade1Perf:80,grade2Reg:80,grade2Perf:50,grade3Reg:80,grade4Min:80,grade5Min:50};
+const GRADE_THRESHOLDS={1:87,2:73,3:59,4:45,5:18};
+const MAX_POINTS=20;
 
 let students=load(STORAGE_KEY,[]);
-let settings={...DEFAULT_SETTINGS,...load(SETTINGS_KEY,{})};
 let currentId=null;
 
 const el=id=>document.getElementById(id);
 function load(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch(e){return fallback}}
 function persist(){localStorage.setItem(STORAGE_KEY,JSON.stringify(students))}
-function persistSettings(){localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings))}
 function uid(){return "s_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,7)}
 function today(){return new Date().toISOString().slice(0,10)}
 function blankStudent(){return {id:uid(),name:"",className:"5.3",date:today(),levels:Object.fromEntries(CRITERIA.map(c=>[c.id,0])),notes:{},survey:0,surveyNote:"",teacherComment:"",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}}
@@ -422,19 +420,25 @@ function current(){return students.find(s=>s.id===currentId)||null}
 function escapeHtml(s=""){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
 function pct(levels,threshold){const vals=CRITERIA.map(c=>Number(levels[c.id]||0));return Math.round(vals.filter(v=>v>=threshold).length/CRITERIA.length*100)}
 function metrics(s){
+  const levels=CRITERIA.map(c=>Math.max(0,Math.min(3,Number(s.levels[c.id]||0))));
   const min=pct(s.levels,1),reg=pct(s.levels,2),perf=pct(s.levels,3);
+  const core=levels.reduce((sum,value)=>sum+value,0);
+  const extra=Math.max(0,Math.min(2,Number(s.survey||0)));
+  const total=core+extra;
+  const percent=Math.round(total/MAX_POINTS*100);
   let overall="noch nicht erreicht";
-  if(perf>=80)overall="Leistungsstandard";
-  else if(reg>=80)overall="Regelstandard";
-  else if(min>=80)overall="Mindeststandard";
-  return {min,reg,perf,overall,grade:gradeFor({min,reg,perf})};
+  if(core>=15)overall="Leistungsstandard";
+  else if(core>=12)overall="Regelstandard";
+  else if(core>=9)overall="Mindeststandard";
+  return {min,reg,perf,core,extra,total,percent,overall,grade:gradeFor(total)};
 }
-function gradeFor(m){
-  if(m.perf>=settings.grade1Perf)return 1;
-  if(m.reg>=settings.grade2Reg && m.perf>=settings.grade2Perf)return 2;
-  if(m.reg>=settings.grade3Reg)return 3;
-  if(m.min>=settings.grade4Min)return 4;
-  if(m.min>=settings.grade5Min)return 5;
+function gradeFor(total){
+  const percent=Number(total)/MAX_POINTS*100;
+  if(percent>=GRADE_THRESHOLDS[1])return 1;
+  if(percent>=GRADE_THRESHOLDS[2])return 2;
+  if(percent>=GRADE_THRESHOLDS[3])return 3;
+  if(percent>=GRADE_THRESHOLDS[4])return 4;
+  if(percent>=GRADE_THRESHOLDS[5])return 5;
   return 6;
 }
 function renderList(){
@@ -444,7 +448,7 @@ function renderList(){
   if(!list.length){el("studentList").innerHTML='<div class="empty">Noch keine Einträge.</div>';return}
   el("studentList").innerHTML=list.map(s=>{
     const m=metrics(s);
-    return '<button class="student-item '+(s.id===currentId?'active':'')+'" data-id="'+s.id+'"><span><strong>'+escapeHtml(s.name||"Ohne Namen")+'</strong><small>'+escapeHtml(s.className||"")+' · '+escapeHtml(m.overall)+'</small></span><span class="grade-pill">'+m.grade+'</span></button>';
+    return '<button class="student-item '+(s.id===currentId?'active':'')+'" data-id="'+s.id+'"><span><strong>'+escapeHtml(s.name||"Ohne Namen")+'</strong><small>'+escapeHtml(s.className||"")+' · '+m.total+' / 20 Punkte</small></span><span class="grade-pill">'+m.grade+'</span></button>';
   }).join("");
   document.querySelectorAll(".student-item").forEach(b=>b.onclick=()=>openStudent(b.dataset.id));
 }
@@ -501,8 +505,11 @@ function feedbackText(s){
 }
 function renderSummary(){
   const s=current(); if(!s)return;const m=metrics(s);
-  el("pctMin").textContent=m.min+" %";el("pctReg").textContent=m.reg+" %";el("pctPerf").textContent=m.perf+" %";
-  el("overallLevel").textContent=m.overall;el("gradeSuggestion").textContent=m.grade;
+  el("corePoints").textContent=m.core+" / 18";
+  el("extraPoints").textContent=m.extra+" / 2";
+  el("totalPoints").textContent=m.total+" / 20";
+  el("totalPercent").textContent=m.percent+" %";
+  el("gradeSuggestion").textContent=m.grade;
   el("autoFeedback").textContent=feedbackText(s);
 }
 function renderSurvey(){
@@ -530,25 +537,18 @@ function createStudent(){const s=blankStudent();students.push(s);currentId=s.id;
 function deleteCurrent(){const s=current();if(!s)return;if(!confirm('Eintrag für "'+(s.name||"dieses Kind")+'" wirklich löschen?'))return;students=students.filter(x=>x.id!==s.id);persist();currentId=students[0]?.id||null;renderAll()}
 function download(name,text,type){const blob=new Blob([text],{type});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function csv(){
- const headers=["Name","Klasse","Datum",...CRITERIA.map(c=>c.short),"Mindest_%","Regel_%","Leistung_%","Gesamtniveau","Notenvorschlag","Umfrage_Zusatz","Lehrkraft_Rueckmeldung"];
- const rows=students.map(s=>{const m=metrics(s);return [s.name,s.className,s.date,...CRITERIA.map(c=>LEVEL_NAMES[Number(s.levels[c.id]||0)]),m.min,m.reg,m.perf,m.overall,m.grade,s.survey===2?"passend & erklärt":s.survey===1?"teilweise passend":"nicht genutzt",s.teacherComment||""]});
+ const headers=["Name","Klasse","Datum",...CRITERIA.map(c=>c.short),"Grundpunkte","Zusatzpunkte","Gesamtpunkte","Prozent","Notenvorschlag","Umfrage_Zusatz","Lehrkraft_Rueckmeldung"];
+ const rows=students.map(s=>{const m=metrics(s);return [s.name,s.className,s.date,...CRITERIA.map(c=>LEVEL_NAMES[Number(s.levels[c.id]||0)]),m.core,m.extra,m.total,m.percent,m.grade,s.survey===2?"passend & erklärt":s.survey===1?"teilweise passend":"nicht genutzt",s.teacherComment||""]});
  const esc=v=>'"'+String(v??"").replace(/"/g,'""')+'"';
  return "\ufeff"+[headers,...rows].map(r=>r.map(esc).join(";")).join("\n");
 }
 function fullFeedback(s){
  const m=metrics(s);let t=(s.name||"Rückmeldung")+" – Wunschbrief\n";
- t+="Gesamtniveau: "+m.overall+" · Notenvorschlag: "+m.grade+"\n";
- t+="Mindeststandard: "+m.min+" % · Regelstandard: "+m.reg+" % · Leistungsstandard: "+m.perf+" %\n\n";
+ t+="Gesamtpunkte: "+m.total+" / 20 ("+m.percent+" %) · Notenvorschlag: "+m.grade+"\n";
+ t+="Grundpunkte: "+m.core+" / 18 · freiwillige Zusatzpunkte: "+m.extra+" / 2\n\n";
  t+=feedbackText(s);
  if(s.teacherComment?.trim())t+="\n\nPersönliche Rückmeldung:\n"+s.teacherComment.trim();
  return t;
-}
-function settingsToInputs(){
- el("sGrade1").value=settings.grade1Perf;el("sGrade2Reg").value=settings.grade2Reg;el("sGrade2Perf").value=settings.grade2Perf;el("sGrade3").value=settings.grade3Reg;el("sGrade4").value=settings.grade4Min;el("sGrade5").value=settings.grade5Min;
-}
-function inputsToSettings(){
- settings={grade1Perf:Number(el("sGrade1").value),grade2Reg:Number(el("sGrade2Reg").value),grade2Perf:Number(el("sGrade2Perf").value),grade3Reg:Number(el("sGrade3").value),grade4Min:Number(el("sGrade4").value),grade5Min:Number(el("sGrade5").value)};
- persistSettings();renderAll();
 }
 el("newStudent").onclick=createStudent;
 el("search").oninput=renderList;
@@ -559,16 +559,14 @@ el("deleteStudent").onclick=deleteCurrent;
 el("copyFeedback").onclick=async()=>{const s=current();if(!s)return;try{await navigator.clipboard.writeText(fullFeedback(s));el("copyFeedback").textContent="Kopiert ✓";setTimeout(()=>el("copyFeedback").textContent="Rückmeldung kopieren",1200)}catch(e){alert("Kopieren nicht möglich. Bitte markiere den Text manuell.")}};
 el("printFeedback").onclick=()=>window.print();
 el("exportCsv").onclick=()=>download("LEK1_Wunschbrief_Auswertung.csv",csv(),"text/csv;charset=utf-8");
-el("exportJson").onclick=()=>download("LEK1_Wunschbrief_Sicherung.json",JSON.stringify({version:1,exportedAt:new Date().toISOString(),settings,students},null,2),"application/json");
+el("exportJson").onclick=()=>download("LEK1_Wunschbrief_Sicherung.json",JSON.stringify({version:2,exportedAt:new Date().toISOString(),gradeThresholds:GRADE_THRESHOLDS,students},null,2),"application/json");
 el("importJson").onchange=async e=>{
  const file=e.target.files[0];if(!file)return;
- try{const data=JSON.parse(await file.text());if(!Array.isArray(data.students))throw new Error();if(!confirm("Vorhandene Daten durch die Sicherung ersetzen?"))return;students=data.students;settings={...DEFAULT_SETTINGS,...(data.settings||{})};persist();persistSettings();currentId=students[0]?.id||null;renderAll()}
+ try{const data=JSON.parse(await file.text());if(!Array.isArray(data.students))throw new Error();if(!confirm("Vorhandene Daten durch die Sicherung ersetzen?"))return;students=data.students;persist();currentId=students[0]?.id||null;renderAll()}
  catch(err){alert("Die Datei konnte nicht als gültige Sicherung gelesen werden.")}finally{e.target.value=""}
 };
-el("settingsBtn").onclick=()=>{settingsToInputs();el("settingsDialog").showModal()};
+el("settingsBtn").onclick=()=>el("settingsDialog").showModal();
 el("closeSettings").onclick=()=>el("settingsDialog").close();
-el("saveSettings").onclick=()=>{inputsToSettings();el("settingsDialog").close()};
-el("resetSettings").onclick=()=>{settings={...DEFAULT_SETTINGS};settingsToInputs()};
 window.addEventListener("beforeunload",()=>{if(current())syncTop()});
 if(students.length)currentId=students[0].id;
 renderAll();
