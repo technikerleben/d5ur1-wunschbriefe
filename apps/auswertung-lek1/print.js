@@ -21,7 +21,7 @@
   };
   const lrsSkills={sprache:"vollständige Sätze schreiben und passende Satzschlusszeichen setzen"};
   const lrsStrengths={sprache:"Deine Sätze sind vollständig und deine Satzschlusszeichen passen"};
-  const names=[null,"In Ansätzen vorhanden","Mindeststandard","Regelstandard","Leistungsstandard"];
+  const names=["Nicht vorhanden","In Ansätzen vorhanden","Mindeststandard","Regelstandard","Leistungsstandard"];
   const gradeNames={1:"sehr gut (1)",2:"gut (2)",3:"befriedigend (3)",4:"ausreichend (4)",5:"mangelhaft (5)",6:"ungenügend (6)"};
   const clamp=(v,max)=>Math.min(max,Math.max(0,Number(v)||0));
 
@@ -49,7 +49,7 @@
         '<h3>'+escapeHtml(criterion.title)+'</h3>'+
         '<div class="print-rubric-desc">'+escapeHtml(criterion.desc)+'</div>'+
         criterion.levels.map((description,index)=>{
-          const level=index+1;
+          const level=index;
           return '<div class="print-rubric-row">'+
             '<span class="print-rubric-num print-level-'+level+'">'+level+'</span>'+
             '<span>'+escapeHtml(description)+'</span>'+
@@ -65,7 +65,7 @@
 
     const assessment=metrics(child);
     const rows=CRITERIA.map((criterion,index)=>({
-      criterion,index,level:Math.max(1,clamp(child.levels[criterion.id]??1,4))
+      criterion,index,level:clamp(child.levels[criterion.id]??0,4)
     }));
     const extra=clamp(child.survey,2);
 
@@ -102,9 +102,13 @@
       if(extra===2)
         messages.push("Zusätzlich hast du ein Umfrageergebnis richtig erklärt.");
     }else{
-      messages.push("Du hast bereits erste Ansätze für deinen Wunschbrief gezeigt.");
+      const anyApproach=rows.some(r=>r.level===1);
+      messages.push(anyApproach
+        ? "Du hast erste Ansätze für deinen Wunschbrief gezeigt."
+        : "Wir schauen gemeinsam, welche Schritte dir beim Schreiben helfen.");
       messages.push("Wir üben die wichtigen Schritte gemeinsam weiter.");
     }
+    p("printStrengthsHeading").textContent=rows.some(r=>r.level>=1)?"Das kannst du schon":"Deine nächsten Lernschritte";
     p("printStrengths").replaceChildren();
     messages.forEach(message=>{
       const node=document.createElement("p");
