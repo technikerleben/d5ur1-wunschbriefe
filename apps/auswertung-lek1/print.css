@@ -78,8 +78,16 @@
 .print-custom{white-space:pre-wrap;margin-top:12px;font-size:9.8pt;line-height:1.4}
 .print-front-footer{
   border-top:2px solid #d1e0e8;padding-top:11px;
-  margin-top:26px
+  margin-top:22px
 }
+.print-front-result{
+  display:flex;justify-content:space-between;gap:18px;align-items:center;
+  background:#f3f7fa;border:1px solid #cbd9e1;border-radius:9px;
+  padding:9px 12px;margin-bottom:9px;
+  font-size:8.9pt;line-height:1.35;color:#415b6a
+}
+.print-front-result strong{color:#245688}
+
 .print-priority-short{
   font-size:9pt;line-height:1.45;color:#245688;font-weight:750;margin:0
 }
@@ -133,6 +141,8 @@
 .print-evaluation>p:first-of-type{
   font-size:7.9pt;color:#59717f;margin:0 0 7px;line-height:1.3
 }
+.print-evaluation .print-points{margin-top:7px;font-size:7.7pt;color:#607583}
+
 .print-key-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
 .print-key-cell{
   border:1px solid #d8e3e8;border-left:4px solid #a5b4bd;
@@ -166,6 +176,8 @@
   .print-front{page-break-after:always;break-after:page}
   .print-back{page-break-after:auto;break-after:auto}
   .print-front-footer{margin-top:auto}
+  .print-front-result{padding:7px 10px;margin-bottom:7px}
+
   .print-warning,.print-strengths,.print-meta,.print-tip,
   .print-rubric-card,.print-evaluation,.print-philosophy{
     break-inside:avoid
