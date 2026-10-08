@@ -69,11 +69,13 @@ main{padding:20px 0 48px}
 .criterion-head h3{margin:0;color:var(--blue2);font-size:1rem}
 .criterion-head p{margin:3px 0 0;color:var(--muted);font-size:.86rem;line-height:1.35}
 .level-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding:11px 12px 8px}
-.level-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 7px;text-align:center;font-size:.82rem;font-weight:850;color:#52616b}
+.level-btn{min-width:0;border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 7px;text-align:center;font-size:.82rem;font-weight:850;color:#52616b;overflow-wrap:break-word;transition:background-color .12s,border-color .12s,box-shadow .12s}
+.rubric .level-btn.selected::before{content:"✓ ";font-weight:1000}
+.rubric .level-btn:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 .level-btn[data-level="1"].selected{background:#edf0f2;border-color:#a1afb8;color:#4a5d67}
 .level-btn[data-level="2"].selected{background:#fff1e6;border-color:#e2a171;color:#844918}
 .level-btn[data-level="3"].selected{background:#eaf5ff;border-color:#91c1e8;color:#195d91}
-.level-btn[data-level="4"].selected{background:var(--mint-soft);border-color:#71d9cd;color:#08776d}
+.level-btn[data-level="4"].selected{background:#b4efe4;border:2px solid #067f71;color:#064f48;box-shadow:inset 0 0 0 1px #067f71,0 2px 6px rgba(6,103,91,.12)}
 .descriptor{padding:0 13px 9px;color:#46545d;font-size:.88rem;min-height:30px}
 .criterion-note{padding:0 12px 12px}
 .criterion-note input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:9px}
@@ -104,6 +106,7 @@ dialog::backdrop{background:rgba(20,35,45,.4)}
 .setting input{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px}
 dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 0 0}
 .hidden{display:none!important}
+@media(max-width:1100px){.top-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:1000px){.grid{grid-template-columns:1fr}.sidebar{position:static}.student-list{max-height:280px}.summary{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:720px){.top-form{grid-template-columns:1fr}.summary{grid-template-columns:repeat(2,1fr)}.level-buttons{grid-template-columns:1fr 1fr}.feedback-grid{grid-template-columns:1fr}}
 @media print{
@@ -524,16 +527,16 @@ function renderRubric(){
     const lv=Number(s.levels[base.id]??1);
     return '<div class="criterion" data-criterion="'+base.id+'">'+
       '<div class="criterion-head"><div><h3>'+escapeHtml(c.title)+'</h3><p>'+escapeHtml(c.desc)+'</p></div><span class="grade-pill">'+lv+'</span></div>'+
-      '<div class="level-buttons">'+[1,2,3,4].map(n=>'<button class="level-btn '+(lv===n?'selected':'')+'" data-level="'+n+'" data-cid="'+base.id+'">'+LEVEL_NAMES[n]+'</button>').join("")+'</div>'+
+      '<div class="level-buttons">'+[1,2,3,4].map(n=>'<button type="button" class="level-btn '+(lv===n?'selected':'')+'" aria-pressed="'+(lv===n)+'" data-level="'+n+'" data-cid="'+base.id+'">'+LEVEL_NAMES[n]+'</button>').join("")+'</div>'+
       '<div class="descriptor">'+escapeHtml(c.levels[lv-1])+'</div>'+
-      '<div class="criterion-note"><input data-note="'+base.id+'" value="'+escapeHtml(s.notes[base.id]||"")+'" placeholder="Optional: konkrete Beobachtung oder Textstelle"></div>'+
+      '<div class="criterion-note"><input data-note="'+base.id+'" value="'+escapeHtml(s.notes?.[base.id]||"")+'" placeholder="Optional: konkrete Beobachtung oder Textstelle"></div>'+
     '</div>';
   }).join("");
   document.querySelectorAll("[data-cid]").forEach(b=>b.onclick=()=>{
     const s=current();s.levels[b.dataset.cid]=Number(b.dataset.level);s.updatedAt=new Date().toISOString();persist();renderAll();
   });
   document.querySelectorAll("[data-note]").forEach(inp=>inp.oninput=()=>{
-    const s=current();s.notes[inp.dataset.note]=inp.value;s.updatedAt=new Date().toISOString();persist();
+    const s=current();if(!s.notes)s.notes={};s.notes[inp.dataset.note]=inp.value;s.updatedAt=new Date().toISOString();persist();
   });
 }
 function feedbackText(s){
@@ -555,7 +558,8 @@ function feedbackText(s){
   }else{
     const any=best[0];
     parts.push("Das gelingt dir schon:");
-    parts.push("• "+feedbackForStudent(any.c,s,any.lv));
+    if(any.lv>=2)parts.push("• "+feedbackForStudent(any.c,s,any.lv));
+    else parts.push("• Du hast erste Ansätze für deinen Wunschbrief gezeigt.");
   }
   parts.push("");
   parts.push("Dein nächster Schritt:");
