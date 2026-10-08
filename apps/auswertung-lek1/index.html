@@ -70,10 +70,10 @@ main{padding:20px 0 48px}
 .criterion-head p{margin:3px 0 0;color:var(--muted);font-size:.86rem;line-height:1.35}
 .level-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding:11px 12px 8px}
 .level-btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 7px;text-align:center;font-size:.82rem;font-weight:850;color:#52616b}
-.level-btn[data-level="0"].selected{background:#f3eaea;border-color:#dca5a5;color:#8a3434}
-.level-btn[data-level="1"].selected{background:#f5f1df;border-color:#d7c77e;color:#6c5b10}
-.level-btn[data-level="2"].selected{background:#eaf5ff;border-color:#91c1e8;color:#195d91}
-.level-btn[data-level="3"].selected{background:var(--mint-soft);border-color:#71d9cd;color:#08776d}
+.level-btn[data-level="1"].selected{background:#edf0f2;border-color:#a1afb8;color:#4a5d67}
+.level-btn[data-level="2"].selected{background:#fff1e6;border-color:#e2a171;color:#844918}
+.level-btn[data-level="3"].selected{background:#eaf5ff;border-color:#91c1e8;color:#195d91}
+.level-btn[data-level="4"].selected{background:var(--mint-soft);border-color:#71d9cd;color:#08776d}
 .descriptor{padding:0 13px 9px;color:#46545d;font-size:.88rem;min-height:30px}
 .criterion-note{padding:0 12px 12px}
 .criterion-note input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:9px}
@@ -123,7 +123,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
   <div>
     <div class="eyebrow">Deutsch 5 · Wunschbriefe · Lernerfolgskontrolle</div>
     <h1>Auswertung & Rückmeldung</h1>
-    <p>Kompetenzorientiert auswerten, Rückmeldung erzeugen und die Note transparent aus den erreichten Punkten berechnen. Alle Daten bleiben ausschließlich im Browserspeicher dieses Geräts.</p>
+    <p>Kompetenzorientiert auswerten, Rückmeldung erzeugen und die Note transparent aus den erreichten Punkten berechnen. Alle Daten bleiben ausschließlich im Browserspeicher dieses Geräts. Vorhandene Einstufungen der bisherigen 0–3-Skala werden einmalig in die neue 1–4-Skala übertragen.</p>
   </div>
   <div class="header-badge"><b>Notenlogik · Fach Deutsch</b><br>Sechs Kompetenzbereiche mit jeweils 1 bis 4 Punkten ergeben 24 Grundpunkte. Bis zu 2 freiwillige Bonuspunkte sind möglich. Der Fachschaftsschlüssel bleibt unverändert.</div>
 </div>
@@ -490,7 +490,7 @@ function metrics(s){
   const core=levels.reduce((sum,value)=>sum+value,0);
   const extra=Math.max(0,Math.min(2,Number(s.survey||0)));
   const total=core+extra;
-  let overall="noch nicht erreicht";
+  let overall="in Ansätzen vorhanden";
   if(perf>=80)overall="Leistungsstandard";
   else if(reg>=80)overall="Regelstandard";
   else if(min>=80)overall="Mindeststandard";
