@@ -49,7 +49,11 @@ main{padding:20px 0 48px}
 .grade-pill{min-width:34px;height:34px;border-radius:999px;display:grid;place-items:center;background:#edf1f4;font-weight:950;color:var(--blue)}
 .empty{padding:22px 14px;text-align:center;color:var(--muted);line-height:1.5}
 .editor{padding:18px}
-.top-form{display:grid;grid-template-columns:1.4fr .75fr .75fr;gap:12px;margin-bottom:18px}
+.top-form{display:grid;grid-template-columns:1.25fr .55fr .72fr 1.25fr;gap:12px;margin-bottom:18px}
+.lrs-field{border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#f8fafb;display:flex;flex-direction:column;justify-content:center}
+.lrs-check{display:flex!important;align-items:flex-start;gap:8px;text-transform:none!important;letter-spacing:0!important;font-size:.83rem!important;color:var(--blue2)!important;line-height:1.3;margin:0!important}
+.lrs-check input{width:auto!important;margin-top:2px;accent-color:var(--blue)}
+.lrs-help{display:block;margin-top:5px;color:var(--muted);font-size:.72rem;line-height:1.3}
 .field label{display:block;font-size:.78rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
 .field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 11px;background:#fff;color:var(--ink)}
 .field textarea{min-height:72px;resize:vertical}
@@ -121,7 +125,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     <h1>Auswertung & Rückmeldung</h1>
     <p>Kompetenzorientiert auswerten, Rückmeldung erzeugen und die Note transparent aus der Gesamtpunktzahl berechnen. Alle Daten bleiben ausschließlich im Browserspeicher dieses Geräts.</p>
   </div>
-  <div class="header-badge"><b>Notenlogik · Fach Deutsch</b><br>Die Note ergibt sich ausschließlich aus der Gesamtpunktzahl (max. 20 Punkte): 87 % / 73 % / 59 % / 45 % / 18 %.</div>
+  <div class="header-badge"><b>Notenlogik · Fach Deutsch</b><br>Bewertungsbasis sind 18 Punkte. Bis zu 2 freiwillige Bonuspunkte können die Punktzahl auf 19 oder 20 erhöhen; beide Werte bleiben im Bereich „sehr gut“.</div>
 </div>
 </header>
 
@@ -154,13 +158,17 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
           <div class="field"><label>Name des Kindes</label><input id="studentName" autocomplete="off"></div>
           <div class="field"><label>Klasse</label><input id="studentClass" value="5.3"></div>
           <div class="field"><label>Datum</label><input id="studentDate" type="date"></div>
+          <div class="lrs-field">
+            <label class="lrs-check"><input id="lrsNta" type="checkbox"> Nachteilsausgleich Rechtschreibung (LRS-Diagnose)</label>
+            <span class="lrs-help">Kriterium 5 bewertet dann nur vollständige Sätze und Satzschlusszeichen.</span>
+          </div>
         </div>
 
         <div class="summary">
           <div class="stat"><b id="corePoints">0 / 18</b><span>Grundpunkte</span></div>
           <div class="stat"><b id="extraPoints">0 / 2</b><span>freiwillige Zusatzpunkte</span></div>
-          <div class="stat level"><b id="totalPoints">0 / 20</b><span>Gesamtpunkte</span></div>
-          <div class="stat"><b id="totalPercent">0 %</b><span>Punktanteil</span></div>
+          <div class="stat level"><b id="totalPoints">0 Punkte</b><span>Punkte für die Note</span></div>
+          <div class="stat"><b>18 Punkte</b><span>Bewertungsbasis</span></div>
           <div class="stat grade"><b id="gradeSuggestion">–</b><span>Note</span></div>
         </div>
 
@@ -195,7 +203,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
           <button class="btn orange" id="printFeedback">Rückmeldung drucken</button>
           <button class="btn danger" id="deleteStudent">Eintrag löschen</button>
         </div>
-        <div class="notice">Die Note wird ausschließlich aus der erreichten Gesamtpunktzahl von maximal 20 Punkten berechnet. Die Kompetenzstufen dienen der inhaltlichen Rückmeldung und sind kein zusätzliches Notenkriterium.</div>
+        <div class="notice">Die Note wird ausschließlich aus den erreichten Punkten berechnet. Die Notengrenzen beziehen sich auf 18 reguläre Punkte; bis zu 2 freiwillige Bonuspunkte können zusätzlich erreicht werden. Die Kompetenzstufen sind kein zusätzliches Notenkriterium.</div>
       </div>
     </div>
   </section>
@@ -227,7 +235,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 
     <footer class="print-front-footer">
       <div class="print-front-result">
-        <span>Erreichte Gesamtpunktzahl: <strong><span id="printFrontPoints"></span> / 20</strong> (<span id="printFrontPercent"></span> %)</span>
+        <span>Erreichte Punkte: <strong><span id="printFrontPoints"></span></strong> <span id="printFrontBonus"></span></span>
         <span>Diese Leistung entspricht der Note <strong><span id="printFrontGrade"></span></strong>.</span>
       </div>
       <p class="print-priority-short">Du lernst Schritt für Schritt weiter. Wichtig ist, was du schon kannst und woran du als Nächstes arbeitest. Die Rückmeldung zu deinen Fähigkeiten ist wichtiger als die Note.</p>
@@ -253,13 +261,13 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     <div class="print-rubric-grid" id="printRubricGrid"></div>
     <div class="print-back-notes">
       <div><strong>Wichtige Grundmerkmale:</strong> passende Anrede, klarer Wunsch, mindestens ein passender Grund, Grußformel mit Namen, freundliche Sprache sowie verständliche und lesbare Sätze.</div>
-      <div><strong>Freiwillig:</strong> Umfrageergebnis passend genutzt (0–2 Zusatzpunkte). Die Umfrage ersetzt keinen Grund. Insgesamt sind 18 Grundpunkte und 2 Zusatzpunkte möglich.</div>
+      <div><strong>Freiwillig:</strong> Umfrageergebnis passend genutzt (0–2 Bonuspunkte). Die Umfrage ersetzt keinen Grund. Die reguläre Bewertungsbasis bleibt bei 18 Punkten.</div>
     </div>
     <div class="print-evaluation">
       <h3>Notenschlüssel im Fach Deutsch</h3>
-      <p>Die Note wird ausschließlich aus der Gesamtpunktzahl berechnet. Die Kompetenzstufen oben sind für die Rückmeldung wichtig, aber kein zusätzliches Notenkriterium. Maximal sind 20 Punkte möglich.</p>
+      <p>Die Note wird ausschließlich aus den erreichten Punkten berechnet. Die Prozentgrenzen beziehen sich auf 18 reguläre Punkte. Bonuspunkte können zu 19 oder 20 Punkten führen und erweitern nur den Bereich „sehr gut“ nach oben. Die Kompetenzstufen sind kein zusätzliches Notenkriterium.</p>
       <div class="print-key-grid" id="printGradeKey"></div>
-      <p class="print-points">Die 18 Grundpunkte und bis zu 2 freiwilligen Zusatzpunkte ergeben zusammen die Gesamtpunktzahl.</p>
+      <p class="print-points">Bewertungsbasis: 18 Punkte. Bis zu 2 freiwillige Bonuspunkte können zusätzlich erreicht werden.</p>
     </div>
     <div class="print-philosophy">
       <strong>Was wirklich zählt:</strong> Der Aufbau deiner Kompetenzen steht im Vordergrund. Eine Note kann nicht deinen gesamten Lernerfolg zeigen. Die Rückmeldung zu deinen Fähigkeiten und deinen nächsten Lernschritten ist deshalb wichtiger als die Note.
@@ -269,16 +277,16 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 
 <dialog id="settingsDialog">
   <div class="dialog-head"><h2>Notenschlüssel · Fach Deutsch</h2><button class="btn secondary small" id="closeSettings">Schließen</button></div>
-  <p>Die Note hängt ausschließlich von der erreichten Gesamtpunktzahl ab. Maximal sind 20 Punkte möglich.</p>
+  <p>Die Prozentgrenzen werden auf die regulär erreichbaren <strong>18 Punkte</strong> bezogen. Die zwei freiwilligen Bonuspunkte sind nicht erforderlich.</p>
   <div class="settings-grid grade-key-screen">
-    <div class="setting"><label>sehr gut (1)</label><strong>ab 87 % · 18–20 Punkte</strong></div>
-    <div class="setting"><label>gut (2)</label><strong>ab 73 % · 15–17 Punkte</strong></div>
-    <div class="setting"><label>befriedigend (3)</label><strong>ab 59 % · 12–14 Punkte</strong></div>
-    <div class="setting"><label>ausreichend (4)</label><strong>ab 45 % · 9–11 Punkte</strong></div>
+    <div class="setting"><label>sehr gut (1)</label><strong>ab 87 % · 16–20 Punkte</strong></div>
+    <div class="setting"><label>gut (2)</label><strong>ab 73 % · 14–15 Punkte</strong></div>
+    <div class="setting"><label>befriedigend (3)</label><strong>ab 59 % · 11–13 Punkte</strong></div>
+    <div class="setting"><label>ausreichend (4)</label><strong>ab 45 % · 9–10 Punkte</strong></div>
     <div class="setting"><label>mangelhaft (5)</label><strong>ab 18 % · 4–8 Punkte</strong></div>
     <div class="setting"><label>ungenügend (6)</label><strong>unter 18 % · 0–3 Punkte</strong></div>
   </div>
-  <p class="notice">Die farbigen Kompetenzstufen beschreiben den Lernstand in den einzelnen Bereichen. Sie verändern die Note nicht zusätzlich.</p>
+  <p class="notice">Die farbigen Kompetenzstufen beschreiben den Lernstand in den einzelnen Bereichen. Sie verändern die Note nicht zusätzlich. Bonuspunkte können lediglich die erreichte Punktzahl erhöhen.</p>
 </dialog>
 
 <script>
@@ -356,6 +364,35 @@ const CRITERIA=[
   }
 ];
 
+const LRS_LANGUAGE_CRITERION={
+  id:"sprache",
+  title:"5. Sprachliche Leistung",
+  short:"Sprachliche Leistung",
+  desc:"Vollständige Sätze schreiben und passende Satzschlusszeichen setzen.",
+  levels:[
+    "Sätze bleiben noch häufig unvollständig oder Satzschlusszeichen fehlen oft.",
+    "Du schreibst überwiegend vollständige Sätze. Satzschlusszeichen sind teilweise passend gesetzt.",
+    "Deine Sätze sind überwiegend vollständig und die Satzschlusszeichen meistens passend.",
+    "Du schreibst sicher in vollständigen Sätzen und setzt Satzschlusszeichen passend."
+  ]
+};
+const LRS_LANGUAGE_FEEDBACK=[
+  "Vollständige Sätze und Satzschlusszeichen gelingen noch nicht sicher.",
+  "Du schreibst überwiegend vollständige Sätze und setzt schon einige passende Satzschlusszeichen.",
+  "Deine Sätze sind überwiegend vollständig und die Satzschlusszeichen meistens passend.",
+  "Du schreibst sicher in vollständigen Sätzen und setzt Satzschlusszeichen passend."
+];
+const LRS_LANGUAGE_NEXT="Lies deinen Brief Satz für Satz. Prüfe: Ist jeder Satz vollständig? Steht am Ende ein Punkt, Fragezeichen oder Ausrufezeichen?";
+function criterionForStudent(c,s){
+  return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_CRITERION : c;
+}
+function feedbackForStudent(c,s,level){
+  return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_FEEDBACK[level] : FEEDBACK[c.id][level];
+}
+function nextStepForStudent(c,s){
+  return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_NEXT : NEXT_STEPS[c.id];
+}
+
 const FEEDBACK={
   situation:[
     "Dein Wunsch und die Schreibsituation sind noch nicht sicher getroffen.",
@@ -404,8 +441,11 @@ const NEXT_STEPS={
   lesbarkeit:"Lass zwischen den Briefteilen freie Zeilen und achte auf gut erkennbare Wörter und Abstände."
 };
 
-const GRADE_THRESHOLDS={1:87,2:73,3:59,4:45,5:18};
-const MAX_POINTS=20;
+const GRADE_PERCENTAGES={1:87,2:73,3:59,4:45,5:18};
+const GRADE_POINT_THRESHOLDS={1:16,2:14,3:11,4:9,5:4};
+const MAX_BASE_POINTS=18;
+const MAX_BONUS_POINTS=2;
+const MAX_REACHABLE_POINTS=20;
 
 let students=load(STORAGE_KEY,[]);
 let currentId=null;
@@ -415,7 +455,7 @@ function load(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fa
 function persist(){localStorage.setItem(STORAGE_KEY,JSON.stringify(students))}
 function uid(){return "s_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,7)}
 function today(){return new Date().toISOString().slice(0,10)}
-function blankStudent(){return {id:uid(),name:"",className:"5.3",date:today(),levels:Object.fromEntries(CRITERIA.map(c=>[c.id,0])),notes:{},survey:0,surveyNote:"",teacherComment:"",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}}
+function blankStudent(){return {id:uid(),name:"",className:"5.3",date:today(),lrsNta:false,levels:Object.fromEntries(CRITERIA.map(c=>[c.id,0])),notes:{},survey:0,surveyNote:"",teacherComment:"",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}}
 function current(){return students.find(s=>s.id===currentId)||null}
 function escapeHtml(s=""){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
 function pct(levels,threshold){const vals=CRITERIA.map(c=>Number(levels[c.id]||0));return Math.round(vals.filter(v=>v>=threshold).length/CRITERIA.length*100)}
@@ -425,20 +465,19 @@ function metrics(s){
   const core=levels.reduce((sum,value)=>sum+value,0);
   const extra=Math.max(0,Math.min(2,Number(s.survey||0)));
   const total=core+extra;
-  const percent=Math.round(total/MAX_POINTS*100);
   let overall="noch nicht erreicht";
   if(core>=15)overall="Leistungsstandard";
   else if(core>=12)overall="Regelstandard";
   else if(core>=9)overall="Mindeststandard";
-  return {min,reg,perf,core,extra,total,percent,overall,grade:gradeFor(total)};
+  return {min,reg,perf,core,extra,total,overall,grade:gradeFor(total)};
 }
 function gradeFor(total){
-  const percent=Number(total)/MAX_POINTS*100;
-  if(percent>=GRADE_THRESHOLDS[1])return 1;
-  if(percent>=GRADE_THRESHOLDS[2])return 2;
-  if(percent>=GRADE_THRESHOLDS[3])return 3;
-  if(percent>=GRADE_THRESHOLDS[4])return 4;
-  if(percent>=GRADE_THRESHOLDS[5])return 5;
+  const points=Number(total)||0;
+  if(points>=GRADE_POINT_THRESHOLDS[1])return 1;
+  if(points>=GRADE_POINT_THRESHOLDS[2])return 2;
+  if(points>=GRADE_POINT_THRESHOLDS[3])return 3;
+  if(points>=GRADE_POINT_THRESHOLDS[4])return 4;
+  if(points>=GRADE_POINT_THRESHOLDS[5])return 5;
   return 6;
 }
 function renderList(){
@@ -448,19 +487,20 @@ function renderList(){
   if(!list.length){el("studentList").innerHTML='<div class="empty">Noch keine Einträge.</div>';return}
   el("studentList").innerHTML=list.map(s=>{
     const m=metrics(s);
-    return '<button class="student-item '+(s.id===currentId?'active':'')+'" data-id="'+s.id+'"><span><strong>'+escapeHtml(s.name||"Ohne Namen")+'</strong><small>'+escapeHtml(s.className||"")+' · '+m.total+' / 20 Punkte</small></span><span class="grade-pill">'+m.grade+'</span></button>';
+    return '<button class="student-item '+(s.id===currentId?'active':'')+'" data-id="'+s.id+'"><span><strong>'+escapeHtml(s.name||"Ohne Namen")+'</strong><small>'+escapeHtml(s.className||"")+' · '+m.total+' Punkte'+(m.extra?' (inkl. Bonus)':'')+'</small></span><span class="grade-pill">'+m.grade+'</span></button>';
   }).join("");
   document.querySelectorAll(".student-item").forEach(b=>b.onclick=()=>openStudent(b.dataset.id));
 }
 function renderRubric(){
   const s=current(); if(!s)return;
-  el("rubric").innerHTML=CRITERIA.map(c=>{
-    const lv=Number(s.levels[c.id]||0);
-    return '<div class="criterion" data-criterion="'+c.id+'">'+
+  el("rubric").innerHTML=CRITERIA.map(base=>{
+    const c=criterionForStudent(base,s);
+    const lv=Number(s.levels[base.id]||0);
+    return '<div class="criterion" data-criterion="'+base.id+'">'+
       '<div class="criterion-head"><div><h3>'+escapeHtml(c.title)+'</h3><p>'+escapeHtml(c.desc)+'</p></div><span class="grade-pill">'+lv+'</span></div>'+
-      '<div class="level-buttons">'+[0,1,2,3].map(n=>'<button class="level-btn '+(lv===n?'selected':'')+'" data-level="'+n+'" data-cid="'+c.id+'">'+(n===0?'noch nicht':n===1?'Mindest':n===2?'Regel':'Leistung')+'</button>').join("")+'</div>'+
+      '<div class="level-buttons">'+[0,1,2,3].map(n=>'<button class="level-btn '+(lv===n?'selected':'')+'" data-level="'+n+'" data-cid="'+base.id+'">'+(n===0?'noch nicht':n===1?'Mindest':n===2?'Regel':'Leistung')+'</button>').join("")+'</div>'+
       '<div class="descriptor">'+escapeHtml(c.levels[lv])+'</div>'+
-      '<div class="criterion-note"><input data-note="'+c.id+'" value="'+escapeHtml(s.notes[c.id]||"")+'" placeholder="Optional: konkrete Beobachtung oder Textstelle"></div>'+
+      '<div class="criterion-note"><input data-note="'+base.id+'" value="'+escapeHtml(s.notes[base.id]||"")+'" placeholder="Optional: konkrete Beobachtung oder Textstelle"></div>'+
     '</div>';
   }).join("");
   document.querySelectorAll("[data-cid]").forEach(b=>b.onclick=()=>{
@@ -485,15 +525,15 @@ function feedbackText(s){
   let parts=[intro,""];
   if(strengths.length){
     parts.push("Das gelingt dir schon:");
-    strengths.forEach(x=>parts.push("• "+FEEDBACK[x.c.id][x.lv]));
+    strengths.forEach(x=>parts.push("• "+feedbackForStudent(x.c,s,x.lv)));
   }else{
     const any=best[0];
     parts.push("Das gelingt dir schon:");
-    parts.push("• "+FEEDBACK[any.c.id][any.lv]);
+    parts.push("• "+feedbackForStudent(any.c,s,any.lv));
   }
   parts.push("");
   parts.push("Dein nächster Schritt:");
-  parts.push("• "+NEXT_STEPS[next.c.id]);
+  parts.push("• "+nextStepForStudent(next.c,s));
   if(Number(s.survey)===2){parts.push("");parts.push("Zusätzlich stark: Du hast ein passendes Umfrageergebnis richtig genutzt und erklärt.");}
   else if(Number(s.survey)===1){parts.push("");parts.push("Zusatz: Du hast die Umfrage genutzt. Prüfe noch einmal, ob Zahl und Aussage genau zusammenpassen.");}
   parts.push("");
@@ -507,8 +547,7 @@ function renderSummary(){
   const s=current(); if(!s)return;const m=metrics(s);
   el("corePoints").textContent=m.core+" / 18";
   el("extraPoints").textContent=m.extra+" / 2";
-  el("totalPoints").textContent=m.total+" / 20";
-  el("totalPercent").textContent=m.percent+" %";
+  el("totalPoints").textContent=m.total+" Punkte";
   el("gradeSuggestion").textContent=m.grade;
   el("autoFeedback").textContent=feedbackText(s);
 }
@@ -524,6 +563,7 @@ function renderAll(){
   el("formWrap").classList.toggle("hidden",!s);
   if(!s)return;
   el("studentName").value=s.name||"";el("studentClass").value=s.className||"5.3";el("studentDate").value=s.date||today();
+  el("lrsNta").checked=Boolean(s.lrsNta);
   el("teacherComment").value=s.teacherComment||"";
   renderRubric();renderSurvey();renderSummary();
 }
@@ -531,21 +571,22 @@ function openStudent(id){currentId=id;renderAll();window.scrollTo({top:0,behavio
 function syncTop(){
   const s=current();if(!s)return;
   s.name=el("studentName").value.trim();s.className=el("studentClass").value.trim();s.date=el("studentDate").value;
+  s.lrsNta=el("lrsNta").checked;
   s.teacherComment=el("teacherComment").value;s.surveyNote=el("surveyNote").value;s.updatedAt=new Date().toISOString();persist();renderList();renderSummary();
 }
 function createStudent(){const s=blankStudent();students.push(s);currentId=s.id;persist();renderAll();el("studentName").focus()}
 function deleteCurrent(){const s=current();if(!s)return;if(!confirm('Eintrag für "'+(s.name||"dieses Kind")+'" wirklich löschen?'))return;students=students.filter(x=>x.id!==s.id);persist();currentId=students[0]?.id||null;renderAll()}
 function download(name,text,type){const blob=new Blob([text],{type});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function csv(){
- const headers=["Name","Klasse","Datum",...CRITERIA.map(c=>c.short),"Grundpunkte","Zusatzpunkte","Gesamtpunkte","Prozent","Note","Umfrage_Zusatz","Lehrkraft_Rueckmeldung"];
- const rows=students.map(s=>{const m=metrics(s);return [s.name,s.className,s.date,...CRITERIA.map(c=>LEVEL_NAMES[Number(s.levels[c.id]||0)]),m.core,m.extra,m.total,m.percent,m.grade,s.survey===2?"passend & erklärt":s.survey===1?"teilweise passend":"nicht genutzt",s.teacherComment||""]});
+ const headers=["Name","Klasse","Datum","Nachteilsausgleich_Rechtschreibung",...CRITERIA.map(c=>c.id==="sprache"?"Sprachliche Leistung":c.short),"Grundpunkte","Bonuspunkte","Punkte_fuer_Note","Note","Umfrage_Bonus","Lehrkraft_Rueckmeldung"];
+ const rows=students.map(s=>{const m=metrics(s);return [s.name,s.className,s.date,s.lrsNta?"ja":"nein",...CRITERIA.map(c=>LEVEL_NAMES[Number(s.levels[c.id]||0)]),m.core,m.extra,m.total,m.grade,s.survey===2?"2 Bonuspunkte":s.survey===1?"1 Bonuspunkt":"0 Bonuspunkte",s.teacherComment||""]});
  const esc=v=>'"'+String(v??"").replace(/"/g,'""')+'"';
  return "\ufeff"+[headers,...rows].map(r=>r.map(esc).join(";")).join("\n");
 }
 function fullFeedback(s){
  const m=metrics(s);let t=(s.name||"Rückmeldung")+" – Wunschbrief\n";
- t+="Gesamtpunkte: "+m.total+" / 20 ("+m.percent+" %) · Note: "+m.grade+"\n";
- t+="Grundpunkte: "+m.core+" / 18 · freiwillige Zusatzpunkte: "+m.extra+" / 2\n\n";
+ t+="Punkte für die Note: "+m.total+" · Note: "+m.grade+"\n";
+ t+="Grundpunkte: "+m.core+" / 18 · freiwillige Bonuspunkte: "+m.extra+" / 2\n\n";
  t+=feedbackText(s);
  if(s.teacherComment?.trim())t+="\n\nPersönliche Rückmeldung:\n"+s.teacherComment.trim();
  return t;
@@ -553,13 +594,14 @@ function fullFeedback(s){
 el("newStudent").onclick=createStudent;
 el("search").oninput=renderList;
 ["studentName","studentClass","studentDate","teacherComment","surveyNote"].forEach(id=>el(id).addEventListener("input",syncTop));
+el("lrsNta").addEventListener("change",()=>{const s=current();if(!s)return;s.lrsNta=el("lrsNta").checked;s.updatedAt=new Date().toISOString();persist();renderRubric();renderSummary()});
 document.querySelectorAll("[data-survey]").forEach(b=>b.onclick=()=>{const s=current();s.survey=Number(b.dataset.survey);s.updatedAt=new Date().toISOString();persist();renderSurvey();renderSummary()});
 el("saveStudent").onclick=()=>{syncTop();el("saveStudent").textContent="Gespeichert ✓";setTimeout(()=>el("saveStudent").textContent="Speichern",1200)};
 el("deleteStudent").onclick=deleteCurrent;
 el("copyFeedback").onclick=async()=>{const s=current();if(!s)return;try{await navigator.clipboard.writeText(fullFeedback(s));el("copyFeedback").textContent="Kopiert ✓";setTimeout(()=>el("copyFeedback").textContent="Rückmeldung kopieren",1200)}catch(e){alert("Kopieren nicht möglich. Bitte markiere den Text manuell.")}};
 el("printFeedback").onclick=()=>window.print();
 el("exportCsv").onclick=()=>download("LEK1_Wunschbrief_Auswertung.csv",csv(),"text/csv;charset=utf-8");
-el("exportJson").onclick=()=>download("LEK1_Wunschbrief_Sicherung.json",JSON.stringify({version:2,exportedAt:new Date().toISOString(),gradeThresholds:GRADE_THRESHOLDS,students},null,2),"application/json");
+el("exportJson").onclick=()=>download("LEK1_Wunschbrief_Sicherung.json",JSON.stringify({version:3,exportedAt:new Date().toISOString(),gradePercentages:GRADE_PERCENTAGES,gradePointThresholds:GRADE_POINT_THRESHOLDS,students},null,2),"application/json");
 el("importJson").onchange=async e=>{
  const file=e.target.files[0];if(!file)return;
  try{const data=JSON.parse(await file.text());if(!Array.isArray(data.students))throw new Error();if(!confirm("Vorhandene Daten durch die Sicherung ersetzen?"))return;students=data.students;persist();currentId=students[0]?.id||null;renderAll()}
