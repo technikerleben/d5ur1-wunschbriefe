@@ -173,6 +173,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
   <button class="btn" id="newStudent">+ Neues Kind</button>
   <button class="btn secondary" id="settingsBtn">Notenschlüssel</button>
   <button class="btn secondary" id="showGradeChart" type="button">Notenverteilung</button>
+  <button class="btn orange" id="printAllFeedback" type="button" title="Alle Rückmeldungen als zweiseitigen Klassensatz drucken">Alles drucken</button>
   <button class="btn secondary" id="exportCsv">CSV exportieren</button>
   <button class="btn secondary" id="exportJson">Sicherung exportieren</button>
   <label class="btn secondary" for="importJson" style="cursor:pointer">Sicherung importieren</label>
@@ -314,6 +315,8 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     </div>
   </section>
 </div>
+
+<div id="printBatch" aria-label="Alle zweiseitigen Rückmeldungen der Klasse für den Duplexdruck"></div>
 
 <dialog id="settingsDialog">
   <div class="dialog-head"><h2>Notenschlüssel · Fach Deutsch</h2><button class="btn secondary small" id="closeSettings">Schließen</button></div>
