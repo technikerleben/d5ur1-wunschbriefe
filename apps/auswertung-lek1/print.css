@@ -51,6 +51,7 @@
   border-radius:7px;display:inline-block;border:1.5px solid transparent;
   padding:5px 8px;font-size:9pt;line-height:1.2;font-weight:850
 }
+.print-level-0{color:#874141;background:#f8e9e9;border-color:#bf9292}
 .print-level-1{color:#566b79;background:#e8edef;border-color:#aebbc4}
 .print-level-2{color:#93501b;background:#fff0e4;border-color:#F0A66F}
 .print-level-3{color:#194c7c;background:#e4effa;border-color:#245688}
@@ -99,7 +100,7 @@
 .print-sig-label{color:#576c76;font-size:8pt;margin-top:5px}
 .print-date-line{color:#607582;font-size:8.5pt;margin-top:15px}
 
-/* Rückseite: sechs vollständige Deskriptorensätze (1,2,3,4) */
+/* Rückseite: sechs vollständige Kompetenzraster mit je fünf Niveaustufen (0 bis 4) */
 .print-back-title{font-size:17pt;color:#245688;font-weight:900;margin:0 0 8px}
 .print-back-intro{font-size:8.8pt;color:#58707c;line-height:1.4;margin:0 0 9px}
 .print-legend{display:flex;gap:5px;flex-wrap:wrap;margin:0 0 12px}
@@ -236,4 +237,20 @@
   .print-key-cell span{font-size:6.8pt;line-height:1.17}
   .print-evaluation .print-points{margin-top:4px;font-size:7.1pt}
   .print-philosophy{margin-top:7px;padding:7px 9px;font-size:8.05pt;line-height:1.27}
+}
+
+/* Fünf statt vier Niveaus: kompakte Rückseite ohne Kürzen von Deskriptoren. */
+@media print{
+  .print-rubric-grid{gap:4px 6px}
+  .print-rubric-card{padding:4px 6px}
+  .print-rubric-card h3{font-size:8pt;margin-bottom:2px}
+  .print-rubric-desc{font-size:6.6pt;margin-bottom:3px}
+  .print-rubric-row{
+    grid-template-columns:15px minmax(0,1fr);
+    gap:4px;font-size:6.7pt;line-height:1.15;margin-bottom:2.5px
+  }
+  .print-rubric-num{font-size:7.1pt;padding:1px 0}
+  .print-back-notes{font-size:7pt;margin-top:5px}
+  .print-evaluation{margin-top:5px;padding-top:5px}
+  .print-philosophy{margin-top:6px;font-size:7.8pt}
 }
