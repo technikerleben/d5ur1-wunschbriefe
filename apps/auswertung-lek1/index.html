@@ -68,10 +68,11 @@ main{padding:20px 0 48px}
 .criterion-head{padding:12px 14px;background:#f8fafb;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
 .criterion-head h3{margin:0;color:var(--blue2);font-size:1rem}
 .criterion-head p{margin:3px 0 0;color:var(--muted);font-size:.86rem;line-height:1.35}
-.level-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;padding:11px 12px 8px}
+.level-buttons{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;padding:11px 12px 8px}
 .level-btn{min-width:0;border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 7px;text-align:center;font-size:.82rem;font-weight:850;color:#52616b;overflow-wrap:break-word;transition:background-color .12s,border-color .12s,box-shadow .12s}
 .rubric .level-btn.selected::before{content:"✓ ";font-weight:1000}
 .rubric .level-btn:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.level-btn[data-level="0"].selected{background:#f6e8e8;border-color:#b97070;color:#873c3c}
 .level-btn[data-level="1"].selected{background:#edf0f2;border-color:#a1afb8;color:#4a5d67}
 .level-btn[data-level="2"].selected{background:#fff1e6;border-color:#e2a171;color:#844918}
 .level-btn[data-level="3"].selected{background:#eaf5ff;border-color:#91c1e8;color:#195d91}
@@ -256,6 +257,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     <div class="print-title-band" aria-hidden="true"></div>
     <p class="print-back-intro">Das Raster zeigt, was wir bei jedem Teil deines Wunschbriefes betrachten. Die farbigen Stufen beschreiben, wie sicher du eine Kompetenz schon beherrschst.</p>
     <div class="print-legend">
+      <span class="print-level-badge print-level-0">0 · Nicht vorhanden</span>
       <span class="print-level-badge print-level-1">1 · In Ansätzen vorhanden</span>
       <span class="print-level-badge print-level-2">2 · Mindeststandard</span>
       <span class="print-level-badge print-level-3">3 · Regelstandard</span>
@@ -295,9 +297,10 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 <script>
 const LEGACY_STORAGE_KEY="d5ur1_lek1_auswertung_v1";
 const STORAGE_KEY="d5ur1_lek1_auswertung_v2";
-const DATA_VERSION=4;
+const DATA_VERSION=5;
+const FOUR_LEVEL_VERSION=4;
 
-const LEVEL_NAMES=[null,"in Ansätzen vorhanden","Mindeststandard","Regelstandard","Leistungsstandard"];
+const LEVEL_NAMES=["nicht vorhanden","in Ansätzen vorhanden","Mindeststandard","Regelstandard","Leistungsstandard"];
 
 const CRITERIA=[
   {
@@ -305,6 +308,7 @@ const CRITERIA=[
     short:"Schreibsituation und Wunsch",
     desc:"Adressat, Anlass und Wunsch passend erfassen.",
     levels:[
+      "Die Schreibsituation wird nicht erkennbar aufgegriffen; ein passender Wunsch ist nicht vorhanden.",
       "Erste Ansätze eines zur Schreibsituation passenden Wunsches sind erkennbar.",
       "Adressat und Wunsch sind erkennbar und passen grundsätzlich zur Schreibsituation.",
       "Adressat, Anlass und Wunsch sind klar, passend und verständlich formuliert.",
@@ -316,6 +320,7 @@ const CRITERIA=[
     short:"Briefaufbau",
     desc:"Ort und Datum, Anrede, Brieftext, Grußformel und Name sinnvoll setzen.",
     levels:[
+      "Ein Briefaufbau ist nicht erkennbar; wichtige Briefteile fehlen vollständig.",
       "Erste Briefteile sind erkennbar, aber wichtige Bestandteile fehlen noch oder sind ungeordnet.",
       "Die Briefform ist erkennbar; die wichtigsten Teile sind vorhanden, auch wenn einzelne Formmerkmale noch unsicher sind.",
       "Der Brief ist vollständig und sinnvoll gegliedert; Ort/Datum, Anrede, Text, Grußformel und Name stehen passend.",
@@ -327,6 +332,7 @@ const CRITERIA=[
     short:"freundliche Sprache",
     desc:"Höflich, respektvoll und passend zur Adressatin schreiben.",
     levels:[
+      "Es ist keine angemessen freundliche Formulierung erkennbar; der Text ist durchgehend unhöflich oder fordernd.",
       "Erste höfliche Formulierungen sind vorhanden, die Sprache ist jedoch noch nicht durchgehend passend.",
       "Der Brief ist insgesamt höflich und respektvoll, auch wenn einzelne Formulierungen noch schlicht oder unsicher sind.",
       "Der Brief ist durchgehend freundlich und passend zur Adressatin formuliert.",
@@ -338,6 +344,7 @@ const CRITERIA=[
     short:"Begründung",
     desc:"Mindestens einen passenden Grund nennen und verständlich erklären.",
     levels:[
+      "Eine Begründung für den Wunsch ist nicht vorhanden.",
       "Erste Ansätze einer Begründung sind vorhanden, der passende Grund bleibt aber noch unklar.",
       "Mindestens ein passender Grund ist erkennbar und erklärt grundsätzlich, warum der Wunsch sinnvoll ist.",
       "Der Grund ist nachvollziehbar ausgeführt und klar mit dem Wunsch verbunden.",
@@ -349,6 +356,7 @@ const CRITERIA=[
     short:"sprachliche Richtigkeit",
     desc:"Verständliche ganze Sätze schreiben; Rechtschreibung und Satzzeichen sichern.",
     levels:[
+      "Es sind keine verständlichen vollständigen Sätze mit passenden Satzzeichen erkennbar.",
       "Erste verständliche Satzteile sind erkennbar; vollständige Sätze und sprachliche Richtigkeit gelingen noch nicht sicher.",
       "Der Text ist insgesamt verständlich; Fehler kommen vor, verhindern das Verstehen aber nicht.",
       "Die Sätze sind überwiegend vollständig und sprachlich sicher; Fehler stören das Lesen kaum.",
@@ -360,6 +368,7 @@ const CRITERIA=[
     short:"Lesbarkeit und Gliederung",
     desc:"Gut lesbar schreiben und Briefteile übersichtlich gliedern.",
     levels:[
+      "Der Text ist nahezu nicht lesbar oder ohne erkennbare Gliederung durchgehend geschrieben.",
       "Erste Textteile sind lesbar, die Gliederung oder Entzifferbarkeit ist noch oft schwierig.",
       "Der Text ist überwiegend lesbar; die wichtigsten Briefteile sind optisch erkennbar.",
       "Der Brief ist gut lesbar und übersichtlich gegliedert; Abstände und Zeilenführung unterstützen das Lesen.",
@@ -374,6 +383,7 @@ const LRS_LANGUAGE_CRITERION={
   short:"Sprachliche Leistung",
   desc:"Vollständige Sätze schreiben und passende Satzschlusszeichen setzen.",
   levels:[
+    "Vollständige Sätze und Satzschlusszeichen sind nicht erkennbar.",
     "Erste Ansätze vollständiger Sätze sind vorhanden; Satzschlusszeichen fehlen noch häufig.",
     "Du schreibst überwiegend vollständige Sätze. Satzschlusszeichen sind teilweise passend gesetzt.",
     "Deine Sätze sind überwiegend vollständig und die Satzschlusszeichen meistens passend.",
@@ -381,6 +391,7 @@ const LRS_LANGUAGE_CRITERION={
   ]
 };
 const LRS_LANGUAGE_FEEDBACK=[
+  "Vollständige Sätze mit passenden Satzschlusszeichen sind noch nicht erkennbar.",
   "Vollständige Sätze und Satzschlusszeichen gelingen noch nicht sicher.",
   "Du schreibst überwiegend vollständige Sätze und setzt schon einige passende Satzschlusszeichen.",
   "Deine Sätze sind überwiegend vollständig und die Satzschlusszeichen meistens passend.",
@@ -391,7 +402,7 @@ function criterionForStudent(c,s){
   return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_CRITERION : c;
 }
 function feedbackForStudent(c,s,level){
-  return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_FEEDBACK[level-1] : FEEDBACK[c.id][level-1];
+  return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_FEEDBACK[level] : FEEDBACK[c.id][level];
 }
 function nextStepForStudent(c,s){
   return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_NEXT : NEXT_STEPS[c.id];
@@ -399,36 +410,42 @@ function nextStepForStudent(c,s){
 
 const FEEDBACK={
   situation:[
+    "Ein passender Wunsch ist noch nicht erkennbar.",
     "Dein Wunsch und die Schreibsituation sind noch nicht sicher getroffen.",
     "Du zeigst, an wen du schreibst und was du dir wünschst.",
     "Du triffst die Schreibsituation und formulierst deinen Wunsch klar.",
     "Du erfasst die Schreibsituation sehr sicher und formulierst deinen Wunsch besonders präzise."
   ],
   aufbau:[
+    "Die Briefbestandteile sind noch nicht erkennbar.",
     "Beim Briefaufbau brauchst du noch Unterstützung.",
     "Dein Text ist als Brief erkennbar und enthält die wichtigsten Teile.",
     "Du baust deinen Brief vollständig und sinnvoll auf.",
     "Du setzt deinen Brief sehr sicher und besonders übersichtlich."
   ],
   freundlichkeit:[
+    "Freundliche Formulierungen sind noch nicht erkennbar.",
     "Achte noch stärker auf freundliche und passende Formulierungen.",
     "Du schreibst insgesamt höflich und respektvoll.",
     "Du formulierst deinen Brief durchgehend freundlich und passend.",
     "Du formulierst besonders sicher, höflich und adressatengerecht."
   ],
   begruendung:[
+    "Ein Grund für deinen Wunsch ist noch nicht erkennbar.",
     "Ein verständlicher, passender Grund fehlt noch.",
     "Du nennst einen passenden Grund für deinen Wunsch.",
     "Du erklärst deinen Grund nachvollziehbar und passend.",
     "Du begründest deinen Wunsch besonders überzeugend und verbindest deine Gedanken sinnvoll."
   ],
   sprache:[
+    "Verständliche vollständige Sätze sind noch nicht erkennbar.",
     "Sprachliche Fehler erschweren das Verstehen noch deutlich.",
     "Man kann deinen Text verstehen, auch wenn noch einige Fehler vorkommen.",
     "Deine Sätze sind überwiegend vollständig und sprachlich sicher.",
     "Du schreibst sprachlich sehr sicher; Rechtschreibung und Zeichensetzung gelingen fast durchgehend."
   ],
   lesbarkeit:[
+    "Der Text ist noch nicht ausreichend lesbar oder gegliedert.",
     "Achte darauf, dass man deinen Brief leichter lesen und die Teile besser erkennen kann.",
     "Dein Brief ist überwiegend lesbar und grundsätzlich gegliedert.",
     "Du schreibst gut lesbar und gliederst deinen Brief übersichtlich.",
@@ -466,7 +483,7 @@ function normalizeCurrentStudents(currentStudents){
     ...s,
     lrsNta:Boolean(s.lrsNta),
     levels:Object.fromEntries(CRITERIA.map(c=>[
-      c.id,Math.max(1,Math.min(4,Number(s.levels?.[c.id]??1)))
+      c.id,Math.max(0,Math.min(4,Number(s.levels?.[c.id]??0)))
     ]))
   }));
 }
@@ -483,12 +500,12 @@ function load(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fa
 function persist(){localStorage.setItem(STORAGE_KEY,JSON.stringify(students))}
 function uid(){return "s_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,7)}
 function today(){return new Date().toISOString().slice(0,10)}
-function blankStudent(){return {id:uid(),name:"",className:"5.3",date:today(),lrsNta:false,levels:Object.fromEntries(CRITERIA.map(c=>[c.id,1])),notes:{},survey:0,surveyNote:"",teacherComment:"",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}}
+function blankStudent(){return {id:uid(),name:"",className:"5.3",date:today(),lrsNta:false,levels:Object.fromEntries(CRITERIA.map(c=>[c.id,0])),notes:{},survey:0,surveyNote:"",teacherComment:"",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}}
 function current(){return students.find(s=>s.id===currentId)||null}
 function escapeHtml(s=""){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
-function pct(levels,threshold){const vals=CRITERIA.map(c=>Number(levels[c.id]??1));return Math.round(vals.filter(v=>v>=threshold).length/CRITERIA.length*100)}
+function pct(levels,threshold){const vals=CRITERIA.map(c=>Number(levels[c.id]??0));return Math.round(vals.filter(v=>v>=threshold).length/CRITERIA.length*100)}
 function metrics(s){
-  const levels=CRITERIA.map(c=>Math.max(1,Math.min(4,Number(s.levels[c.id]??1))));
+  const levels=CRITERIA.map(c=>Math.max(0,Math.min(4,Number(s.levels[c.id]??0))));
   const min=pct(s.levels,2),reg=pct(s.levels,3),perf=pct(s.levels,4);
   const core=levels.reduce((sum,value)=>sum+value,0);
   const extra=Math.max(0,Math.min(2,Number(s.survey||0)));
@@ -524,11 +541,11 @@ function renderRubric(){
   const s=current(); if(!s)return;
   el("rubric").innerHTML=CRITERIA.map(base=>{
     const c=criterionForStudent(base,s);
-    const lv=Number(s.levels[base.id]??1);
+    const lv=Number(s.levels[base.id]??0);
     return '<div class="criterion" data-criterion="'+base.id+'">'+
       '<div class="criterion-head"><div><h3>'+escapeHtml(c.title)+'</h3><p>'+escapeHtml(c.desc)+'</p></div><span class="grade-pill">'+lv+'</span></div>'+
-      '<div class="level-buttons">'+[1,2,3,4].map(n=>'<button type="button" class="level-btn '+(lv===n?'selected':'')+'" aria-pressed="'+(lv===n)+'" data-level="'+n+'" data-cid="'+base.id+'">'+LEVEL_NAMES[n]+'</button>').join("")+'</div>'+
-      '<div class="descriptor">'+escapeHtml(c.levels[lv-1])+'</div>'+
+      '<div class="level-buttons">'+[0,1,2,3,4].map(n=>'<button type="button" class="level-btn '+(lv===n?'selected':'')+'" aria-pressed="'+(lv===n)+'" data-level="'+n+'" data-cid="'+base.id+'">'+LEVEL_NAMES[n]+'</button>').join("")+'</div>'+
+      '<div class="descriptor">'+escapeHtml(c.levels[lv])+'</div>'+
       '<div class="criterion-note"><input data-note="'+base.id+'" value="'+escapeHtml(s.notes?.[base.id]||"")+'" placeholder="Optional: konkrete Beobachtung oder Textstelle"></div>'+
     '</div>';
   }).join("");
@@ -541,7 +558,7 @@ function renderRubric(){
 }
 function feedbackText(s){
   const m=metrics(s);
-  const vals=CRITERIA.map(c=>({c,lv:Number(s.levels[c.id]??1)}));
+  const vals=CRITERIA.map(c=>({c,lv:Number(s.levels[c.id]??0)}));
   const best=[...vals].sort((a,b)=>b.lv-a.lv);
   const lowest=[...vals].sort((a,b)=>a.lv-b.lv);
   const strengths=best.filter(x=>x.lv>=3).slice(0,2);
@@ -559,7 +576,8 @@ function feedbackText(s){
     const any=best[0];
     parts.push("Das gelingt dir schon:");
     if(any.lv>=2)parts.push("• "+feedbackForStudent(any.c,s,any.lv));
-    else parts.push("• Du hast erste Ansätze für deinen Wunschbrief gezeigt.");
+    else if(any.lv===1)parts.push("• Du hast erste Ansätze für deinen Wunschbrief gezeigt.");
+    else parts.push("• Wir besprechen gemeinsam deinen ersten Schritt.");
   }
   parts.push("");
   parts.push("Dein nächster Schritt:");
@@ -609,7 +627,7 @@ function deleteCurrent(){const s=current();if(!s)return;if(!confirm('Eintrag fü
 function download(name,text,type){const blob=new Blob([text],{type});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function csv(){
  const headers=["Name","Klasse","Datum","Nachteilsausgleich_Rechtschreibung",...CRITERIA.map(c=>c.id==="sprache"?"Sprachliche Leistung":c.short),"Grundpunkte","Bonuspunkte","Punkte_fuer_Note","Note","Umfrage_Bonus","Lehrkraft_Rueckmeldung"];
- const rows=students.map(s=>{const m=metrics(s);return [s.name,s.className,s.date,s.lrsNta?"ja":"nein",...CRITERIA.map(c=>LEVEL_NAMES[Number(s.levels[c.id]??1)]),m.core,m.extra,m.total,m.grade,s.survey===2?"2 Bonuspunkte":s.survey===1?"1 Bonuspunkt":"0 Bonuspunkte",s.teacherComment||""]});
+ const rows=students.map(s=>{const m=metrics(s);return [s.name,s.className,s.date,s.lrsNta?"ja":"nein",...CRITERIA.map(c=>LEVEL_NAMES[Number(s.levels[c.id]??0)]),m.core,m.extra,m.total,m.grade,s.survey===2?"2 Bonuspunkte":s.survey===1?"1 Bonuspunkt":"0 Bonuspunkte",s.teacherComment||""]});
  const esc=v=>'"'+String(v??"").replace(/"/g,'""')+'"';
  return "\ufeff"+[headers,...rows].map(r=>r.map(esc).join(";")).join("\n");
 }
@@ -634,7 +652,7 @@ el("exportCsv").onclick=()=>download("LEK1_Wunschbrief_Auswertung.csv",csv(),"te
 el("exportJson").onclick=()=>download("LEK1_Wunschbrief_Sicherung.json",JSON.stringify({version:DATA_VERSION,exportedAt:new Date().toISOString(),gradePercentages:GRADE_PERCENTAGES,gradePointThresholds:GRADE_POINT_THRESHOLDS,students},null,2),"application/json");
 el("importJson").onchange=async e=>{
  const file=e.target.files[0];if(!file)return;
- try{const data=JSON.parse(await file.text());if(!Array.isArray(data.students))throw new Error();if(!confirm("Vorhandene Daten durch die Sicherung ersetzen?"))return;students=Number(data.version)>=DATA_VERSION?normalizeCurrentStudents(data.students):migrateLegacyStudents(data.students);persist();currentId=students[0]?.id||null;renderAll()}
+ try{const data=JSON.parse(await file.text());if(!Array.isArray(data.students))throw new Error();if(!confirm("Vorhandene Daten durch die Sicherung ersetzen?"))return;students=Number(data.version)>=FOUR_LEVEL_VERSION?normalizeCurrentStudents(data.students):migrateLegacyStudents(data.students);persist();currentId=students[0]?.id||null;renderAll()}
  catch(err){alert("Die Datei konnte nicht als gültige Sicherung gelesen werden.")}finally{e.target.value=""}
 };
 el("settingsBtn").onclick=()=>el("settingsDialog").showModal();
