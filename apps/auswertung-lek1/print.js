@@ -1,5 +1,6 @@
-/* Individuelle Lernrückmeldung: Seite 1 persönliche Entwicklung,
-   Seite 2 vollständiges Kompetenzraster und nachrangige Noteneinordnung. */
+/* Individuelle Lernrückmeldung:
+   Seite 1 = persönliche Kompetenzen, Stärken, Lernschritt und individuelle Note.
+   Seite 2 = vollständiges Kompetenzraster und transparenter Punkteschlüssel. */
 (function () {
   const p=id=>document.getElementById(id);
   const skills={
@@ -21,28 +22,30 @@
   const names=["Noch nicht erreicht","Mindeststandard","Regelstandard","Leistungsstandard"];
   const gradeNames={1:"sehr gut (1)",2:"gut (2)",3:"befriedigend (3)",4:"ausreichend (4)",5:"mangelhaft (5)",6:"ungenügend (6)"};
   const clamp=(v,max)=>Math.min(max,Math.max(0,Number(v)||0));
-  const countFor=pct=>Math.ceil(Math.max(0,Math.min(100,pct))*6/100);
+  const minPoints=pct=>Math.ceil(MAX_POINTS*pct/100);
 
   function printKey(){
-    const n1=countFor(settings.grade1Perf);
-    const r2=countFor(settings.grade2Reg),l2=countFor(settings.grade2Perf);
-    const r3=countFor(settings.grade3Reg);
-    const m4=countFor(settings.grade4Min),m5=countFor(settings.grade5Min);
+    const mins={
+      1:minPoints(GRADE_THRESHOLDS[1]),
+      2:minPoints(GRADE_THRESHOLDS[2]),
+      3:minPoints(GRADE_THRESHOLDS[3]),
+      4:minPoints(GRADE_THRESHOLDS[4]),
+      5:minPoints(GRADE_THRESHOLDS[5])
+    };
     const rows=[
-      {n:1,minimum:n1*3,condition:n1+" von 6 auf Leistungsstandard"},
-      {n:2,minimum:l2*3+2*Math.max(0,r2-l2),
-        condition:r2+" von 6 auf Regelstandard und "+l2+" von 6 auf Leistungsstandard"},
-      {n:3,minimum:r3*2,condition:r3+" von 6 auf Regelstandard"},
-      {n:4,minimum:m4,condition:m4+" von 6 auf Mindeststandard"},
-      {n:5,minimum:m5,condition:m5+" von 6 auf Mindeststandard"},
-      {n:6,minimum:0,condition:"Die Bedingung für Note 5 ist noch nicht erreicht"}
+      {n:1,pct:"ab 87 %",range:mins[1]+"–"+MAX_POINTS+" Punkte"},
+      {n:2,pct:"ab 73 %",range:mins[2]+"–"+(mins[1]-1)+" Punkte"},
+      {n:3,pct:"ab 59 %",range:mins[3]+"–"+(mins[2]-1)+" Punkte"},
+      {n:4,pct:"ab 45 %",range:mins[4]+"–"+(mins[3]-1)+" Punkte"},
+      {n:5,pct:"ab 18 %",range:mins[5]+"–"+(mins[4]-1)+" Punkte"},
+      {n:6,pct:"unter 18 %",range:"0–"+(mins[5]-1)+" Punkte"}
     ];
-    // Die 0–3 Punkte pro Kriterium zeigen Lernentwicklung. Die Bedingungen
-    // für Noten beziehen sich auf die Anzahl der erreichten Kompetenzstufen.
-    return rows.map(row=>'<div class="print-key-cell print-key-grade-'+row.n+'">'+
-      '<strong>'+gradeNames[row.n]+'</strong><span>'+
-      (row.n===6?"":'Mind. '+row.minimum+' Grundpunkte · ')+
-      escapeHtml(row.condition)+'</span></div>').join("");
+    return rows.map(row=>
+      '<div class="print-key-cell print-key-grade-'+row.n+'">'+
+        '<strong>'+gradeNames[row.n]+'</strong>'+
+        '<span>'+row.pct+' · '+row.range+'</span>'+
+      '</div>'
+    ).join("");
   }
 
   function renderRubric(){
@@ -52,8 +55,9 @@
         '<div class="print-rubric-desc">'+escapeHtml(criterion.desc)+'</div>'+
         criterion.levels.map((description,level)=>
           '<div class="print-rubric-row">'+
-          '<span class="print-rubric-num print-level-'+level+'">'+level+'</span>'+
-          '<span>'+escapeHtml(description)+'</span></div>'
+            '<span class="print-rubric-num print-level-'+level+'">'+level+'</span>'+
+            '<span>'+escapeHtml(description)+'</span>'+
+          '</div>'
         ).join("")+
       '</article>'
     ).join("");
@@ -62,12 +66,12 @@
   function renderPrint(){
     const child=current();
     if(!child)return;
+
     const assessment=metrics(child);
     const rows=CRITERIA.map((criterion,index)=>({
       criterion,index,level:clamp(child.levels[criterion.id],3)
     }));
     const extra=clamp(child.survey,2);
-    const basic=rows.reduce((sum,row)=>sum+row.level,0);
 
     p("printName").textContent=child.name||"______________________";
     p("printClass").textContent=child.className||"5.3";
@@ -106,9 +110,11 @@
     }
     p("printStrengths").replaceChildren();
     messages.forEach(message=>{
-      const node=document.createElement("p");node.textContent=message;
+      const node=document.createElement("p");
+      node.textContent=message;
       p("printStrengths").appendChild(node);
     });
+
     const weakest=[...rows].sort((a,b)=>a.level-b.level||a.index-b.index)[0];
     p("printTipText").textContent=NEXT_STEPS[weakest.criterion.id];
 
@@ -117,18 +123,20 @@
     p("printCustom").classList.toggle("hidden",!comment);
     p("printCustom").textContent=comment?"Persönliche Rückmeldung: "+comment:"";
 
+    p("printFrontPoints").textContent=String(assessment.total);
+    p("printFrontPercent").textContent=String(assessment.percent);
+    p("printFrontGrade").textContent=gradeNames[assessment.grade]||String(assessment.grade);
+
     renderRubric();
     p("printGradeKey").innerHTML=printKey();
-    p("printGrade").textContent=gradeNames[assessment.grade]||String(assessment.grade);
-    p("printPoints").textContent=String(basic+extra);
-    p("printCore").textContent=basic+" / 18";
-    p("printExtras").textContent=extra+" / 2";
   }
 
   const trigger=p("printFeedback");
   trigger.onclick=()=>{
     if(!current())return;
-    syncTop();renderPrint();window.print();
+    syncTop();
+    renderPrint();
+    window.print();
   };
   window.addEventListener("beforeprint",renderPrint);
 })();
