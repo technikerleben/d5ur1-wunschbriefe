@@ -106,6 +106,41 @@ dialog::backdrop{background:rgba(20,35,45,.4)}
 .setting label{font-weight:850;color:var(--blue2);display:block;margin-bottom:5px}
 .setting input{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px}
 dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 0 0}
+
+/* Klassenübersicht: zugängliches Säulendiagramm ohne zusätzliche Bibliothek */
+.grade-chart-dialog{max-width:min(780px,calc(100% - 24px))}
+.grade-chart-info{font-size:.92rem;color:var(--muted);line-height:1.5;margin:12px 0 6px}
+.grade-chart{
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;
+  padding:18px 12px 12px;border:1px solid var(--line);border-radius:14px;background:#fbfcfd
+}
+.grade-chart-col{display:flex;flex-direction:column;align-items:stretch;min-width:0;text-align:center}
+.grade-chart-count{font-size:1.05rem;font-weight:900;color:var(--blue2);line-height:1.5}
+.grade-chart-plot{
+  height:218px;display:flex;flex-direction:column;justify-content:flex-end;
+  border-bottom:2px solid #96a9b7;background:repeating-linear-gradient(
+    to top,transparent,transparent calc(25% - 1px),#e1e9ee 25%);
+}
+.grade-chart-bar{
+  flex:none;width:min(100%,65px);margin:0 auto;
+  background:#245688;border-radius:7px 7px 0 0;
+  min-height:0;transition:height .18s ease;
+}
+.grade-chart-col[data-grade="6"] .grade-chart-bar{background:#9aa9b3}
+.grade-chart-col[data-grade="5"] .grade-chart-bar{background:#e5ad88}
+.grade-chart-col[data-grade="4"] .grade-chart-bar{background:#eab16e}
+.grade-chart-col[data-grade="3"] .grade-chart-bar{background:#6696bd}
+.grade-chart-col[data-grade="2"] .grade-chart-bar{background:#3674ab}
+.grade-chart-col[data-grade="1"] .grade-chart-bar{background:#169c8f}
+.grade-chart-label{margin-top:9px;color:var(--blue2);font-size:.86rem;font-weight:850}
+.grade-chart-note{font-size:.8rem;color:var(--muted);margin:12px 2px 0;line-height:1.4}
+@media(max-width:520px){
+ .grade-chart{gap:5px;padding:12px 7px 8px}
+ .grade-chart-plot{height:165px}
+ .grade-chart-count{font-size:.88rem}
+ .grade-chart-label{font-size:.75rem}
+}
+
 .hidden{display:none!important}
 @media(max-width:1100px){.top-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:1000px){.grid{grid-template-columns:1fr}.sidebar{position:static}.student-list{max-height:280px}.summary{grid-template-columns:repeat(3,1fr)}}
@@ -137,6 +172,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 <div class="toolbar no-print">
   <button class="btn" id="newStudent">+ Neues Kind</button>
   <button class="btn secondary" id="settingsBtn">Notenschlüssel</button>
+  <button class="btn secondary" id="showGradeChart" type="button">Notenverteilung</button>
   <button class="btn secondary" id="exportCsv">CSV exportieren</button>
   <button class="btn secondary" id="exportJson">Sicherung exportieren</button>
   <label class="btn secondary" for="importJson" style="cursor:pointer">Sicherung importieren</label>
@@ -233,7 +269,7 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
 
     <h2 class="print-section strengths-heading" id="printStrengthsHeading">Das kannst du schon</h2>
     <div class="print-strengths" id="printStrengths"></div>
-    <div class="print-tip"><strong>Dein nächster Übungstipp</strong><span id="printTipText"></span></div>
+    <div class="print-tip" id="printTip"><strong>Dein nächster Übungstipp</strong><span id="printTipText"></span></div>
     <div class="print-warning hidden" id="printWarning">Die Punkteschwelle für eine ausreichende Leistung ist noch nicht erreicht. Herr Wegemann wird mit dir planen, welche Schritte dir beim Weiterlernen helfen.</div>
     <div class="print-custom hidden" id="printCustom"></div>
 
@@ -292,6 +328,16 @@ dialog menu{display:flex;justify-content:flex-end;gap:8px;padding:0;margin:14px 
     <div class="setting"><label>ungenügend (6)</label><strong>unter 18 % · 0–4 Punkte</strong></div>
   </div>
   <p class="notice">Fünf von sechs Mindeststandards sind eine Orientierung für die Kompetenzentwicklung. Die erreichten Punkte bestimmen die rechnerische Note; die Lehrkraft begründet ihre Entscheidung pädagogisch.</p>
+</dialog>
+
+<dialog id="gradeChartDialog" class="grade-chart-dialog" aria-labelledby="gradeChartTitle">
+  <div class="dialog-head">
+    <h2 id="gradeChartTitle">Notenverteilung</h2>
+    <button class="btn secondary small" id="closeGradeChart" type="button">Schließen</button>
+  </div>
+  <p id="gradeChartInfo" class="grade-chart-info"></p>
+  <div id="gradeChartBars" class="grade-chart" role="list" aria-label="Häufigkeit der Noten, von Note 6 links bis Note 1 rechts"></div>
+  <p class="grade-chart-note">Gezählt werden alle angelegten Einträge mit ihrer aktuell berechneten Note – auch wenn eine Bewertung noch nicht abgeschlossen ist. Die Übersicht zeigt keine Namen.</p>
 </dialog>
 
 <script>
@@ -397,7 +443,7 @@ const LRS_LANGUAGE_FEEDBACK=[
   "Deine Sätze sind überwiegend vollständig und die Satzschlusszeichen meistens passend.",
   "Du schreibst sicher in vollständigen Sätzen und setzt Satzschlusszeichen passend."
 ];
-const LRS_LANGUAGE_NEXT="Lies deinen Brief Satz für Satz. Prüfe: Ist jeder Satz vollständig? Steht am Ende ein Punkt, Fragezeichen oder Ausrufezeichen?";
+const LRS_LANGUAGE_NEXT="Prüfe jeden Satz in deinem Text: Ist er vollständig? Steht am Ende ein passendes Satzschlusszeichen (Punkt, Fragezeichen oder Ausrufezeichen)?";
 function criterionForStudent(c,s){
   return s?.lrsNta && c.id==="sprache" ? LRS_LANGUAGE_CRITERION : c;
 }
@@ -454,12 +500,12 @@ const FEEDBACK={
 };
 
 const NEXT_STEPS={
-  situation:"Prüfe vor dem Schreiben: Wer bekommt den Brief? Was genau ist dein Wunsch?",
-  aufbau:"Nutze die Reihenfolge: Ort und Datum – freie Zeile – Anrede – freie Zeile – Text – freie Zeile – Grußformel und Name.",
-  freundlichkeit:"Formuliere deinen Wunsch als freundliche Bitte und vermeide drängende Wörter.",
-  begruendung:"Erkläre mit einem Satz, warum dein Wunsch sinnvoll ist oder was dadurch besser wird.",
-  sprache:"Lies deinen Brief am Ende Satz für Satz. Prüfe Großschreibung, Anrede-Komma und Satzzeichen.",
-  lesbarkeit:"Lass zwischen den Briefteilen freie Zeilen und achte auf gut erkennbare Wörter und Abstände."
+  situation:"Lies die Schreibaufgabe genau: Für wen schreibst du? Was soll dein Text erreichen? Passt dein Inhalt zur Schreibsituation?",
+  aufbau:"Prüfe die Merkmale der Textsorte: Welche Bestandteile gehören in deinen Text und wie werden sie angeordnet?",
+  freundlichkeit:"Prüfe deine Wortwahl: Ist sie zur Schreibsituation und zu deinen Leserinnen und Lesern passend? Formuliere klar und respektvoll.",
+  begruendung:"Stütze wichtige Aussagen durch passende Gründe oder Beispiele. Erkläre, wie deine Gedanken zusammenhängen.",
+  sprache:"Lies deinen Text Satz für Satz: Sind die Sätze vollständig? Stimmen Groß- und Kleinschreibung und die Satzzeichen?",
+  lesbarkeit:"Gliedere deinen Text übersichtlich mit passenden Absätzen und Zeilenumbrüchen. Achte auf gut lesbare Schrift und Abstände."
 };
 
 const GRADE_PERCENTAGES={1:87,2:73,3:59,4:45,5:18};
@@ -526,6 +572,27 @@ function gradeFor(total){
   if(points>=GRADE_POINT_THRESHOLDS[5])return 5;
   return 6;
 }
+function gradeCounts(){
+  const counts={6:0,5:0,4:0,3:0,2:0,1:0};
+  students.forEach(s=>counts[metrics(s).grade]++);
+  return counts;
+}
+function renderGradeChart(){
+  const counts=gradeCounts();
+  const peak=Math.max(1,...Object.values(counts));
+  const n=students.length;
+  el("gradeChartInfo").textContent=n===0
+    ? "Noch keine Einträge vorhanden. Lege Kinder an und vergib Kompetenzpunkte, um die Verteilung zu sehen."
+    : n+" "+(n===1?"Eintrag":"Einträge")+" · Häufigkeit der aktuell berechneten Noten";
+  el("gradeChartBars").innerHTML=[6,5,4,3,2,1].map(grade=>{
+    const count=counts[grade],height=count===0?0:Math.round(count/peak*100);
+    return '<div class="grade-chart-col" data-grade="'+grade+
+      '" role="listitem" aria-label="Note '+grade+': '+count+' '+(count===1?'Kind':'Kinder')+'">'+
+      '<div class="grade-chart-count">'+count+'</div>'+
+      '<div class="grade-chart-plot"><div class="grade-chart-bar" style="height:'+height+
+      '%"></div></div><div class="grade-chart-label">Note '+grade+'</div></div>';
+  }).join("");
+}
 function renderList(){
   const q=el("search").value.trim().toLowerCase();
   const list=students.filter(s=>(s.name||"").toLowerCase().includes(q)).sort((a,b)=>(a.name||"").localeCompare(b.name||"","de"));
@@ -579,9 +646,11 @@ function feedbackText(s){
     else if(any.lv===1)parts.push("• Du hast erste Ansätze für deinen Wunschbrief gezeigt.");
     else parts.push("• Wir besprechen gemeinsam deinen ersten Schritt.");
   }
-  parts.push("");
-  parts.push("Dein nächster Schritt:");
-  parts.push("• "+nextStepForStudent(next.c,s));
+  if(m.grade>2){
+    parts.push("");
+    parts.push("Dein nächster Übungstipp:");
+    parts.push("• "+nextStepForStudent(next.c,s));
+  }
   if(Number(s.survey)===2){parts.push("");parts.push("Zusätzlich stark: Du hast ein passendes Umfrageergebnis richtig genutzt und erklärt.");}
   else if(Number(s.survey)===1){parts.push("");parts.push("Zusatz: Du hast die Umfrage genutzt. Prüfe noch einmal, ob Zahl und Aussage genau zusammenpassen.");}
   parts.push("");
@@ -657,6 +726,8 @@ el("importJson").onchange=async e=>{
 };
 el("settingsBtn").onclick=()=>el("settingsDialog").showModal();
 el("closeSettings").onclick=()=>el("settingsDialog").close();
+el("showGradeChart").onclick=()=>{renderGradeChart();el("gradeChartDialog").showModal()};
+el("closeGradeChart").onclick=()=>el("gradeChartDialog").close();
 window.addEventListener("beforeunload",()=>{if(current())syncTop()});
 if(students.length)currentId=students[0].id;
 renderAll();
