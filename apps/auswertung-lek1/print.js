@@ -130,7 +130,8 @@
     q("printFrontBonus").textContent=assessment.extra>0
       ? "("+assessment.core+" / 24 Grundpunkte + "+assessment.extra+" Bonus"+(assessment.extra===1?"punkt":"punkte")+")"
       : "("+assessment.core+" / 24 Grundpunkte)";
-    q("printFrontGrade").textContent=gradeNames[assessment.grade]||String(assessment.grade);
+    q("printFrontGrade").textContent=(gradeNames[assessment.grade]||String(assessment.grade))
+      .replace("("+assessment.grade+")","("+assessment.gradeDisplay+")");
 
     renderRubric(child,root);
     q("printGradeKey").innerHTML=printKey();
