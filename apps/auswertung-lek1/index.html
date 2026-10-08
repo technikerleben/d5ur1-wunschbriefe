@@ -443,12 +443,36 @@ const NEXT_STEPS={
 };
 
 const GRADE_PERCENTAGES={1:87,2:73,3:59,4:45,5:18};
-const GRADE_POINT_THRESHOLDS={1:16,2:14,3:11,4:9,5:4};
-const MAX_BASE_POINTS=18;
+const MAX_BASE_POINTS=24;
 const MAX_BONUS_POINTS=2;
-const MAX_REACHABLE_POINTS=20;
-
-let students=load(STORAGE_KEY,[]);
+const MAX_REACHABLE_POINTS=26;
+const GRADE_POINT_THRESHOLDS=Object.fromEntries(
+  Object.entries(GRADE_PERCENTAGES).map(([grade,pct])=>[grade,Math.ceil(MAX_BASE_POINTS*pct/100)])
+);
+function migrateLegacyStudents(oldStudents){
+  return oldStudents.map(s=>({
+    ...s,
+    lrsNta:Boolean(s.lrsNta),
+    levels:Object.fromEntries(CRITERIA.map(c=>[
+      c.id,Math.max(1,Math.min(4,Number(s.levels?.[c.id]??0)+1))
+    ]))
+  }));
+}
+function normalizeCurrentStudents(currentStudents){
+  return currentStudents.map(s=>({
+    ...s,
+    lrsNta:Boolean(s.lrsNta),
+    levels:Object.fromEntries(CRITERIA.map(c=>[
+      c.id,Math.max(1,Math.min(4,Number(s.levels?.[c.id]??1)))
+    ]))
+  }));
+}
+let students=load(STORAGE_KEY,null);
+if(!Array.isArray(students)){
+  const old=load(LEGACY_STORAGE_KEY,[]);
+  students=migrateLegacyStudents(Array.isArray(old)?old:[]);
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(students));
+}
 let currentId=null;
 
 const el=id=>document.getElementById(id);
@@ -456,20 +480,21 @@ function load(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fa
 function persist(){localStorage.setItem(STORAGE_KEY,JSON.stringify(students))}
 function uid(){return "s_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,7)}
 function today(){return new Date().toISOString().slice(0,10)}
-function blankStudent(){return {id:uid(),name:"",className:"5.3",date:today(),lrsNta:false,levels:Object.fromEntries(CRITERIA.map(c=>[c.id,0])),notes:{},survey:0,surveyNote:"",teacherComment:"",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}}
+function blankStudent(){return {id:uid(),name:"",className:"5.3",date:today(),lrsNta:false,levels:Object.fromEntries(CRITERIA.map(c=>[c.id,1])),notes:{},survey:0,surveyNote:"",teacherComment:"",createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()}}
 function current(){return students.find(s=>s.id===currentId)||null}
 function escapeHtml(s=""){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
-function pct(levels,threshold){const vals=CRITERIA.map(c=>Number(levels[c.id]||0));return Math.round(vals.filter(v=>v>=threshold).length/CRITERIA.length*100)}
+function pct(levels,threshold){const vals=CRITERIA.map(c=>Number(levels[c.id]??1));return Math.round(vals.filter(v=>v>=threshold).length/CRITERIA.length*100)}
 function metrics(s){
-  const levels=CRITERIA.map(c=>Math.max(0,Math.min(3,Number(s.levels[c.id]||0))));
-  const min=pct(s.levels,1),reg=pct(s.levels,2),perf=pct(s.levels,3);
+  const levels=CRITERIA.map(c=>Math.max(1,Math.min(4,Number(s.levels[c.id]??1))));
+  const min=pct(s.levels,2),reg=pct(s.levels,3),perf=pct(s.levels,4);
   const core=levels.reduce((sum,value)=>sum+value,0);
   const extra=Math.max(0,Math.min(2,Number(s.survey||0)));
   const total=core+extra;
   let overall="noch nicht erreicht";
-  if(core>=15)overall="Leistungsstandard";
-  else if(core>=12)overall="Regelstandard";
-  else if(core>=9)overall="Mindeststandard";
+  if(perf>=80)overall="Leistungsstandard";
+  else if(reg>=80)overall="Regelstandard";
+  else if(min>=80)overall="Mindeststandard";
+  else overall="in Ansätzen vorhanden";
   return {min,reg,perf,core,extra,total,overall,grade:gradeFor(total)};
 }
 function gradeFor(total){
